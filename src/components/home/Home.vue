@@ -99,13 +99,15 @@ Because SaaSGlue works with anything you can augment your current solutions with
         </div>
     </section>
     <section class="section is-medium has-background-info-light">
-        <div class="columns">
-            <div class="column content has-text-left">
-                <h2 class="subtitle is-2 has-text-weight-semibold has-text-right">The <span class="deepskyblue">innovation</span> twist</h2>
-                <p>Other platforms adapt external tools to themselves by wrapping them in layers of abstraction. Each new tool requires another layer in order to be accessible to the platform. For example many automation platforms have domain specific languages used to encode desired state instructions. These abstractions tend to leak over time and require imperative solutions to fill the gaps.</p>
-                <p>SaaSGlue works with everything else by decoupling job management from code execution. Job designs, including code files, are stored centrally. At runtime code is delivered to the computing environment through agents, which you install on your machines.</p>
-                <p>This design gives you the freedom to access all of your compute endpoints directly without abstraction layers and with the power of centrally managed jobs.
-                Here is our rule of thumb: If you can do something from the local command prompt you can do it the same way in SaaSGlue.</p>
+        <div class="container">
+            <div class="columns">
+                <div class="column content has-text-left">
+                    <h2 class="subtitle is-2 has-text-weight-semibold has-text-right">The <span class="deepskyblue">innovation</span> twist</h2>
+                    <p>Other platforms adapt external tools to themselves by wrapping them in layers of abstraction. Each new tool requires another layer in order to be accessible to the platform. For example many automation platforms have domain specific languages used to encode desired state instructions. These abstractions tend to leak over time and require imperative solutions to fill the gaps.</p>
+                    <p>SaaSGlue works with everything else by decoupling job management from code execution. Job designs, including code files, are stored centrally. At runtime code is delivered to the computing environment through agents, which you install on your machines.</p>
+                    <p>This design gives you the freedom to access all of your compute endpoints directly without abstraction layers and with the power of centrally managed jobs.
+                    Here is our rule of thumb: If you can do something from the local command prompt you can do it the same way in SaaSGlue.</p>
+                </div>
             </div>
         </div>
     </section>
