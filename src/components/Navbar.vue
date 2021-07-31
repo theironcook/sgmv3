@@ -1,17 +1,17 @@
 <template>
-    <nav :class="{'has-shadow': hasScrollOffset}" class="navbar is-white" role="navigation" aria-label="main navigation">
+    <nav :class="{'has-shadow': hasScrollOffset}" class="navbar is-transparent" role="navigation" aria-label="main navigation">
         <div class="container py-5">
             <div class="navbar-brand">
                 <a class="navbar-item" href="/">
-                    <img src="/logo.png" width="180" height="30">
+                    <img src="/logo.png" alt="SaaSGlue logo" width="180" height="30">
                 </a>
             </div>
             <div class="navbar-menu">
                 <div class="navbar-start">
-                    <a class="navbar-item">Getting started</a>
-                    <a class="navbar-item">Docs</a>
-                    <a class="navbar-item">Pricing</a>
-                    <a class="navbar-item">Blog</a>
+                    <a href="#" class="navbar-item">Getting started</a>
+                    <a href="#" class="navbar-item">Docs</a>
+                    <a href="#" class="navbar-item">Pricing</a>
+                    <a href="#" class="navbar-item">Blog</a>
                 </div>
                 <div class="navbar-end">
                     <div class="navbar-item">
