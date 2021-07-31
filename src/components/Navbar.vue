@@ -16,7 +16,7 @@
                 <div class="navbar-end">
                     <div class="navbar-item">
                         <div class="buttons">
-                            <a class="button is-light">Log in</a>
+                            <a class="button is-ghost">Log in</a>
                             <a class="button is-primary">
                                 <strong>Sign up</strong>
                             </a>
@@ -58,5 +58,9 @@
 
     .navbar-item {
         text-transform: uppercase;
+    }
+
+    .navbar.has-shadow {
+        box-shadow: 0 0 10px RGB(0 0 0 / 30%);
     }
 </style>
