@@ -39,17 +39,23 @@
             document.addEventListener('scroll', this.onScroll);
         }
 
-        private onScroll (e: Event): void {
-            this.hasScrollOffset = (<any>e.target).scrollTop > 60;
+        private onScroll (): void {
+            this.hasScrollOffset = document.documentElement.scrollTop > 60;
         }
 
-        public destroyed () {
+        public destroyed (): void {
             document.removeEventListener('scroll', this.onScroll);
         }
     }
 </script>
 
 <style scoped lang="scss">
+    .navbar {
+        position: sticky;
+        top: 0;
+        transition: box-shadow .3s linear;
+    }
+
     .navbar-item {
         text-transform: uppercase;
     }

@@ -9,17 +9,21 @@ module.exports = {
         '@vue/typescript/recommended'
     ],
     parserOptions: {
-        ecmaVersion: 2020
+        ecmaVersion: 2020,
+        ecmaFeatures : {
+            jsx : false
+        }
     },
     rules: {
         'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
         'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-        'indent': ['warn', 4],
-        'semi': ['warn', 'always'],
-        'vue/script-indent': ['warn', 4, {'baseIndent': 1 }]
+        indent: ['warn', 4],
+        semi: ['warn', 'always'],
+        'vue/script-indent': ['warn', 4, { baseIndent: 1 }],
+        '@typescript-eslint/no-inferrable-types': 'off',
     },
     overrides: [{
         files: ['*.vue'],
-        rules: {indent: 'off'}
+        rules: { indent: 'off' }
     }]
-}
+};
