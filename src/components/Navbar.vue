@@ -1,6 +1,6 @@
 <template>
     <nav :class="{'has-shadow': hasScrollOffset}" class="navbar is-transparent" role="navigation" aria-label="main navigation">
-        <div class="container py-5">
+        <div class="container py-2">
             <div class="navbar-brand">
                 <a class="navbar-item" href="/">
                     <img src="/logo.png" alt="SaaSGlue logo" width="180" height="30">

@@ -1,5 +1,5 @@
 <template>
-    <section class="section">
+    <section class="section is-medium">
         <div class="container">
             <div class="columns">
                 <div class="column has-text-left">
@@ -9,7 +9,7 @@
                     </h1>
                     <h2 class="subtitle is-5 has-text-weight-medium has-text-grey">SaaSGlue is a SaaS-based integration, orchestration and automation platform that lets you fill the gaps in your existing automation infrastructure.</h2>
                     <div class="buttons">
-                        <button class="button is-info">Get Started</button>
+                        <a href="" class="button is-info">Get Started</a>
                     </div>
                 </div>
                 <div class="column has-text-right">
@@ -18,7 +18,7 @@
             </div>
         </div>
     </section>
-    <section class="section has-background-info-light">
+    <section class="section is-medium has-background-info-light">
         <div class="container">
             <div class="columns">
                 <div class="column pb-6">
@@ -60,6 +60,40 @@
                     <p>Start jobs from a schedule, with the API or from the web console</p>
                     <p>Pass variables between tasks in multi-language jobs</p>
                     <p>Import and centralize your cron jobs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section is-medium">
+        <div class="container">
+            <div class="columns has-text-left mb-6">
+                <div class="column">
+                    <h3 class="subtitle has-text-weight-semibold">Works virtually anywhere</h3>
+                    <p>When the SaaSGlue agent is installed, it immediately calls home to the cloud and establishes a regular secure heartbeat through HTTPS. The agent receives instructions from a message queue and sends results to the API.
+This simple design lets the agent work on almost any network. And since agents talk only to the cloud, your job can hop from one network to another without regard to network boundaries.</p>
+                </div>
+                <div class="column">
+                    <h3 class="subtitle has-text-weight-semibold">Provides all the infrastructure</h3>
+                    <p>SaaSGlue provides all the job infrastructure to Initiate, Manage, Monitor, Alert. Our lightweight agent is self-updating, placing very little management burden on you.
+                        SaaSGlue takes care of the automation infrastructure and lets you focus on your code.
+                    </p>
+                </div>
+                <!-- <div class="column">
+                    <h3 class="subtitle">Works with any language</h3>
+                    <p>Our design conforms to the “dumb pipes, smart endpoints” principle. The agent doesn’t execute code, so you can use any programming language as long as a corresponding interpreter exists on the agent host machine.
+Agents assist with execution by passing in variables, arguments and artifacts to the runtime environment.
+SaaSGlue’s runtime variables functionality allows you to communicate state between tasks in your job. This is true even in polyglot jobs where the preceding and succeeding tasks are written in different languages.</p>
+                </div> -->
+            </div>
+            <div class="columns has-text-left">
+                <div class="column">
+                    <h3 class="subtitle has-text-weight-semibold">Integrates with other solutions</h3>
+                    <p>Using secure credentials you can invoke jobs through the SaaSGlue API from any platform. SaaSGlue jobs can be designed to call back to any of your automation platforms, maintaining a cross-platform process thread.
+Because SaaSGlue works with anything you can augment your current solutions without having to rip and replace anything.</p>
+                </div>
+                <div class="column">
+                    <h3 class="subtitle has-text-weight-semibold">Scalable platform</h3>
+                    <p>SaaSGlue scales horizontally to handle enterprise workloads.</p>
                 </div>
             </div>
         </div>
