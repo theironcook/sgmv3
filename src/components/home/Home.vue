@@ -12,7 +12,7 @@
                         <button class="button is-info">Get Started</button>
                     </div>
                 </div>
-                <div class="column">
+                <div class="column has-text-right">
                     <iframe class="intro-video" width="560" height="315" src="https://www.youtube.com/embed/b_7u17gZcX8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
