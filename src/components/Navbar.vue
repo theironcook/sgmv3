@@ -56,6 +56,11 @@
         transition: box-shadow .3s linear;
     }
 
+    .navbar-start {
+        flex-grow: 1;
+        justify-content: center;
+    }
+
     .navbar-item {
         text-transform: uppercase;
     }
