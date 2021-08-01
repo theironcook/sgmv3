@@ -13,7 +13,9 @@
                     </div>
                 </div>
                 <div class="column has-text-right">
-                    <iframe class="intro-video" width="560" height="315" src="https://www.youtube.com/embed/b_7u17gZcX8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <figure class="image is-16by9">
+                        <iframe class="has-ratio intro-video" width="560" height="315" src="https://www.youtube.com/embed/b_7u17gZcX8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </figure>
                 </div>
             </div>
         </div>
@@ -111,6 +113,26 @@ Because SaaSGlue works with anything you can augment your current solutions with
             </div>
         </div>
     </section>
+    <section class="section is-medium">
+        <div class="container">
+            <div class="columns">
+                <div class="column content has-text-left">
+                    <h2 class="subtitle has-text-weight-semibold has-text-left">Integrates with other solutions</h2>
+                    <p>Using secure credentials you can invoke jobs through the SaaSGlue API from any platform. SaaSGlue jobs can be designed to call back to any of your automation platforms, maintaining a cross-platform process thread.</p>
+                    <p>Because SaaSGlue works with anything you can augment your current solutions without having to rip and replace anything.</p>
+                    <div class="tools-logo-container my-6">
+                        <img class="tool-logo" src="/gitlab-logo.svg" alt="Gitlab" />
+                        <img class="tool-logo" src="/aws-logo.svg" alt="Amazon Web Services" />
+                        <img class="tool-logo" src="/jenkins-logo.svg" alt="Jenkins" />
+                        <img class="tool-logo" src="/azure-logo.svg" alt="Microsoft Azure" />
+                        <img class="tool-logo" src="/ansible-logo.svg" alt="Ansible" />
+                        <img class="tool-logo" src="/google-cloud-logo.svg" alt="Google Cloud" />
+                        <img class="tool-logo" src="/apache-airflow-logo.svg" alt="Apache Airflow" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </template>
 
 <script lang="ts">
@@ -141,5 +163,13 @@ Because SaaSGlue works with anything you can augment your current solutions with
 
     .intro-video {
         border-radius: 5px;
+    }
+
+    .tools-logo-container {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 1rem 5rem;
+        justify-items: center;
+        align-items: center;
     }
 </style>
