@@ -121,13 +121,39 @@ Because SaaSGlue works with anything you can augment your current solutions with
                     <p>Using secure credentials you can invoke jobs through the SaaSGlue API from any platform. SaaSGlue jobs can be designed to call back to any of your automation platforms, maintaining a cross-platform process thread.</p>
                     <p>Because SaaSGlue works with anything you can augment your current solutions without having to rip and replace anything.</p>
                     <div class="tools-logo-container my-6">
-                        <img class="tool-logo" src="/gitlab-logo.svg" alt="Gitlab" />
-                        <img class="tool-logo" src="/aws-logo.svg" alt="Amazon Web Services" />
-                        <img class="tool-logo" src="/jenkins-logo.svg" alt="Jenkins" />
-                        <img class="tool-logo" src="/azure-logo.svg" alt="Microsoft Azure" />
-                        <img class="tool-logo" src="/ansible-logo.svg" alt="Ansible" />
-                        <img class="tool-logo" src="/google-cloud-logo.svg" alt="Google Cloud" />
-                        <img class="tool-logo" src="/apache-airflow-logo.svg" alt="Apache Airflow" />
+                        <a href="https://about.gitlab.com/">
+                            <img class="tool-logo" src="/gitlab-logo.svg" alt="Gitlab" />
+                        </a>
+                        <a href="https://aws.amazon.com/">
+                            <img class="tool-logo is-width-50" src="/aws-logo.svg" alt="Amazon Web Services" />
+                        </a>
+                        <a href="https://www.jenkins.io/">
+                            <img class="tool-logo" src="/jenkins-logo.svg" alt="Jenkins" />
+                        </a>
+                        <a href="https://azure.microsoft.com/">
+                            <img class="tool-logo" src="/azure-logo.svg" alt="Microsoft Azure" />
+                        </a>
+                        <a href="https://www.ansible.com/">
+                            <img class="tool-logo" src="/ansible-logo.svg" alt="Ansible" />
+                        </a>
+                        <a href="https://cloud.google.com/">
+                            <img class="tool-logo" src="/google-cloud-logo.svg" alt="Google Cloud" />
+                        </a>
+                        <a href="https://airflow.apache.org/">
+                            <img class="tool-logo" src="/apache-airflow-logo.svg" alt="Apache Airflow" />
+                        </a>
+                        <a href="https://www.chef.io/">
+                            <img class="tool-logo is-width-50" src="/chef-logo.svg" alt="Chef" />
+                        </a>
+                        <a href="https://puppet.com/">
+                            <img class="tool-logo" src="/puppet-logo.svg" alt="Puppet" />
+                        </a>
+                        <a href="https://www.terraform.io/">
+                            <img class="tool-logo is-width-50" src="/terraform-logo.svg" alt="Terraform" />
+                        </a>
+                        <a href="https://www.prefect.io/">
+                            <img class="tool-logo is-width-50" src="/prefect-logo.svg" alt="Prefect" />
+                        </a>
                     </div>
                 </div>
             </div>
@@ -171,5 +197,20 @@ Because SaaSGlue works with anything you can augment your current solutions with
         grid-gap: 1rem 5rem;
         justify-items: center;
         align-items: center;
+    }
+
+    .tool-logo {
+        width: 100%;
+        height: 100%;
+        transition: filter .3s linear;
+        filter: grayscale(1) opacity(.5);
+
+        &:hover {
+            filter: grayscale(0) opacity(1);
+        }
+    }
+
+    .is-width-50 {
+        width: 50%;
     }
 </style>
