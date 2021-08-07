@@ -17,7 +17,7 @@
                     <div class="navbar-item">
                         <div class="buttons">
                             <a class="button is-ghost">Log in</a>
-                            <a class="button is-primary">
+                            <a class="button is-success has-action-shadow">
                                 <strong>Sign up</strong>
                             </a>
                         </div>
@@ -67,5 +67,9 @@
 
     .navbar.has-shadow {
         box-shadow: 0 0 10px RGB(0 0 0 / 30%);
+    }
+
+    .has-action-shadow {
+        box-shadow: 0 18px 20px -15px RGB(0 0 0 / 40%);
     }
 </style>
