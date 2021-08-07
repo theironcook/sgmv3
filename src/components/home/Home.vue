@@ -48,21 +48,21 @@
                     </figure>
                 </div>
             </div>
-            <div class="columns">
+            <div class="columns is-size-5 has-text-left">
                 <div class="column">
-                    <h2 class="title has-text-weight-normal">Integration</h2>
+                    <h2 class="title has-text-centered has-text-weight-normal">Integration</h2>
                     <p>Run code on any device in any network permitting outgoing HTTPS</p>
                     <p>Run scripts and compiled code in any language</p>
                     <p>Run Function-as-a-Service code in the cloud</p>
                 </div>
                 <div class="column">
-                    <h2 class="title has-text-weight-normal">Orchestration</h2>
+                    <h2 class="title has-text-centered has-text-weight-normal">Orchestration</h2>
                     <p>Create multi-step jobs with conditional path routing</p>
                     <p>Run jobs in multi-cloud and hybrid-cloud environments</p>
                     <p>Centrally monitor distributed jobs</p>
                 </div>
                 <div class="column">
-                    <h2 class="title has-text-weight-normal">Automation</h2>
+                    <h2 class="title has-text-centered has-text-weight-normal">Automation</h2>
                     <p>Start jobs from a schedule, with the API or from the web console</p>
                     <p>Pass variables between tasks in multi-language jobs</p>
                     <p>Import and centralize your cron jobs</p>
@@ -71,7 +71,7 @@
         </div>
     </section>
     <section class="section is-medium">
-        <div class="container">
+        <div class="container is-size-5">
             <div class="columns has-text-left mb-6">
                 <div class="column">
                     <h3 class="subtitle has-text-weight-semibold">Works virtually anywhere</h3>
@@ -84,12 +84,6 @@ This simple design lets the agent work on almost any network. And since agents t
                         SaaSGlue takes care of the automation infrastructure and lets you focus on your code.
                     </p>
                 </div>
-                <!-- <div class="column">
-                    <h3 class="subtitle">Works with any language</h3>
-                    <p>Our design conforms to the “dumb pipes, smart endpoints” principle. The agent doesn’t execute code, so you can use any programming language as long as a corresponding interpreter exists on the agent host machine.
-Agents assist with execution by passing in variables, arguments and artifacts to the runtime environment.
-SaaSGlue’s runtime variables functionality allows you to communicate state between tasks in your job. This is true even in polyglot jobs where the preceding and succeeding tasks are written in different languages.</p>
-                </div> -->
             </div>
             <div class="columns has-text-left">
                 <div class="column">
@@ -107,7 +101,7 @@ Because SaaSGlue works with anything you can augment your current solutions with
     <section class="section is-medium has-background-info-light">
         <div class="container">
             <div class="columns">
-                <div class="column content has-text-left">
+                <div class="column content has-text-left is-size-5">
                     <h2 class="subtitle is-2 has-text-weight-semibold has-text-right">The <span class="deepskyblue">innovation</span> twist</h2>
                     <p>Other platforms adapt external tools to themselves by wrapping them in layers of abstraction. Each new tool requires another layer in order to be accessible to the platform. For example many automation platforms have domain specific languages used to encode desired state instructions. These abstractions tend to leak over time and require imperative solutions to fill the gaps.</p>
                     <p>SaaSGlue works with everything else by decoupling job management from code execution. Job designs, including code files, are stored centrally. At runtime code is delivered to the computing environment through agents, which you install on your machines.</p>
@@ -120,8 +114,8 @@ Because SaaSGlue works with anything you can augment your current solutions with
     <section class="section is-medium">
         <div class="container">
             <div class="columns">
-                <div class="column content has-text-left">
-                    <h2 class="subtitle has-text-weight-semibold has-text-left">Integrates with other solutions</h2>
+                <div class="column content has-text-left is-size-5">
+                    <h2 class="subtitle is-2 has-text-weight-semibold has-text-left">Integrates with other solutions</h2>
                     <p>Using secure credentials you can invoke jobs through the SaaSGlue API from any platform. SaaSGlue jobs can be designed to call back to any of your automation platforms, maintaining a cross-platform process thread.</p>
                     <p>Because SaaSGlue works with anything you can augment your current solutions without having to rip and replace anything.</p>
                     <div class="tools-logo-container my-6">
@@ -163,6 +157,28 @@ Because SaaSGlue works with anything you can augment your current solutions with
             </div>
         </div>
     </section>
+    <section class="section is-medium has-background-info-light">
+        <div class="container">
+            <div class="content has-text-left is-size-5">
+                <h2 class="subtitle is-2 has-text-weight-semibold">Works with any language</h2>
+                <p>Our design conforms to the “dumb pipes, smart endpoints” principle. The agent doesn’t execute code, so you can use any programming language as long as a corresponding interpreter exists on the agent host machine.</p>
+                <p>Agents assist with execution by passing in variables, arguments and artifacts to the runtime environment.</p>
+                <p>SaaSGlue’s runtime variables functionality allows you to communicate state between tasks in your job. This is true even in polyglot jobs where the preceding and succeeding tasks are written in different languages.</p>
+            </div>
+            <div class="tags are-large">
+                <span class="tag is-rounded is-info">JavaScript</span>
+                <span class="tag is-rounded is-info">Two</span>
+                <span class="tag is-rounded is-info">Three</span>
+                <span class="tag is-rounded is-info">Four</span>
+                <span class="tag is-rounded is-info">Five</span>
+                <span class="tag is-rounded is-info">Six</span>
+                <span class="tag is-rounded is-info">Seven</span>
+                <span class="tag is-rounded is-info">Eight</span>
+                <span class="tag is-rounded is-info">Nine</span>
+                <span class="tag is-rounded is-info">Ten</span>
+            </div>
+        </div>
+    </section>
 </template>
 
 <script lang="ts">
@@ -173,7 +189,7 @@ Because SaaSGlue works with anything you can augment your current solutions with
             msg: String
         }
     })
-    export default class HelloWorld extends Vue {
+    export default class Home extends Vue {
 
     }
 </script>
