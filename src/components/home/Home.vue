@@ -2,21 +2,25 @@
     <section class="section is-medium">
         <div class="container">
             <div class="columns">
-                <div class="column has-text-left">
-                    <h1 class="title is-2 is-spaced has-text-weight-semibold has-text-grey-darker">
-                        Insanely <span class="deepskyblue">Flexible</span> <br />
-                        Data <span class="deepskyblue">Pipelines</span>
-                    </h1>
-                    <h2 class="subtitle is-5 has-text-weight-medium has-text-grey">SaaSGlue is a SaaS-based integration, orchestration and automation platform that lets you fill the gaps in your existing automation infrastructure.</h2>
-                    <div class="buttons">
-                        <a href="" class="button is-info">Get Started</a>
+                <transition name="fade-top" appear>
+                    <div class="column has-text-left">
+                        <h1 class="title is-2 is-spaced has-text-weight-semibold has-text-grey-darker">
+                            Insanely <span class="deepskyblue">Flexible</span> <br />
+                            Data <span class="deepskyblue">Pipelines</span>
+                        </h1>
+                        <h2 class="subtitle is-5 has-text-weight-medium has-text-grey">SaaSGlue is a SaaS-based integration, orchestration and automation platform that lets you fill the gaps in your existing automation infrastructure.</h2>
+                        <div class="buttons">
+                            <a href="" class="button is-info">Get Started</a>
+                        </div>
                     </div>
-                </div>
-                <div class="column has-text-right">
-                    <figure class="image is-16by9">
-                        <iframe class="has-ratio intro-video" width="560" height="315" src="https://www.youtube.com/embed/b_7u17gZcX8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </figure>
-                </div>
+                </transition>
+                <transition name="fade-right" appear>
+                    <div class="column has-text-right">
+                        <figure class="image is-16by9">
+                            <iframe class="has-ratio intro-video" width="560" height="315" src="https://www.youtube.com/embed/b_7u17gZcX8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </figure>
+                    </div>
+                </transition>
             </div>
         </div>
     </section>
@@ -212,5 +216,27 @@ Because SaaSGlue works with anything you can augment your current solutions with
 
     .is-width-50 {
         width: 50%;
+    }
+
+    .fade-right-enter-active {
+        transition: transform 1s ease-out, opacity 1s ease-out;
+        transform: translateX(10%);
+        opacity: 0;
+    }
+
+    .fade-right-enter-to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    .fade-top-enter-active {
+        transition: transform .3s ease-out, opacity .3s ease-out;
+        transform: translateY(-10%);
+        opacity: 0;
+    }
+
+    .fade-top-enter-to {
+        transform: translateY(0);
+        opacity: 1;
     }
 </style>
