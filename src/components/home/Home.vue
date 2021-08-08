@@ -34,17 +34,17 @@
             <div class="columns">
                 <div class="column">
                     <figure class="is-flex is-justify-content-center">
-                        <img src="/integration.svg" width="180" height="165" />
+                        <img src="/IntegrationV2.svg" width="180" height="165" />
                     </figure>
                 </div>
                 <div class="column">
                     <figure class="is-flex is-justify-content-center">
-                        <img src="/orchestration.svg" width="210" height="160" />
+                        <img src="/OrchestrationV2.svg" width="210" height="160" />
                     </figure>
                 </div>
                 <div class="column">
                     <figure class="is-flex is-justify-content-center">
-                        <img src="/automation.svg" width="190" height="160" />
+                        <img src="/AutomationV2.svg" width="190" height="160" />
                     </figure>
                 </div>
             </div>
