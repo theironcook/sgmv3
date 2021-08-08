@@ -74,12 +74,18 @@
         <div class="container is-size-5">
             <div class="columns has-text-left mb-6">
                 <div class="column">
-                    <h3 class="subtitle has-text-weight-semibold">Works virtually anywhere</h3>
+                    <h3 class="subtitle has-text-weight-semibold">
+                        <img src="/network-icons-worldV2.svg" width="40" />
+                        <span class="andrii-change-this">Works virtually anywhere</span>
+                    </h3>
                     <p>When the SaaSGlue agent is installed, it immediately calls home to the cloud and establishes a regular secure heartbeat through HTTPS. The agent receives instructions from a message queue and sends results to the API.
 This simple design lets the agent work on almost any network. And since agents talk only to the cloud, your job can hop from one network to another without regard to network boundaries.</p>
                 </div>
                 <div class="column">
-                    <h3 class="subtitle has-text-weight-semibold">Provides all the infrastructure</h3>
+                    <h3 class="subtitle has-text-weight-semibold">
+                        <img src="/network-icons-serverandpcsV2.svg" width="40" />
+                        <span class="andrii-change-this">Provides all the infrastructure</span>
+                    </h3>
                     <p>SaaSGlue provides all the job infrastructure to Initiate, Manage, Monitor, Alert. Our lightweight agent is self-updating, placing very little management burden on you.
                         SaaSGlue takes care of the automation infrastructure and lets you focus on your code.
                     </p>
@@ -87,12 +93,18 @@ This simple design lets the agent work on almost any network. And since agents t
             </div>
             <div class="columns has-text-left">
                 <div class="column">
-                    <h3 class="subtitle has-text-weight-semibold">Integrates with other solutions</h3>
+                    <h3 class="subtitle has-text-weight-semibold">
+                        <img src="/network-icons-plugsV2.svg" width="40" />
+                        <span class="andrii-change-this">Integrates with other solutions</span>
+                    </h3>
                     <p>Using secure credentials you can invoke jobs through the SaaSGlue API from any platform. SaaSGlue jobs can be designed to call back to any of your automation platforms, maintaining a cross-platform process thread.
 Because SaaSGlue works with anything you can augment your current solutions without having to rip and replace anything.</p>
                 </div>
                 <div class="column">
-                    <h3 class="subtitle has-text-weight-semibold">Scalable platform</h3>
+                    <h3 class="subtitle has-text-weight-semibold">
+                        <img src="/network-icons-serversV2.svg" width="40" />
+                        <span class="andrii-change-this">Scalable platform</span>
+                    </h3>
                     <p>SaaSGlue scales horizontally to handle enterprise workloads.</p>
                 </div>
             </div>
@@ -298,5 +310,11 @@ Because SaaSGlue works with anything you can augment your current solutions with
     .sign-up-box {
         background: linear-gradient(105deg, #2edaff, #0085ff);
         box-shadow: 0 79px 68px -47px RGB(0 0 0 / 43%);
+    }
+
+    .andrii-change-this {
+        margin-left: 12px;
+        position: relative;
+        top: -10px;
     }
 </style>
