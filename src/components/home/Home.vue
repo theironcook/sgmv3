@@ -16,7 +16,7 @@
                 </transition>
                 <transition name="fade-right" appear>
                     <div class="column has-text-right">
-                        <figure class="image is-16by9">
+                        <figure class="image is-16by9 has-background-placeholder">
                             <iframe class="has-ratio intro-video" width="560" height="315" src="https://www.youtube.com/embed/b_7u17gZcX8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </figure>
                     </div>
@@ -266,6 +266,10 @@ Because SaaSGlue works with anything you can augment your current solutions with
 <style scoped lang="scss">
     .has-text-deepskyblue {
         color: deepskyblue;
+    }
+
+    .has-background-placeholder {
+        background: rgb(172,158,158);
     }
 
     .has-background-deepskyblue {
