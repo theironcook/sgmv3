@@ -138,40 +138,62 @@ Because SaaSGlue works with anything you can augment your current solutions with
                     <h2 class="subtitle is-2 has-text-weight-semibold has-text-left">Integrates with other solutions</h2>
                     <p>Using secure credentials you can invoke jobs through the SaaSGlue API from any platform. SaaSGlue jobs can be designed to call back to any of your automation platforms, maintaining a cross-platform process thread.</p>
                     <p>Because SaaSGlue works with anything you can augment your current solutions without having to rip and replace anything.</p>
-                    <div class="tools-logo-container mt-6">
-                        <a class="has-text-centered" href="https://about.gitlab.com/" target="_blank">
-                            <img class="tool-logo" src="@/assets/images/gitlab-logo.svg" alt="Gitlab" />
-                        </a>
-                        <a class="has-text-centered" href="https://aws.amazon.com/" target="_blank">
-                            <img class="tool-logo is-width-50" src="@/assets/images/aws-logo.svg" alt="Amazon Web Services" />
-                        </a>
-                        <a class="has-text-centered" href="https://www.jenkins.io/" target="_blank">
-                            <img class="tool-logo" src="@/assets/images/jenkins-logo.svg" alt="Jenkins" />
-                        </a>
-                        <a class="has-text-centered" href="https://azure.microsoft.com/" target="_blank">
-                            <img class="tool-logo" src="@/assets/images/azure-logo.svg" alt="Microsoft Azure" />
-                        </a>
-                        <a class="has-text-centered" href="https://www.ansible.com/" target="_blank">
-                            <img class="tool-logo" src="@/assets/images/ansible-logo.svg" alt="Ansible" />
-                        </a>
-                        <a class="has-text-centered" href="https://cloud.google.com/" target="_blank">
-                            <img class="tool-logo" src="@/assets/images/google-cloud-logo.svg" alt="Google Cloud" />
-                        </a>
-                        <a class="has-text-centered" href="https://airflow.apache.org/" target="_blank">
-                            <img class="tool-logo" src="@/assets/images/apache-airflow-logo.svg" alt="Apache Airflow" />
-                        </a>
-                        <a class="has-text-centered" href="https://www.chef.io/" target="_blank">
-                            <img class="tool-logo is-width-50" src="@/assets/images/chef-logo.svg" alt="Chef" />
-                        </a>
-                        <a class="has-text-centered" href="https://puppet.com/" target="_blank">
-                            <img class="tool-logo" src="@/assets/images/puppet-logo.svg" alt="Puppet" />
-                        </a>
-                        <a class="has-text-centered" href="https://www.terraform.io/" target="_blank">
-                            <img class="tool-logo is-width-50" src="@/assets/images/terraform-logo.svg" alt="Terraform" />
-                        </a>
-                        <a class="has-text-centered" href="https://www.prefect.io/" target="_blank">
-                            <img class="tool-logo is-width-50" src="@/assets/images/prefect-logo.svg" alt="Prefect" />
-                        </a>
+                    <div class="columns is-multiline is-centered mt-6">
+                        <div class="column is-one-fifth has-text-centered is-half-mobile">
+                            <a href="https://about.gitlab.com/" target="_blank">
+                                <img class="tool-logo" src="@/assets/images/gitlab-logo.svg" alt="Gitlab" />
+                            </a>
+                        </div>
+                        <div class="column is-one-fifth has-text-centered is-half-mobile">
+                            <a href="https://aws.amazon.com/" target="_blank">
+                                <img class="tool-logo is-width-50" src="@/assets/images/aws-logo.svg" alt="Amazon Web Services" />
+                            </a>
+                        </div>
+                        <div class="column is-one-fifth has-text-centered is-half-mobile">
+                            <a href="https://www.jenkins.io/" target="_blank">
+                                <img class="tool-logo" src="@/assets/images/jenkins-logo.svg" alt="Jenkins" />
+                            </a>
+                        </div>
+                        <div class="column is-one-fifth has-text-centered is-half-mobile">
+                            <a href="https://azure.microsoft.com/" target="_blank">
+                                <img class="tool-logo" src="@/assets/images/azure-logo.svg" alt="Microsoft Azure" />
+                            </a>
+                        </div>
+                        <div class="column is-one-fifth has-text-centered is-half-mobile">
+                            <a href="https://www.ansible.com/" target="_blank">
+                                <img class="tool-logo" src="@/assets/images/ansible-logo.svg" alt="Ansible" />
+                            </a>
+                        </div>
+                        <div class="column is-one-fifth has-text-centered is-half-mobile">
+                            <a href="https://cloud.google.com/" target="_blank">
+                                <img class="tool-logo" src="@/assets/images/google-cloud-logo.svg" alt="Google Cloud" />
+                            </a>
+                        </div>
+                        <div class="column is-one-fifth has-text-centered is-half-mobile">
+                            <a href="https://airflow.apache.org/" target="_blank">
+                                <img class="tool-logo" src="@/assets/images/apache-airflow-logo.svg" alt="Apache Airflow" />
+                            </a>
+                        </div>
+                        <div class="column is-one-fifth has-text-centered is-half-mobile">
+                            <a href="https://www.chef.io/" target="_blank">
+                                <img class="tool-logo is-width-50" src="@/assets/images/chef-logo.svg" alt="Chef" />
+                            </a>
+                        </div>
+                        <div class="column is-one-fifth has-text-centered is-half-mobile">
+                            <a href="https://puppet.com/" target="_blank">
+                                <img class="tool-logo" src="@/assets/images/puppet-logo.svg" alt="Puppet" />
+                            </a>
+                        </div>
+                        <div class="column is-one-fifth has-text-centered is-half-mobile">
+                            <a href="https://www.terraform.io/" target="_blank">
+                                <img class="tool-logo is-width-50" src="@/assets/images/terraform-logo.svg" alt="Terraform" />
+                            </a>
+                        </div>
+                        <div class="column is-one-fifth has-text-centered is-half-mobile">
+                            <a href="https://www.prefect.io/" target="_blank">
+                                <img class="tool-logo is-width-50" src="@/assets/images/prefect-logo.svg" alt="Prefect" />
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -266,17 +288,7 @@ Because SaaSGlue works with anything you can augment your current solutions with
         border-radius: 5px;
     }
 
-    .tools-logo-container {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        grid-gap: 1rem 5rem;
-        justify-items: center;
-        align-items: center;
-    }
-
     .tool-logo {
-        width: 100%;
-        height: 100%;
         transition: filter .3s linear;
         filter: grayscale(1) opacity(.5);
 
