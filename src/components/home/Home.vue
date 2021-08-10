@@ -34,17 +34,17 @@
             <div class="columns">
                 <div class="column">
                     <figure class="is-flex is-justify-content-center">
-                        <img src="/IntegrationV2.svg" width="180" height="165" />
+                        <img src="@/assets/images/integration.svg" width="180" height="165" />
                     </figure>
                 </div>
                 <div class="column">
                     <figure class="is-flex is-justify-content-center">
-                        <img src="/OrchestrationV2.svg" width="210" height="160" />
+                        <img src="@/assets/images/orchestration.svg" width="210" height="160" />
                     </figure>
                 </div>
                 <div class="column">
                     <figure class="is-flex is-justify-content-center">
-                        <img src="/AutomationV2.svg" width="190" height="160" />
+                        <img src="@/assets/images/automation.svg" width="190" height="160" />
                     </figure>
                 </div>
             </div>
@@ -74,17 +74,21 @@
         <div class="container is-size-5">
             <div class="columns has-text-left mb-6">
                 <div class="column">
-                    <h3 class="subtitle has-text-weight-semibold">
-                        <img src="/network-icons-worldV2.svg" width="40" />
-                        <span class="andrii-change-this">Works virtually anywhere</span>
+                    <h3 class="subtitle has-text-weight-semibold is-flex is-align-items-center">
+                        <figure class="image is-48x48 mr-4">
+                            <img src="@/assets/images/network-icon-world.svg" />
+                        </figure>
+                        <span>Works virtually anywhere</span>
                     </h3>
                     <p>When the SaaSGlue agent is installed, it immediately calls home to the cloud and establishes a regular secure heartbeat through HTTPS. The agent receives instructions from a message queue and sends results to the API.
 This simple design lets the agent work on almost any network. And since agents talk only to the cloud, your job can hop from one network to another without regard to network boundaries.</p>
                 </div>
                 <div class="column">
-                    <h3 class="subtitle has-text-weight-semibold">
-                        <img src="/network-icons-serverandpcsV2.svg" width="40" />
-                        <span class="andrii-change-this">Provides all the infrastructure</span>
+                    <h3 class="subtitle has-text-weight-semibold is-flex is-align-items-center">
+                        <figure class="image is-48x48 mr-4">
+                            <img src="@/assets/images/network-icon-serverandpcs.svg" />
+                        </figure>
+                        <span>Provides all the infrastructure</span>
                     </h3>
                     <p>SaaSGlue provides all the job infrastructure to Initiate, Manage, Monitor, Alert. Our lightweight agent is self-updating, placing very little management burden on you.
                         SaaSGlue takes care of the automation infrastructure and lets you focus on your code.
@@ -93,17 +97,21 @@ This simple design lets the agent work on almost any network. And since agents t
             </div>
             <div class="columns has-text-left">
                 <div class="column">
-                    <h3 class="subtitle has-text-weight-semibold">
-                        <img src="/network-icons-plugsV2.svg" width="40" />
-                        <span class="andrii-change-this">Integrates with other solutions</span>
+                    <h3 class="subtitle has-text-weight-semibold is-flex is-align-items-center">
+                        <figure class="image is-48x48 mr-4">
+                            <img src="@/assets/images/network-icon-plugs.svg" />
+                        </figure>
+                        <span>Integrates with other solutions</span>
                     </h3>
                     <p>Using secure credentials you can invoke jobs through the SaaSGlue API from any platform. SaaSGlue jobs can be designed to call back to any of your automation platforms, maintaining a cross-platform process thread.
 Because SaaSGlue works with anything you can augment your current solutions without having to rip and replace anything.</p>
                 </div>
                 <div class="column">
-                    <h3 class="subtitle has-text-weight-semibold">
-                        <img src="/network-icons-serversV2.svg" width="40" />
-                        <span class="andrii-change-this">Scalable platform</span>
+                    <h3 class="subtitle has-text-weight-semibold is-flex is-align-items-center">
+                        <figure class="image is-48x48 mr-4">
+                            <img src="@/assets/images/network-icon-servers.svg" />
+                        </figure>
+                        <span>Scalable platform</span>
                     </h3>
                     <p>SaaSGlue scales horizontally to handle enterprise workloads.</p>
                 </div>
@@ -132,37 +140,37 @@ Because SaaSGlue works with anything you can augment your current solutions with
                     <p>Because SaaSGlue works with anything you can augment your current solutions without having to rip and replace anything.</p>
                     <div class="tools-logo-container mt-6">
                         <a class="has-text-centered" href="https://about.gitlab.com/" target="_blank">
-                            <img class="tool-logo" src="/gitlab-logo.svg" alt="Gitlab" />
+                            <img class="tool-logo" src="@/assets/images/gitlab-logo.svg" alt="Gitlab" />
                         </a>
                         <a class="has-text-centered" href="https://aws.amazon.com/" target="_blank">
-                            <img class="tool-logo is-width-50" src="/aws-logo.svg" alt="Amazon Web Services" />
+                            <img class="tool-logo is-width-50" src="@/assets/images/aws-logo.svg" alt="Amazon Web Services" />
                         </a>
                         <a class="has-text-centered" href="https://www.jenkins.io/" target="_blank">
-                            <img class="tool-logo" src="/jenkins-logo.svg" alt="Jenkins" />
+                            <img class="tool-logo" src="@/assets/images/jenkins-logo.svg" alt="Jenkins" />
                         </a>
                         <a class="has-text-centered" href="https://azure.microsoft.com/" target="_blank">
-                            <img class="tool-logo" src="/azure-logo.svg" alt="Microsoft Azure" />
+                            <img class="tool-logo" src="@/assets/images/azure-logo.svg" alt="Microsoft Azure" />
                         </a>
                         <a class="has-text-centered" href="https://www.ansible.com/" target="_blank">
-                            <img class="tool-logo" src="/ansible-logo.svg" alt="Ansible" />
+                            <img class="tool-logo" src="@/assets/images/ansible-logo.svg" alt="Ansible" />
                         </a>
                         <a class="has-text-centered" href="https://cloud.google.com/" target="_blank">
-                            <img class="tool-logo" src="/google-cloud-logo.svg" alt="Google Cloud" />
+                            <img class="tool-logo" src="@/assets/images/google-cloud-logo.svg" alt="Google Cloud" />
                         </a>
                         <a class="has-text-centered" href="https://airflow.apache.org/" target="_blank">
-                            <img class="tool-logo" src="/apache-airflow-logo.svg" alt="Apache Airflow" />
+                            <img class="tool-logo" src="@/assets/images/apache-airflow-logo.svg" alt="Apache Airflow" />
                         </a>
                         <a class="has-text-centered" href="https://www.chef.io/" target="_blank">
-                            <img class="tool-logo is-width-50" src="/chef-logo.svg" alt="Chef" />
+                            <img class="tool-logo is-width-50" src="@/assets/images/chef-logo.svg" alt="Chef" />
                         </a>
                         <a class="has-text-centered" href="https://puppet.com/" target="_blank">
-                            <img class="tool-logo" src="/puppet-logo.svg" alt="Puppet" />
+                            <img class="tool-logo" src="@/assets/images/puppet-logo.svg" alt="Puppet" />
                         </a>
                         <a class="has-text-centered" href="https://www.terraform.io/" target="_blank">
-                            <img class="tool-logo is-width-50" src="/terraform-logo.svg" alt="Terraform" />
+                            <img class="tool-logo is-width-50" src="@/assets/images/terraform-logo.svg" alt="Terraform" />
                         </a>
                         <a class="has-text-centered" href="https://www.prefect.io/" target="_blank">
-                            <img class="tool-logo is-width-50" src="/prefect-logo.svg" alt="Prefect" />
+                            <img class="tool-logo is-width-50" src="@/assets/images/prefect-logo.svg" alt="Prefect" />
                         </a>
                     </div>
                 </div>
@@ -310,11 +318,5 @@ Because SaaSGlue works with anything you can augment your current solutions with
     .sign-up-box {
         background: linear-gradient(105deg, #2edaff, #0085ff);
         box-shadow: 0 79px 68px -47px RGB(0 0 0 / 43%);
-    }
-
-    .andrii-change-this {
-        margin-left: 12px;
-        position: relative;
-        top: -10px;
     }
 </style>

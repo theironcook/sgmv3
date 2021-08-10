@@ -3,7 +3,7 @@
         <div class="container py-2">
             <div class="navbar-brand">
                 <a class="navbar-item" href="/">
-                    <img src="/logo.png" alt="SaaSGlue logo" width="180" height="30">
+                    <img src="@/assets/images/logo.png" alt="SaaSGlue logo" width="180" height="30">
                 </a>
             </div>
             <div class="navbar-menu">
