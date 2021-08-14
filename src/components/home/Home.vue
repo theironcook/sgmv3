@@ -47,7 +47,7 @@
                         <img src="@/assets/images/automation.svg" width="150"  />
                     </figure>
                 </div>
-            </div> D9D1D1 A6A6A6
+            </div>
             <div class="columns is-size-5 has-text-left">
                 <div class="column">
                     <h2 class="title has-text-centered has-text-black">Integration</h2>
