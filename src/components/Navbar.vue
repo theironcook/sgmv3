@@ -1,5 +1,5 @@
 <template>
-    <nav :class="{'has-shadow': hasScrollOffset}" class="navbar is-transparent" role="navigation" aria-label="main navigation">
+    <nav :class="{'has-shadow': hasScrollOffset}" class="navbar is-transparent has-background-blue-light" role="navigation" aria-label="main navigation">
         <div class="container py-2">
             <div class="navbar-brand">
                 <a class="navbar-item" href="/">
@@ -29,24 +29,29 @@
 </template>
 
 <script lang="ts">
-    import { Options, Vue } from 'vue-class-component';
+    import { defineComponent } from 'vue';
 
-    @Options({})
-    export default class Navbar extends Vue {
-        private hasScrollOffset: boolean = false;
+    export default defineComponent({
+        data () {
+            return {
+                hasScrollOffset: false
+            };
+        },
 
-        public created (): void {
+        created (): void {
             document.addEventListener('scroll', this.onScroll);
-        }
+        },
 
-        private onScroll (): void {
-            this.hasScrollOffset = document.documentElement.scrollTop > 60;
-        }
-
-        public destroyed (): void {
+        unmounted (): void {
             document.removeEventListener('scroll', this.onScroll);
+        },
+
+        methods: {
+            onScroll (): void {
+                this.hasScrollOffset = document.documentElement.scrollTop > 60;
+            }
         }
-    }
+    });
 </script>
 
 <style scoped lang="scss">

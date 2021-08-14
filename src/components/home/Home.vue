@@ -1,10 +1,10 @@
 <template>
-    <section class="section is-medium">
+    <section class="section is-medium has-background-blue-light">
         <div class="container">
             <div class="columns">
                 <transition name="fade-top" appear>
                     <div class="column has-text-left">
-                        <h1 class="title is-2 is-spaced has-text-weight-semibold has-text-grey-darker">
+                        <h1 class="tagline title is-2 is-spaced has-text-weight-semibold has-text-grey-darker">
                             Insanely <span class="has-text-deepskyblue">Flexible</span> <br />
                             <span class="is-inline-block title-shift">Data <span class="has-text-deepskyblue">Pipelines</span></span>
                         </h1>
@@ -44,25 +44,25 @@
                 </div>
                 <div class="column">
                     <figure class="is-flex is-justify-content-center">
-                        <img src="@/assets/images/Automation4-V1.svg" width="150"  />
+                        <img src="@/assets/images/automation.svg" width="150"  />
                     </figure>
                 </div>
             </div>
             <div class="columns is-size-5 has-text-left">
                 <div class="column">
-                    <h2 class="title has-text-centered has-text-weight-normal has-text-white">Integration</h2>
+                    <h2 class="title has-text-centered has-text-black">Integration</h2>
                     <p>Run code on any device in any network permitting outgoing HTTPS</p>
                     <p>Run scripts and compiled code in any language</p>
                     <p>Run Function-as-a-Service code in the cloud</p>
                 </div>
                 <div class="column">
-                    <h2 class="title has-text-centered has-text-weight-normal has-text-white">Orchestration</h2>
+                    <h2 class="title has-text-centered has-text-black">Orchestration</h2>
                     <p>Create multi-step jobs with conditional path routing</p>
                     <p>Run jobs in multi-cloud and hybrid-cloud environments</p>
                     <p>Centrally monitor distributed jobs</p>
                 </div>
                 <div class="column">
-                    <h2 class="title has-text-centered has-text-weight-normal has-text-white">Automation</h2>
+                    <h2 class="title has-text-centered has-text-black">Automation</h2>
                     <p>Start jobs from a schedule, with the API or from the web console</p>
                     <p>Pass variables between tasks in multi-language jobs</p>
                     <p>Import and centralize your cron jobs</p>
@@ -70,7 +70,7 @@
             </div>
         </div>
     </section>
-    <section class="section is-medium">
+    <section class="section is-medium has-background-blue-light">
         <div class="container is-size-5">
             <div class="columns has-text-left mb-6">
                 <div class="column">
@@ -127,11 +127,14 @@ Because SaaSGlue works with anything you can augment your current solutions with
                     <p>SaaSGlue works with everything else by decoupling job management from code execution. Job designs, including code files, are stored centrally. At runtime code is delivered to the computing environment through agents, which you install on your machines.</p>
                     <p>This design gives you the freedom to access all of your compute endpoints directly without abstraction layers and with the power of centrally managed jobs.
                     Here is our rule of thumb: If you can do something from the local command prompt you can do it the same way in SaaSGlue.</p>
+                    <figure class="image">
+                        <img src="https://web.q-better.com/wp-content/uploads/2020/09/Qube-15-15-15.png" />
+                    </figure>
                 </div>
             </div>
         </div>
     </section>
-    <section class="section is-medium">
+    <section class="section is-medium has-background-blue-light">
         <div class="container">
             <div class="columns">
                 <div class="column content has-text-left is-size-5">
@@ -191,7 +194,7 @@ Because SaaSGlue works with anything you can augment your current solutions with
                         </div>
                         <div class="column is-one-fifth has-text-centered is-half-mobile">
                             <a href="https://www.prefect.io/" target="_blank">
-                                <img class="tool-logo is-width-50" src="@/assets/images/prefect-logo.svg" alt="Prefect" />
+                                <img class="tool-logo prefect-logo" src="@/assets/images/prefect-logo.svg" alt="Prefect" />
                             </a>
                         </div>
                     </div>
@@ -221,16 +224,15 @@ Because SaaSGlue works with anything you can augment your current solutions with
             </div>
         </div>
     </section>
-    <section class="section is-medium">
+    <section class="section is-medium has-background-blue-light">
         <div class="container">
-            <div class="box sign-up-box has-text-white">
-                <div class="columns is-vcentered has-text-left">
-                    <div class="column content">
+            <div class="box sign-up-box has-text-white p-6">
+                <div class="columns is-align-items-flex-start has-text-left">
+                    <div class="column content m-0">
                         <h2 class="subtitle has-text-weight-semibold">Try <span class="has-text-white">SaaSGlue</span> today</h2>
-                        <p>If you find yourself having to work around limitations in your current automation platforms try using SaaSGlue. You can get started in as little as five minutes and running scripts from the cloud console is free.</p>
-                        <p>Sign up today and see how SaaSGlue can fill your process automation gaps.</p>
+                        <p class="is-size-4">You can get started in as little as five minutes and running scripts from the cloud console is free.</p>
                     </div>
-                    <div class="column is-4 is-offset-2">
+                    <div class="column is-5 is-offset-1">
                         <div class="field is-grouped">
                             <p class="control is-expanded">
                                 <input class="input" type="email" placeholder="Enter your email...">
@@ -239,28 +241,24 @@ Because SaaSGlue works with anything you can augment your current solutions with
                                 <button class="button is-primary has-action-shadow">Continue</button>
                             </p>
                         </div>
-                        <div class="is-flex is-flex-wra-wrap">
-                            <p class="mr-3">Free to get started</p>
-                            <p>No credit card needed</p>
-                        </div>
+                        <p class="is-size-4"><span class="has-text-black">Free</span> to get started</p>
+                        <p class="is-size-4">No credit card needed</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <main-footer />
 </template>
 
 <script lang="ts">
-    import { Options, Vue } from 'vue-class-component';
+    import { defineComponent } from 'vue';
+    import MainFooter from '@/components/MainFooter.vue';
 
-    @Options({
-        props: {
-            msg: String
-        }
-    })
-    export default class Home extends Vue {
-
-    }
+    export default defineComponent({
+        name: 'Home',
+        components: { MainFooter }
+    });
 </script>
 
 <style scoped lang="scss">
@@ -301,12 +299,20 @@ Because SaaSGlue works with anything you can augment your current solutions with
         }
     }
 
+    .tagline {
+        letter-spacing: 5px;
+    }
+
     .title-shift {
-        margin-left: 62px;
+        margin-left: 81px;
     }
 
     .is-width-50 {
         width: 50%;
+    }
+
+    .prefect-logo {
+        width: 35%;
     }
 
     .fade-right-enter-active {
