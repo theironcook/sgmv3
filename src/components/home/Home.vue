@@ -47,7 +47,7 @@
                         <img src="@/assets/images/automation.svg" width="150"  />
                     </figure>
                 </div>
-            </div>
+            </div> D9D1D1 A6A6A6
             <div class="columns is-size-5 has-text-left">
                 <div class="column">
                     <h2 class="title has-text-centered has-text-black">Integration</h2>
@@ -128,7 +128,7 @@ Because SaaSGlue works with anything you can augment your current solutions with
                     <p>This design gives you the freedom to access all of your compute endpoints directly without abstraction layers and with the power of centrally managed jobs.
                     Here is our rule of thumb: If you can do something from the local command prompt you can do it the same way in SaaSGlue.</p>
                     <figure class="image">
-                        <img src="https://web.q-better.com/wp-content/uploads/2020/09/Qube-15-15-15.png" />
+                        <img src="@/assets/images/innovation-twist.svg" />
                     </figure>
                 </div>
             </div>
