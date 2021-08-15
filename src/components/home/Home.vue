@@ -19,6 +19,8 @@
                         <figure class="image is-16by9 has-background-placeholder">
                             <iframe class="has-ratio intro-video" width="560" height="315" src="https://www.youtube.com/embed/b_7u17gZcX8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </figure>
+                        <!-- Andrii - mess around with this -->
+                        <span class="subtitle is-5 has-text-weight-medium has-text-grey" style="margin-right: 20px;">How SaasGlue can help you make insanely flexible data pipelines</span>
                     </div>
                 </transition>
             </div>
