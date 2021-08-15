@@ -100,7 +100,7 @@
         <path d="M174.732,185.482C174.732,183.101 173.645,181.168 172.307,181.168L30.482,181.168C29.144,181.168 28.058,183.101 28.058,185.482L28.058,194.109C28.058,196.49 29.144,198.423 30.482,198.423L172.307,198.423C173.645,198.423 174.732,196.49 174.732,194.109L174.732,185.482Z" style="fill:rgb(217,209,209);"/>
     </g>
     <g transform="matrix(1,0,0,1,2.9106,4.56765)">
-        <rect x="8.054" y="25.743" width="186.817" height="139.007" style="fill:none;stroke:rgb(166,166,166);stroke-width:10px;stroke-linecap:round;stroke-linejoin:round;"/>
+        <rect x="8.054" y="25.743" width="186.817" height="139.007" style="fill:none;stroke:rgb(166,166,166);stroke-width:8px;stroke-linecap:round;stroke-linejoin:round;"/>
     </g>
     <g transform="matrix(0.998999,0,0,0.985614,0.0356045,4.77768)">
         <ellipse cx="103.471" cy="39.842" rx="36.537" ry="37.033" style="fill:none;stroke:rgb(166,166,166);stroke-width:12.09px;stroke-linecap:round;stroke-linejoin:round;"/>
