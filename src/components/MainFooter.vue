@@ -46,8 +46,25 @@
                     <span class="pr-3"><a href="#">Terms of Use</a></span>
                     <p class="pr-3">Copyright © {{ new Date().getFullYear() }} SaaSGlue LLC</p>
                 </div>
-                <div class="column is-2has-text-left">
-                    <span>Social links</span>
+                <div class="column is-2">
+                    <div class="level">
+                        <div class="level-right is-flex-grow-1">
+                            <div class="level-item">
+                                <figure class="image is-32x32">
+                                    <a href="https://www.linkedin.com/company/saasglue/">
+                                        <img src="@/assets/images/linkedin-icon.svg" alt="LinkedIn" />
+                                    </a>
+                                </figure>
+                            </div>
+                            <div class="level-item">
+                                <figure class="image is-32x32">
+                                    <a href="https://www.youtube.com/channel/UCX8IuYTUDtAZVEszO-tiKRA">
+                                        <img src="@/assets/images/youtube-icon.svg" alt="Youtube" />
+                                    </a>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

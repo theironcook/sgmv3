@@ -130,7 +130,7 @@ Because SaaSGlue works with anything you can augment your current solutions with
                     <p>This design gives you the freedom to access all of your compute endpoints directly without abstraction layers and with the power of centrally managed jobs.
                     Here is our rule of thumb: If you can do something from the local command prompt you can do it the same way in SaaSGlue.</p>
                     <figure class="image">
-                        <img src="@/assets/images/innovation-twist.svg" style="width:75%"/>
+                        <img class="is-width-75" src="@/assets/images/innovation-twist.svg" alt="SaaSGlue workflow" />
                     </figure>
                 </div>
             </div>
@@ -311,6 +311,10 @@ Because SaaSGlue works with anything you can augment your current solutions with
 
     .is-width-50 {
         width: 50%;
+    }
+
+    .is-width-75 {
+        width: 75%;
     }
 
     .prefect-logo {
