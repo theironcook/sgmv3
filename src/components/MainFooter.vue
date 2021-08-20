@@ -2,22 +2,22 @@
     <footer class="footer pb-0 has-background-blue-light">
         <div class="container">
             <div class="columns content">
-                <div class="column is-4 has-text-left">
+                <div class="column is-5 has-text-left">
                     <h5 class="is-uppercase has-text-weight-bold">Recent posts</h5>
                     <div class="block">
                         <h6><a href="#">Recent post title 1</a></h6>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint suscipit animi tenetur quas</p>
+                        <p class="has-line-clamp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint suscipit animi tenetur quas</p>
                     </div>
                     <div class="block">
                         <h6><a href="#">Recent post title 2</a></h6>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint suscipit animi tenetur quas</p>
+                        <p class="has-line-clamp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint suscipit animi tenetur quas</p>
                     </div>
                     <div class="block">
                         <h6><a href="#">Recent post title 3</a></h6>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint suscipit animi tenetur quas</p>
+                        <p class="has-line-clamp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint suscipit animi tenetur quas</p>
                     </div>
                 </div>
-                <div class="column is-2 is-offset-2 has-text-left">
+                <div class="column is-2 is-offset-1 has-text-left">
                     <h5 class="is-uppercase has-text-weight-bold">Developers</h5>
                     <p><a href="#">Docs</a></p>
                     <p><a href="#">Getting Started</a></p>
@@ -80,5 +80,10 @@
 </script>
 
 <style scoped lang="scss">
-
+    .has-line-clamp {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+    }
 </style>
