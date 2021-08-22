@@ -10,7 +10,7 @@
                         </h1>
                         <h2 class="subtitle is-5 has-text-weight-medium has-text-grey">SaaSGlue is a SaaS-based integration, orchestration and automation platform that lets you fill the gaps in your existing automation infrastructure.</h2>
                         <div class="buttons">
-                            <a href="#" class="button is-success has-action-shadow">Get Started</a>
+                            <a href="#" class="button is-success has-action-shadow hax-text-weight-bold">GET STARTED</a>
                         </div>
                     </div>
                 </transition>
@@ -227,6 +227,7 @@ Because SaaSGlue works with anything you can augment your current solutions with
             </div>
         </div>
     </section>
+
     <section class="section has-background-blue-light">
         <div class="container">
             <div class="columns">
@@ -236,7 +237,7 @@ Because SaaSGlue works with anything you can augment your current solutions with
             </div>
             <div class="columns is-centered is-variable is-8">
                 <div class="column is-narrow">
-                    <div class="box content">
+                    <div class="box content has-border-success">
                         <header>
                             <h5>Free</h5>
                         </header>
@@ -244,7 +245,7 @@ Because SaaSGlue works with anything you can augment your current solutions with
                             <span class="pr-1">$</span>
                             <span class="is-size-1">0</span>
                         </p>
-                        <button class="button is-fullwidth is-info is-outlined">Get Started</button>
+                        <button class="button is-fullwidth is-success is-outlined has-text-weight-bold">GET STARTED</button>
                         <div class="has-text-left my-5 is-flex is-flex-direction-column">
                             <p class="icon-text is-flex is-align-items-center is-flex-wrap-nowrap">
                                 <span class="icon mr-2">
@@ -286,7 +287,7 @@ Because SaaSGlue works with anything you can augment your current solutions with
                     </div>
                 </div>
                 <div class="column is-narrow">
-                    <div class="box content price-standard">
+                    <div class="box content has-border-success">
                         <header>
                             <h5>Standard</h5>
                         </header>
@@ -295,7 +296,7 @@ Because SaaSGlue works with anything you can augment your current solutions with
                             <span class="is-size-1">0.01</span>
                             <span class="pt-5">/script</span>
                         </p>
-                        <button class="button is-fullwidth is-info">Get Started</button>
+                        <button class="button is-fullwidth is-success has-text-weight-bold">GET STARTED</button>
                         <div class="has-text-left my-5 is-flex is-flex-direction-column">
                             <p class="icon-text is-flex is-align-items-center is-flex-wrap-nowrap">
                                 <span class="icon mr-2">
@@ -354,7 +355,7 @@ Because SaaSGlue works with anything you can augment your current solutions with
                                 <input class="input" type="email" placeholder="Enter your email...">
                             </p>
                             <p class="control">
-                                <button class="button is-primary has-action-shadow">Continue</button>
+                                <button class="button is-primary has-action-shadow has-text-weight-bold">CONTINUE</button>
                             </p>
                         </div>
                         <p class="is-size-4"><span class="has-text-black">Free</span> to get started</p>
@@ -467,7 +468,7 @@ Because SaaSGlue works with anything you can augment your current solutions with
         opacity: .3;
     }
 
-    .price-standard {
-        border: 1px solid #3e8ed0;
+    .has-border-success {
+        border: 1px solid #48c78e;
     }
 </style>
