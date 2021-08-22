@@ -21,14 +21,14 @@
                     <h5 class="is-uppercase has-text-weight-bold">Developers</h5>
                     <p><a href="#">Docs</a></p>
                     <p><a href="#">Getting Started</a></p>
-                    <p><a href="#">Community</a></p>
+                    <p><a href="#">Tutorials</a></p>
                 </div>
                 <div class="column is-2 has-text-left">
                     <h5 class="is-uppercase has-text-weight-bold">Quick Links</h5>
                     <p><a href="#">Log In</a></p>
                     <p><a href="#">Sign Up</a></p>
                     <p><a href="#">Reset password</a></p>
-                    <p><a href="#">Blog</a></p>
+                    <p><a href="#">SG News</a></p>
                     <p><a href="#">Pricing</a></p>
                 </div>
                 <div class="column is-2 has-text-left">

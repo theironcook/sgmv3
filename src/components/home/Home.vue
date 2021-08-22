@@ -47,7 +47,7 @@
                 </div>
                 <div class="column">
                     <figure class="is-flex is-justify-content-center">
-                        <img src="@/assets/images/automation.svg" width="150"  />
+                        <img src="@/assets/images/automation.svg" width="150" />
                     </figure>
                 </div>
             </div>

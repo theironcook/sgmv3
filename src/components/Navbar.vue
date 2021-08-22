@@ -9,9 +9,10 @@
             <div class="navbar-menu">
                 <div class="navbar-start">
                     <a href="#" class="navbar-item">Getting started</a>
-                    <a href="#" class="navbar-item">Docs</a>
+                    <a href="#" class="navbar-item">Tutorials</a>
                     <a href="#" class="navbar-item">Pricing</a>
-                    <a href="#" class="navbar-item">Blog</a>
+                    <a href="#" class="navbar-item">SG News</a>
+                    <a href="#" class="navbar-item">Docs</a>
                 </div>
                 <div class="navbar-end">
                     <div class="navbar-item">
