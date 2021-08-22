@@ -227,6 +227,119 @@ Because SaaSGlue works with anything you can augment your current solutions with
             </div>
         </div>
     </section>
+    <section class="section has-background-blue-light">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <h2 class="title mb-6">Our Pricing</h2>
+                </div>
+            </div>
+            <div class="columns is-centered is-variable is-8">
+                <div class="column is-narrow">
+                    <div class="box content">
+                        <header>
+                            <h5>Free</h5>
+                        </header>
+                        <p class="has-text-weight-bold is-align-items-center is-flex is-justify-content-center">
+                            <span class="pr-1">$</span>
+                            <span class="is-size-1">0</span>
+                        </p>
+                        <button class="button is-fullwidth is-info is-outlined">Get Started</button>
+                        <div class="has-text-left my-5 is-flex is-flex-direction-column">
+                            <p class="icon-text is-flex is-align-items-center is-flex-wrap-nowrap">
+                                <span class="icon mr-2">
+                                    <img src="@/assets/images/checkmark.svg" />
+                                </span>
+                                <span>Run unlimited scripts from the web console</span>
+                            </p>
+                            <p class="icon-text">
+                                <span class="icon mr-2">
+                                    <img src="@/assets/images/checkmark.svg" />
+                                </span>
+                                <span>Create unlimited agents</span>
+                            </p>
+                            <p class="icon-text">
+                                <span class="icon mr-2">
+                                    <img src="@/assets/images/checkmark.svg" />
+                                </span>
+                                <span>Store unlimited scripts</span>
+                            </p>
+                            <p class="icon-text has-text-grey-lighter">
+                                <span class="icon mr-2">
+                                    <img class="has-icon-muted" src="@/assets/images/checkmark.svg" />
+                                </span>
+                                <span>Create unlimited jobs</span>
+                            </p>
+                            <p class="icon-text has-text-grey-lighter">
+                                <span class="icon mr-2">
+                                    <img class="has-icon-muted" src="@/assets/images/checkmark.svg" />
+                                </span>
+                                <span>Schedule jobs</span>
+                            </p>
+                            <p class="icon-text has-text-grey-lighter">
+                                <span class="icon mr-2">
+                                    <img class="has-icon-muted" src="@/assets/images/checkmark.svg" />
+                                </span>
+                                <span>Launch jobs through the API</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-narrow">
+                    <div class="box content price-standard">
+                        <header>
+                            <h5>Standard</h5>
+                        </header>
+                        <p class="has-text-weight-bold is-align-items-center is-flex is-justify-content-center">
+                            <span class="pr-1">$</span>
+                            <span class="is-size-1">0.01</span>
+                            <span class="pt-5">/script</span>
+                        </p>
+                        <button class="button is-fullwidth is-info">Get Started</button>
+                        <div class="has-text-left my-5 is-flex is-flex-direction-column">
+                            <p class="icon-text is-flex is-align-items-center is-flex-wrap-nowrap">
+                                <span class="icon mr-2">
+                                    <img src="@/assets/images/checkmark.svg" />
+                                </span>
+                                <span>Run unlimited scripts from the web console</span>
+                            </p>
+                            <p class="icon-text">
+                                <span class="icon mr-2">
+                                    <img src="@/assets/images/checkmark.svg" />
+                                </span>
+                                <span>Create unlimited agents</span>
+                            </p>
+                            <p class="icon-text">
+                                <span class="icon mr-2">
+                                    <img src="@/assets/images/checkmark.svg" />
+                                </span>
+                                <span>Store unlimited scripts</span>
+                            </p>
+                            <p class="icon-text">
+                                <span class="icon mr-2">
+                                    <img src="@/assets/images/checkmark.svg" />
+                                </span>
+                                <span>Create unlimited jobs</span>
+                            </p>
+                            <p class="icon-text">
+                                <span class="icon mr-2">
+                                    <img src="@/assets/images/checkmark.svg" />
+                                </span>
+                                <span>Schedule jobs</span>
+                            </p>
+                            <p class="icon-text">
+                                <span class="icon mr-2">
+                                    <img src="@/assets/images/checkmark.svg" />
+                                </span>
+                                <span>Launch jobs through the API</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="section is-medium has-background-blue-light">
         <div class="container">
             <div class="box sign-up-box has-text-white p-6">
@@ -347,5 +460,14 @@ Because SaaSGlue works with anything you can augment your current solutions with
     .sign-up-box {
         background: linear-gradient(105deg, #2edaff, #0085ff);
         box-shadow: 0 79px 68px -47px RGB(0 0 0 / 43%);
+    }
+
+    .has-icon-muted {
+        filter: grayscale(1);
+        opacity: .3;
+    }
+
+    .price-standard {
+        border: 1px solid #3e8ed0;
     }
 </style>
