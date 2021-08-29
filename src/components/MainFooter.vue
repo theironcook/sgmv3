@@ -22,6 +22,7 @@
                     <p><a href="#">Docs</a></p>
                     <p><a href="#">Getting Started</a></p>
                     <p><a href="#">Tutorials</a></p>
+                    <p><a href="#">Use Cases</a></p>
                 </div>
                 <div class="column is-2 has-text-left">
                     <h5 class="is-uppercase has-text-weight-bold">Quick Links</h5>
