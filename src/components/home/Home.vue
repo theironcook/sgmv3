@@ -17,8 +17,8 @@
                 <transition name="fade-right" appear>
                     <div class="column has-text-right">
                         <figure>
-                            <div class="image is-16by9 has-background-placeholder">
-                                <iframe class="has-ratio intro-video" width="560" height="315" src="https://www.youtube.com/embed/b_7u17gZcX8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <div class="image is-16by9 has-background-placeholder has-border-radius-5">
+                                <iframe class="has-ratio has-border-radius-5" width="560" height="315" src="https://www.youtube.com/embed/b_7u17gZcX8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <figcaption class="has-text-centered">How SaasGlue can help you make insanely flexible data pipelines</figcaption>
                         </figure>
@@ -47,25 +47,25 @@
                 </div>
                 <div class="column">
                     <figure class="is-flex is-justify-content-center">
-                        <img src="@/assets/images/automation.svg" width="150"  />
+                        <img src="@/assets/images/automation.svg" width="150" />
                     </figure>
                 </div>
             </div>
             <div class="columns is-size-5 has-text-left">
                 <div class="column">
-                    <h2 class="title has-text-centered has-text-black">Integration</h2>
+                    <h2 class="title has-text-centered has-text-white">Integration</h2>
                     <p>Run code on any device in any network permitting outgoing HTTPS</p>
                     <p>Run scripts and compiled code in any language</p>
                     <p>Run Function-as-a-Service code in the cloud</p>
                 </div>
                 <div class="column">
-                    <h2 class="title has-text-centered has-text-black">Orchestration</h2>
+                    <h2 class="title has-text-centered has-text-white">Orchestration</h2>
                     <p>Create multi-step jobs with conditional path routing</p>
                     <p>Run jobs in multi-cloud and hybrid-cloud environments</p>
                     <p>Centrally monitor distributed jobs</p>
                 </div>
                 <div class="column">
-                    <h2 class="title has-text-centered has-text-black">Automation</h2>
+                    <h2 class="title has-text-centered has-text-white">Automation</h2>
                     <p>Start jobs from a schedule, with the API or from the web console</p>
                     <p>Pass variables between tasks in multi-language jobs</p>
                     <p>Import and centralize your cron jobs</p>
@@ -133,6 +133,36 @@ Because SaaSGlue works with anything you can augment your current solutions with
                     <figure class="image">
                         <img class="is-width-75" src="@/assets/images/innovation-twist.svg" alt="SaaSGlue workflow" />
                     </figure>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section has-background-blue-light">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <figure>
+                        <div class="image is-16by9">
+                            <iframe class="has-ratio has-border-radius-5" width="560" height="315" src="https://www.youtube.com/embed/Ti3bx2LwtnI?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </figure>
+                    <h3 class="has-text-centered is-size-4 mt-5">Creating Stateful Pipelines with SaaSGlue</h3>
+                </div>
+                <div class="column">
+                    <figure>
+                        <div class="image is-16by9">
+                            <iframe class="has-ratio has-border-radius-5" width="560" height="315" src="https://www.youtube.com/embed/cAwL_0yc-6g?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </figure>
+                    <h3 class="has-text-centered is-size-4 mt-5">Creating Dynamically Routing Data Pipelines with SaaSGlue</h3>
+                </div>
+                <div class="column">
+                    <figure>
+                        <div class="image is-16by9">
+                            <iframe class="has-ratio has-border-radius-5" width="560" height="315" src="https://www.youtube.com/embed/wMdOreB11oI?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </figure>
+                    <h3 class="has-text-centered is-size-4 mt-5">The Cloud based Data Engineering Platform</h3>
                 </div>
             </div>
         </div>
@@ -232,7 +262,7 @@ Because SaaSGlue works with anything you can augment your current solutions with
         <div class="container">
             <div class="columns">
                 <div class="column">
-                    <h2 class="title mb-6">Our Pricing</h2>
+                    <h2 class="title is-2 my-6">Our Pricing</h2>
                 </div>
             </div>
             <div class="columns is-centered is-variable is-8">
@@ -403,7 +433,7 @@ Because SaaSGlue works with anything you can augment your current solutions with
         line-height: 26px;
     }
 
-    .intro-video {
+    .has-border-radius-5 {
         border-radius: 5px;
     }
 

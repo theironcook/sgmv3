@@ -11,6 +11,7 @@
                     <a href="#" class="navbar-item">Getting started</a>
                     <a href="#" class="navbar-item">Tutorials</a>
                     <a href="#" class="navbar-item">Use Cases</a>
+                    <a href="#" class="navbar-item">Pricing</a>
                     <a href="#" class="navbar-item">SG News</a>
                     <a href="#" class="navbar-item">Docs</a>
                 </div>

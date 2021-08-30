@@ -21,6 +21,7 @@ module.exports = {
         semi: ['warn', 'always'],
         'vue/script-indent': ['warn', 4, { baseIndent: 1 }],
         '@typescript-eslint/no-inferrable-types': 'off',
+        'no-multiple-empty-lines': 'warn',
     },
     overrides: [{
         files: ['*.vue'],
