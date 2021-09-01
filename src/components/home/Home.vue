@@ -396,6 +396,32 @@ Because SaaSGlue works with anything you can augment your current solutions with
         </div>
     </section>
     <main-footer />
+
+    <br><br><br><br><br><br><br><br><br><br>
+    <section class="section" style="padding-left: 0px; padding-right: 0px;">
+        <div class="container" style="display: flex;">
+            <div>
+                <img src="@/assets/images/login1.svg" class="super-awesome-button" />
+                <div class="super-awesome-text">Login</div>
+            </div>
+            <div>
+                <img src="@/assets/images/solutions1.svg" class="super-awesome-button" />
+                <div class="super-awesome-text">Solutions</div>
+            </div>
+            <div>
+                <img src="@/assets/images/tutorials1.svg" class="super-awesome-button" />
+                <div class="super-awesome-text">Tutorials</div>
+            </div>
+            <div>
+                <img src="@/assets/images/news1.svg" class="super-awesome-button" />
+                <div class="super-awesome-text">News</div>
+            </div>
+            <div>
+                <img src="@/assets/images/docs1.svg" class="super-awesome-button" />
+                <div class="super-awesome-text">Docs</div>
+            </div>
+        </div>
+    </section>
 </template>
 
 <script lang="ts">
@@ -501,4 +527,32 @@ Because SaaSGlue works with anything you can augment your current solutions with
     .has-border-success {
         border: 1px solid #48c78e;
     }
+
+    .super-awesome-button {
+        width: 70px;
+        margin-left: 10px;
+        // border-width: 1px;
+        // border-style: solid;
+        // border-radius: 5px;
+        padding: 3px;
+    }
+
+    .super-awesome-text {
+        //text-transform: uppercase;
+        font-weight: 700;
+        text-align: center;
+        margin-left: 10px;
+        margin-top: -10px;
+        padding-top: 0px;
+        font-size: 14px;
+    }
+    // 00BFFF deep sky blue
+
+    // CCE8F3 medium blue
+
+    // #EDFAFF page light blue
+
+    // 8D8D8D .5 (border color)
+    // ABA5A5 lighter border color
+    // D9D1D1    (inner whitish color)
 </style>
