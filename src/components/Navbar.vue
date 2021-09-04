@@ -12,7 +12,7 @@
                     <a href="#" class="navbar-item">Tutorials</a>
                     <a href="#" class="navbar-item">Solutions</a>
                     <a href="#" class="navbar-item">Pricing</a>
-                    <a href="#" class="navbar-item">SG News</a>
+                    <a href="#" class="navbar-item">News</a>
                     <a href="#" class="navbar-item">Docs</a>
                 </div>
                 <div class="navbar-end">

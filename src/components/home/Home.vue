@@ -396,32 +396,6 @@ Because SaaSGlue works with anything you can augment your current solutions with
         </div>
     </section>
     <main-footer />
-
-    <br><br><br><br><br><br><br><br><br><br>
-    <section class="section" style="padding-left: 0px; padding-right: 0px;">
-        <div class="container" style="display: flex;">
-            <div>
-                <img src="@/assets/images/login1.svg" class="super-awesome-button" />
-                <div class="super-awesome-text">Login</div>
-            </div>
-            <div>
-                <img src="@/assets/images/solutions1.svg" class="super-awesome-button" />
-                <div class="super-awesome-text">Solutions</div>
-            </div>
-            <div>
-                <img src="@/assets/images/tutorials1.svg" class="super-awesome-button" />
-                <div class="super-awesome-text">Tutorials</div>
-            </div>
-            <div>
-                <img src="@/assets/images/news1.svg" class="super-awesome-button" />
-                <div class="super-awesome-text">News</div>
-            </div>
-            <div>
-                <img src="@/assets/images/docs1.svg" class="super-awesome-button" />
-                <div class="super-awesome-text">Docs</div>
-            </div>
-        </div>
-    </section>
 </template>
 
 <script lang="ts">
