@@ -61,6 +61,7 @@
         position: sticky;
         top: 0;
         transition: box-shadow .3s linear;
+        background-color: inherit;
     }
 
     .navbar-start {
