@@ -1,18 +1,19 @@
 <template>
     <navbar />
     <router-view />
+    <main-footer />
 </template>
 
 <script lang="ts">
-    import { Options, Vue } from 'vue-class-component';
+    import { defineComponent } from 'vue';
+
+    import MainFooter from '@/components/MainFooter.vue';
     import Navbar from '@/components/Navbar.vue';
 
-    @Options({
-        components: { Navbar }
-    })
-    export default class App extends Vue {
-
-    }
+    export default defineComponent({
+        name: 'App',
+        components: { Navbar, MainFooter }
+    });
 </script>
 
 <style lang="scss">
@@ -20,7 +21,6 @@
         font-family: 'Quicksand', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        text-align: center;
         color: #2c3e50;
         background-color: #EDFAFF;
     }

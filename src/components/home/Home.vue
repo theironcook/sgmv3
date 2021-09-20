@@ -384,16 +384,13 @@ Because SaaSGlue works with anything you can augment your current solutions with
             </div>
         </div>
     </section>
-    <main-footer />
 </template>
 
 <script lang="ts">
     import { defineComponent } from 'vue';
-    import MainFooter from '@/components/MainFooter.vue';
 
     export default defineComponent({
-        name: 'Home',
-        components: { MainFooter }
+        name: 'Home'
     });
 </script>
 

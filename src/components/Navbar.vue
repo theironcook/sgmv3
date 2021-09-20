@@ -13,7 +13,7 @@
                     <a href="#" class="navbar-item">Solutions</a>
                     <a href="#" class="navbar-item">Pricing</a>
                     <a href="#" class="navbar-item">News</a>
-                    <a href="#" class="navbar-item">Docs</a>
+                    <router-link to="/docs" class="navbar-item">Docs</router-link>
                 </div>
                 <div class="navbar-end">
                     <div class="navbar-item">

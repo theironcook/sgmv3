@@ -22,6 +22,8 @@ module.exports = {
         'vue/script-indent': ['warn', 4, { baseIndent: 1 }],
         '@typescript-eslint/no-inferrable-types': 'off',
         'no-multiple-empty-lines': 'warn',
+        'no-trailing-spaces': 'warn',
+        'comma-dangle': 'warn',
     },
     overrides: [{
         files: ['*.vue'],
