@@ -61,7 +61,8 @@
 <style scoped lang="scss">
     .menu {
         height: calc(100vh - 7.5rem);
+        top: 7.5rem;
         overflow: auto;
-        position: fixed;
+        position: sticky;
     }
 </style>

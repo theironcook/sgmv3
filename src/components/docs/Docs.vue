@@ -490,1050 +490,676 @@
                             SaaSGlue team.
                     </p>
 
-                    <div>
+                    <h2 class="subtitle">Runtime Variables</h2>
+                    <p>Runtime Variables are key-value
+                            pairs. They provide a mechanism for
+                            dynamically injecting variable
+                            values in Script code, Arguments and
+                            Environment Variables of a Task Step
+                            when it is executed by a SaaSGlue
+                            Agent. Runtime variables can be
+                            defined at design time on the Team
+                            level and in JobDefs, and when a Job
+                            is created and they can also be
+                            generated dynamically during Script
+                            execution.
+                    </p>
+                    <h3>How to define</h3>
+                    <h4>Team scoped runtime variables</h4>
+                    <p>Runtime Variables can be defined on
+                            the Team level using the SaaSGlue
+                            cloud interface or the SaaSGlue
+                            API.
+                    </p>
+                    <h4>JobDef scoped runtimes variables</h4>
+                    <p>Runtime Variables can be defined in
+                            JobDefs using the saas glue cloud
+                            interface or the SaaSGlue API.
+                    </p>
+                    <h4>Job scoped runtime variables</h4>
+                    <p>Runtime Variables can be defined in
+                            a Job when the Job is created. When
+                            a Job is created using the SaaSGlue
+                            API the runtime variables can be
+                            included in the Http POST request.
+                            When a Job is created from a JobDef
+                            in the SaaSGlue cloud UI the runtime
+                            variables can be entered in the Job
+                            creation dialog.
+                    </p>
+                    <h4>Dynamically generated runtime variables</h4>
+                    <p>Runtime Variables can be generated
+                            dynamically during Script execution
+                            by printing a properly formatted
+                            string to stdout. The format is
+                            <code>“@sgo{“[variable name]”: “[variable value]”}”.</code>
+                    </p>
+                    <p>For example, the following line of
+                            python script code would dynamically
+                            create or modify a runtime variable
+                            with name “myKey” and value
+                            “myValue” when executed by a
+                            SaaSGlue Agent: <code>print ‘@sgg{“myKey”: “myValue”}’</code>
+                    </p>
+                    <p>The “myKey” runtime variable would
+                            now be defined as “myValue” for
+                            subsequent Steps in the Task being
+                            executed and for subsequent Tasks in
+                            the Job workflow.
+                    </p>
+                    <p>SaaSGlue reserves the key word
+                            “route” to determine route-based
+                            pathing between Tasks in a Job
+                            workflow. So the following output
+                            <code>“@sgg{“route”: “ok”}”</code> would not
+                            create a runtime variable named
+                            “route”. Instead it would be used
+                            for routing from the executing Task
+                            in the Job workflow.
+                    </p>
+                    <p>If a runtime variable is defined on
+                            multiple levels, each successively
+                            granular level overrides the
+                            previous. For example, if we have a
+                            variable named “key” defined on the
+                            Team level with a value of
+                            “team_value” and in a JobDef with a
+                            value of “jobdef_value”, the JobDef
+                            value will override the Team value.
+                            If the variable is defined in a Job
+                            created from the JobDef with a value
+                            of “job_value”, the Job value will
+                            override the JobDef value. If within
+                            that Job a Script runs which prints
+                            the following string to stdout
+                            <code>“sgo{“key”: “script_value”}”</code>, the
+                            Script value will override the Job
+                            value and any subsequent reference
+                            to “key” will have the value
+                            “script_value”. A subsequent Script
+                            could override the value
+                            again.
+                    </p>
+                    <h3>How to use</h3>
+                    <p>Runtime Variables values can be
+                            dynamically injected into the Script
+                            code, Arguments and Environment
+                            Variables of a Step. Immediately
+                            before running a Task Step, the
+                            Agent will search the Step Script
+                            code Arguments for strings following
+                            the pattern <code>“sgg(“[key]”)”</code> and will
+                            replace them with the current value
+                            of the runtime variable with the
+                            name “[key]”. If no runtime variable
+                            with the name “[key]” exists, “null”
+                            will be injected instead.
+                    </p>
+                    <h4>Step Script code runtime variable injection</h4>
+                    <p>For example, if we have a python
+                            script with the following line of
+                            code:
+                    </p>
+                    <p>
+                        <code>print(‘the value of “myKey” is “@sgg(“myKey”)”‘</code>
+                    </p>
+                    <p>and a runtime variable “myKey” with
+                            value “myValue”, the script will
+                            produce the following output:
+                    </p>
+                    <p>
+                        <code>the value of “myKey” is “myValue”</code>
+                    </p>
+                    <h4>Step Arguments runtime variable injection</h4>
+                    <p>If we have a Step Argument with
+                            value <code>“@sgg(“myKey”) -out myFile.txt”</code>
+                            , and the runtime value
+                            of “myKey” is “myValue” the Script
+                            code for the Step will be called
+                            with arguments
+                            <code>“myValue -out myFile.txt”</code>.
+                    </p>
+                    <h4>Step Environment Variables runtime variable injection</h4>
+                    <p>Runtime Variable injection for Step
+                            Environment Variables works slightly
+                            differently. Step Environment
+                            Variable keys are compared to the
+                            current runtime variables for
+                            matching keys. If a match is found,
+                            the runtime variable value will be
+                            used for the environment variable
+                            value when running the Script.
+                    </p>
+                    <p>For example, if we have a Step
+                            Environment Variable <code>“myKey”</code> and a
+                            runtime variable <code>“myKey”</code> with value
+                            <code>“myValue”</code>, then the runtime script
+                            execution environment will have an
+                            environment variable
+                            <code>“myKey=myValue”</code>.
+                    </p>
+                    <h4>Design time configuration</h4>
+                    <p>A StepDef can be configured so that
+                            Steps created from the StepDef
+                            utilize runtime variables in
+                            arguments and/or environment
+                            variables using the SaaSGlue API or
+                            the SaaSGlue cloud interface.
+                    </p>
+                    <p>Runtime variable injection can also
+                            be utilized when running Scripts
+                            using the SaaSGlue cloud interface
+                            Console.
+                    </p>
+                    <h4>Dynamically select Task target agent id</h4>
+                    <p>Runtime variables can be used to
+                            dynamically determine the target
+                            agent for Tasks that target a single
+                            specific agent at runtime. For
+                            example, if you have a runtime
+                            variable named “agentId” and the
+                            value is an actual agent id, and the
+                            Task target agent id is
+                            <code>“@sgg(“agentId”)”</code>, the task with the
+                            id matching the runtime variable
+                            value will be used to run the
+                            Task.
+                    </p>
+                    <h4>Save state with runtime variables</h4>
+                    <p>As Scripts are executing the
+                            corresponding stdout is monitored in
+                            real-time and searched for strings
+                            following the @sgo runtime variable
+                            generation pattern. When runtime
+                            variables are created/modified, the
+                            new values are sent to the SaaSGlue
+                            cloud. If a Task fails and is
+                            restarted, the most recent runtime
+                            variable values will be delivered
+                            with the Task to the Agent where the
+                            Task resumes execution.
+                            Consequently, Scripts can be
+                            designed to utilize the most recent
+                            value of the runtime variable.
+                    </p>
+                    <p>For example, if a Script is
+                            designed to iterate through records
+                            in a file, the line number could be
+                            printed to stdout with a string like
+                            <code>“@sgo{“line_num”: “10”}”</code> which would
+                            send the runtime variable <code>“line_num”</code>
+                            with a value of <code>“10”</code> to the SaaSGlue
+                            cloud. If the Task failed on line
+                            “11” and the Task is restarted, the
+                            Script could resume processing the
+                            file on the line after
+                            <code>“@sgg(“line_num”)”</code> which would now
+                            have a value of <code>“10”</code>.
+                    </p>
+                    <p>This behavior does not apply to
+                            Tasks that target multiple
+                            agents.
+                    </p>
+                    <h2 class="subtitle">Job Schedule</h2>
+                    <p>Schedules can be created for Job
+                            Definitions (JobDefs) to
+                            automatically trigger Jobs to run. A
+                            JobDef can have more than one
+                            Schedule but a Schedule can be
+                            linked to only one JobDef.
+                    </p>
+                    <p>There are three types of schedules.</p>
+                    <ul>
+                        <li>Date</li>
+                        <li>Cron</li>
+                        <li>Interval</li>
+                    </ul>
+                    <h3>RunDate</h3>
+                    <p>Date is the simplest schedule. It
+                            stores a single date and time for
+                            when the job will be triggered to
+                            run.
+                    </p>
+                    <h3>Cron</h3>
+                    <p>Cron resembles the “Cron” utility found
+                            in most UNIX-like operating systems.
+                            The following fields are available
+                            to define a cron schedule.
+                    </p>
+                    <ul>
+                        <li><strong>Year</strong> 4-digit year</li>
+                        <li><strong>Month</strong> 1-12</li>
+                        <li><strong>Day</strong> day of the month (1-31)</li>
+                        <li><strong>Week</strong> ISO week (1-53)</li>
+                        <li><strong>Day of Week</strong>
+                            number or name of day (0-6 or mon, tue, wed, thu, fri, sat, sun)</li>
+                        <li><strong>Hour</strong> 0-23</li>
+                        <li><strong>Minute</strong> 0-59</li>
+                        <li><strong>Second</strong> 0-59</li>
+                        <li><strong>Start Date</strong> earliest possible date/time to trigger the job</li>
+                        <li><strong>End Date</strong> latest possible date/time to trigger the job</li>
+                        <li><strong>Jitter</strong> advance or delay the job execution by jitter seconds</li>
+                    </ul>
+                    <p>A cron schedule will trigger when
+                            current time matches all specified
+                            time constraints. Unlike with
+                            crontab expressions, you can omit
+                            fields that you don’t need.
+                    </p>
+                    <h3>Interval</h3>
+                    <p>Interval specifies a set amount of
+                            time that must lapse before a job
+                            will be triggered. The following fields are available
+                            to define an interval schedule.
+                    </p>
+                    <ul>
+                        <li><strong>Weeks</strong> integer for the total number of weeks</li>
+                        <li><strong>Days</strong> integer for the total number of days</li>
+                        <li><strong>Hours </strong> integer for the total number of hours</li>
+                        <li><strong>Seconds</strong> integer for the total number of seconds</li>
+                        <li><strong>Start Date</strong> earliest possible date/time to trigger the job</li>
+                        <li><strong>End Date</strong> latest possible date/time to trigger the job</li>
+                        <li><strong>Jitter</strong> advance or delay the job execution by jitter seconds</li>
+                    </ul>
+                    <p>An interval schedule will trigger a
+                            job when the time interval has been
+                            reached from the previous trigger
+                            time.
+                    </p>
+                    <p>The “Is Active” box must be checked
+                            to activate the schedule.
+                    </p>
+                    <p>The designer can give the schedule
+                            a name to make it more convenient to
+                            work with. The designer displays the
+                            last run date and the next run date
+                            for active schedules.
+                    </p>
+
+                    <h2 class="subtitle">Service Tasks</h2>
+                    <p>Have you written “services” for
+                            Windows? Linux? Mac? Then you know
+                            that it can be difficult and that
+                            the process works differently in
+                            each environment. Occasionally
+                            work-arounds are implemented for
+                            actual services such as cron or the
+                            Windows Task Scheduler. If the
+                            machine running the service shuts
+                            down, the service is stopped.
+                    </p>
+                    <p>SaaSGlue makes it easy to create a
+                            service and deploy it to any
+                            operating system. To run a task as a
+                            service, simply set the
+                            “autoRestart” property of the task
+                            to “true” if using the SaaSGlue API.
+                            If using the SaaSGlue cloud UI, in
+                            the Job Designer -&gt; Task editor
+                            view, check the “Auto restart”
+                            checkbox. The task can target “any
+                            qualified agent” or a specific
+                            agent. If the agent running an
+                            autoRestart task is stopped or is
+                            inactive for more than 65 seconds,
+                            the task will automatically be
+                            restarted on another qualified
+                            agent. If no qualified agent is
+                            available, the task status will be
+                            set to “Failed”. The containing job
+                            can be configured to send a
+                            notification if this occurs. If an
+                            agent running an autoRestart task
+                            goes offline and then comes back
+                            online and the task is still running
+                            on that agent and has also been
+                            restarted on a new agent, the
+                            instance on the agent that went
+                            offline will be canceled.
+                    </p>
+                    <p>Auto restart tasks can have
+                            multiple steps. The script for the
+                            last step in the task should be
+                            coded so that it will not exit
+                            unless and until you want the
+                            service to be stopped. Auto restart
+                            tasks that exit normally or crash
+                            are not restarted automatically.
+                            However, if an auto restart task is
+                            interrupted by <code>CTRL + C</code> or a
+                            <code>SIGTERM/SIGKILL</code> signal it will be
+                            automatically restarted.
+                            Consequently if the machine running
+                            an auto restart task is shut down,
+                            the task will be automatically
+                            restarted.
+                    </p>
+
+                    <h2 class="subtitle">Endpoint / Object Reference</h2>
+                    <h2 class="subtitle">Agent</h2>
+                    <p>The SaaSGlue Agent is the vehicle
+                            for executing Scripts received from
+                            the SaaSGlue cloud. The Agent can be
+                            installed on any supported operating
+                            system. When an Agent starts up it
+                            reports to the SaaSGlue cloud which
+                            tracks information about the Agent
+                            including the attributes described
+                            below. A few of the attributes can
+                            be modified by users.
+                    </p>
+                    <h3>Reference</h3>
+                    <table class="table is-striped is-hoverable is-bordered">
+                        <thead>
+                            <tr>
+                                <th>Attribute</th>
+                                <th>GET</th>
+                                <th>PUT</th>
+                                <th>Post (required)</th>
+                                <th>Post (optional)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <code>id</code>
+                                </td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>_teamId</code>
+                                </td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>machineId</code>
+                                </td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>ipAddress</code>
+                                </td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>createDate</code>
+                                </td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>name</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>tags</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>numActiveTasks</code>
+                                </td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>lastHeartbeatTime</code>
+                                </td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>offline</code>
+                                </td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>sysInfo</code>
+                                </td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>cron</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>propertyOverrides</code>
+                                </td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Attribute Descriptions</h3>
+                    <h4><code>id</code></h4>
+                    <p>SaaSGlue automatically
+                                    assigns an Agent ID when a
+                                    new agent is installed and
+                                    calls back to the SaaSGlue
+                                    cloud. Users can discover
+                                    the ID in the Agent Monitor
+                                    or through the API. Tasks
+                                    can be routed to a specific
+                                    machine using the Agent ID.</p>
+
+                    <h4><code>_teamId</code></h4>
+                    <p>The ID of the Org object where the TaskDef is.</p>
+
+                    <h4><code>machineId</code></h4>
+                    <p>The hostname of the physical
+                                    or virtual machine or
+                                    container where the Agent is
+                                    running.</p>
+                    <p>Every machine connected to a
+                                    SaaSGlue account must have a
+                                    host name that is unique to
+                                    the Org. The machineId will
+                                    be reported in every Agent
+                                    heartbeat. If the hostname
+                                    changes then the Agent will
+                                    be assigned a new ID.</p>
+
+                    <h4><code>ipAddress</code></h4>
+                    <p>The ipAddress attribute
+                                    stores the IP Address of the
+                                    machine where the Agent is
+                                    installed.</p>
+                    <p>The IP Address will be
+                                    reported with each
+                                    heartbeat. If the IP address
+                                    of the machine is changed
+                                    the ipAddress attribute will
+                                    be updated but the Agent
+                                    will not be assigned a new
+                                    ID.</p>
+
+                    <h4><code>createDate</code></h4>
+                    <p>The date and time an Agent first runs on a machine.</p>
+
+                    <h4><code>name</code></h4>
+                    <p>The name attribute defaults
+                                    to the machineId (hostname).
+                                    However, it can be modified
+                                    to create a user-defined
+                                    name.</p>
+
+                    <h4><code>tags</code></h4>
+                    <p>Tags assigned to an Agent.
+                                    Up to ten tags can be
+                                    assigned to an Agent.</p>
+                    <p>Tags are user defined. They
+                                    are used in the Job Designer
+                                    and Console for Task
+                                    routing.</p>
+
+                    <h4><code>numActiveTasks</code></h4>
+                    <p>The number of Tasks
+                                    currently being executed by
+                                    this Agent.</p>
+
+                    <h4><code>lastHeartbeatTime</code></h4>
+                    <p>The last date and time
+                                    SaaSGlue received a
+                                    heartbeat from the Agent.</p>
+
+                    <h4><code>offline</code></h4>
+                    <p>If SaaSGlue has not received
+                                    a heartbeat from an Agent
+                                    for more than 5 minutes the
+                                    offline attribute is set to
+                                    "true". If the Agent begins
+                                    sending a heartbeat again
+                                    the offline attribute will
+                                    be reset to “false”.</p>
+
+                    <h4><code>sysInfo</code></h4>
+                    <p>System information
+                                    pertaining to the machine
+                                    where the Agent is
+                                    installed. The following
+                                    information (if available)
+                                    will be reported.</p>
+                    <p>
+                        Top 10 running processes (ordered by CPU usage):
+                        <ul>
+                            <li>Installed OS details</li>
+                            <li>System date/time</li>
+                            <li>CPU current speed</li>
+                            <li>CPU temperature</li>
+                            <li>Current load information</li>
+                            <li>File system information</li>
+                            <li>File system performance statistics</li>
+                            <li>Installed user accounts</li>
+                            <li>Memory capacity/usage information</li>
+                            <li>Battery capacity/usage information</li>
+                            <li>Network connections</li>
+                            <li>Current internet latency</li>
+                            <li>Network statistics</li>
+                            <li>Disks IO</li>
+                        </ul>
+                    </p>
+                    <p>The Agent will report system
+                                    information when it is first
+                                    installed. It can be
+                                    configured to report updated
+                                    information with each
+                                    heartbeat.</p>
+
+                    <h4><code>cron</code></h4>
+                    <p>Cron jobs that reside on the
+                                    machine where the Agent is
+                                    installed. These jobs can be
+                                    uploaded to SaaSGlue where
+                                    they can be centrally
+                                    managed and orchestrated.</p>
+
+                    <h4><code>propertyOverrides</code></h4>
+                    <p>Agent settings that can be
+                                    overridden by users
+                                    including the following:</p>
+                    <ul>
+                        <li><code>maxActiveTasks</code> limits the
+                                    number of tasks an Agent can
+                                    run in parallel. If more
+                                    than <code>maxActiveTasks</code> are
+                                    routed to an Agent, Tasks in
+                                    excess of <code>maxActiveTasks</code>
+                                    will be queued until running
+                                    Tasks are completed. If a
+                                    Task is queued for more than
+                                    the Task TTL, the Task will
+                                    be routed as “failed”.</li>
+                        <li><code>inactivePeriodWaitTime</code> sets
+                                    the max amount of time an
+                                    Agent will remain idle
+                                    before it runs a specified
+                                    Task. This is useful for
+                                    some Tasks, such as shutting
+                                    down an idle EC2
+                                    instance.</li>
+                        <li><code>inactiveAgentTask</code> is the
+                                    Task that will be run if and
+                                    when the <code>inactivePeriodWait</code>
+                                    time is exceeded. The Task
+                                    must be JSON formatted and
+                                    adhere to the Task
+                                    specification.</li>
+                        <li><code>handleGeneralTasks</code> can
+                                    exclude an Agent from
+                                    running Tasks that are
+                                    marked as "run on any
+                                    machine" or "run on all
+                                    machines" if this attribute
+                                    is set to “false”.</li>
+                        <li><code>trackSysInfo</code> reports updated
+                                    system information to the
+                                    SaaSGlue cloud with each
+                                    heartbeat.</li>
+                    </ul>
+
+
+
+                    <!-- <div>
                         <div>
                             <div>
-                                <h2>
-                                    <span>2.8.</span
-                                    >Runtime Variables
-                                </h2>
                                 <div>
-                                    <p>
-                                        <span
-                                            >Runtime Variables are key-value
-                                            pairs. They provide a mechanism for
-                                            dynamically injecting variable
-                                            values in Script code, Arguments and
-                                            Environment Variables of a Task Step
-                                            when it is executed by a SaaSGlue
-                                            Agent. Runtime variables can be
-                                            defined at design time on the Team
-                                            level and in JobDefs, and when a Job
-                                            is created and they can also be
-                                            generated dynamically during Script
-                                            execution.</span
-                                        >
-                                    </p>
-                                    <p></p>
-                                    <h2>
-                                        <span>How to define</span>
-                                    </h2>
-                                    <h3>
-                                        <span
-                                            >Team scoped runtime variables</span
-                                        >
-                                    </h3>
-                                    <p>
-                                        <span
-                                            >Runtime Variables can be defined on
-                                            the Team level using the SaaSGlue
-                                            cloud interface or the SaaSGlue
-                                            API.</span
-                                        >
-                                    </p>
-                                    <p></p>
-                                    <h3>
-                                        <span
-                                            >JobDef scoped runtime
-                                            variables</span
-                                        >
-                                    </h3>
-                                    <p>
-                                        <span
-                                            >Runtime Variables can be defined in
-                                            JobDefs using the saas glue cloud
-                                            interface or the SaaSGlue API.</span
-                                        >
-                                    </p>
-                                    <p></p>
-                                    <h3>
-                                        <span
-                                            >Job scoped runtime variables</span
-                                        >
-                                    </h3>
-                                    <p>
-                                        <span
-                                            >Runtime Variables can be defined in
-                                            a Job when the Job is created. When
-                                            a Job is created using the SaaSGlue
-                                            API the runtime variables can be
-                                            included in the Http POST request.
-                                            When a Job is created from a JobDef
-                                            in the SaaSGlue cloud UI the runtime
-                                            variables can be entered in the Job
-                                            creation dialog.</span
-                                        >
-                                    </p>
-                                    <p></p>
-                                    <h3>
-                                        <span
-                                            >Dynamically generated runtime
-                                            variables</span
-                                        >
-                                    </h3>
-                                    <p>
-                                        <span
-                                            >Runtime Variables can be generated
-                                            dynamically during Script execution
-                                            by printing a properly formatted
-                                            string to stdout. The format is
-                                            “@sgo{“[variable name]”: “[variable
-                                            value]”}”.</span
-                                        >
-                                    </p>
-                                    <p>
-                                        <span
-                                            >For example, the following line of
-                                            python script code would dynamically
-                                            create or modify a runtime variable
-                                            with name “myKey” and value
-                                            “myValue” when executed by a
-                                            SaaSGlue Agent:</span
-                                        >
-                                    </p>
-                                    <p>
-                                        <span
-                                            >print ‘@sgg{“myKey”:
-                                            “myValue”}’</span
-                                        >
-                                    </p>
-                                    <p>
-                                        <span
-                                            >The “myKey” runtime variable would
-                                            now be defined as “myValue” for
-                                            subsequent Steps in the Task being
-                                            executed and for subsequent Tasks in
-                                            the Job workflow.</span
-                                        >
-                                    </p>
-                                    <p>
-                                        <span
-                                            >SaaSGlue reserves the key word
-                                            “route” to determine route-based
-                                            pathing between Tasks in a Job
-                                            workflow. So the following output
-                                            “@sgg{“route”: “ok”}” would not
-                                            create a runtime variable named
-                                            “route”. Instead it would be used
-                                            for routing from the executing Task
-                                            in the Job workflow.</span
-                                        >
-                                    </p>
-                                    <p>
-                                        <span
-                                            >If a runtime variable is defined on
-                                            multiple levels, each successively
-                                            granular level overrides the
-                                            previous. For example, if we have a
-                                            variable named “key” defined on the
-                                            Team level with a value of
-                                            “team_value” and in a JobDef with a
-                                            value of “jobdef_value”, the JobDef
-                                            value will override the Team value.
-                                            If the variable is defined in a Job
-                                            created from the JobDef with a value
-                                            of “job_value”, the Job value will
-                                            override the JobDef value. If within
-                                            that Job a Script runs which prints
-                                            the following string to stdout
-                                            “sgo{“key”: “script_value”}”, the
-                                            Script value will override the Job
-                                            value and any subsequent reference
-                                            to “key” will have the value
-                                            “script_value”. A subsequent Script
-                                            could override the value
-                                            again.</span
-                                        >
-                                    </p>
-                                    <p></p>
-                                    <h2>How to use</h2>
-                                    <p>
-                                        <span
-                                            >Runtime Variables values can be
-                                            dynamically injected into the Script
-                                            code, Arguments and Environment
-                                            Variables of a Step. Immediately
-                                            before running a Task Step, the
-                                            Agent will search the Step Script
-                                            code Arguments for strings following
-                                            the pattern “sgg(“[key]”)” and will
-                                            replace them with the current value
-                                            of the runtime variable with the
-                                            name “[key]”. If no runtime variable
-                                            with the name “[key]” exists, “null”
-                                            will be injected instead.</span
-                                        >
-                                    </p>
-                                    <p></p>
-                                    <h3>
-                                        <span
-                                            >Step Script code runtime variable
-                                            injection</span
-                                        >
-                                    </h3>
-                                    <p>
-                                        <span
-                                            >For example, if we have a python
-                                            script with the following line of
-                                            code:</span
-                                        >
-                                    </p>
-                                    <p>
-                                        <span
-                                            >print(‘the value of “myKey” is
-                                            “@sgg(“myKey”)”‘
-                                        </span>
-                                    </p>
-                                    <p>
-                                        <span
-                                            >and a runtime variable “myKey” with
-                                            value “myValue”, the script will
-                                            produce the following output:</span
-                                        >
-                                    </p>
-                                    <p>
-                                        <span
-                                            >the value of “myKey” is
-                                            “myValue”</span
-                                        >
-                                    </p>
-                                    <p></p>
-                                    <h3>
-                                        <span
-                                            >Step Arguments runtime variable
-                                            injection</span
-                                        >
-                                    </h3>
-                                    <p>
-                                        <span
-                                            >If we have a Step Argument with
-                                            value “@sgg(“myKey”) -out
-                                            myFile.txt”, and the runtime value
-                                            of “myKey” is “myValue” the Script
-                                            code for the Step will be called
-                                            with arguments “myValue -out
-                                            myFile.txt”.</span
-                                        >
-                                    </p>
-                                    <p></p>
-                                    <h3>
-                                        <span
-                                            >Step Environment Variables runtime
-                                            variable injection</span
-                                        >
-                                    </h3>
-                                    <p>
-                                        <span
-                                            >Runtime Variable injection for Step
-                                            Environment Variables works slightly
-                                            differently. Step Environment
-                                            Variable keys are compared to the
-                                            current runtime variables for
-                                            matching keys. If a match is found,
-                                            the runtime variable value will be
-                                            used for the environment variable
-                                            value when running the Script.</span
-                                        >
-                                    </p>
-                                    <p>
-                                        <span
-                                            >For example, if we have a Step
-                                            Environment Variable “myKey=”and a
-                                            runtime variable “myKey” with value
-                                            “myValue”, then the runtime script
-                                            execution environment will have an
-                                            environment variable
-                                            “myKey=myValue”.</span
-                                        >
-                                    </p>
-                                    <p></p>
-                                    <h3>
-                                        <span>Design time configuration</span>
-                                    </h3>
-                                    <p>
-                                        <span
-                                            >A StepDef can be configured so that
-                                            Steps created from the StepDef
-                                            utilize runtime variables in
-                                            arguments and/or environment
-                                            variables using the SaaSGlue API or
-                                            the SaaSGlue cloud interface.</span
-                                        >
-                                    </p>
-                                    <p>
-                                        <span
-                                            >Runtime variable injection can also
-                                            be utilized when running Scripts
-                                            using the SaaSGlue cloud interface
-                                            Console.</span
-                                        >
-                                    </p>
-                                    <p></p>
-                                    <h3>
-                                        <span
-                                            >Dynamically select Task target
-                                            agent id</span
-                                        >
-                                    </h3>
-                                    <p>
-                                        <span
-                                            >Runtime variables can be used to
-                                            dynamically determine the target
-                                            agent for Tasks that target a single
-                                            specific agent at runtime. For
-                                            example, if you have a runtime
-                                            variable named “agentId” and the
-                                            value is an actual agent id, and the
-                                            Task target agent id is
-                                            “@sgg(“agentId”)”, the task with the
-                                            id matching the runtime variable
-                                            value will be used to run the
-                                            Task.</span
-                                        >
-                                    </p>
-                                    <p></p>
-                                    <h3>
-                                        <span
-                                            >Save state with runtime
-                                            variables</span
-                                        >
-                                    </h3>
-                                    <p>
-                                        <span
-                                            >As Scripts are executing the
-                                            corresponding stdout is monitored in
-                                            real-time and searched for strings
-                                            following the @sgo runtime variable
-                                            generation pattern. When runtime
-                                            variables are created/modified, the
-                                            new values are sent to the SaaSGlue
-                                            cloud. If a Task fails and is
-                                            restarted, the most recent runtime
-                                            variable values will be delivered
-                                            with the Task to the Agent where the
-                                            Task resumes execution.
-                                            Consequently, Scripts can be
-                                            designed to utilize the most recent
-                                            value of the runtime variable.
-                                        </span>
-                                    </p>
-                                    <p>
-                                        <span
-                                            >For example, if a Script is
-                                            designed to iterate through records
-                                            in a file, the line number could be
-                                            printed to stdout with a string like
-                                            “@sgo{“line_num”: “10”}” which would
-                                            send the runtime variable “line_num”
-                                            with a value of “10” to the SaaSGlue
-                                            cloud. If the Task failed on line
-                                            “11” and the Task is restarted, the
-                                            Script could resume processing the
-                                            file on the line after
-                                            “@sgg(“line_num”)” which would now
-                                            have a value of “10”.
-                                        </span>
-                                    </p>
-                                    <p>
-                                        <span
-                                            >This behavior does not apply to
-                                            Tasks that target multiple
-                                            agents.</span
-                                        >
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <h2>
-                                    <span>2.9.</span>Job
-                                    Schedule
-                                </h2>
-                                <div>
-                                    <p>
-                                        <span
-                                            >Schedules can be created for Job
-                                            Definitions (JobDefs) to
-                                            automatically trigger Jobs to run. A
-                                            JobDef can have more than one
-                                            Schedule but a Schedule can be
-                                            linked to only one JobDef.</span
-                                        >
-                                    </p>
-                                    <p>
-                                        <span
-                                            >There are three types of
-                                            schedules.</span
-                                        >
-                                    </p>
-                                    <ul>
-                                        <li>
-                                            <span>Date</span>
-                                        </li>
-                                    </ul>
-                                    <p></p>
-                                    <ul>
-                                        <li>
-                                            <span>Cron</span>
-                                        </li>
-                                    </ul>
-                                    <p></p>
-                                    <ul>
-                                        <li>
-                                            <span>Interval</span>
-                                        </li>
-                                    </ul>
-                                    <p></p>
-                                    <p></p>
-                                    <h2>
-                                        <span>RunDate</span>
-                                    </h2>
-                                    <p>
-                                        <span
-                                            >Date is the simplest schedule. It
-                                            stores a single date and time for
-                                            when the job will be triggered to
-                                            run.</span
-                                        >
-                                    </p>
-                                    <p></p>
-                                    <h2>
-                                        <span>Cron</span>
-                                    </h2>
-                                    <p>
-                                        <span>Cron </span
-                                        ><span
-                                            >resembles the “Cron” utility found
-                                            in most UNIX-like operating systems.
-                                            The following fields are available
-                                            to define a cron schedule.</span
-                                        >
-                                    </p>
-                                    <p><b>Year </b><span>4-digit year</span></p>
-                                    <p><b>Month</b><span> 1-12</span></p>
-                                    <p>
-                                        <b>Day</b
-                                        ><span> day of the month (1-31)</span>
-                                    </p>
-                                    <p>
-                                        <b>Week</b><span> ISO week (1-53)</span>
-                                    </p>
-                                    <p>
-                                        <b>Day of Week</b
-                                        ><span>
-                                            number or name of day (0-6 or
-                                            mon,tue,wed,thu,fri,sat,sun)</span
-                                        >
-                                    </p>
-                                    <p><b>Hour</b><span> 0-23</span></p>
-                                    <p><b>Minute</b><span> 0-59</span></p>
-                                    <p><b>Second</b><span> 0-59</span></p>
-                                    <p>
-                                        <b>Start Date</b
-                                        ><span>
-                                            earliest possible date/time to
-                                            trigger the job</span
-                                        >
-                                    </p>
-                                    <p>
-                                        <b>End Date</b
-                                        ><span>
-                                            latest possible date/time to trigger
-                                            the job</span
-                                        >
-                                    </p>
-                                    <p>
-                                        <b>Jitter</b
-                                        ><span>
-                                            advance or delay the job execution
-                                            by jitter seconds</span
-                                        >
-                                    </p>
-                                    <p>
-                                        <span
-                                            >A cron schedule will trigger when
-                                            current time matches all specified
-                                            time constraints. Unlike with
-                                            crontab expressions, you can omit
-                                            fields that you don’t need.</span
-                                        >
-                                    </p>
-                                    <p></p>
-                                    <h2>
-                                        <span>Interval</span>
-                                    </h2>
-                                    <p>
-                                        <span
-                                            >Interval specifies a set amount of
-                                            time that must lapse before a job
-                                            will be triggered. </span
-                                        ><span
-                                            >The following fields are available
-                                            to define an interval
-                                            schedule.</span
-                                        >
-                                    </p>
-                                    <p>
-                                        <b>Weeks</b
-                                        ><span>
-                                            integer for the total number of
-                                            weeks</span
-                                        >
-                                    </p>
-                                    <p>
-                                        <b>Days</b
-                                        ><span>
-                                            integer for the total number of
-                                            days</span
-                                        >
-                                    </p>
-                                    <p>
-                                        <b>Hours </b
-                                        ><span
-                                            >integer for the total number of
-                                            hours</span
-                                        >
-                                    </p>
-                                    <p>
-                                        <b>Seconds</b
-                                        ><span>
-                                            integer for the total number of
-                                            seconds</span
-                                        >
-                                    </p>
-                                    <p>
-                                        <b>Start Date</b
-                                        ><span>
-                                            earliest possible date/time to
-                                            trigger the job</span
-                                        >
-                                    </p>
-                                    <p>
-                                        <b>End Date</b
-                                        ><span>
-                                            latest possible date/time to trigger
-                                            the job</span
-                                        >
-                                    </p>
-                                    <p>
-                                        <b>Jitter</b
-                                        ><span>
-                                            advance or delay the job execution
-                                            by jitter seconds</span
-                                        >
-                                    </p>
-                                    <p>
-                                        <span
-                                            >An interval schedule will trigger a
-                                            job when the time interval has been
-                                            reached from the previous trigger
-                                            time.</span
-                                        >
-                                    </p>
-                                    <p>
-                                        <span
-                                            >The “Is Active” box must be checked
-                                            to activate the schedule.</span
-                                        >
-                                    </p>
-                                    <p>
-                                        <span
-                                            >The designer can give the schedule
-                                            a name to make it more convenient to
-                                            work with. The designer displays the
-                                            last run date and the next run date
-                                            for active schedules.</span
-                                        >
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <h2>
-                                    <span>2.10.</span
-                                    >Service Tasks
-                                </h2>
-                                <div>
-                                    <p>
-                                        <span
-                                            >Have you written “services” for
-                                            Windows? Linux? Mac? Then you know
-                                            that it can be difficult and that
-                                            the process works differently in
-                                            each environment. Occasionally
-                                            work-arounds are implemented for
-                                            actual services such as cron or the
-                                            Windows Task Scheduler. If the
-                                            machine running the service shuts
-                                            down, the service is stopped.
-                                        </span>
-                                    </p>
-                                    <p>
-                                        <span
-                                            >SaaSGlue makes it easy to create a
-                                            service and deploy it to any
-                                            operating system. To run a task as a
-                                            service, simply set the
-                                            “autoRestart” property of the task
-                                            to “true” if using the SaaSGlue API.
-                                            If using the SaaSGlue cloud UI, in
-                                            the Job Designer -&gt; Task editor
-                                            view, check the “Auto restart”
-                                            checkbox. The task can target “any
-                                            qualified agent” or a specific
-                                            agent. If the agent running an
-                                            autoRestart task is stopped or is
-                                            inactive for more than 65 seconds,
-                                            the task will automatically be
-                                            restarted on another qualified
-                                            agent. If no qualified agent is
-                                            available, the task status will be
-                                            set to “Failed”. The containing job
-                                            can be configured to send a
-                                            notification if this occurs. If an
-                                            agent running an autoRestart task
-                                            goes offline and then comes back
-                                            online and the task is still running
-                                            on that agent and has also been
-                                            restarted on a new agent, the
-                                            instance on the agent that went
-                                            offline will be canceled.</span
-                                        >
-                                    </p>
-                                    <p>
-                                        <span
-                                            >Auto restart tasks can have
-                                            multiple steps. The script for the
-                                            last step in the task should be
-                                            coded so that it will not exit
-                                            unless and until you want the
-                                            service to be stopped. Auto restart
-                                            tasks that exit normally or crash
-                                            are not restarted automatically.
-                                            However, if an auto restart task is
-                                            interrupted by ctrl+c or a
-                                            SIGTERM/SIGKILL signal it will be
-                                            automatically restarted.
-                                            Consequently if the machine running
-                                            an auto restart task is shut down,
-                                            the task will be automatically
-                                            restarted.</span
-                                        >
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <h2>
-                                    <span>3.</span
-                                    >Endpoint / Object Reference
-                                </h2>
-                                <div></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <h2>
-                                    <span>3.1.</span>Agent
-                                </h2>
-                                <div>
-                                    <p>
-                                        <span
-                                            >The SaaSGlue Agent is the vehicle
-                                            for executing Scripts received from
-                                            the SaaSGlue cloud. The Agent can be
-                                            installed on any supported operating
-                                            system. When an Agent starts up it
-                                            reports to the SaaSGlue cloud which
-                                            tracks information about the Agent
-                                            including the attributes described
-                                            below. A few of the attributes can
-                                            be modified by users.</span
-                                        >
-                                    </p>
-                                    <p></p>
-                                    <h2>Reference</h2>
-                                    <table class="tablepress tablepress-id-38">
-                                        <thead>
-                                            <tr class="row-1 odd">
-                                                <th class="column-1">
-                                                    Attribute
-                                                </th>
-                                                <th class="column-2">GET</th>
-                                                <th class="column-3">PUT</th>
-                                                <th class="column-4">
-                                                    Post (required)
-                                                </th>
-                                                <th class="column-5">
-                                                    Post (optional)
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="row-hover">
-                                            <tr class="row-2 even">
-                                                <td class="column-1">id</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
-                                            </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">
-                                                    _teamId
-                                                </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
-                                            </tr>
-                                            <tr class="row-4 even">
-                                                <td class="column-1">
-                                                    machineId
-                                                </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
-                                            </tr>
-                                            <tr class="row-5 odd">
-                                                <td class="column-1">
-                                                    ipAddress
-                                                </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
-                                            </tr>
-                                            <tr class="row-6 even">
-                                                <td class="column-1">
-                                                    createDate
-                                                </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
-                                            </tr>
-                                            <tr class="row-7 odd">
-                                                <td class="column-1">name</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
-                                            </tr>
-                                            <tr class="row-8 even">
-                                                <td class="column-1">tags</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
-                                            </tr>
-                                            <tr class="row-9 odd">
-                                                <td class="column-1">
-                                                    numActiveTasks
-                                                </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
-                                            </tr>
-                                            <tr class="row-10 even">
-                                                <td class="column-1">
-                                                    lastHeartbeatTime
-                                                </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
-                                            </tr>
-                                            <tr class="row-11 odd">
-                                                <td class="column-1">
-                                                    offline
-                                                </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
-                                            </tr>
-                                            <tr class="row-12 even">
-                                                <td class="column-1">
-                                                    sysInfo
-                                                </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
-                                            </tr>
-                                            <tr class="row-13 odd">
-                                                <td class="column-1">cron</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
-                                            </tr>
-                                            <tr class="row-14 even">
-                                                <td class="column-1">
-                                                    propertyOverrides
-                                                </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <p></p>
-                                    <h2>Attribute Descriptions</h2>
-                                    <table class="tablepress tablepress-id-39">
-                                        <tbody class="row-hover">
-                                            <tr class="row-1 odd">
-                                                <td class="column-1">
-                                                    <b>id</b>
-                                                </td>
-                                                <td class="column-2">
-                                                    SaaSGlue automatically
-                                                    assigns an Agent ID when a
-                                                    new agent is installed and
-                                                    calls back to the SaaSGlue
-                                                    cloud. Users can discover
-                                                    the ID in the Agent Monitor
-                                                    or through the API. Tasks
-                                                    can be routed to a specific
-                                                    machine using the Agent ID.
-                                                </td>
-                                            </tr>
-                                            <tr class="row-2 even">
-                                                <td class="column-1">
-                                                    <b>_teamId</b>
-                                                </td>
-                                                <td class="column-2">
-                                                    The ID of the Org object
-                                                    where the TaskDef is
-                                                    created.
-                                                </td>
-                                            </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">
-                                                    <b>machineId</b>
-                                                </td>
-                                                <td class="column-2">
-                                                    The hostname of the physical
-                                                    or virtual machine or
-                                                    container where the Agent is
-                                                    running.
-                                                    <br /><br />
-                                                    Every machine connected to a
-                                                    SaaSGlue account must have a
-                                                    host name that is unique to
-                                                    the Org. The machineId will
-                                                    be reported in every Agent
-                                                    heartbeat. If the hostname
-                                                    changes then the Agent will
-                                                    be assigned a new ID.
-                                                </td>
-                                            </tr>
-                                            <tr class="row-4 even">
-                                                <td class="column-1">
-                                                    <b>ipAddress</b>
-                                                </td>
-                                                <td class="column-2">
-                                                    The ipAddress attribute
-                                                    stores the IP Address of the
-                                                    machine where the Agent is
-                                                    installed.
-                                                    <br /><br />
-                                                    The IP Address will be
-                                                    reported with each
-                                                    heartbeat. If the IP address
-                                                    of the machine is changed
-                                                    the ipAddress attribute will
-                                                    be updated but the Agent
-                                                    will not be assigned a new
-                                                    ID.
-                                                </td>
-                                            </tr>
-                                            <tr class="row-5 odd">
-                                                <td class="column-1">
-                                                    <b>createDate</b>
-                                                </td>
-                                                <td class="column-2">
-                                                    The date and time an Agent
-                                                    first runs on a machine..
-                                                </td>
-                                            </tr>
-                                            <tr class="row-6 even">
-                                                <td class="column-1">
-                                                    <b>name</b>
-                                                </td>
-                                                <td class="column-2">
-                                                    The name attribute defaults
-                                                    to the machineId (hostname).
-                                                    However, it can be modified
-                                                    to create a user-defined
-                                                    name.
-                                                </td>
-                                            </tr>
-                                            <tr class="row-7 odd">
-                                                <td class="column-1">
-                                                    <b>tags</b>
-                                                </td>
-                                                <td class="column-2">
-                                                    Tags assigned to an Agent.
-                                                    Up to ten tags can be
-                                                    assigned to an Agent.
-                                                    <br /><br />
-                                                    Tags are user defined. They
-                                                    are used in the Job Designer
-                                                    and Console for Task
-                                                    routing.
-                                                </td>
-                                            </tr>
-                                            <tr class="row-8 even">
-                                                <td class="column-1">
-                                                    <b>numActiveTasks</b>
-                                                </td>
-                                                <td class="column-2">
-                                                    The number of Tasks
-                                                    currently being executed by
-                                                    this Agent.
-                                                </td>
-                                            </tr>
-                                            <tr class="row-9 odd">
-                                                <td class="column-1">
-                                                    <b>lastHeartbeatTime</b>
-                                                </td>
-                                                <td class="column-2">
-                                                    The last date and time
-                                                    SaaSGlue received a
-                                                    heartbeat from the Agent.
-                                                </td>
-                                            </tr>
-                                            <tr class="row-10 even">
-                                                <td class="column-1">
-                                                    <b>offline</b>
-                                                </td>
-                                                <td class="column-2">
-                                                    If SaaSGlue has not received
-                                                    a heartbeat from an Agent
-                                                    for more than 5 minutes the
-                                                    offline attribute is set to
-                                                    "true". If the Agent begins
-                                                    sending a heartbeat again
-                                                    the offline attribute will
-                                                    be reset to “false”.
-                                                </td>
-                                            </tr>
-                                            <tr class="row-11 odd">
-                                                <td class="column-1">
-                                                    <b>sysInfo</b>
-                                                </td>
-                                                <td class="column-2">
-                                                    System information
-                                                    pertaining to the machine
-                                                    where the Agent is
-                                                    installed. The following
-                                                    information (if available)
-                                                    will be reported.<br /><br />
-                                                    Top 10 running processes
-                                                    (ordered by CPU usage)<br /><br />
-                                                    Installed OS details<br />
-                                                    System date/time<br />
-                                                    CPU current speed<br />
-                                                    CPU temperature<br />
-                                                    Current load information<br />
-                                                    File system information<br />
-                                                    File system performance
-                                                    statistics<br />
-                                                    Installed user accounts<br />
-                                                    Memory capacity/usage
-                                                    information<br />
-                                                    Battery capacity/usage
-                                                    information<br />
-                                                    Network connections<br />
-                                                    Current internet latency<br />
-                                                    Network statistics<br />
-                                                    Disks IO<br /><br />
-                                                    The Agent will report system
-                                                    information when it is first
-                                                    installed. It can be
-                                                    configured to report updated
-                                                    information with each
-                                                    heartbeat.
-                                                </td>
-                                            </tr>
-                                            <tr class="row-12 even">
-                                                <td class="column-1">
-                                                    <b>cron</b>
-                                                </td>
-                                                <td class="column-2">
-                                                    Cron jobs that reside on the
-                                                    machine where the Agent is
-                                                    installed. These jobs can be
-                                                    uploaded to SaaSGlue where
-                                                    they can be centrally
-                                                    managed and orchestrated.
-                                                </td>
-                                            </tr>
-                                            <tr class="row-13 odd">
-                                                <td class="column-1">
-                                                    <b>propertyOverrides</b>
-                                                </td>
-                                                <td class="column-2">
-                                                    Agent settings that can be
-                                                    overridden by users
-                                                    including the following:<br /><br />
-                                                    maxActiveTasks limits the
-                                                    number of tasks an Agent can
-                                                    run in parallel. If more
-                                                    than maxActiveTasks are
-                                                    routed to an Agent, Tasks in
-                                                    excess of maxActiveTasks
-                                                    will be queued until running
-                                                    Tasks are completed. If a
-                                                    Task is queued for more than
-                                                    the Task TTL, the Task will
-                                                    be routed as “failed”.<br /><br />
-                                                    inactivePeriodWaitTime sets
-                                                    the max amount of time an
-                                                    Agent will remain idle
-                                                    before it runs a specified
-                                                    Task. This is useful for
-                                                    some Tasks, such as shutting
-                                                    down an idle EC2
-                                                    instance.<br /><br />
-                                                    inactiveAgentTask is the
-                                                    Task that will be run if and
-                                                    when the inactivePeriodWait
-                                                    time is exceeded. The Task
-                                                    must be JSON formatted and
-                                                    adhere to the Task
-                                                    specification.<br /><br />
-                                                    handleGeneralTasks can
-                                                    exclude an Agent from
-                                                    running Tasks that are
-                                                    marked as "run on any
-                                                    machine" or "run on all
-                                                    machines" if this attribute
-                                                    is set to “false”.<br /><br />
-                                                    trackSysInfo reports updated
-                                                    system information to the
-                                                    SaaSGlue cloud with each
-                                                    heartbeat.
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+
+
+
+
                                     <p></p>
                                     <h2>Actions</h2>
                                     <table class="tablepress tablepress-id-40">
-                                        <tbody class="row-hover">
-                                            <tr class="row-1 odd">
-                                                <td class="column-1">
+                                        <tbody>
+                                            <tr>
+                                                <td>
                                                     <b>download</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     <br />
                                                     Download the Agent install
                                                     from SaaSGlue.<br /><br />
@@ -2819,87 +2445,85 @@ curl --location --request PUT 'https://saasglue.com/api/v0/agent/properties/[age
                                     <h2>Reference</h2>
                                     <table class="tablepress tablepress-id-4">
                                         <thead>
-                                            <tr class="row-1 odd">
-                                                <th class="column-1">
+                                            <tr>
+                                                <th>
                                                     Attribute
                                                 </th>
-                                                <th class="column-2">GET</th>
-                                                <th class="column-3">PUT</th>
-                                                <th class="column-4">
+                                                <th>GET</th>
+                                                <th>PUT</th>
+                                                <th>
                                                     POST (required)
                                                 </th>
-                                                <th class="column-5">
+                                                <th>
                                                     POST (optional)
                                                 </th>
-                                                <th class="column-6">DELETE</th>
+                                                <th>DELETE</th>
                                             </tr>
                                         </thead>
-                                        <tbody class="row-hover">
-                                            <tr class="row-2 even">
-                                                <td class="column-1">id</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
-                                                <td class="column-6">x</td>
+                                        <tbody>
+                                            <tr>
+                                                <td>id</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     _teamId
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
-                                                <td class="column-6"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-4 even">
-                                                <td class="column-1">name</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4">x</td>
-                                                <td class="column-5"></td>
-                                                <td class="column-6"></td>
+                                            <tr>
+                                                <td>name</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-5 odd">
-                                                <td class="column-1">prefix</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
-                                                <td class="column-6"></td>
+                                            <tr>
+                                                <td>prefix</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
+                                                <td></td>
                                             </tr>
                                         </tbody>
                                     </table>
                                     <p></p>
                                     <h2>Attribute Descriptions</h2>
                                     <table class="tablepress tablepress-id-5">
-                                        <tbody class="row-hover">
-                                            <tr class="row-1 odd">
-                                                <td class="column-1">
+                                        <tbody>
+                                            <tr>
+                                                <td>
                                                     <b>id</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Unique ID assigned when a
                                                     new Artifact object is
                                                     created.
                                                 </td>
                                             </tr>
-                                            <tr class="row-2 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>_teamId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the Org object
                                                     where the TaskDef is
-                                                    created.
-                                                </td>
-                                            </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">
+                                                                                        </tr>
+                                            <tr>
+                                                <td>
                                                     <b>name</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Artifact Name is the name of
                                                     the file that is uploaded.
                                                     The combination of Prefix
@@ -2908,11 +2532,11 @@ curl --location --request PUT 'https://saasglue.com/api/v0/agent/properties/[age
                                                     within an Org.
                                                 </td>
                                             </tr>
-                                            <tr class="row-4 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>prefix</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Prefix is the path name
                                                     where an artifact is stored
                                                     in SaaSGlue. The path can
@@ -3705,136 +3329,136 @@ curl [url] &gt; [file name]</pre
                                     <h2>Reference</h2>
                                     <table class="tablepress tablepress-id-6">
                                         <thead>
-                                            <tr class="row-1 odd">
-                                                <th class="column-1">
+                                            <tr>
+                                                <th>
                                                     Attribute
                                                 </th>
-                                                <th class="column-2">GET</th>
-                                                <th class="column-3">PUT</th>
-                                                <th class="column-4">
+                                                <th>GET</th>
+                                                <th>PUT</th>
+                                                <th>
                                                     Post (required)
                                                 </th>
-                                                <th class="column-5">
+                                                <th>
                                                     Post (optional)
                                                 </th>
                                             </tr>
                                         </thead>
-                                        <tbody class="row-hover">
-                                            <tr class="row-2 even">
-                                                <td class="column-1">id</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                        <tbody>
+                                            <tr>
+                                                <td>id</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     _teamId
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-4 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     _jobDefId
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4">x1</td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x1</td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-5 odd">
-                                                <td class="column-1">runId</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>runId</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-6 even">
-                                                <td class="column-1">name</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4">x2</td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>name</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x2</td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-7 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     createdBy
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-8 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     dateCreated
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-9 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     dateScheduled
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-10 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     dateStarted
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-11 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     dateCompleted
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-12 even">
-                                                <td class="column-1">status</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>status</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-13 odd">
-                                                <td class="column-1">error</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>error</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-14 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     runtimeVars
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-15 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     runAsService
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -3849,41 +3473,39 @@ curl [url] &gt; [file name]</pre
                                     <p></p>
                                     <h2>Attribute Descriptions</h2>
                                     <table class="tablepress tablepress-id-7">
-                                        <tbody class="row-hover">
-                                            <tr class="row-1 odd">
-                                                <td class="column-1">
+                                        <tbody>
+                                            <tr>
+                                                <td>
                                                     <b>id</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Unique ID assigned when a
                                                     new Job object is created.
                                                 </td>
                                             </tr>
-                                            <tr class="row-2 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>_teamId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the Org object
                                                     where the Job is created.
-                                                </td>
-                                            </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">
+                                                                                          <tr>
+                                                <td>
                                                     <b>_jobDefId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The JobDef ID from which the
                                                     Job was created. It only
                                                     applies to Jobs created from
                                                     a JobDef object.
                                                 </td>
                                             </tr>
-                                            <tr class="row-4 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>runId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     JobDefs have a counter that
                                                     is incremented each time a
                                                     Job is created from the
@@ -3900,11 +3522,11 @@ curl [url] &gt; [file name]</pre
                                                     have a runId attribute of 3.
                                                 </td>
                                             </tr>
-                                            <tr class="row-5 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>name</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The Job name. If the Job is
                                                     created from a JobDef, the
                                                     Job name is copied from the
@@ -3914,11 +3536,11 @@ curl [url] &gt; [file name]</pre
                                                     document.
                                                 </td>
                                             </tr>
-                                            <tr class="row-6 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>createdBy</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The id of the user who
                                                     created the Job. For Jobs
                                                     created from a JobDef it
@@ -3930,20 +3552,20 @@ curl [url] &gt; [file name]</pre
                                                     the JSON document.
                                                 </td>
                                             </tr>
-                                            <tr class="row-7 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>dateCreated</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The date and time the Job
                                                     was created.
                                                 </td>
                                             </tr>
-                                            <tr class="row-8 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>dateScheduled</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The date and time a Job is
                                                     scheduled to run. It only
                                                     applies to Jobs created from
@@ -3951,29 +3573,29 @@ curl [url] &gt; [file name]</pre
                                                     Schedule.
                                                 </td>
                                             </tr>
-                                            <tr class="row-9 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>dateStarted</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The date and time the Job
                                                     started.
                                                 </td>
                                             </tr>
-                                            <tr class="row-10 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>dateCompleted</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The date and time the Job
                                                     completed.
                                                 </td>
                                             </tr>
-                                            <tr class="row-11 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>status</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The current Job status. Here
                                                     are the possible values.<br /><br />
                                                     0 = NOT_STARTED<br />
@@ -3987,21 +3609,21 @@ curl [url] &gt; [file name]</pre
                                                     23 = SKIPPED
                                                 </td>
                                             </tr>
-                                            <tr class="row-12 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>error</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The error message if any
                                                     error occurred running the
                                                     Job.
                                                 </td>
                                             </tr>
-                                            <tr class="row-13 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>runtimeVarsx</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Runtime variables for a Job
                                                     are set when the Job is
                                                     created manually (not by a
@@ -4016,11 +3638,11 @@ curl [url] &gt; [file name]</pre
                                                     “value2”}
                                                 </td>
                                             </tr>
-                                            <tr class="row-14 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>runAsService</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     If “true” the Job will run
                                                     as a service.<br /><br />
                                                     runAsService Jobs can
@@ -4054,33 +3676,32 @@ curl [url] &gt; [file name]</pre
                                     <p></p>
                                     <h2>Actions</h2>
                                     <table class="tablepress tablepress-id-8">
-                                        <tbody class="row-hover">
-                                            <tr class="row-1 odd">
-                                                <td class="column-1">
+                                        <tbody>
+                                            <tr>
+                                                <td>
                                                     <b>interrupt</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Interrupt a job. Job status
                                                     must be RUNNING.<br />
                                                     jobaction/interrupt/:jobId
                                                 </td>
                                             </tr>
-                                            <tr class="row-2 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>restart</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Restart a job. Job status
                                                     must be INTERRUPTED or
-                                                    FAILED.<br />
-                                                    jobaction/restart/:jobId
+                                                                                               jobaction/restart/:jobId
                                                 </td>
                                             </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>cancel</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Cancel a job. Job status
                                                     must be NOT_STARTED,
                                                     RUNNING, INTERRUPTING or
@@ -5758,153 +5379,151 @@ curl --location --request POST 'https://saasglue.com/api/v0/job' --header 'Conte
                                     <h2>Reference</h2>
                                     <table class="tablepress tablepress-id-9">
                                         <thead>
-                                            <tr class="row-1 odd">
-                                                <th class="column-1">
+                                            <tr>
+                                                <th>
                                                     Attribute
                                                 </th>
-                                                <th class="column-2">GET</th>
-                                                <th class="column-3">PUT</th>
-                                                <th class="column-4">
+                                                <th>GET</th>
+                                                <th>PUT</th>
+                                                <th>
                                                     Post (required)
                                                 </th>
-                                                <th class="column-5">
+                                                <th>
                                                     Post (optional)
                                                 </th>
                                             </tr>
                                         </thead>
-                                        <tbody class="row-hover">
-                                            <tr class="row-2 even">
-                                                <td class="column-1">id</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                        <tbody>
+                                            <tr>
+                                                <td>id</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     _teamId
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-4 even">
-                                                <td class="column-1">name</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4">x</td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>name</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-5 odd">
-                                                <td class="column-1">status</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>status</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-6 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     lastRunId
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-7 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     maxInstances
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-8 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     misfireGraceTime
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-9 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     coalesce
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-10 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     createdBy
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-11 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     dateCreated
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-12 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     runtimeVars
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-13 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     pauseOnFailedJob
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
                                         </tbody>
                                     </table>
                                     <p></p>
                                     <h2>Attribute Descriptions</h2>
                                     <table class="tablepress tablepress-id-10">
-                                        <tbody class="row-hover">
-                                            <tr class="row-1 odd">
-                                                <td class="column-1">
+                                        <tbody>
+                                            <tr>
+                                                <td>
                                                     <b>Id</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Unique ID assigned when a
                                                     new JobDef object is
                                                     created.
                                                 </td>
                                             </tr>
-                                            <tr class="row-2 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>_teamId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the Org object
                                                     where the JobDef is created.
-                                                </td>
-                                            </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">
+                                                                                          <tr>
+                                                <td>
                                                     <b>name</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     This attribute stores a user
                                                     created name for the JobDef
                                                     object. The name should be
@@ -5912,11 +5531,11 @@ curl --location --request POST 'https://saasglue.com/api/v0/job' --header 'Conte
                                                     have to be unique.
                                                 </td>
                                             </tr>
-                                            <tr class="row-4 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>status</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     This attribute records the
                                                     current status of the JobDef
                                                     object. Here are the
@@ -5932,22 +5551,22 @@ curl --location --request POST 'https://saasglue.com/api/v0/job' --header 'Conte
                                                     is RUNNING.
                                                 </td>
                                             </tr>
-                                            <tr class="row-5 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>lastRunId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Set to 0 for new JobDef
                                                     objects and is incremented
                                                     for each Job created from a
                                                     given JobDef.
                                                 </td>
                                             </tr>
-                                            <tr class="row-6 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>maxInstances</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The maximum number of
                                                     parallel running Jobs
                                                     created from the JobDef. For
@@ -5959,11 +5578,11 @@ curl --location --request POST 'https://saasglue.com/api/v0/job' --header 'Conte
                                                     finished.
                                                 </td>
                                             </tr>
-                                            <tr class="row-7 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>misfireGraceTime</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The amount of time a Job can
                                                     be queued past the scheduled
                                                     start time before it is
@@ -5975,11 +5594,11 @@ curl --location --request POST 'https://saasglue.com/api/v0/job' --header 'Conte
                                                     running a Job.
                                                 </td>
                                             </tr>
-                                            <tr class="row-8 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>coalesce</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The coalesce attribute helps
                                                     job designers determine how
                                                     to handle situations where a
@@ -6004,29 +5623,29 @@ curl --location --request POST 'https://saasglue.com/api/v0/job' --header 'Conte
                                                     in parallel.
                                                 </td>
                                             </tr>
-                                            <tr class="row-9 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>createdBy</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the User who
                                                     created the JobDef object.
                                                 </td>
                                             </tr>
-                                            <tr class="row-10 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>dateCreated</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The date/time the JobDef
                                                     object was created.
                                                 </td>
                                             </tr>
-                                            <tr class="row-11 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>runtimeVars</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     A list of key/value pairs
                                                     that can be dynamically
                                                     injected into Job Scripts,
@@ -6037,11 +5656,11 @@ curl --location --request POST 'https://saasglue.com/api/v0/job' --header 'Conte
                                                     “value2”}
                                                 </td>
                                             </tr>
-                                            <tr class="row-12 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>pauseOnFailedJob</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     This attribute can be used
                                                     for example for JobDef
                                                     objects with recurring Job
@@ -7046,165 +6665,165 @@ curl --location --request GET 'http://saasglue.com/api/v0/jobdef/[JobDef id]' --
                                     <h2>General Schedule Reference</h2>
                                     <table class="tablepress tablepress-id-11">
                                         <thead>
-                                            <tr class="row-1 odd">
-                                                <th class="column-1">
+                                            <tr>
+                                                <th>
                                                     Attribute
                                                 </th>
-                                                <th class="column-2">GET</th>
-                                                <th class="column-3">PUT</th>
-                                                <th class="column-4">
+                                                <th>GET</th>
+                                                <th>PUT</th>
+                                                <th>
                                                     POST (required)
                                                 </th>
-                                                <th class="column-5">
+                                                <th>
                                                     POST (optional)
                                                 </th>
-                                                <th class="column-6">DELETE</th>
+                                                <th>DELETE</th>
                                             </tr>
                                         </thead>
-                                        <tbody class="row-hover">
-                                            <tr class="row-2 even">
-                                                <td class="column-1">id</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
-                                                <td class="column-6">x</td>
+                                        <tbody>
+                                            <tr>
+                                                <td>id</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     _teamId
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
-                                                <td class="column-6"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-4 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     createdBy
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
-                                                <td class="column-6"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-5 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     lastUpdatedBy
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
-                                                <td class="column-6"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-6 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     lastScheduledRunDate
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
-                                                <td class="column-6"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-7 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     nextScheduledRunDate
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
-                                                <td class="column-6"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-8 even">
-                                                <td class="column-1">name</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4">x</td>
-                                                <td class="column-5"></td>
-                                                <td class="column-6"></td>
+                                            <tr>
+                                                <td>name</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-9 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     isActive
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
-                                                <td class="column-6"></td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-10 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     TriggerType
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4">x</td>
-                                                <td class="column-5"></td>
-                                                <td class="column-6"></td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-11 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     misfire_grace_time
                                                 </td>
-                                                <td class="column-2"></td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
-                                                <td class="column-6"></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-12 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     coalesce
                                                 </td>
-                                                <td class="column-2"></td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
-                                                <td class="column-6"></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-13 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     max_instances
                                                 </td>
-                                                <td class="column-2"></td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
-                                                <td class="column-6"></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-14 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     RunDate
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4">x1</td>
-                                                <td class="column-5"></td>
-                                                <td class="column-6"></td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td>x1</td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-15 odd">
-                                                <td class="column-1">cron2</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4">x</td>
-                                                <td class="column-5"></td>
-                                                <td class="column-6"></td>
+                                            <tr>
+                                                <td>cron2</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-16 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     interval3
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4">x</td>
-                                                <td class="column-5"></td>
-                                                <td class="column-6"></td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -7239,103 +6858,103 @@ curl --location --request GET 'http://saasglue.com/api/v0/jobdef/[JobDef id]' --
                                     </p>
                                     <table class="tablepress tablepress-id-16">
                                         <thead>
-                                            <tr class="row-1 odd">
-                                                <th class="column-1">
+                                            <tr>
+                                                <th>
                                                     Attribute
                                                 </th>
-                                                <th class="column-2">GET</th>
-                                                <th class="column-3">PUT</th>
-                                                <th class="column-4">
+                                                <th>GET</th>
+                                                <th>PUT</th>
+                                                <th>
                                                     POST (required)
                                                 </th>
-                                                <th class="column-5">
+                                                <th>
                                                     POST (optional)
                                                 </th>
                                             </tr>
                                         </thead>
-                                        <tbody class="row-hover">
-                                            <tr class="row-2 even">
-                                                <td class="column-1">Year</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                        <tbody>
+                                            <tr>
+                                                <td>Year</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">Month</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                            <tr>
+                                                <td>Month</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-4 even">
-                                                <td class="column-1">Day</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                            <tr>
+                                                <td>Day</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-5 odd">
-                                                <td class="column-1">Week</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                            <tr>
+                                                <td>Week</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-6 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     Day_Of_Week
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-7 odd">
-                                                <td class="column-1">Hour</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                            <tr>
+                                                <td>Hour</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-8 even">
-                                                <td class="column-1">Minute</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                            <tr>
+                                                <td>Minute</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-9 odd">
-                                                <td class="column-1">Second</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                            <tr>
+                                                <td>Second</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-10 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     Start_Date
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-11 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     End_Date
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-12 even">
-                                                <td class="column-1">Jitter</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                            <tr>
+                                                <td>Jitter</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -7358,84 +6977,84 @@ curl --location --request GET 'http://saasglue.com/api/v0/jobdef/[JobDef id]' --
                                     </p>
                                     <table class="tablepress tablepress-id-17">
                                         <thead>
-                                            <tr class="row-1 odd">
-                                                <th class="column-1">
+                                            <tr>
+                                                <th>
                                                     Attribute
                                                 </th>
-                                                <th class="column-2">GET</th>
-                                                <th class="column-3">PUT</th>
-                                                <th class="column-4">
+                                                <th>GET</th>
+                                                <th>PUT</th>
+                                                <th>
                                                     Post (required)
                                                 </th>
-                                                <th class="column-5">
+                                                <th>
                                                     Post (optional)
                                                 </th>
                                             </tr>
                                         </thead>
-                                        <tbody class="row-hover">
-                                            <tr class="row-2 even">
-                                                <td class="column-1">Weeks</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                        <tbody>
+                                            <tr>
+                                                <td>Weeks</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">Days</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                            <tr>
+                                                <td>Days</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-4 even">
-                                                <td class="column-1">Hours</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                            <tr>
+                                                <td>Hours</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-5 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     Minutes
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-6 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     Seconds
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-7 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     Start_Date
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-8 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     End_Date
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-9 odd">
-                                                <td class="column-1">Jitter</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                            <tr>
+                                                <td>Jitter</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -7452,77 +7071,75 @@ curl --location --request GET 'http://saasglue.com/api/v0/jobdef/[JobDef id]' --
                                         General Schedule Attribute Descriptions
                                     </h2>
                                     <table class="tablepress tablepress-id-18">
-                                        <tbody class="row-hover">
-                                            <tr class="row-1 odd">
-                                                <td class="column-1">
+                                        <tbody>
+                                            <tr>
+                                                <td>
                                                     <b>id</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Unique ID assigned when a
                                                     new Schedule object is
                                                     created.
                                                 </td>
                                             </tr>
-                                            <tr class="row-2 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>_teamId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the Org object
                                                     where the TaskDef is
-                                                    created.
-                                                </td>
-                                            </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">
+                                                                                        </tr>
+                                            <tr>
+                                                <td>
                                                     <b>createdBy</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the user that
                                                     created the Schedule.
                                                 </td>
                                             </tr>
-                                            <tr class="row-4 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>lastUpdatedBy</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the last user to
                                                     modify the Schedule.
                                                 </td>
                                             </tr>
-                                            <tr class="row-5 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>lastScheduledRunDate</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The next date/time when the
                                                     Schedule will be triggered.
                                                 </td>
                                             </tr>
-                                            <tr class="row-6 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>nextScheduledRunDate</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The last date/time when the
                                                     Schedule was triggered.
                                                 </td>
                                             </tr>
-                                            <tr class="row-7 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>name</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The user created name for a
                                                     Schedule.
                                                 </td>
                                             </tr>
-                                            <tr class="row-8 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>isActive</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     If the isActive attribute is
                                                     set to “false” no events for
                                                     this Schedule will be
@@ -7534,22 +7151,22 @@ curl --location --request GET 'http://saasglue.com/api/v0/jobdef/[JobDef id]' --
                                                     triggered.
                                                 </td>
                                             </tr>
-                                            <tr class="row-9 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>TriggerType</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The type of trigger that
                                                     kicks off a schedule,
                                                     including “date”, “cron” or
                                                     “interval”.
                                                 </td>
                                             </tr>
-                                            <tr class="row-10 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>RunDated</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     This object stores the date
                                                     and time when a Schedule
                                                     will execute if it has a
@@ -7563,104 +7180,102 @@ curl --location --request GET 'http://saasglue.com/api/v0/jobdef/[JobDef id]' --
                                         Cron Schedule Attribute Descriptions
                                     </h2>
                                     <table class="tablepress tablepress-id-19">
-                                        <tbody class="row-hover">
-                                            <tr class="row-1 odd">
-                                                <td class="column-1">
+                                        <tbody>
+                                            <tr>
+                                                <td>
                                                     <b>Year</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The year in a "cron"
                                                     TriggerType.
                                                 </td>
                                             </tr>
-                                            <tr class="row-2 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>Month</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The month in a "cron"
                                                     TriggerType.
-                                                </td>
-                                            </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">
+                                                                                          <tr>
+                                                <td>
                                                     <b>Day</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The day in a "cron"
                                                     TriggerType.
                                                 </td>
                                             </tr>
-                                            <tr class="row-4 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>Week</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The week in a "cron"
                                                     TriggerType.
                                                 </td>
                                             </tr>
-                                            <tr class="row-5 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>Day_Of_Week</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The day of the week in a
                                                     "cron" TriggerType.
                                                 </td>
                                             </tr>
-                                            <tr class="row-6 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>Hour</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The hour in a "cron"
                                                     TriggerType.
                                                 </td>
                                             </tr>
-                                            <tr class="row-7 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>Minute</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The minute in a "cron"
                                                     TriggerType.
                                                 </td>
                                             </tr>
-                                            <tr class="row-8 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>Second</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The second in a "cron"
                                                     TriggerType.
                                                 </td>
                                             </tr>
-                                            <tr class="row-9 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>Start_Date</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The earliest date/time a
                                                     Schedule can be triggered
                                                     for a “cron” TriggerType.
                                                 </td>
                                             </tr>
-                                            <tr class="row-10 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>End_Date</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The latest date/time a
                                                     Schedule can be triggered
                                                     for a “cron” TriggerType.
                                                 </td>
                                             </tr>
-                                            <tr class="row-11 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>Jitter</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Will randomly advance or
                                                     delay the scheduled start
                                                     time for an event by jitter
@@ -7675,79 +7290,77 @@ curl --location --request GET 'http://saasglue.com/api/v0/jobdef/[JobDef id]' --
                                         Interval Schedule Attribute Descriptions
                                     </h2>
                                     <table class="tablepress tablepress-id-20">
-                                        <tbody class="row-hover">
-                                            <tr class="row-1 odd">
-                                                <td class="column-1">
+                                        <tbody>
+                                            <tr>
+                                                <td>
                                                     <b>Weeks</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The weeks in an "interval"
                                                     TriggerType.
                                                 </td>
                                             </tr>
-                                            <tr class="row-2 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>Days</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The days in an "interval"
                                                     TriggerType.
-                                                </td>
-                                            </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">
+                                                                                          <tr>
+                                                <td>
                                                     <b>Hours</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The hours in an "interval"
                                                     TriggerType.
                                                 </td>
                                             </tr>
-                                            <tr class="row-4 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>Minutes</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The minutes in an "interval"
                                                     TriggerType.
                                                 </td>
                                             </tr>
-                                            <tr class="row-5 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>Seconds</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The seconds in an "interval"
                                                     TriggerType.
                                                 </td>
                                             </tr>
-                                            <tr class="row-6 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>Start_Date</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The earliest date/time a
                                                     Schedule can be triggered
                                                     for an “interval”
                                                     TriggerType.
                                                 </td>
                                             </tr>
-                                            <tr class="row-7 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>End_Date</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The latest date/time a
                                                     Schedule can be triggered
                                                     for an “interval”
                                                     TriggerType.
                                                 </td>
                                             </tr>
-                                            <tr class="row-8 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>Jitter</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Will randomly advance or
                                                     delay the scheduled start
                                                     time for an event by jitter
@@ -8976,135 +8589,133 @@ curl --location --request GET 'https://saasglue.com/api/v0/schedule/?filter=_job
                                     <h2>Reference</h2>
                                     <table class="tablepress tablepress-id-21">
                                         <thead>
-                                            <tr class="row-1 odd">
-                                                <th class="column-1">
+                                            <tr>
+                                                <th>
                                                     Attribute
                                                 </th>
-                                                <th class="column-2">GET</th>
-                                                <th class="column-3">PUT</th>
-                                                <th class="column-4">
+                                                <th>GET</th>
+                                                <th>PUT</th>
+                                                <th>
                                                     Post (required)
                                                 </th>
-                                                <th class="column-5">
+                                                <th>
                                                     Post (optional)
                                                 </th>
                                             </tr>
                                         </thead>
-                                        <tbody class="row-hover">
-                                            <tr class="row-2 even">
-                                                <td class="column-1">id</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                        <tbody>
+                                            <tr>
+                                                <td>id</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     _teamId
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-4 even">
-                                                <td class="column-1">name</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4">x</td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>name</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-5 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     scriptType
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4">x</td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-6 even">
-                                                <td class="column-1">code</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4">x</td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>code</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-7 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     _originalAuthorUserId
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-8 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     _lastEditedUserId
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-9 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     teamEditable
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-10 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     lastEditedDate
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
                                         </tbody>
                                     </table>
                                     <p></p>
                                     <h2>Attribute Descriptions</h2>
                                     <table class="tablepress tablepress-id-22">
-                                        <tbody class="row-hover">
-                                            <tr class="row-1 odd">
-                                                <td class="column-1">
+                                        <tbody>
+                                            <tr>
+                                                <td>
                                                     <b>id</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Unique ID assigned when a
                                                     new Script object is
                                                     created.
                                                 </td>
                                             </tr>
-                                            <tr class="row-2 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>_teamId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the Org object
                                                     where the Script is created.
-                                                </td>
-                                            </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">
+                                                                                          <tr>
+                                                <td>
                                                     <b>name</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The Script name must be
                                                     unique.
                                                 </td>
                                             </tr>
-                                            <tr class="row-4 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>scriptType</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     SaaSGlue can be used to
                                                     execute any script type.
                                                     This attribute is added to
@@ -9139,48 +8750,48 @@ curl --location --request GET 'https://saasglue.com/api/v0/schedule/?filter=_job
                                                     8 = POWERSHELL
                                                 </td>
                                             </tr>
-                                            <tr class="row-5 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>code</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The code of the script
                                                     encoded with Base64.
                                                 </td>
                                             </tr>
-                                            <tr class="row-6 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>_originalAuthorUserId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the user who first
                                                     created the script.
                                                 </td>
                                             </tr>
-                                            <tr class="row-7 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>_lastEditedUserId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the user who last
                                                     edited a script
                                                 </td>
                                             </tr>
-                                            <tr class="row-8 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>teamEditable</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     If set to TRUE anyone in the
                                                     organization can edit the
                                                     script.
                                                 </td>
                                             </tr>
-                                            <tr class="row-9 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>lastEditedDate</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The date and time the Script
                                                     was last edited.
                                                 </td>
@@ -9799,148 +9410,146 @@ curl --location --request POST 'https://saasglue.com/api/v0/script' --header 'Co
                                     <h2>Reference</h2>
                                     <table class="tablepress tablepress-id-23">
                                         <thead>
-                                            <tr class="row-1 odd">
-                                                <th class="column-1">
+                                            <tr>
+                                                <th>
                                                     Attribute
                                                 </th>
-                                                <th class="column-2">GET</th>
-                                                <th class="column-3">PUT</th>
-                                                <th class="column-4">
+                                                <th>GET</th>
+                                                <th>PUT</th>
+                                                <th>
                                                     Post (required)
                                                 </th>
-                                                <th class="column-5">
+                                                <th>
                                                     Post (optional)
                                                 </th>
                                             </tr>
                                         </thead>
-                                        <tbody class="row-hover">
-                                            <tr class="row-2 even">
-                                                <td class="column-1">id</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                        <tbody>
+                                            <tr>
+                                                <td>id</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     _teamId
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-4 even">
-                                                <td class="column-1">_jobId</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>_jobId</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-5 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     _taskId
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-6 even">
-                                                <td class="column-1">name</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>name</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-7 odd">
-                                                <td class="column-1">order</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>order</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-8 even">
-                                                <td class="column-1">script</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>script</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-9 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     command
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-10 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     arguments
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-11 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     variables
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
                                         </tbody>
                                     </table>
                                     <p></p>
                                     <h2>Attribute Descriptions</h2>
                                     <table class="tablepress tablepress-id-24">
-                                        <tbody class="row-hover">
-                                            <tr class="row-1 odd">
-                                                <td class="column-1">
+                                        <tbody>
+                                            <tr>
+                                                <td>
                                                     <b>id</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Unique ID assigned when a
                                                     new Step object is created.
                                                 </td>
                                             </tr>
-                                            <tr class="row-2 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>_teamId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the Org object
                                                     where the Step is created.
-                                                </td>
-                                            </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">
+                                                                                          <tr>
+                                                <td>
                                                     <b>_jobId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the Job containing
                                                     the Step.
                                                 </td>
                                             </tr>
-                                            <tr class="row-4 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>_taskId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the Task
                                                     containing the Step.
                                                 </td>
                                             </tr>
-                                            <tr class="row-5 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>name</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The Step name. Is inherited
                                                     from the associated StepDef
                                                     object or from a StepDef
@@ -9948,31 +9557,31 @@ curl --location --request POST 'https://saasglue.com/api/v0/script' --header 'Co
                                                     Job template.
                                                 </td>
                                             </tr>
-                                            <tr class="row-6 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>order</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The order in which the Step
                                                     will run in relation to
                                                     other Steps in the same
                                                     Task.
                                                 </td>
                                             </tr>
-                                            <tr class="row-7 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>script</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the Script the
                                                     Step will execute.
                                                 </td>
                                             </tr>
-                                            <tr class="row-8 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>command</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     This attribute can be used
                                                     to specify the exact
                                                     interpreter to use to
@@ -10008,11 +9617,11 @@ curl --location --request POST 'https://saasglue.com/api/v0/script' --header 'Co
                                                     runs.
                                                 </td>
                                             </tr>
-                                            <tr class="row-9 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>arguments</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     A space delimited list of
                                                     arguments which will be
                                                     passed to the script upon
@@ -10023,11 +9632,11 @@ curl --location --request POST 'https://saasglue.com/api/v0/script' --header 'Co
                                                     be enclosed in quotes.
                                                 </td>
                                             </tr>
-                                            <tr class="row-10 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>variables</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Environment variables to set
                                                     in the script runtime
                                                     environment. Use this
@@ -10682,95 +10291,95 @@ curl --location --request GET 'https://saasglue.com/api/v0/step?filter=_taskId%3
                                     <h2>Reference</h2>
                                     <table class="tablepress tablepress-id-25">
                                         <thead>
-                                            <tr class="row-1 odd">
-                                                <th class="column-1">
+                                            <tr>
+                                                <th>
                                                     Attribute
                                                 </th>
-                                                <th class="column-2">GET</th>
-                                                <th class="column-3">PUT</th>
-                                                <th class="column-4">
+                                                <th>GET</th>
+                                                <th>PUT</th>
+                                                <th>
                                                     Post (required)
                                                 </th>
-                                                <th class="column-5">
+                                                <th>
                                                     Post (optional)
                                                 </th>
                                             </tr>
                                         </thead>
-                                        <tbody class="row-hover">
-                                            <tr class="row-2 even">
-                                                <td class="column-1">id</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                        <tbody>
+                                            <tr>
+                                                <td>id</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     _teamId
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-4 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     _taskDefId
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4">x</td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-5 odd">
-                                                <td class="column-1">name</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4">x</td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>name</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-6 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     _scriptId
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4">x</td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-7 odd">
-                                                <td class="column-1">order</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4">x</td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>order</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-8 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     command
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-9 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     arguments
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-10 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     variables
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -10778,73 +10387,71 @@ curl --location --request GET 'https://saasglue.com/api/v0/step?filter=_taskId%3
                                     <h2>Attribute Descriptions</h2>
                                     <table class="tablepress tablepress-id-26">
                                         <thead>
-                                            <tr class="row-1 odd">
-                                                <th class="column-1">
+                                            <tr>
+                                                <th>
                                                     <b>id</b>
                                                 </th>
-                                                <th class="column-2">
+                                                <th>
                                                     Unique ID assigned when a
                                                     new StepDef object is
                                                     created.
                                                 </th>
                                             </tr>
                                         </thead>
-                                        <tbody class="row-hover">
-                                            <tr class="row-2 even">
-                                                <td class="column-1">
+                                        <tbody>
+                                            <tr>
+                                                <td>
                                                     <b>_teamId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the Org object
                                                     where the StepDef is
-                                                    created.
-                                                </td>
-                                            </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">
+                                                                                        </tr>
+                                            <tr>
+                                                <td>
                                                     <b>_taskDefId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the TaskDef object
                                                     containing the StepDef.
                                                 </td>
                                             </tr>
-                                            <tr class="row-4 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>name</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The StepDef name. Must be
                                                     unique among StepDefs within
                                                     the TaskDef to which it
                                                     belongs.
                                                 </td>
                                             </tr>
-                                            <tr class="row-5 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>_scriptId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the script which
                                                     Steps created from this
                                                     StepDef will execute.
                                                 </td>
                                             </tr>
-                                            <tr class="row-6 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>order</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The order in which Steps
                                                     created from the StepDef
                                                     will run.
                                                 </td>
                                             </tr>
-                                            <tr class="row-7 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>command</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     This attribute can be used
                                                     to specify the exact
                                                     interpreter to use to
@@ -10881,11 +10488,11 @@ curl --location --request GET 'https://saasglue.com/api/v0/step?filter=_taskId%3
                                                     runs.
                                                 </td>
                                             </tr>
-                                            <tr class="row-8 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>arguments</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     A space delimited list of
                                                     command line arguments which
                                                     will be passed to the script
@@ -10896,11 +10503,11 @@ curl --location --request GET 'https://saasglue.com/api/v0/step?filter=_taskId%3
                                                     be enclosed in quotes.
                                                 </td>
                                             </tr>
-                                            <tr class="row-9 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>variables</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Environment variables to set
                                                     in the script runtime
                                                     environment. Use this
@@ -11940,284 +11547,282 @@ curl --location --request GET 'https://saasglue.com/api/v0/stepdef/[stepDefId]' 
                                     <h2>Reference</h2>
                                     <table class="tablepress tablepress-id-27">
                                         <thead>
-                                            <tr class="row-1 odd">
-                                                <th class="column-1">
+                                            <tr>
+                                                <th>
                                                     Attribute
                                                 </th>
-                                                <th class="column-2">GET</th>
-                                                <th class="column-3">PUT</th>
-                                                <th class="column-4">
+                                                <th>GET</th>
+                                                <th>PUT</th>
+                                                <th>
                                                     Post (required)
                                                 </th>
-                                                <th class="column-5">
+                                                <th>
                                                     Post (optional)
                                                 </th>
                                             </tr>
                                         </thead>
-                                        <tbody class="row-hover">
-                                            <tr class="row-2 even">
-                                                <td class="column-1">id</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                        <tbody>
+                                            <tr>
+                                                <td>id</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     _teamId
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-4 even">
-                                                <td class="column-1">_jobId</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>_jobId</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-5 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     _stepId
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-6 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     _taskOutcomeId
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-7 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     _invoiceId
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-8 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     machineId
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-9 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     ipAddress
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-10 even">
-                                                <td class="column-1">name</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>name</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-11 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     runCode
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-12 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     runtimeVars
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-13 odd">
-                                                <td class="column-1">stdout</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>stdout</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-14 even">
-                                                <td class="column-1">stderr</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>stderr</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-15 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     exitCode
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-16 even">
-                                                <td class="column-1">signal</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>signal</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-17 odd">
-                                                <td class="column-1">status</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>status</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-18 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     dateStarted
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-19 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     dateCompleted
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-20 even">
-                                                <td class="column-1">tail</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>tail</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
                                         </tbody>
                                     </table>
                                     <p></p>
                                     <h2>Attribute Descriptions</h2>
                                     <table class="tablepress tablepress-id-28">
-                                        <tbody class="row-hover">
-                                            <tr class="row-1 odd">
-                                                <td class="column-1">
+                                        <tbody>
+                                            <tr>
+                                                <td>
                                                     <b>id</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Unique ID assigned when a
                                                     new StepOutcome object is
                                                     created.
                                                 </td>
                                             </tr>
-                                            <tr class="row-2 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>_teamId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the Org object
                                                     where the StepOutcome is
-                                                    created.
-                                                </td>
-                                            </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">
+                                                                                        </tr>
+                                            <tr>
+                                                <td>
                                                     <b>_jobId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the Job containing
                                                     the Step.
                                                 </td>
                                             </tr>
-                                            <tr class="row-4 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>_stepId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The Step ID from which the
                                                     StepOutcome is derived.
                                                 </td>
                                             </tr>
-                                            <tr class="row-5 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>_taskOutcomeId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The TaskOutcome object
                                                     associated with the
                                                     StepOutcome.
                                                 </td>
                                             </tr>
-                                            <tr class="row-6 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>_invoiceId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the Invoice where
                                                     the StepOutcome was billed.
                                                 </td>
                                             </tr>
-                                            <tr class="row-7 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>machineId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The Machine ID where the
                                                     Step was executed.
                                                 </td>
                                             </tr>
-                                            <tr class="row-8 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>ipAddress</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The local IP address of the
                                                     Machine where the Step was
                                                     executed.
                                                 </td>
                                             </tr>
-                                            <tr class="row-9 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>name</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The name of the step. This
                                                     is inherited from the Step
                                                     Object from which the
                                                     StepOutcome is derived.
                                                 </td>
                                             </tr>
-                                            <tr class="row-10 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>runCode</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The script code that was
                                                     executed in the Step. The
                                                     code is encoded with Base64.
                                                 </td>
                                             </tr>
-                                            <tr class="row-11 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>runtimeVars</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     A list of key-value pair
                                                     “runtime variables”
                                                     generated by this Step.
@@ -12228,49 +11833,49 @@ curl --location --request GET 'https://saasglue.com/api/v0/stepdef/[stepDefId]' 
                                                     in the same Job workflow.
                                                 </td>
                                             </tr>
-                                            <tr class="row-12 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>stdout</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The standard output
                                                     generated by the Script
                                                     execution.
                                                 </td>
                                             </tr>
-                                            <tr class="row-13 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>stderr</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Any errors generated by the
                                                     Script execution.
                                                 </td>
                                             </tr>
-                                            <tr class="row-14 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>exitCode</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The Script exit code.
                                                 </td>
                                             </tr>
-                                            <tr class="row-15 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>signal</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The signal used to stop the
                                                     Script execution If it was
                                                     stopped externally. For
                                                     example SIGTERM or SIGKILL.
                                                 </td>
                                             </tr>
-                                            <tr class="row-16 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>status</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The current status of the
                                                     Script execution. Here are
                                                     the possible values.<br /><br />
@@ -12282,29 +11887,29 @@ curl --location --request GET 'https://saasglue.com/api/v0/stepdef/[stepDefId]' 
                                                     22 = FAILED
                                                 </td>
                                             </tr>
-                                            <tr class="row-17 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>dateStarted</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The date and time the Script
                                                     was started.
                                                 </td>
                                             </tr>
-                                            <tr class="row-18 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>dateCompleted</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The date and time the Script
                                                     completed.
                                                 </td>
                                             </tr>
-                                            <tr class="row-19 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>tail</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The last five lines of the
                                                     standard output. It will be
                                                     updated as the Script
@@ -13200,191 +12805,189 @@ curl --location --request GET 'https://saasglue.com/api/v0/stepOutcome?filter=_t
                                     <h2>Reference</h2>
                                     <table class="tablepress tablepress-id-29">
                                         <thead>
-                                            <tr class="row-1 odd">
-                                                <th class="column-1">
+                                            <tr>
+                                                <th>
                                                     Attribute
                                                 </th>
-                                                <th class="column-2">GET</th>
-                                                <th class="column-3">PUT</th>
-                                                <th class="column-4">
+                                                <th>GET</th>
+                                                <th>PUT</th>
+                                                <th>
                                                     POST (required)
                                                 </th>
-                                                <th class="column-5">
+                                                <th>
                                                     POST (optional)
                                                 </th>
                                             </tr>
                                         </thead>
-                                        <tbody class="row-hover">
-                                            <tr class="row-2 even">
-                                                <td class="column-1">id</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                        <tbody>
+                                            <tr>
+                                                <td>id</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     _teamId
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-4 even">
-                                                <td class="column-1">_jobId</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>_jobId</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-5 odd">
-                                                <td class="column-1">target</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>target</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-6 even">
-                                                <td class="column-1">name</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>name</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-7 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     targetAgentId
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-8 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     requiredTags
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-9 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     fromRoutes
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-10 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     toRoutes
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-11 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     sourceTaskRoute
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-12 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     artifacts
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-13 odd">
-                                                <td class="column-1">status</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>status</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-14 even">
-                                                <td class="column-1">error</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>error</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-15 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     failureCode
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-16 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     runtimeVars
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-17 odd">
-                                                <td class="column-1">route</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>route</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
                                         </tbody>
                                     </table>
                                     <p></p>
                                     <h2>Attribute Descriptions</h2>
                                     <table class="tablepress tablepress-id-30">
-                                        <tbody class="row-hover">
-                                            <tr class="row-1 odd">
-                                                <td class="column-1">
+                                        <tbody>
+                                            <tr>
+                                                <td>
                                                     <b>id</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Unique ID assigned when a
                                                     new TaskDef object is
                                                     created.
                                                 </td>
                                             </tr>
-                                            <tr class="row-2 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>_teamId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the Org object
                                                     where the TaskDef is
-                                                    created.
-                                                </td>
-                                            </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">
+                                                                                        </tr>
+                                            <tr>
+                                                <td>
                                                     <b>_jobId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the Job containing
                                                     the Task.
                                                 </td>
                                             </tr>
-                                            <tr class="row-4 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>target</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Defines which Agent(s) are
                                                     qualified to run the Task.
                                                     Here are the possible
@@ -13415,11 +13018,11 @@ curl --location --request GET 'https://saasglue.com/api/v0/stepOutcome?filter=_t
                                                     of the TaskDef object.
                                                 </td>
                                             </tr>
-                                            <tr class="row-5 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>name</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The Task name. Is inherited
                                                     from the associated TaskDef
                                                     object or from a TaskDef
@@ -13427,11 +13030,11 @@ curl --location --request GET 'https://saasglue.com/api/v0/stepOutcome?filter=_t
                                                     Job template.
                                                 </td>
                                             </tr>
-                                            <tr class="row-6 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>targetAgentId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the Agent where
                                                     the Task will run. This
                                                     attribute is only relevant
@@ -13439,11 +13042,11 @@ curl --location --request GET 'https://saasglue.com/api/v0/stepOutcome?filter=_t
                                                     set to “SINGLE_AGENT”.
                                                 </td>
                                             </tr>
-                                            <tr class="row-7 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>requiredTags</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Executing Agents must have
                                                     tags matching all tags in
                                                     this attribute if the
@@ -13462,11 +13065,11 @@ curl --location --request GET 'https://saasglue.com/api/v0/stepOutcome?filter=_t
                                                     still be qualified.
                                                 </td>
                                             </tr>
-                                            <tr class="row-8 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>fromRoutes</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The names and optional route
                                                     codes of preceding Tasks
                                                     which must ALL be completed
@@ -13494,11 +13097,11 @@ curl --location --request GET 'https://saasglue.com/api/v0/stepOutcome?filter=_t
                                                     will be set to SKIPPED.
                                                 </td>
                                             </tr>
-                                            <tr class="row-9 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>toRoutes</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The names of Tasks to launch
                                                     when the Task completes.
                                                     This is different from the
@@ -13526,11 +13129,11 @@ curl --location --request GET 'https://saasglue.com/api/v0/stepOutcome?filter=_t
                                                     Task.
                                                 </td>
                                             </tr>
-                                            <tr class="row-10 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>sourceTaskRoute</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     For Tasks that were routed
                                                     to with a “to” route, the
                                                     Task id and route that
@@ -13539,11 +13142,11 @@ curl --location --request GET 'https://saasglue.com/api/v0/stepOutcome?filter=_t
                                                     sourceRoute: [route] }”
                                                 </td>
                                             </tr>
-                                            <tr class="row-11 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>artifacts</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     A list of Artifact IDs to be
                                                     used to execute the Task.
                                                     Artifacts can include
@@ -13558,11 +13161,11 @@ curl --location --request GET 'https://saasglue.com/api/v0/stepOutcome?filter=_t
                                                     web console.
                                                 </td>
                                             </tr>
-                                            <tr class="row-12 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>status</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The current Task status.
                                                     Here are the possible
                                                     values:<br /><br />
@@ -13578,20 +13181,20 @@ curl --location --request GET 'https://saasglue.com/api/v0/stepOutcome?filter=_t
                                                     SKIPPED = 23
                                                 </td>
                                             </tr>
-                                            <tr class="row-13 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>error</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Text of any error that
                                                     occurred running the Task.
                                                 </td>
                                             </tr>
-                                            <tr class="row-14 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>failureCode</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The failure code for a Task
                                                     with FAILED status. Here are
                                                     the possible values:<br /><br />
@@ -13605,11 +13208,11 @@ curl --location --request GET 'https://saasglue.com/api/v0/stepOutcome?filter=_t
                                                     MISSING_TARGET_TAGS = 5
                                                 </td>
                                             </tr>
-                                            <tr class="row-15 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>runtimeVars</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     A list of key-value pair
                                                     “runtime variables” which
                                                     will be used to execute
@@ -13651,11 +13254,11 @@ curl --location --request GET 'https://saasglue.com/api/v0/stepOutcome?filter=_t
                                                     “my_value”}’).
                                                 </td>
                                             </tr>
-                                            <tr class="row-16 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>TTL</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The time (in milliseconds)
                                                     to wait for a task to be
                                                     picked up by an Agent for
@@ -14347,152 +13950,150 @@ curl --location --request GET 'https://saasglue.com/api/v0/task?filter=_jobId%3D
                                     <h2>Reference</h2>
                                     <table class="tablepress tablepress-id-31">
                                         <thead>
-                                            <tr class="row-1 odd">
-                                                <th class="column-1">
+                                            <tr>
+                                                <th>
                                                     Attribute
                                                 </th>
-                                                <th class="column-2">GET</th>
-                                                <th class="column-3">PUT</th>
-                                                <th class="column-4">
+                                                <th>GET</th>
+                                                <th>PUT</th>
+                                                <th>
                                                     Post (required)
                                                 </th>
-                                                <th class="column-5">
+                                                <th>
                                                     Post (optional)
                                                 </th>
                                             </tr>
                                         </thead>
-                                        <tbody class="row-hover">
-                                            <tr class="row-2 even">
-                                                <td class="column-1">id</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                        <tbody>
+                                            <tr>
+                                                <td>id</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     _teamId
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-4 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     _jobDefId
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4">x</td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-5 odd">
-                                                <td class="column-1">target</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4">x</td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>target</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-6 even">
-                                                <td class="column-1">name</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4">x</td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>name</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-7 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     targetAgentId
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-8 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     requiredTags
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-9 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     fromRoutes
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-10 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     toRoutes
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-11 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     artifacts
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-12 even">
-                                                <td class="column-1">TTL</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                            <tr>
+                                                <td>TTL</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
                                         </tbody>
                                     </table>
                                     <p></p>
                                     <h2>Attribute Descriptions</h2>
                                     <table class="tablepress tablepress-id-32">
-                                        <tbody class="row-hover">
-                                            <tr class="row-1 odd">
-                                                <td class="column-1">
+                                        <tbody>
+                                            <tr>
+                                                <td>
                                                     <b>id</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Unique ID assigned when a
                                                     new TaskDef object is
                                                     created.
                                                 </td>
                                             </tr>
-                                            <tr class="row-2 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>_teamId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the Org object
                                                     where the TaskDef is
-                                                    created.
-                                                </td>
-                                            </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">
+                                                                                        </tr>
+                                            <tr>
+                                                <td>
                                                     <b>_jobDefId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the JobDef
                                                     containing the TaskDef.
                                                 </td>
                                             </tr>
-                                            <tr class="row-4 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>target</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Defines which Agent(s) are
                                                     qualified to run Tasks
                                                     created from this TaskDef.
@@ -14524,22 +14125,22 @@ curl --location --request GET 'https://saasglue.com/api/v0/task?filter=_jobId%3D
                                                     of the TaskDef object.
                                                 </td>
                                             </tr>
-                                            <tr class="row-5 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>name</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The TaskDef name. Must be
                                                     unique among TaskDefs within
                                                     the JobDef to which it
                                                     belongs.
                                                 </td>
                                             </tr>
-                                            <tr class="row-6 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>targetAgentId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the Agent where
                                                     Tasks created from the
                                                     TaskDef will run. This
@@ -14548,11 +14149,11 @@ curl --location --request GET 'https://saasglue.com/api/v0/task?filter=_jobId%3D
                                                     set to “SINGLE_AGENT”.
                                                 </td>
                                             </tr>
-                                            <tr class="row-7 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>requiredTags</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Executing Agents must have
                                                     tags matching all tags in
                                                     this attribute if the
@@ -14572,11 +14173,11 @@ curl --location --request GET 'https://saasglue.com/api/v0/task?filter=_jobId%3D
                                                     still be qualified.
                                                 </td>
                                             </tr>
-                                            <tr class="row-8 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>fromRoutes</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The names and optional route
                                                     codes of preceding Tasks
                                                     which must ALL be completed
@@ -14605,11 +14206,11 @@ curl --location --request GET 'https://saasglue.com/api/v0/task?filter=_jobId%3D
                                                     will be set to SKIPPED.
                                                 </td>
                                             </tr>
-                                            <tr class="row-9 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>toRoutes</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The names of Tasks to launch
                                                     when a Task created from the
                                                     TaskDef completes. This is
@@ -14638,11 +14239,11 @@ curl --location --request GET 'https://saasglue.com/api/v0/task?filter=_jobId%3D
                                                     Task.
                                                 </td>
                                             </tr>
-                                            <tr class="row-10 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>artifacts</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     A list of Artifact IDs to be
                                                     used to execute a Task
                                                     created from the TaskDef.
@@ -14658,11 +14259,11 @@ curl --location --request GET 'https://saasglue.com/api/v0/task?filter=_jobId%3D
                                                     web console.
                                                 </td>
                                             </tr>
-                                            <tr class="row-11 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>TTL</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The time (in milliseconds)
                                                     to wait for a task to be
                                                     processed by an Agent before
@@ -15700,213 +15301,211 @@ curl --location --request GET 'http://saasglue.com/api/v0/taskdef/[TaskDef id]]'
                                     <h2>Reference</h2>
                                     <table class="tablepress tablepress-id-33">
                                         <thead>
-                                            <tr class="row-1 odd">
-                                                <th class="column-1">
+                                            <tr>
+                                                <th>
                                                     Attribute
                                                 </th>
-                                                <th class="column-2">GET</th>
-                                                <th class="column-3">PUT</th>
-                                                <th class="column-4">
+                                                <th>GET</th>
+                                                <th>PUT</th>
+                                                <th>
                                                     Post (required)
                                                 </th>
-                                                <th class="column-5">
+                                                <th>
                                                     Post (optional)
                                                 </th>
                                             </tr>
                                         </thead>
-                                        <tbody class="row-hover">
-                                            <tr class="row-2 even">
-                                                <td class="column-1">id</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                        <tbody>
+                                            <tr>
+                                                <td>id</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     _teamId
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-4 even">
-                                                <td class="column-1">_jobId</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>_jobId</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-5 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     _taskId
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-6 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     _agentId
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-7 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     sourceTaskRoute
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-8 even">
-                                                <td class="column-1">target</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>target</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-9 odd">
-                                                <td class="column-1">status</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>status</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-10 even">
-                                                <td class="column-1">route</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>route</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-11 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     failureCode
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-12 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     dateStarted
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-13 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     dateCompleted
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-14 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     ipAddress
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-15 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     machineId
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-16 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     artifactsDownloadedSize
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-17 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     runtimeVars
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
                                         </tbody>
                                     </table>
                                     <p></p>
                                     <h2>Attribute Descriptions</h2>
                                     <table class="tablepress tablepress-id-34">
-                                        <tbody class="row-hover">
-                                            <tr class="row-1 odd">
-                                                <td class="column-1">
+                                        <tbody>
+                                            <tr>
+                                                <td>
                                                     <b>id</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Unique ID assigned when a
                                                     new TaskOutcome object is
                                                     created.
                                                 </td>
                                             </tr>
-                                            <tr class="row-2 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>_teamId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the Org object
                                                     where the TaskOutcome is
-                                                    created.
-                                                </td>
-                                            </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">
+                                                                                        </tr>
+                                            <tr>
+                                                <td>
                                                     <b>_jobId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the Job containing
                                                     the TaskOutcome.
                                                 </td>
                                             </tr>
-                                            <tr class="row-4 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>_taskId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The Task ID from which the
                                                     TaskOutcome is derived.
                                                 </td>
                                             </tr>
-                                            <tr class="row-5 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>_agentId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the Agent that
                                                     executed the Task.
                                                 </td>
                                             </tr>
-                                            <tr class="row-6 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>sourceTaskRoute</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     For Tasks that were routed
                                                     to with a “to” route, the
                                                     Task id and route that
@@ -15915,11 +15514,11 @@ curl --location --request GET 'http://saasglue.com/api/v0/taskdef/[TaskDef id]]'
                                                     sourceRoute: [route] }”
                                                 </td>
                                             </tr>
-                                            <tr class="row-7 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>target</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Defines which Agent(s) are
                                                     qualified to run the Task.
                                                     Here are the possible
@@ -15950,11 +15549,11 @@ curl --location --request GET 'http://saasglue.com/api/v0/taskdef/[TaskDef id]]'
                                                     of the TaskDef object.
                                                 </td>
                                             </tr>
-                                            <tr class="row-8 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>status</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     This attribute stores the
                                                     current status of the Task
                                                     execution. Here are the
@@ -15971,11 +15570,11 @@ curl --location --request GET 'http://saasglue.com/api/v0/taskdef/[TaskDef id]]'
                                                     23 = SKIPPED
                                                 </td>
                                             </tr>
-                                            <tr class="row-9 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>route</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The route used to determine
                                                     the conditional path for
                                                     Tasks subsequent to the
@@ -16009,11 +15608,11 @@ curl --location --request GET 'http://saasglue.com/api/v0/taskdef/[TaskDef id]]'
                                                     “ok”}’).
                                                 </td>
                                             </tr>
-                                            <tr class="row-10 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>failureCode</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The failure code for a
                                                     TaskOutcome with FAILED
                                                     status. Here are the
@@ -16028,61 +15627,61 @@ curl --location --request GET 'http://saasglue.com/api/v0/taskdef/[TaskDef id]]'
                                                     MISSING_TARGET_TAGS = 5
                                                 </td>
                                             </tr>
-                                            <tr class="row-11 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>dateStarted</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The date and time when the
                                                     Task started.
                                                 </td>
                                             </tr>
-                                            <tr class="row-12 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>dateCompleted</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The date and time when the
                                                     Task completed.
                                                 </td>
                                             </tr>
-                                            <tr class="row-13 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>ipAddress</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The IP address of the
                                                     Machine where the Task was
                                                     executed.
                                                 </td>
                                             </tr>
-                                            <tr class="row-14 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>machineId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the Machine where
                                                     the Task was executed.
                                                 </td>
                                             </tr>
-                                            <tr class="row-15 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b
                                                         >artifactsDownloadedSize</b
                                                     >
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The total size of the
                                                     Artifacts downloaded for
                                                     this task, measured in
                                                     bytes.
                                                 </td>
                                             </tr>
-                                            <tr class="row-16 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>runtimeVars</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     A list of key-value pair
                                                     “runtime variables”
                                                     generated by this Task.
@@ -16097,34 +15696,33 @@ curl --location --request GET 'http://saasglue.com/api/v0/taskdef/[TaskDef id]]'
                                     <p></p>
                                     <h2>Actions</h2>
                                     <table class="tablepress tablepress-id-35">
-                                        <tbody class="row-hover">
-                                            <tr class="row-1 odd">
-                                                <td class="column-1">
+                                        <tbody>
+                                            <tr>
+                                                <td>
                                                     <b>interrupt</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Interrupt a running Task.
                                                     Task status must be
                                                     RUNNING.<br />
                                                     taskoutcomeaction/interrupt/:taskOutcomeId
                                                 </td>
                                             </tr>
-                                            <tr class="row-2 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>restart</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Restart a Task. Task status
                                                     must be INTERRUPTED or
-                                                    FAILED.<br />
-                                                    taskoutcomeaction/restart/:taskOutcomeId
+                                                                                               taskoutcomeaction/restart/:taskOutcomeId
                                                 </td>
                                             </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>cancel</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Cancel a Task. Task status
                                                     must be RUNNING or
                                                     INTERRUPTED.<br />
@@ -16748,88 +16346,86 @@ curl --location --request GET 'https://saasglue.com/api/v0/taskOutcome?filter=_t
                                     <h2>Reference</h2>
                                     <table class="tablepress tablepress-id-36">
                                         <thead>
-                                            <tr class="row-1 odd">
-                                                <th class="column-1">
+                                            <tr>
+                                                <th>
                                                     Attribute
                                                 </th>
-                                                <th class="column-2">GET</th>
-                                                <th class="column-3">PUT</th>
-                                                <th class="column-4">
+                                                <th>GET</th>
+                                                <th>PUT</th>
+                                                <th>
                                                     Post (required)
                                                 </th>
-                                                <th class="column-5">DELETE</th>
+                                                <th>DELETE</th>
                                             </tr>
                                         </thead>
-                                        <tbody class="row-hover">
-                                            <tr class="row-2 even">
-                                                <td class="column-1">id</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5">x</td>
+                                        <tbody>
+                                            <tr>
+                                                <td>id</td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>x</td>
                                             </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     _teamId
                                                 </td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3"></td>
-                                                <td class="column-4"></td>
-                                                <td class="column-5"></td>
+                                                <td>x</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-4 even">
-                                                <td class="column-1">name</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4">x</td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>name</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
                                             </tr>
-                                            <tr class="row-5 odd">
-                                                <td class="column-1">value</td>
-                                                <td class="column-2">x</td>
-                                                <td class="column-3">x</td>
-                                                <td class="column-4">x</td>
-                                                <td class="column-5"></td>
+                                            <tr>
+                                                <td>value</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td>x</td>
+                                                <td></td>
                                             </tr>
                                         </tbody>
                                     </table>
                                     <p></p>
                                     <h2>Attribute Descriptions</h2>
                                     <table class="tablepress tablepress-id-37">
-                                        <tbody class="row-hover">
-                                            <tr class="row-1 odd">
-                                                <td class="column-1">
+                                        <tbody>
+                                            <tr>
+                                                <td>
                                                     <b>id</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     Unique ID assigned when a
                                                     new TeamVariable object is
                                                     created.
                                                 </td>
                                             </tr>
-                                            <tr class="row-2 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>_teamId</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The ID of the Team object
                                                     where the TeamVariable is
-                                                    created.
-                                                </td>
-                                            </tr>
-                                            <tr class="row-3 odd">
-                                                <td class="column-1">
+                                                                                        </tr>
+                                            <tr>
+                                                <td>
                                                     <b>name</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The TeamVariable key.
                                                 </td>
                                             </tr>
-                                            <tr class="row-4 even">
-                                                <td class="column-1">
+                                            <tr>
+                                                <td>
                                                     <b>value</b>
                                                 </td>
-                                                <td class="column-2">
+                                                <td>
                                                     The TeamVariable value.
                                                 </td>
                                             </tr>
@@ -17982,7 +17578,7 @@ curl --location --request DELETE 'https://saasglue.com/api/v0/teamvar/[teamVaria
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
