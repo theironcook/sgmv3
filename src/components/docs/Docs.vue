@@ -1141,50 +1141,48 @@
                                     heartbeat.</li>
                     </ul>
 
+                    <h3>Actions</h3>
+                    <h4>download</h4>
+                    <p>Download the Agent install from SaaSGlue - <code>agentDownload/agentstub/:platform/:arch</code></p>
+                    <p><code>:platform</code>(required) - must be one of: <code>linux, win, macos, alpine, freebsd</code></p>
+                    <p><code>:arch</code>(optional) - must be one of: <code>x64, x86, armv6, armv7</code></p>
+                    <p>Not all platform/arch combinations are valid.</p>
 
+                    <h3>Sample Code</h3>
+                    <h4>Get all Agents objects in the Org</h4>
+                    <p>Request</p>
+                    <code>curl --location --request GET 'https://saasglue.com/api/v0/agent' --header 'Content-Type: application/json' --header 'Auth: [auth token]' --header '_teamId: [teamId]' --data-raw ''</code>
+                    <p>Response</p>
+                    <pre>
+{
+    "statusCode":200,
+    "data":{
+        "numActiveTasks":0,
+        "lastHeartbeatTime":1588863480826,
+        "offline":false,
+        "cron":"",
+        "_teamId":"[teamId]",
+        "machineId":"[Machine ID]",
+        "ipAddress":"[IP Address]",
+        "name":"[Agent Name]",
+        "propertyOverrides":{
+            "trackSysInfo":true,
+            "maxActiveTasks":20
+        },
+        "sysInfo":{},
+        "createDate":"[Date]",
+        "tags":{},
+        "id":"[Agent ID]",
+        "version":0,
+        "type":"Agent"
+    }
+}
+</pre>
 
                     <!-- <div>
                         <div>
                             <div>
                                 <div>
-
-
-
-
-                                    <p></p>
-                                    <h2>Actions</h2>
-                                    <table class="tablepress tablepress-id-40">
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <b>download</b>
-                                                </td>
-                                                <td>
-                                                    <br />
-                                                    Download the Agent install
-                                                    from SaaSGlue.<br /><br />
-                                                    agentDownload/agentstub/:platform/:arch?<br /><br />
-                                                    “platform” = required - must
-                                                    be one of “linux”, “win”,
-                                                    “macos”, “alpine”,
-                                                    “freebsd”<br /><br />
-                                                    “arch” = optional - must be
-                                                    one of “x64”, “x86”,
-                                                    “armv6”, “armv7”<br /><br />
-                                                    Not all platform/arch
-                                                    combinations are valid.<br />
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <p></p>
-                                    <h2>Sample Code</h2>
-                                    <p>
-                                        <span
-                                            >To get all Agents objects in the
-                                            Org:</span
-                                        >
-                                    </p>
                                     <div
                                         class="
                                             enlighter-default
@@ -1193,80 +1191,6 @@
                                             enlighter-hover
                                         "
                                     >
-                                        <div
-                                            class="
-                                                enlighter-toolbar-top
-                                                enlighter-toolbar
-                                            "
-                                        >
-                                            <div
-                                                title="Plain text"
-                                                class="
-                                                    enlighter-btn
-                                                    enlighter-btn-raw
-                                                "
-                                            ></div>
-                                            <div
-                                                title="Copy to clipboard"
-                                                class="
-                                                    enlighter-btn
-                                                    enlighter-btn-copy
-                                                "
-                                            ></div>
-                                            <div
-                                                title="Open code in new window"
-                                                class="
-                                                    enlighter-btn
-                                                    enlighter-btn-window
-                                                "
-                                            ></div>
-                                            <div
-                                                title="EnlighterJS 3 Syntax Highlighter"
-                                                class="
-                                                    enlighter-btn
-                                                    enlighter-btn-website
-                                                "
-                                            ></div>
-                                        </div>
-                                        <div class="enlighter">
-                                            <div>
-                                                <div>
-                                                    <span class="enlighter-text"
-                                                        >curl --location
-                                                        --request GET </span
-                                                    ><span class="enlighter-s0"
-                                                        >'https://saasglue.com/api/v0/agent'</span
-                                                    ><span
-                                                        class="enlighter-text"
-                                                    >
-                                                        --header </span
-                                                    ><span class="enlighter-s0"
-                                                        >'Content-Type:
-                                                        application/json'</span
-                                                    ><span
-                                                        class="enlighter-text"
-                                                    >
-                                                        --header </span
-                                                    ><span class="enlighter-s0"
-                                                        >'Auth: [auth
-                                                        token]'</span
-                                                    ><span
-                                                        class="enlighter-text"
-                                                    >
-                                                        --header </span
-                                                    ><span class="enlighter-s0"
-                                                        >'_teamId:
-                                                        [teamId]'</span
-                                                    ><span
-                                                        class="enlighter-text"
-                                                    >
-                                                        --data-raw </span
-                                                    ><span class="enlighter-s0"
-                                                        >''</span
-                                                    >
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div class="enlighter-raw">
                                             curl --location --request GET
                                             'https://saasglue.com/api/v0/agent'
