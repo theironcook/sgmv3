@@ -7,7 +7,7 @@
                 </div>
                 <div class="column is-three-quarters content">
                     <h1 class="title is-spaced">Product Documentation</h1>
-                    <h2 class="subtitle">SaaSGlue Framework Overview</h2>
+                    <h2 class="subtitle pb-2">SaaSGlue Framework Overview</h2>
 
                     <h3>Cloud and Agents</h3>
                     <p>The basic components of the
@@ -68,10 +68,10 @@
                             well-orchestrated workflows.
                     </p>
 
-                    <h2 class="subtitle">The Structure of Jobs</h2>
+                    <h2 class="subtitle pb-2">The Structure of Jobs</h2>
                     <p>Jobs are a hierarchical structure
-                            of sub-components, including Tasks,
-                            Steps and Scripts.
+                            of sub-components, including <strong>Tasks</strong>,
+                            <strong>Steps</strong> and <strong>Scripts</strong>.
                     </p>
 
                     <h3>Job</h3>
@@ -107,11 +107,11 @@
                             the Script. This would override the
                             default interpreter based on the
                             Script type. For example, a command
-                            value of “/usr/bin/python2.7” for a
+                            value of <code>/usr/bin/python2.7</code> for a
                             Step running a python Script would
                             result in the Script being executed
                             with the interpreter located at
-                            “/usr/bin/python2.7” on the machine
+                            <code>/usr/bin/python2.7</code> on the machine
                             where the Step runs.
                     </p>
 
@@ -123,17 +123,17 @@
                             run the script.
                     </p>
 
-                    <h2 class="subtitle">Job Definition</h2>
+                    <h2 class="subtitle pb-2">Job Definition</h2>
                     <p>Job Definitions (JobDefs) are
                             structured workflow templates that
                             coordinate the execution of one or
                             more Tasks to accomplish a goal. For
-                            example, a JobDef could consist of a
+                            example, a <code>JobDef</code> could consist of a
                             single Task that watches for new
                             files in a specific location. When a
                             new file is discovered, it could
                             launch a new Job based on another
-                            JobDef with a series of Tasks that
+                            <code>JobDef</code> with a series of Tasks that
                             constitute a data pipeline for
                             processing the file.
                     </p>
@@ -146,115 +146,108 @@
                     <p>JobDefs are used to create Jobs,
                             which are runtime implementations of
                             JobDefs. Creating a Job from a
-                            JobDef can be accomplished in three
+                            <code>JobDef</code> can be accomplished in three
                             ways:
                     </p>
-                    <ol>
-                        <li>Schedule a JobDef using the
+                    <ul>
+                        <li>Schedule a <code>JobDef</code> using the
                             SaaSGlue web application or the
                             SaaSGlue API. When the Schedule is
-                            triggered, the JobDef will be used
+                            triggered, the <code>JobDef</code> will be used
                             as a template to create and run a
                             Job. A scheduled Job may be triggered but not run immediately
-                            or at all based on certain JobDef
+                            or at all based on certain <code>JobDef</code>
                             attributes.</li>
                         <li>A Job can be launched from a
-                            JobDef manually using the SaaSGlue
+                            <code>JobDef</code> manually using the SaaSGlue
                             API or using the SaaSGlue web
                             application.</li>
-                        <li>A JobDef can be defined in JSON
+                        <li>A <code>JobDef</code> can be defined in <code>JSON</code>
                             and sent to the SaaSGlue API in an
-                            Http POST.</li>
-                    </ol>
+                            <code>Http POST</code>.</li>
+                    </ul>
 
                     <h3>Routes</h3>
-                    <p>The JobDef ties Tasks together with
+                    <p>The <code>JobDef</code> ties Tasks together with
                             routes. Routes include two
                             components, the task name and the
                             route pattern. The route pattern can
                             be any valid javascript regular
                             expression. For example, a route
-                            pattern of “^(?!fail$).*$” would
+                            pattern of <code>^(?!fail$).*$</code> would
                             match any route code other than
-                            “fail”. For a route to be satisfied,
+                            <code>fail</code>. For a route to be satisfied,
                             a task must be completed with a
                             route code matching the route
                             pattern.
                     </p>
                     <p>By default, tasks that complete
                             successfully (all steps in the task
-                            complete with exit code 0) have a
+                            complete with <code>exit code 0</code>) have a
                             blank route code. Tasks that fail (a
                             step in the task completes with
                             non-zero exit code) have route code
-                            “fail”. Tasks that are interrupted
-                            (either by ctl+c or canceled using
+                            <code>fail</code>. Tasks that are interrupted
+                            (either by <code>CTRL+C</code> or canceled using
                             SaaSGlue) have route code
-                            “interrupt”. To set a custom route
+                            <code>interrupt</code>. To set a custom route
                             code, print a string to stdout
-                            following the pattern “@sgo{“route”:
-                            “[route name]”}” from a script. If
+                            following the pattern <code>@sgo{"route": "[route name]"}</code>
+                            from a script. If
                             multiple scripts within a task set a
                             custom route code, the last one will
                             be used.
                     </p>
                     <p>SaaSGlue supports two types of task
-                            routing – inbound and outbound
+                            routing – <strong>inbound</strong> and <strong>outbound</strong>
                             routes. Inbound routes require all
                             routes to be satisfied before the
                             target task is executed. For
                             example, if we have inbound routes
-                            from “task1” with route pattern “.*”
-                            and “task2” with route pattern “.*”
-                            to “task3”, both routes must be
-                            satisfied for “task3” to execute.
+                            from <code>task1</code> with route pattern <code>.*</code>
+                            and <code>task2</code> with route pattern <code>.*</code>
+                            to <code>task3</code>, both routes must be
+                            satisfied for <code>task3</code> to execute.
                     </p>
                     <p>Outbound routes cause the target
                             task to be executed every time the
                             outbound route is satisfied. For
                             example, if we have outbound routes
-                            from “task1” with route pattern “.*”
-                            to “task3” and from “task2” with
-                            route pattern “.*” to “task3”, then
-                            every time the “task1” route is
-                            satisfied, “task3” will be executed,
-                            and every time the “task2” route is
-                            satisfied, “task3” will be executed.
+                            from <code>task1</code> with route pattern <code>.*</code>
+                            to <code>task3</code> and from <code>task2</code> with
+                            route pattern <code>.*</code> to <code>task3</code>, then
+                            every time the <code>task1</code> route is
+                            satisfied, <code>task3</code> will be executed,
+                            and every time the <code>task2</code> route is
+                            satisfied, <code>task3</code> will be executed.
                             An example use case would be a
                             general failed task handler. You
                             could implement this by creating an
                             outbound route from every other task
-                            in the job to a “failed task
-                            handler” task. This scenario is
+                            in the job to a <code>failed task handler</code> task. This scenario is
                             facilitated in the web application
-                            by the “Route All To [task name]”
+                            by the <code>Route All To [task name]</code>
                             button in the Workflow Designer
                             view.
                     </p>
-                    <p>Task routes can be defined using
-                            the SaaSGlue API for JobDefs and
-                            Jobs and using the SaaSGlue web
-                            application.
-                    </p>
-                    <p>There are a few settings in the job
-                            definition that define conditions
-                            for how jobs are to be run.
-                    </p>
-                    <p>
-                        <b>Max Instances</b>
-                        defines how many instances of a job
-                        can run concurrently.
-                    </p>
-                    <p>
-                        <b>Misfire Grace Time</b>
+                    <div class="notification is-info is-light">
+                        Task routes can be defined using
+                        the SaaSGlue API for JobDefs and
+                        Jobs and using the SaaSGlue web
+                        application. There are a few settings in the job
+                        definition that define conditions
+                        for how jobs are to be run.
+                    </div>
+                    <ul>
+                        <li><b>Max Instances</b> – defines how many instances of a job
+                        can run concurrently.</li>
+                        <li><b>Misfire Grace Time</b> –
                             defines how long a job can wait past
                             a scheduled start time before it is
                             cancelled. This setting applies only
                             to jobs executed by a
-                            schedule.
-                    </p>
-                    <p>
-                        <b>Coalesce</b>
+                            schedule.</li>
+                        <li><b>Coalesce</b> –
                             directs SaaSGlue to skip all but
                             one job when there are multiple jobs
                             queued up. This setting is useful
@@ -262,28 +255,26 @@
                             gone offline and missed the start
                             time for several scheduled jobs. It
                             may be desirable to run only one
-                            instance and skip the rest.
-                    </p>
-                    <p>
-                        <b>Pause on Failed Job</b>
-                            – if “true”, when a Job created from
-                            the JobDef fails, the JobDef will be
-                            “paused” until it is manually
-                            “resumed” (using the SaaSGlue cloud
+                            instance and skip the rest.</li>
+                            <li><b>Pause on Failed Job</b> –
+                            if <code>true</code>, when a Job created from
+                            the <code>JobDef</code> fails, the <code>JobDef</code> will be
+                            <b>paused</b> until it is manually
+                            <b>resumed</b> (using the SaaSGlue cloud
                             interface or the API [link to JobDef
                             API documentation]) or all failed
                             Tasks are either canceled or
                             completed successfully. This
                             facilitates certain workflow
                             scenarios, for example where all
-                            Jobs created from a JobDef must
-                            complete in order.
-                    </p>
-                    <p>Job Definitions can include runtime
-                            variables.
-                    </p>
+                            Jobs created from a <code>JobDef</code> must
+                            complete in order.</li>
+                    </ul>
+                    <div class="notification is-info is-light">
+                        Job Definitions can include runtime variables.
+                    </div>
 
-                    <h2 class="subtitle">Task Definition</h2>
+                    <h2 class="subtitle pb-2">Task Definition</h2>
                     <p>Each Task can have one or more
                             Steps that must be run in a set
                             sequence.
@@ -372,7 +363,7 @@
                             execute the Task.
                     </p>
 
-                    <h2 class="subtitle">Step Definition</h2>
+                    <h2 class="subtitle pb-2">Step Definition</h2>
                     <p>Steps are contained within a Task
                             and must be run in a set sequence.
                             The Step definition stores its order
@@ -419,7 +410,7 @@
                             convenient to work with.
                     </p>
 
-                    <h2 class="subtitle">Script Definition</h2>
+                    <h2 class="subtitle pb-2">Script Definition</h2>
                     <p>The Script object stores the Script
                             code.
                     </p>
@@ -467,7 +458,7 @@
                             within the team.
                     </p>
 
-                    <h2 class="subtitle">Script Injection</h2>
+                    <h2 class="subtitle pb-2">Script Injection</h2>
                     <p>Scripts defined in SaaSGlue can be
                             injected into other scripts using
                             the following syntax:
@@ -490,7 +481,7 @@
                             SaaSGlue team.
                     </p>
 
-                    <h2 class="subtitle">Runtime Variables</h2>
+                    <h2 class="subtitle pb-2">Runtime Variables</h2>
                     <p>Runtime Variables are key-value
                             pairs. They provide a mechanism for
                             dynamically injecting variable
@@ -700,7 +691,7 @@
                             Tasks that target multiple
                             agents.
                     </p>
-                    <h2 class="subtitle">Job Schedule</h2>
+                    <h2 class="subtitle pb-2">Job Schedule</h2>
                     <p>Schedules can be created for Job
                             Definitions (JobDefs) to
                             automatically trigger Jobs to run. A
@@ -776,7 +767,7 @@
                             for active schedules.
                     </p>
 
-                    <h2 class="subtitle">Service Tasks</h2>
+                    <h2 class="subtitle pb-2">Service Tasks</h2>
                     <p>Have you written “services” for
                             Windows? Linux? Mac? Then you know
                             that it can be difficult and that
@@ -835,8 +826,8 @@
                             restarted.
                     </p>
 
-                    <h2 class="subtitle">Endpoint / Object Reference</h2>
-                    <h2 class="subtitle">Agent</h2>
+                    <h2 class="subtitle pb-2">Endpoint / Object Reference</h2>
+                    <h2 class="subtitle pb-2">Agent</h2>
                     <p>The SaaSGlue Agent is the vehicle
                             for executing Scripts received from
                             the SaaSGlue cloud. The Agent can be
@@ -17518,3 +17509,9 @@ curl --location --request DELETE 'https://saasglue.com/api/v0/teamvar/[teamVaria
         components: { Menu }
     });
 </script>
+
+<style lang="scss" scoped>
+    .subtitle {
+        border-bottom: 1px solid #ccc;
+    }
+</style>
