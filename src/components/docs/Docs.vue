@@ -70,8 +70,8 @@
 
                     <h2 class="subtitle pb-2">The Structure of Jobs</h2>
                     <p>Jobs are a hierarchical structure
-                            of sub-components, including <strong>Tasks</strong>,
-                            <strong>Steps</strong> and <strong>Scripts</strong>.
+                            of sub-components, including <b>Tasks</b>,
+                            <b>Steps</b> and <b>Scripts</b>.
                     </p>
 
                     <h3>Job</h3>
@@ -199,7 +199,7 @@
                             be used.
                     </p>
                     <p>SaaSGlue supports two types of task
-                            routing – <strong>inbound</strong> and <strong>outbound</strong>
+                            routing – <b>inbound</b> and <b>outbound</b>
                             routes. Inbound routes require all
                             routes to be satisfied before the
                             target task is executed. For
@@ -275,24 +275,24 @@
                     </div>
 
                     <h2 class="subtitle pb-2">Task Definition</h2>
-                    <p>Each Task can have one or more
-                            Steps that must be run in a set
+                    <p>Each <code>Task</code> can have one or more
+                            <code>Steps</code> that must be run in a set
                             sequence.
                     </p>
                     <p>Tasks can target one or multiple
-                            Agents. If a Task targets multiple
+                            Agents. If a <code>Task</code> targets multiple
                             Agents each Agent will run separate
-                            instances of the Task in parallel.
+                            instances of the <code>Task</code> in parallel.
                             Once an Agent begins processing a
-                            Task, all Steps in the Task will be
+                            <code>Task</code>, all <code>Steps</code> in the <code>Task</code> will be
                             completed on that Agent machine. If
-                            a Task fails or is interrupted it
+                            a <code>Task</code> fails or is interrupted it
                             can be restarted, although it may
                             not be restarted on the machine
                             where it was previously
                             running.
                     </p>
-                    <p>The Steps of a specific Task
+                    <p>The <code>Steps</code> of a specific Task
                             instance must all be completed by
                             the same Agent because there are
                             some sequences of events that cannot
@@ -308,27 +308,27 @@
                             where Java has not been installed,
                             step2 will fail.
                     </p>
-                    <p>The Job designer must understand
+                    <p>The <code>Job</code> designer must understand
                             the logical boundaries of each
                             discrete part of the Job and design
                             accordingly.
                     </p>
-                    <p>Dependencies on prior Task outcomes
-                            are stored in the Task definition
-                            “inbound” routes. They determine
-                            whether the Job route will route
-                            through a given Task or not.
+                    <p>Dependencies on prior <code>Task</code> outcomes
+                            are stored in the <code>Task</code> definition
+                            <b>inbound</b> routes. They determine
+                            whether the <code>Job</code> route will route
+                            through a given <code>Task</code> or not.
                             Downstream dependencies are stored
-                            in the Task definition “outbound”
+                            in the <code>Task</code> definition <b>outbound</b>
                             routes. They determine which Tasks
-                            will be started when this Task
+                            will be started when this <code>Task</code>
                             completes. See the JobDef routing
                             description for details.
                     </p>
                     <p>Task definitions store the
                             qualifications for determining which
-                            Agent(s) can run the Task. Those
-                            qualifications are as follows.
+                            Agent(s) can run the <code>Task</code>. Those
+                            qualifications are as follows:
                     </p>
                     <ul>
                         <li>Any active Agent</li>
@@ -343,37 +343,37 @@
                     </ul>
                     <p>Tags are user defined and must be
                             formatted in key value pairs, such
-                            as “Linux=True”. Task Tags can be
+                            as <code>Linux=True</code>. <code>Task</code> Tags can be
                             defined using the SaaSGlue web
                             application or the SaaSGlue
                             API.
                     </p>
-                    <p>If a Task needs to run on a
+                    <p>If a <code>Task</code> needs to run on a
                             specific agent, use the Job Designer
                             in the SaaSGlue web application or
                             the SaaSGlue API to specify which
-                            agent should run the Task. It is
+                            agent should run the <code>Task</code>. It is
                             also possible to dynamically
                             determine the target agent at
                             runtime using runtime variables.
                             Simply set the target agent to
-                            “@sgg(“[runtime variable key]”)” and
-                            the agent id referenced by [runtime
-                            variable key] will be used to
-                            execute the Task.
+                            <code>@sgg("[runtime variable key]")</code> and
+                            the agent id referenced by
+                            <code>[runtime variable key]</code>
+                            will be used to execute the <code>Task</code>.
                     </p>
 
                     <h2 class="subtitle pb-2">Step Definition</h2>
-                    <p>Steps are contained within a Task
+                    <p>Steps are contained within a <code>Task</code>
                             and must be run in a set sequence.
-                            The Step definition stores its order
+                            The <code>Step</code> definition stores its order
                             in the sequence.
                     </p>
-                    <p>Each Step can have only one Script
-                            object. The Step definition can
+                    <p>Each <code>Step</code> can have only one <code>Script</code>
+                            object. The <code>Step</code> definition can
                             store arguments or environment
                             variables which are needed to run
-                            the script. Step arguments and
+                            the script. <code>Step</code> arguments and
                             environment variables can be set
                             dynamically at runtime using Runtime
                             Variables.
@@ -381,7 +381,7 @@
                     <p>The command attribute can be used
                             to specify the exact interpreter to
                             use to execute the script for Steps
-                            created from this StepDef. It can
+                            created from this <code>StepDef</code>. It can
                             also be used to set arguments that
                             should be passed to that
                             interpreter. For example, to pass a
@@ -391,108 +391,109 @@
                             be used to execute the script.
                     </p>
                     <p>For example, if you have a script
-                            of type “python” and the “command”
+                            of type <code>python</code> and the <code>command</code>
                             attribute is not set, then the
                             default python interpreter on the
-                            machine where the Step runs will be
+                            machine where the <code>Step</code> runs will be
                             used to execute the script. If the
                             command attribute is set to
-                            “/usr/bin/python2.7”, then the
+                            <code>/usr/bin/python2.7</code>, then the
                             interpreter in that location on the
                             Agent machine will be used to run
                             the script. The interpreter
                             specified by the command attribute
                             must exist on the machine on which
-                            the Step runs.
+                            the <code>Step</code> runs.
                     </p>
-                    <p>The designer can give the Step
+                    <p>The designer can give the <code>Step</code>
                             definition a name to make it more
                             convenient to work with.
                     </p>
 
                     <h2 class="subtitle pb-2">Script Definition</h2>
-                    <p>The Script object stores the Script
+                    <p>The <code>Script</code> object stores the <code>Script</code>
                             code.
                     </p>
                     <p>It also stores useful information
-                            about the Script including the
-                            Script language, the original author
+                            about the <code>Script</code> including the
+                            <code>Script</code> language, the original author
                             and who last edited it.
                     </p>
                     <p>SaaSGlue can be used to execute any
-                            Script. The Script type attribute is
-                            added to the Script object to make
+                            <code>Script</code>. The <code>Script</code> type attribute is
+                            added to the <code>Script</code> object to make
                             it easier to work with common
                             scripting languages. For example,
-                            the SaaSGlue cloud interface Script
+                            the SaaSGlue cloud interface <code>Script</code>
                             editor provides cues based on the
                             script language. To use a script
                             language not defined in SaaSGlue use
-                            “SH” if the Script will run on
-                            Linux, Linux based or Mac operating
-                            systems and “CMD” for Windows and
-                            then define the “Command” attribute
+                            <code>SH</code> if the <code>Script</code> will run on
+                            <code>Linux, Linux based or Mac</code> operating
+                            systems and <code>CMD for Windows</code> and
+                            then define the <code>Command</code> attribute
                             either in the StepDef or when
-                            executing the Script from the
+                            executing the <code>Script</code> from the
                             Console.
                     </p>
-                    <p>The following script types are
-                            predefined in SaaSGlue.
-                    </p>
-                    <p>0 = PYTHON</p>
-                    <p>1 = NODE</p>
-                    <p>2 = SH</p>
-                    <p>3 = CMD</p>
-                    <p>4 = RUBY</p>
-                    <p>5 = LUA</p>
-                    <p>6 = PERL</p>
-                    <p>7 = PHP</p>
-                    <p>8 = POWERSHELL</p>
-                    <p>Scripts can be set to be editable
-                            within the team. All Scripts are
-                            viewable within the team.
-                    </p>
-                    <p>The author can give the Script a
-                            name to make it more convenient to
-                            work with. The name must be unique
-                            within the team.
-                    </p>
+                    <p>The following script types are predefined in SaaSGlue:</p>
+                    <ul>
+                        <li>0 = PYTHON</li>
+                        <li>1 = NODE</li>
+                        <li>2 = SH</li>
+                        <li>3 = CMD</li>
+                        <li>4 = RUBY</li>
+                        <li>5 = LUA</li>
+                        <li>6 = PERL</li>
+                        <li>7 = PHP</li>
+                        <li>8 = POWERSHELL</li>
+                    </ul>
+                    <div class="notification is-info is-light">
+                        Scripts can be set to be editable
+                        within the team. All Scripts are
+                        viewable within the team.
+                    </div>
+                    <div class="notification is-warning is-light">
+                        The author can give the Script a
+                        name to make it more convenient to
+                        work with. The name must be unique
+                        within the team.
+                    </div>
 
                     <h2 class="subtitle pb-2">Script Injection</h2>
                     <p>Scripts defined in SaaSGlue can be
                             injected into other scripts using
-                            the following syntax:
+                            the following syntax <code>@sgs("[script name]")</code>
                     </p>
-                    <p><code>@sgs(“[script name]”)</code></p>
                     <p>This line entered in a script will
                             result in the script defined by
-                            [script name] being injected into
+                            <code>[script name]</code> being injected into
                             the host script immediately before
                             executing the script.
                     </p>
                     <p>Scripts can be injected recursively
-                            meaning that “script 1” can
-                            reference “script 2” which can
-                            reference “script 3”, etc.
+                            meaning that <code>script 1</code> can
+                            reference <code>script 2</code> which can
+                            reference <code>script 3</code>, etc.
                     </p>
-                    <p>However, the [script name] itself
+                    <p>However, the <code>[script name]</code> itself
                             cannot be a variable – it must be
                             the name of a script defined in your
                             SaaSGlue team.
                     </p>
 
                     <h2 class="subtitle pb-2">Runtime Variables</h2>
-                    <p>Runtime Variables are key-value
+                    <p>Runtime Variables are <b>key-value</b>
                             pairs. They provide a mechanism for
                             dynamically injecting variable
-                            values in Script code, Arguments and
+                            values in <code>Script</code> code, Arguments and
                             Environment Variables of a Task Step
                             when it is executed by a SaaSGlue
                             Agent. Runtime variables can be
                             defined at design time on the Team
-                            level and in JobDefs, and when a Job
+                            level and in JobDefs, and when a <code>Job</code>
                             is created and they can also be
-                            generated dynamically during Script
+                            generated dynamically during <code>Script</code>
                             execution.
                     </p>
                     <h3>How to define</h3>
@@ -504,112 +505,109 @@
                     </p>
                     <h4>JobDef scoped runtimes variables</h4>
                     <p>Runtime Variables can be defined in
-                            JobDefs using the saas glue cloud
+                            JobDefs using the SaaSGlue cloud
                             interface or the SaaSGlue API.
                     </p>
                     <h4>Job scoped runtime variables</h4>
                     <p>Runtime Variables can be defined in
-                            a Job when the Job is created. When
-                            a Job is created using the SaaSGlue
+                            a <code>Job</code> when the <code>Job</code> is created. When
+                            a <code>Job</code> is created using the SaaSGlue
                             API the runtime variables can be
-                            included in the Http POST request.
-                            When a Job is created from a JobDef
+                            included in the <code>Http POST</code> request.
+                            When a <code>Job</code> is created from a <code>JobDef</code>
                             in the SaaSGlue cloud UI the runtime
-                            variables can be entered in the Job
+                            variables can be entered in the <code>Job</code>
                             creation dialog.
                     </p>
                     <h4>Dynamically generated runtime variables</h4>
                     <p>Runtime Variables can be generated
-                            dynamically during Script execution
+                            dynamically during <code>Script</code> execution
                             by printing a properly formatted
                             string to stdout. The format is
-                            <code>“@sgo{“[variable name]”: “[variable value]”}”.</code>
+                            <code>@sgo{"[variable name]": "[variable value]"}.</code>
                     </p>
                     <p>For example, the following line of
                             python script code would dynamically
                             create or modify a runtime variable
-                            with name “myKey” and value
-                            “myValue” when executed by a
-                            SaaSGlue Agent: <code>print ‘@sgg{“myKey”: “myValue”}’</code>
+                            with name <code>myKey</code> and value
+                            <code>"myValue"</code> when executed by a
+                            SaaSGlue Agent <code>print '@sgg{"myKey": "myValue"}'</code>.
                     </p>
-                    <p>The “myKey” runtime variable would
-                            now be defined as “myValue” for
-                            subsequent Steps in the Task being
+                    <p>The <code>"myKey"</code> runtime variable would
+                            now be defined as <code>"myValue"</code> for
+                            subsequent Steps in the <code>Task</code> being
                             executed and for subsequent Tasks in
-                            the Job workflow.
+                            the <code>Job</code> workflow.
                     </p>
                     <p>SaaSGlue reserves the key word
-                            “route” to determine route-based
+                            <code>route</code> to determine route-based
                             pathing between Tasks in a Job
                             workflow. So the following output
-                            <code>“@sgg{“route”: “ok”}”</code> would not
+                            <code>@sgg{"route": "ok"}</code> would not
                             create a runtime variable named
-                            “route”. Instead it would be used
-                            for routing from the executing Task
-                            in the Job workflow.
+                            <code>route</code>. Instead it would be used
+                            for routing from the executing <code>Task</code>
+                            in the <code>Job</code> workflow.
                     </p>
                     <p>If a runtime variable is defined on
                             multiple levels, each successively
                             granular level overrides the
                             previous. For example, if we have a
-                            variable named “key” defined on the
+                            variable named <code>key</code> defined on the
                             Team level with a value of
-                            “team_value” and in a JobDef with a
-                            value of “jobdef_value”, the JobDef
+                            <code>team_value</code> and in a <code>JobDef</code> with a
+                            value of <code>jobdef_value</code>, the <code>JobDef</code>
                             value will override the Team value.
-                            If the variable is defined in a Job
-                            created from the JobDef with a value
-                            of “job_value”, the Job value will
-                            override the JobDef value. If within
-                            that Job a Script runs which prints
+                            If the variable is defined in a <code>Job</code>
+                            created from the <code>JobDef</code> with a value
+                            of <code>job_value</code>, the <code>Job</code> value will
+                            override the <code>JobDef</code> value. If within
+                            that <code>Job</code> a <code>Script</code> runs which prints
                             the following string to stdout
-                            <code>“sgo{“key”: “script_value”}”</code>, the
-                            Script value will override the Job
+                            <code>sgo{"key": "script_value"}</code>, the
+                            <code>Script</code> value will override the <code>Job</code>
                             value and any subsequent reference
-                            to “key” will have the value
-                            “script_value”. A subsequent Script
-                            could override the value
-                            again.
+                            to <code>key</code> will have the value
+                            <code>script_value</code>. A subsequent <code>Script</code>
+                            could override the value again.
                     </p>
                     <h3>How to use</h3>
                     <p>Runtime Variables values can be
-                            dynamically injected into the Script
+                            dynamically injected into the <code>Script</code>
                             code, Arguments and Environment
-                            Variables of a Step. Immediately
-                            before running a Task Step, the
-                            Agent will search the Step Script
+                            Variables of a <code>Step</code>. Immediately
+                            before running a <code>Task Step</code>, the
+                            Agent will search the <code>Step Script</code>
                             code Arguments for strings following
-                            the pattern <code>“sgg(“[key]”)”</code> and will
+                            the pattern <code>sgg("[key]")</code> and will
                             replace them with the current value
                             of the runtime variable with the
-                            name “[key]”. If no runtime variable
-                            with the name “[key]” exists, “null”
+                            name <code>[key]</code>. If no runtime variable
+                            with the name <code>[key]</code> exists, <code>null</code>
                             will be injected instead.
                     </p>
                     <h4>Step Script code runtime variable injection</h4>
                     <p>For example, if we have a python
                             script with the following line of
-                            code:
+                            code
                     </p>
-                    <p>
-                        <code>print(‘the value of “myKey” is “@sgg(“myKey”)”‘</code>
+                    <p><code>print('the value of "myKey" is "@sgg("myKey")"')</code></p>
+                    <p>and a runtime variable <code>myKey</code> with
+                            value <code>myValue</code>, the script will
+                            produce the following output
                     </p>
-                    <p>and a runtime variable “myKey” with
-                            value “myValue”, the script will
-                            produce the following output:
-                    </p>
-                    <p>
-                        <code>the value of “myKey” is “myValue”</code>
-                    </p>
+                    <p><code>the value of "myKey" is "myValue"</code>.</p>
+
                     <h4>Step Arguments runtime variable injection</h4>
                     <p>If we have a Step Argument with
-                            value <code>“@sgg(“myKey”) -out myFile.txt”</code>
+                            value <code>@sgg("myKey") -out myFile.txt"</code>
                             , and the runtime value
-                            of “myKey” is “myValue” the Script
-                            code for the Step will be called
+                            of <code>myKey</code> is <code>myValue</code> the <code>Script</code>
+                            code for the <code>Step</code> will be called
                             with arguments
-                            <code>“myValue -out myFile.txt”</code>.
+                            <code>"myValue -out myFile.txt"</code>.
                     </p>
+
                     <h4>Step Environment Variables runtime variable injection</h4>
                     <p>Runtime Variable injection for Step
                             Environment Variables works slightly
@@ -622,82 +620,85 @@
                             value when running the Script.
                     </p>
                     <p>For example, if we have a Step
-                            Environment Variable <code>“myKey”</code> and a
-                            runtime variable <code>“myKey”</code> with value
-                            <code>“myValue”</code>, then the runtime script
+                            Environment Variable <code>myKey</code> and a
+                            runtime variable <code>myKey</code> with value
+                            <code>myValue</code>, then the runtime script
                             execution environment will have an
                             environment variable
-                            <code>“myKey=myValue”</code>.
+                            <code>myKey=myValue</code>.
                     </p>
                     <h4>Design time configuration</h4>
-                    <p>A StepDef can be configured so that
-                            Steps created from the StepDef
+                    <p>A <code>StepDef</code> can be configured so that
+                            Steps created from the <code>StepDef</code>
                             utilize runtime variables in
                             arguments and/or environment
                             variables using the SaaSGlue API or
                             the SaaSGlue cloud interface.
                     </p>
-                    <p>Runtime variable injection can also
-                            be utilized when running Scripts
-                            using the SaaSGlue cloud interface
-                            Console.
-                    </p>
+                    <div class="notification is-info is-light">
+                        Runtime variable injection can also
+                        be utilized when running Scripts
+                        using the SaaSGlue cloud interface
+                        Console.
+                    </div>
+
                     <h4>Dynamically select Task target agent id</h4>
                     <p>Runtime variables can be used to
                             dynamically determine the target
                             agent for Tasks that target a single
                             specific agent at runtime. For
                             example, if you have a runtime
-                            variable named “agentId” and the
+                            variable named <code>agentId</code> and the
                             value is an actual agent id, and the
                             Task target agent id is
-                            <code>“@sgg(“agentId”)”</code>, the task with the
+                            <code>@sgg("agentId")</code>, the task with the
                             id matching the runtime variable
-                            value will be used to run the
-                            Task.
+                            value will be used to run the <code>Task</code>.
                     </p>
+
                     <h4>Save state with runtime variables</h4>
                     <p>As Scripts are executing the
                             corresponding stdout is monitored in
                             real-time and searched for strings
-                            following the @sgo runtime variable
+                            following the <code>@sgo</code> runtime variable
                             generation pattern. When runtime
                             variables are created/modified, the
                             new values are sent to the SaaSGlue
-                            cloud. If a Task fails and is
+                            cloud. If a <code>Task</code> fails and is
                             restarted, the most recent runtime
                             variable values will be delivered
-                            with the Task to the Agent where the
-                            Task resumes execution.
+                            with the <code>Task</code> to the Agent where the
+                            <code>Task</code> resumes execution.
                             Consequently, Scripts can be
                             designed to utilize the most recent
                             value of the runtime variable.
                     </p>
-                    <p>For example, if a Script is
+                    <p>For example, if a <code>Script</code> is
                             designed to iterate through records
                             in a file, the line number could be
                             printed to stdout with a string like
-                            <code>“@sgo{“line_num”: “10”}”</code> which would
-                            send the runtime variable <code>“line_num”</code>
-                            with a value of <code>“10”</code> to the SaaSGlue
-                            cloud. If the Task failed on line
-                            “11” and the Task is restarted, the
-                            Script could resume processing the
+                            <code>@sgo{"line_num": "10"}</code> which would
+                            send the runtime variable <code>line_num</code>
+                            with a value of <code>10</code> to the SaaSGlue
+                            cloud. If the <code>Task</code> failed on line
+                            <code>"11"</code> and the <code>Task</code> is restarted, the
+                            <code>Script</code> could resume processing the
                             file on the line after
-                            <code>“@sgg(“line_num”)”</code> which would now
-                            have a value of <code>“10”</code>.
+                            <code>@sgg("line_num")</code> which would now
+                            have a value of <code>10</code>.
                     </p>
-                    <p>This behavior does not apply to
-                            Tasks that target multiple
-                            agents.
-                    </p>
+                    <div class="notification is-info is-light">
+                        This behavior does not apply to
+                        Tasks that target multiple agents.
+                    </div>
+
                     <h2 class="subtitle pb-2">Job Schedule</h2>
                     <p>Schedules can be created for Job
                             Definitions (JobDefs) to
                             automatically trigger Jobs to run. A
-                            JobDef can have more than one
+                            <code>JobDef</code> can have more than one
                             Schedule but a Schedule can be
-                            linked to only one JobDef.
+                            linked to only one <code>JobDef</code>.
                     </p>
                     <p>There are three types of schedules.</p>
                     <ul>
@@ -712,24 +713,24 @@
                             run.
                     </p>
                     <h3>Cron</h3>
-                    <p>Cron resembles the “Cron” utility found
+                    <p>Cron resembles the <code>Cron</code> utility found
                             in most UNIX-like operating systems.
                             The following fields are available
                             to define a cron schedule.
                     </p>
                     <ul>
-                        <li><strong>Year</strong> 4-digit year</li>
-                        <li><strong>Month</strong> 1-12</li>
-                        <li><strong>Day</strong> day of the month (1-31)</li>
-                        <li><strong>Week</strong> ISO week (1-53)</li>
-                        <li><strong>Day of Week</strong>
+                        <li><b>Year</b> 4-digit year</li>
+                        <li><b>Month</b> 1-12</li>
+                        <li><b>Day</b> day of the month (1-31)</li>
+                        <li><b>Week</b> ISO week (1-53)</li>
+                        <li><b>Day of Week</b>
                             number or name of day (0-6 or mon, tue, wed, thu, fri, sat, sun)</li>
-                        <li><strong>Hour</strong> 0-23</li>
-                        <li><strong>Minute</strong> 0-59</li>
-                        <li><strong>Second</strong> 0-59</li>
-                        <li><strong>Start Date</strong> earliest possible date/time to trigger the job</li>
-                        <li><strong>End Date</strong> latest possible date/time to trigger the job</li>
-                        <li><strong>Jitter</strong> advance or delay the job execution by jitter seconds</li>
+                        <li><b>Hour</b> 0-23</li>
+                        <li><b>Minute</b> 0-59</li>
+                        <li><b>Second</b> 0-59</li>
+                        <li><b>Start Date</b> earliest possible date/time to trigger the job</li>
+                        <li><b>End Date</b> latest possible date/time to trigger the job</li>
+                        <li><b>Jitter</b> advance or delay the job execution by jitter seconds</li>
                     </ul>
                     <p>A cron schedule will trigger when
                             current time matches all specified
@@ -744,20 +745,20 @@
                             to define an interval schedule.
                     </p>
                     <ul>
-                        <li><strong>Weeks</strong> integer for the total number of weeks</li>
-                        <li><strong>Days</strong> integer for the total number of days</li>
-                        <li><strong>Hours </strong> integer for the total number of hours</li>
-                        <li><strong>Seconds</strong> integer for the total number of seconds</li>
-                        <li><strong>Start Date</strong> earliest possible date/time to trigger the job</li>
-                        <li><strong>End Date</strong> latest possible date/time to trigger the job</li>
-                        <li><strong>Jitter</strong> advance or delay the job execution by jitter seconds</li>
+                        <li><b>Weeks</b> integer for the total number of weeks</li>
+                        <li><b>Days</b> integer for the total number of days</li>
+                        <li><b>Hours </b> integer for the total number of hours</li>
+                        <li><b>Seconds</b> integer for the total number of seconds</li>
+                        <li><b>Start Date</b> earliest possible date/time to trigger the job</li>
+                        <li><b>End Date</b> latest possible date/time to trigger the job</li>
+                        <li><b>Jitter</b> advance or delay the job execution by jitter seconds</li>
                     </ul>
                     <p>An interval schedule will trigger a
                             job when the time interval has been
                             reached from the previous trigger
                             time.
                     </p>
-                    <p>The “Is Active” box must be checked
+                    <p>The <code>Is Active</code> box must be checked
                             to activate the schedule.
                     </p>
                     <p>The designer can give the schedule
@@ -768,7 +769,7 @@
                     </p>
 
                     <h2 class="subtitle pb-2">Service Tasks</h2>
-                    <p>Have you written “services” for
+                    <p>Have you written <b>services</b> for
                             Windows? Linux? Mac? Then you know
                             that it can be difficult and that
                             the process works differently in
@@ -783,24 +784,23 @@
                             service and deploy it to any
                             operating system. To run a task as a
                             service, simply set the
-                            “autoRestart” property of the task
-                            to “true” if using the SaaSGlue API.
+                            <code>autoRestart</code> property of the task
+                            to <code>true</code> if using the SaaSGlue API.
                             If using the SaaSGlue cloud UI, in
-                            the Job Designer -&gt; Task editor
-                            view, check the “Auto restart”
-                            checkbox. The task can target “any
-                            qualified agent” or a specific
+                            the <b>Job Designer -&gt; Task</b> editor
+                            view, check the <code>Auto restart</code>
+                            checkbox. The task can target <code>any qualified agent</code> or a specific
                             agent. If the agent running an
-                            autoRestart task is stopped or is
-                            inactive for more than 65 seconds,
+                            <code>autoRestart</code> task is stopped or is
+                            inactive for more than <strong>65 seconds</strong>,
                             the task will automatically be
                             restarted on another qualified
                             agent. If no qualified agent is
                             available, the task status will be
-                            set to “Failed”. The containing job
+                            set to <code>Failed</code>. The containing job
                             can be configured to send a
                             notification if this occurs. If an
-                            agent running an autoRestart task
+                            agent running an <code>autoRestart</code> task
                             goes offline and then comes back
                             online and the task is still running
                             on that agent and has also been
