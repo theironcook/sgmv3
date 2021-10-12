@@ -2222,7 +2222,469 @@
 }
                     </pre>
 
-                    
+                    <h2 class="subtitle pb-2">Script</h2>
+                    <p>The Script object stores the script code and information associated with the script file to make it usable in the saas glue environment.</p>
+
+                    <h3>Reference</h3>
+                    <table class="table is-striped is-hoverable is-bordered">
+                        <thead>
+                            <tr>
+                                <th>Attribute</th>
+                                <th>GET</th>
+                                <th>PUT</th>
+                                <th>POST (required)</th>
+                                <th>POST (optional)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>id</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>_teamId</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>name</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>scriptType</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>code</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>_originalAuthorUserId</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>_lastEditedUserId</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>teamEditable</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                            </tr>
+                            <tr>
+                                <td><code>lastEditedDate</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Attribute Descriptions</h3>
+                    <h4><b>id</b></h4>
+                    <p>Unique ID assigned when a new <code>Script</code> object is created.</p>
+
+                    <h4><b>_teamId</b></h4>
+                    <p>The ID of the Org object where the <code>Script</code> is created.</p>
+
+                    <h4><b>name</b></h4>
+                    <p>The <code>Script</code> name must be unique.</p>
+
+                    <h4><b>scriptType</b></h4>
+                    <p>SaaSGlue can be used to execute any script type. This attribute is added to the <code>Script</code> object to make it easier to work with common scripting languages. For example, the SaaSGlue cloud interface <code>Script</code> editor provides cues based on the script language. To use a script language not defined in SaaSGlue use type <code>SH</code> if the <code>Script</code> will run on Linux, Linux based or Mac operating systems and type <code>CMD</code> for Windows and then define the <code>Command</code> attribute either in the <code>StepDef</code> or when executing the <code>Script</code> from the Console.</p>
+                    <p>The following script types are defined in SaaSGlue.</p>
+                    <ul>
+                        <li>0 = PYTHON</li>
+                        <li>1 = NODE</li>
+                        <li>2 = SH</li>
+                        <li>3 = CMD</li>
+                        <li>4 = RUBY</li>
+                        <li>5 = LUA</li>
+                        <li>6 = PERL</li>
+                        <li>7 = PHP</li>
+                        <li>8 = POWERSHELL</li>
+                    </ul>
+
+                    <h4><b>code</b></h4>
+                    <p>The code of the script encoded with <code>Base64</code>.</p>
+
+                    <h4><b>_originalAuthorUserId</b></h4>
+                    <p>The ID of the user who first created the script.</p>
+
+                    <h4><b>_lastEditedUserId</b></h4>
+                    <p>The ID of the user who last edited a script</p>
+
+                    <h4><b>teamEditable</b></h4>
+                    <p>If set to <code>TRUE</code> anyone in the organization can edit the script.</p>
+
+                    <h4><b>lastEditedDate</b></h4>
+                    <p>The date and time the Script was last edited.</p>
+
+                    <h3>Sample Code</h3>
+                    <h4>Create a new Script object</h4>
+                    <p>Request</p>
+                    <pre>curl --location --request POST 'https://saasglue.com/api/v0/script' --header 'Content-Type: application/json' --header 'auth: [auth token]' --header '_teamId: [teamId]' --header 'Content-Type: text/plain' \ --data-raw '{ "_teamId": "[teamId]", "name": "[Script name]", "scriptType": "[Script type]", "code": "[Base64 encoded code]", "lastEditedDate": "[Date]" }'</pre>
+
+                    <p>Response</p>
+                    <pre>
+{
+    "statusCode":201,
+    "data":{
+        "teamUsable":true,
+        "teamEditable":false,
+        "_teamId":"[teamId]",
+        "name":"[Script name]",
+        "scriptType":2,
+        "code":"[Base64 encoded code]",
+        "_originalAuthorUserId":"[userId]",
+        "_lastEditedUserId":"[userId]",
+        "lastEditedDate":"[Date]",
+        "shadowCopyCode":"[Base64 encoded code (copy)]",
+        "id":"[Script id]",
+        "version":0,
+        "type":"Script"
+    }
+}
+                    </pre>
+
+                    <h2 class="subtitle pb-2">Step</h2>
+                    <p>A <code>Job</code> consists of one or more Tasks, and a <code>Task</code> consists of one or more Steps.</p>
+                    <p>A <code>Step</code> is the runtime implementation of a <code>StepDef</code>. Steps are only created when a containing <code>Job</code> is created. If a <code>Job</code> is created from a <code>JobDef</code>, a <code>Step</code> will be created in the <code>Job</code> for each <code>StepDef</code> in the <code>JobDef</code>. If a <code>Job</code> is created from a <code>JSON</code> template, a <code>Step</code> will be created in the <code>Job</code> for each <code>StepDef</code> embedded in the <code>JSON</code>.</p>
+
+                    <h3>Reference</h3>
+                    <table class="table is-striped is-hoverable is-bordered">
+                        <thead>
+                            <tr>
+                                <th>Attribute</th>
+                                <th>GET</th>
+                                <th>PUT</th>
+                                <th>POST (required)</th>
+                                <th>POST (optional)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>id</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>_teamId</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>_jobId</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>_taskId</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>name</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>order</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>script</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>command</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>arguments</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>variables</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Attribute Descriptions</h3>
+                    <h4><b>id</b></h4>
+                    <p>Unique ID assigned when a new <code>Step</code> object is created.</p>
+
+                    <h4><b>_teamId</b></h4>
+                    <p>The ID of the <code>Org</code> object where the <code>Step</code> is created.</p>
+
+                    <h4><b>_jobId</b></h4>
+                    <p>The ID of the <code>Job</code> containing the <code>Step</code>.</p>
+
+                    <h4><b>_taskId</b></h4>
+                    <p>The ID of the <code>Task</code> containing the <code>Step</code>.</p>
+
+                    <h4><b>name</b></h4>
+                    <p>The <code>Step</code> name. Is inherited from the associated <code>StepDef</code> object or from a <code>StepDef</code> embedded in a <code>JSON</code> formatted <code>Job</code> template.</p>
+
+                    <h4><b>order</b></h4>
+                    <p>The order in which the <code>Step</code> will run in relation to other Steps in the same <code>Task</code>.</p>
+
+                    <h4><b>script</b></h4>
+                    <p>The ID of the <code>Script</code> the <cpde>Step</cpde> will execute.</p>
+
+                    <h4><b>command</b></h4>
+                    <p>This attribute can be used to specify the exact interpreter to use to execute the <code>Step</code> script. It can also be used to set arguments that should be passed to that interpreter. For example, to pass a class path to the scala interpreter. If not specified, the default interpreter for the script type will be used to execute the script.</p>
+                    <p>For example, if you have a script of type <code>python</code> and the <code>command</code> attribute is not set, then the default python interpreter on the machine where the <code>Step</code> runs will be used to execute the script. If the command attribute is set to <code>/usr/bin/python2.7</code>, then the interpreter in that location on the <code>Agent</code> machine will be used to run the script. The interpreter specified by the command attribute must exist on the machine on which the <code>Step</code> runs.</p>
+
+                    <h4><b>arguments</b></h4>
+                    <p>A space delimited list of arguments which will be passed to the script upon execution. Syntax follows normal command line arguments, e.g. a single argument with spaces should be enclosed in quotes.</p>
+
+                    <h4><b>variables</b></h4>
+                    <p>Environment variables to set in the script runtime environment. Use this attribute to set environment variables required by the script which may not exist on the target machine(s) or which you want to override.</p>
+
+                    <h3>Sample Code</h3>
+                    <h4>Get all Step objects in a Task</h4>
+                    <p>Request</p>
+                    <pre>curl --location --request GET 'https://saasglue.com/api/v0/step?filter=_taskId%3D%3D[taskId]' --header 'Content-Type: application/json' --header 'auth: [auth token]' --header '_teamId: [teamId]'</pre>
+
+                    <p>Response</p>
+                    <pre>
+{
+    "statusCode":200,
+    "data":[
+        {
+            "command":"",
+            "arguments":"",
+            "_teamId":"[teamId]",
+            "_jobId":"[jobId]",
+            "_taskId":"[taskId]",
+            "name":"step1",
+            "order":0,
+            "script":{
+                "id":"[scriptId",
+                "name":"echo hello",
+                "scriptType":2,
+                "code":"ZWNobyAiSGVsbG8gV29ybGQi"
+            },
+            "id":"[Step id]",
+            "version":0,
+            "type":"Step"
+        }
+    ],
+    "meta":{
+        "count":1
+    }
+}
+                    </pre>
+
+                    <h2 class="subtitle pb-2">StepDef</h2>
+                    <p>The <code>StepDef</code> object defines how a <code>Step</code> is to be Run within a <code>Task</code>.</p>
+
+                    <h3>Reference</h3>
+                    <table class="table is-striped is-hoverable is-bordered">
+                        <thead>
+                            <tr>
+                                <th>Attribute</th>
+                                <th>GET</th>
+                                <th>PUT</th>
+                                <th>POST (required)</th>
+                                <th>POST (optional)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>id</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>_teamId</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>_taskDefId</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>name</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>_scriptId</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>order</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>command</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                            </tr>
+                            <tr>
+                                <td><code>arguments</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                            </tr>
+                            <tr>
+                                <td><code>variables</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Attribute Descriptions</h3>
+                    <h4><b>id</b></h4>
+                    <p>Unique ID assigned when a new <code>StepDef</code> object is created.</p>
+
+                    <h4><b>_teamId</b></h4>
+                    <p>The ID of the <code>Org</code> object where the <code>StepDef</code> is created.</p>
+
+                    <h4><b>_taskDefId</b></h4>
+                    <p>The ID of the <code>TaskDef</code> object containing the <code>StepDef</code>.</p>
+
+                    <h4><b>name</b></h4>
+                    <p>The <code>StepDef</code> name. Must be unique among StepDefs within the <code>TaskDef</code> to which it belongs.</p>
+
+                    <h4><b>_scriptId</b></h4>
+                    <p>The ID of the script which Steps created from this <code>StepDef</code> will execute.</p>
+
+                    <h4><b>order</b></h4>
+                    <p>The order in which Steps created from the <code>StepDef</code> will run.</p>
+
+                    <h4><b>command</b></h4>
+                    <p>This attribute can be used to specify the exact interpreter to use to execute the script for Steps created from this <code>StepDef</code>. It can also be used to set arguments that should be passed to that interpreter. For example, to pass a class path to the scala interpreter. If not specified, the default interpreter for the script type will be used to execute the script.</p>
+                    <p>For example, if you have a script of type <code>python</code> and the <code>command</code> attribute is not set, then the default <code>python</code> interpreter on the machine where the <code>Step</code> runs will be used to execute the script. If the command attribute is set to <code>/usr/bin/python2.7</code>, then the interpreter in that location on the <code>Agent</code> machine will be used to run the script. The interpreter specified by the command attribute must exist on the machine on which the <code>Step</code> runs.</p>
+
+                    <h4><b>arguments</b></h4>
+                    <p>A space delimited list of command line arguments which will be passed to the script upon execution. Syntax follows normal command line arguments, e.g. a single argument with spaces should be enclosed in quotes.</p>
+
+                    <h4><b>variables</b></h4>
+                    <p>Environment variables to set in the script runtime environment. Use this attribute to set environment variables required by the script which may not exist on the target machine(s) or which you want to override.</p>
+
+                    <h3>Sample Code</h3>
+                    <h4>Create a StepDef object</h4>
+                    <p>Request</p>
+                    <pre>curl --location --request POST 'https://saasglue.com/api/v0/stepdef' --header 'Content-Type: application/json' --header 'auth: [auth token]' --header '_teamId: [teamId]' --header 'Content-Type: text/plain' \ --data-raw '{ "_teamId": "[teamId]", "_taskDefId": "[taskDefId]", "name": "[Step name]", "_scriptId": "[scriptId]", "order": "0", "arguments": "", "variables": "" }'</pre>
+
+                    <p>Response</p>
+                    <pre>
+{
+    "statusCode":201,
+    "data":{
+        "_scriptId":"[scriptId]",
+        "command":"",
+        "arguments":"",
+        "variables":{},
+        "_teamId":"[teamId]",
+        "_taskDefId":"[taskDefId]",
+        "name":"step1",
+        "order":0,
+        "id":"[StepDef id]",
+        "version":0,
+        "type":"StepDef"
+    }
+}
+                    </pre>
+
+                    <h4>Get a single StepDef object</h4>
+                    <p>Request</p>
+                    <pre>curl --location --request GET 'https://saasglue.com/api/v0/stepdef/[stepDefId]' --header 'Content-Type: application/json' --header 'auth: [auth token]' --header '_teamId: [teamId]'</pre>
+
+                    <p>Response</p>
+                    <pre>
+{
+    "statusCode":200,
+    "data":{
+        "_scriptId":"[ScriptId]",
+        "command":"",
+        "arguments":"",
+        "variables":{},
+        "_teamId":"[teamId]",
+        "_taskDefId":"[TaskDefId]",
+        "name":"step1",
+        "order":0,
+        "id":"[StepDef id]",
+        "version":0,
+        "type":"StepDef"
+    }
+}
+                    </pre>
+
                 </div>
             </div>
         </div>
