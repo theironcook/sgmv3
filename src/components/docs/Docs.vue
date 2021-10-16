@@ -3637,7 +3637,124 @@
 }
                     </pre>
 
+                    <h2 class="subtitle pb-2">TeamVariable</h2>
+                    <p>TeamVariables have team-wide scope. They are useful for storing variables needed in Jobs across the team.</p>
 
+                    <h3>Reference</h3>
+                    <table class="table is-striped is-hoverable is-bordered">
+                        <thead>
+                            <tr>
+                                <th>Attribute</th>
+                                <th>GET</th>
+                                <th>PUT</th>
+                                <th>POST (required)</th>
+                                <th>DELETE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>id</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                            </tr>
+                            <tr>
+                                <td><code>_teamId</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>name</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>value</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Attribute Descriptions</h3>
+                    <h4><b>id</b></h4>
+                    <p>Unique ID assigned when a new <code>TeamVariable</code> object is created.</p>
+
+                    <h4><b>_teamId</b></h4>
+                    <p>The ID of the Team object where the <code>TeamVariable</code> is created.</p>
+
+                    <h4><b>name</b></h4>
+                    <p>The <code>TeamVariable</code> key.</p>
+
+                    <h4><b>value</b></h4>
+                    <p>The <code>TeamVariable</code> value.</p>
+
+                    <h3>Sample Code</h3>
+                    <h4>Create a new TeamVariable</h4>
+                    <p>Request</p>
+                    <pre>curl --location --request POST 'https://saasglue.com/api/v0/teamvar' --header 'Content-Type: application/json' --header 'auth: [auth token]' --header '_teamId: [teamId]' --header 'Content-Type: text/plain' \ --data-raw '{ "name" : "[key]]", "value" : "[value]]" }'</pre>
+
+                    <p>Response</p>
+                    <pre>
+{
+    "statusCode":201,
+    "data":{
+        "name":"[key]",
+        "value":"[value]",
+        "_teamId":"[teamId]",
+        "id":"[TeamVariable ID]",
+        "version":0,
+        "type":"TeamVariable"
+    }
+}
+                    </pre>
+
+                    <h4>Get all TeamVariables</h4>
+                    <p>Request</p>
+                    <pre>curl --location --request GET 'https://saasglue.com/api/v0/teamvar' --header 'Content-Type: application/json' --header 'Auth: [auth token]' --header '_teamId: [teamId]' --data-raw ''</pre>
+
+                    <p>Response</p>
+                    <pre>
+{
+    "statusCode":200,
+    "data":[
+        {
+            "_teamId":"[teamId]",
+            "name":"[name]",
+            "value":"[value]",
+            "id":"[TeamVariable ID]",
+            "version":0,
+            "type":"TeamVariable"
+        }
+    ],
+    "meta":{
+        "count":1
+    }
+}
+                    </pre>
+
+                    <h4>Delete an TeamVariable</h4>
+                    <p>Request</p>
+                    <pre>curl --location --request DELETE 'https://saasglue.com/api/v0/teamvar/[teamVariableId]' --header 'Content-Type: application/json' --header 'auth: [auth token]' --header '_teamId: [teamId]' --data-raw ''</pre>
+
+                    <p>Response</p>
+                    <pre>
+{
+    "statusCode":200,
+    "data":{
+        "n":1,
+        "ok":1,
+        "deletedCount":1
+    }
+}
+                    </pre>
                 </div>
             </div>
         </div>
