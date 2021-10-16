@@ -3120,7 +3120,7 @@
                     <p>The names of Tasks to launch when the <code>Task</code> completes. This is different from the <code>fromRoutes</code> attribute in that every time the current <code>Task</code> completes every <code>Task</code> in <code>toRoutes</code> with a matching route will be launched. For example a <code>toRoute</code> value of <code>"[ ['Task1'], ['Task2', 'ok'] ]"</code> would result in <code>Task1</code> and <code>Task2</code> getting launched if the current task completes with route <code>ok</code>.</p>
                     <p>If the current <code>Task</code> targets multiple agents (<code>target = ALL_AGENTS</code> or <code>ALL_AGENTS_WITH_TAGS</code>) and the current <code>Task</code> completes multiple times, the matching <code>toRoute</code> Tasks will be launched for each successful completion of the current <code>Task</code>.</p>
 
-                    <code><b>sourceTaskRoute</b></code>
+                    <h4><b>sourceTaskRoute</b></h4>
                     <p>For Tasks that were routed to with a <code>to</code> route, the <code>Task</code> id and route that preceded this <code>Task</code>, eg <code>{ sourceTaskOutcomeId: [id], sourceRoute: [route] }</code></p>
 
                     <h4><b>artifacts</b></h4>
@@ -3192,6 +3192,443 @@
             "id":"[Task id]",
             "version":0,
             "type":"Task"
+        }
+    ],
+    "meta":{
+        "count":1
+    }
+}
+                    </pre>
+
+                    <h2 class="subtitle pb-2">TaskDef</h2>
+                    <p>The <code>TaskDef</code> object defines how a <code>Task</code> is to be run within a <code>Job</code>.</p>
+                    <table class="table is-striped is-hoverable is-bordered">
+                        <thead>
+                            <tr>
+                                <th>Attribute</th>
+                                <th>GET</th>
+                                <th>PUT</th>
+                                <th>POST (required)</th>
+                                <th>POST (optional)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>id</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>_teamId</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>_jobDefId</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>target</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>name</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>targetAgentId</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                            </tr>
+                            <tr>
+                                <td><code>requiredTags</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                            </tr>
+                            <tr>
+                                <td><code>fromRoutes</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                            </tr>
+                            <tr>
+                                <td><code>toRoutes</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                            </tr>
+                            <tr>
+                                <td><code>artifacts</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                            </tr>
+                            <tr>
+                                <td><code>TTL</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Attribute Descriptions</h3>
+                    <h4><b>id</b></h4>
+                    <p>Unique ID assigned when a new <code>TaskDef</code> object is created.</p>
+
+                    <h4><b>_teamId</b></h4>
+                    <p>The ID of the Org object where the <code>TaskDef</code> is created.</p>
+
+                    <h4><b>_jobDefId</b></h4>
+                    <p>The ID of the <code>JobDef</code> containing the <code>TaskDef</code>.</p>
+
+                    <h4><b>target</b></h4>
+                    <p>Defines which Agent(s) are qualified to run Tasks created from this <code>TaskDef</code>.</p>
+                    <ul>
+                        <li><code>ALL_AGENTS</code> - The <code>Task</code> will be routed to all Agents within the Org.</li>
+                        <li><code>SINGLE_AGENT</code> - The <code>Task</code> will be routed to any single Agent in the Org.</li>
+                        <li><code>ALL_AGENTS_WITH_TAGS</code> - The <code>Task</code> will be routed to all Agents with all tags in the <code>requiredTags</code> field for this <code>Task</code>.</li>
+                        <li><code>SINGLE_AGENT_WITH_TAGS</code> - The <code>Task</code> will be routed to any single Agent with all tags in the <code>requiredTags</code> field for this <code>Task</code>.</li>
+                        <li><code>SINGLE_SPECIFIC_AGENT</code> - The <code>Task</code> will be routed to a single specific Agent. The Agent ID must be listed in the <code>targetAgentId</code> attribute of the <code>TaskDef</code> object.</li>
+                    </ul>
+
+                    <h4><b>name</b></h4>
+                    <p>The <code>TaskDef</code> name. Must be unique among TaskDefs within the <code>JobDef</code> to which it belongs.</p>
+
+                    <h4><b>targetAgentId</b></h4>
+                    <p>The ID of the Agent where Tasks created from the <code>TaskDef</code> will run. This attribute is only relevant if the <code>target</code> attribute is set to <code>SINGLE_AGENT</code>.</p>
+
+                    <h4><b>requiredTags</b></h4>
+                    <p>Executing Agents must have tags matching all tags in this attribute if the <code>target</code> attribute is set to <code>SINGLE_AGENT_WITH_TAGS</code> or <code>ALL_AGENTS_WITH_TAGS</code>.</p>
+                    <p>For example if <code>requiredTags</code> is <code>[{'os': 'linux'}, {'java_installed': 'true'}]</code> then only Agents with matching tags will be considered to run Tasks created from the <code>TaskDef</code>. The Agents may have additional tags not in the list of <code>requiredTags</code> and still be qualified.</p>
+
+                    <h4><b>fromRoutes</b></h4>
+                    <p>The names and optional route codes of preceding Tasks which must ALL be completed before a <code>Task</code> created from this <code>TaskDef</code> will be executed. For example <code>[ ['Task1'], ['Task2', 'ok'] ]</code> indicates that <code>Task1</code> must be completed with any route (other than <code>fail</code>) and <code>Task2</code> must be complete with route <code>ok</code> for the <code>Task</code> to execute.</p>
+                    <p>Route codes are generated by Scripts within a <code>Task</code> by printing a formatted message to standard output. For example <code>print '@sgg{"route", "ok"}'</code> in a python script will generate the route <code>ok</code> for routing to downstream Tasks.</p>
+                    <p>If a <code>Task</code> cannot be routed to based on prior route code dependencies it's status will be set to <code>SKIPPED</code>.</p>
+
+                    <h4><b>toRoutes</b></h4>
+                    <p>The names of Tasks to launch when the <code>Task</code> completes. This is different from the <code>fromRoutes</code> attribute in that every time the current <code>Task</code> completes every <code>Task</code> in <code>toRoutes</code> with a matching route will be launched. For example a <code>toRoute</code> value of <code>[ ['Task1'], ['Task2', 'ok'] ]</code> would result in <code>Task1</code> and <code>Task2</code> getting launched if the current task completes with route <code>ok</code>.</p>
+                    <p>If the current <code>Task</code> targets multiple agents (<code>target = ALL_AGENTS</code> or <code>ALL_AGENTS_WITH_TAGS</code>) and the current <code>Task</code> completes multiple times, the matching <code>toRoute</code> Tasks will be launched for each successful completion of the current <code>Task</code>.</p>
+
+                    <h4><b>artifacts</b></h4>
+                    <p>A list of Artifact IDs to be used to execute a <code>Task</code> created from the <code>TaskDef</code>. Artifacts can include configuration files, compiled java, .net or native code, datafiles, or any other file required to execute the Scripts in a <code>Task</code>. Artifacts are saved on the Org level and can be uploaded via the API or the web console.</p>
+
+                    <h4><b>TTL</b></h4>
+                    <p>The time (in milliseconds) to wait for a task to be picked up by an Agent for processing before routing the task with status <code>fail</code>.</p>
+
+                    <h3>Code Sample</h3>
+                    <h4>Create a TaskDef object</h4>
+                    <p>Request</p>
+                    <pre>curl --location --request POST 'https://saasglue.com/api/v0/taskdef' --header 'Content-Type: application/json' --header 'auth: [auth token]' --header '_teamId: [teamId]' --header 'Content-Type: text/plain' \ --data-raw '{ "name": "[Task name]", "_teamId": "[teamId]", "_jobDefId": "[jobDefId]]", "requiredTags": [], "runOnAllAgents": "false", "fromRoutes": [], "target": 0 }'</pre>
+
+                    <p>Response</p>
+                    <pre>
+{
+    "statusCode":201,
+    "data":{
+        "fromRoutes":[],
+        "toRoutes":[],
+        "artifacts":[],
+        "name":"[Task name]",
+        "_teamId":"[teamId]",
+        "_jobDefId":"[jobDefId]",
+        "requiredTags":[],
+        "target":0,
+        "id":"[TaskDef id]",
+        "version":0,
+        "type":"TaskDef"
+    }
+}
+                    </pre>
+
+                    <h4>Get a single TaskDef object</h4>
+                    <p>Request</p>
+                    <pre>curl --location --request GET 'http://saasglue.com/api/v0/taskdef/[TaskDef id]]' --header 'Content-Type: application/json' --header 'auth: [auth token]' --header '_teamId: [teamId]]'</pre>
+
+                    <p>Response</p>
+                    <pre>
+{
+    "statusCode":200,
+    "data":{
+        "fromRoutes":[],
+        "toRoutes":[],
+        "artifacts":[],
+        "name":"[Task name]",
+        "_teamId":"[teamId]",
+        "_jobDefId":"[jobDefId]",
+        "requiredTags":[],
+        "target":0,
+        "id":"[TaskDef id]",
+        "version":0,
+        "type":"TaskDef"
+    }
+}
+                    </pre>
+
+                    <h2 class="subtitle pb-2">TaskOutcome</h2>
+                    <p>The <code>TaskOutcome</code> object stores the output of a <code>Task</code> execution. Since a single <code>Task</code> can be executed multiple times in a <code>Job</code>, a <code>Task</code> can have multiple TaskOutcomes.</p>
+
+                    <table class="table is-striped is-hoverable is-bordered">
+                        <thead>
+                            <tr>
+                                <th>Attribute</th>
+                                <th>GET</th>
+                                <th>PUT</th>
+                                <th>POST (required)</th>
+                                <th>POST (optional)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>id</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>_teamId</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>_jobId</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>_taskId</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>_agentId</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>sourceTaskRoute</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>target</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>status</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>route</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>failureCode</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>dateStarted</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>dateCompleted</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>ipAddress</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>machineId</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>artifactsDownloadedSize</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>runtimeVars</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Attribute Descriptions</h3>
+                    <h4><b>id</b></h4>
+                    <p>Unique ID assigned when a new <code>TaskOutcome</code> object is created.</p>
+
+                    <h4><b>_teamId</b></h4>
+                    <p>The ID of the Org object where the <code>TaskOutcome</code> is created.</p>
+
+                    <h4><b>_jobId</b></h4>
+                    <p>The ID of the <code>Job</code> containing the <code>TaskOutcome</code>.</p>
+
+                    <h4><b>_taskId</b></h4>
+                    <p>The Task ID from which the <code>TaskOutcome</code> is derived.</p>
+
+                    <h4><b>_agentId</b></h4>
+                    <p>The ID of the Agent that executed the <code>Task</code>.</p>
+
+                    <h4><b>sourceTaskRoute</b></h4>
+                    <p>For Tasks that were routed to with a <code>to</code> route, the <code>Task</code> id and route that preceded this <code>Task</code>, eg <code>{ sourceTaskOutcomeId: [id], sourceRoute: [route] }</code></p>
+
+                    <h4><b>target</b></h4>
+                    <p>Defines which Agent(s) are qualified to run the <code>Task</code>.</p>
+                    <ul>
+                        <li><code>ALL_AGENTS</code> - The <code>Task</code> will be routed to all Agents within the Org.</li>
+                        <li><code>SINGLE_AGENT</code> - The <code>Task</code> will be routed to any single Agent in the Org.</li>
+                        <li><code>ALL_AGENTS_WITH_TAGS</code> - The <code>Task</code> will be routed to all Agents with all tags in the <code>requiredTags</code> field for this <code>Task</code>.</li>
+                        <li><code>SINGLE_AGENT_WITH_TAGS</code> - The <code>Task</code> will be routed to any single Agent with all tags in the <code>requiredTags</code> field for this <code>Task</code>.</li>
+                        <li><code>SINGLE_SPECIFIC_AGENT</code> - The <code>Task</code> will be routed to a single specific Agent. The Agent ID must be listed in the <code>targetAgentId</code> attribute of the <code>TaskDef</code> object.</li>
+                    </ul>
+
+                    <h4><b>status</b></h4>
+                    <p>This attribute stores the current status of the <code>Task</code> execution.</p>
+                    <ul>
+                        <li>NOT_STARTED = 0</li>
+                        <li>PUBLISHED = 5</li>
+                        <li>RUNNING = 10</li>
+                        <li>INTERRUPTING = 14</li>
+                        <li>INTERRUPTED = 15</li>
+                        <li>CANCELING = 17</li>
+                        <li>SUCCEEDED = 20</li>
+                        <li>CANCELLED = 21</li>
+                        <li>FAILED = 22</li>
+                        <li>SKIPPED = 23</li>
+                    </ul>
+
+                    <h4><b>route</b></h4>
+                    <p>The route used to determine the conditional path for Tasks subsequent to the <code>TaskOutcome</code>.</p>
+                    <p>The default route code is blank if a <code>Task</code> completes successfully, <code>fail</code> if a <code>Task</code> does not complete successfully and <code>interrupt</code> if a <code>Task</code> is interrupted intentionally. A <code>Task</code> can be interrupted by sending a <code>SIGTERM/SIGKILL</code> signal to the Agent process (equivalent to <code>CTRL+C</code>), which interrupts all running processes, or via the API or Web application.</p>
+                    <p>Routes can also be set during script execution by printing a correctly formatted string to stdout. The format is <code>@sgo{"route": "[route]"}</code>, e.g. the following line in a python script would set the route to <code>"ok": print('@sgo{"route": "ok"}')</code>.</p>
+
+                    <h4><b>failureCode</b></h4>
+                    <p>The failure code for a <code>TaskOutcome</code> with <code>FAILED</code> status.</p>
+                    <ul>
+                        <li>AGENT_CRASHED_OR_LOST_CONNECTIVITY = 0</li>
+                        <li>NO_AGENT_AVAILABLE = 1</li>
+                        <li>AGENT_EXEC_ERROR = 2</li>
+                        <li>QUEUED_TASK_EXPIRED = 3</li>
+                        <li>TARGET_AGENT_NOT_SPECIFIED = 4</li>
+                        <li>MISSING_TARGET_TAGS = 5</li>
+                    </ul>
+
+                    <h4><b>dateStarted</b></h4>
+                    <p>The date and time when the <code>Task</code> started.</p>
+
+                    <h4><b>dateCompleted</b></h4>
+                    <p>The date and time when the <code>Task</code> completed.</p>
+
+                    <h4><b>ipAddress</b></h4>
+                    <p>The IP address of the Machine where the <code>Task</code> was executed.</p>
+
+                    <h4><b>machineId</b></h4>
+                    <p>The ID of the Machine where the <code>Task</code> was executed.</p>
+
+                    <h4><b>artifactsDownloadedSize</b></h4>
+                    <p>The total size of the Artifacts downloaded for this task, measured in bytes.</p>
+
+                    <h4><b>runtimeVars</b></h4>
+                    <p>A list of key-value pair <code>runtime variables</code> generated by this <code>Task</code>. These variables can be consumed/modified by subsequent Tasks in the same <code>Job</code> workflow.</p>
+
+                    <h3>Actions</h3>
+                    <h4>interrupt</h4>
+                    <p>Interrupt a running <code>Task</code>. <code>Task</code> status must be <code>RUNNING</code>. <code>taskoutcomeaction/interrupt/:taskOutcomeId</code></p>
+
+                    <h4>restart</h4>
+                    <p>Restart a <code>Task</code>. <code>Task</code> status must be <code>INTERRUPTED</code> or <code>FAILED</code>. <code>taskoutcomeaction/restart/:taskOutcomeId</code></p>
+
+                    <h4>cancel</h4>
+                    <p>Cancel a <code>Task</code>. <code>Task</code> status must be <code>RUNNING</code> or <code>INTERRUPTED</code>. <code>taskoutcomeaction/cancel/:taskOutcomeId</code></p>
+
+                    <h3>Sample Code</h3>
+                    <h4>Get all TaskOutcome objects from a Task</h4>
+                    <p>Request</p>
+                    <pre>curl --location --request GET 'https://saasglue.com/api/v0/taskOutcome?filter=_taskId%3D%3D[taskId]' --header 'Content-Type: application/json' --header 'auth: [auth token]' --header '_teamId: [teamId]'</pre>
+
+                    <p>Response</p>
+                    <pre>
+{
+    "statusCode":200,
+    "data":[
+        {
+            "_teamId":"[teamId]",
+            "_jobId":"[jobId]",
+            "_taskId":"[taskId]",
+            "dateStarted":"[date]",
+            "ipAddress":"",
+            "machineId":"",
+            "artifactsDownloadedSize":0,
+            "target":4,
+            "runtimeVars":{},
+            "failureCode":1,
+            "status":22,
+            "id":"[TaskOutcome id]",
+            "version":0,
+            "type":"TaskOutcome"
         }
     ],
     "meta":{
