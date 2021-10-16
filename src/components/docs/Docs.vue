@@ -2685,6 +2685,522 @@
 }
                     </pre>
 
+                    <h2 class="subtitle pb-2">StepOutcome</h2>
+                    <p>The <code>StepOutcome</code> object stores the output of a <code>Step</code> execution. A <code>Step</code> can be executed at most once for each execution of the <code>Task</code> to which it belongs. Steps in a <code>Task</code> are executed in order until they all complete successfully or one fails. A <code>Step</code> is considered to have failed if it completes with a non-zero exit code.</p>
+
+                    <h3>Reference</h3>
+                    <table class="table is-striped is-hoverable is-bordered">
+                        <thead>
+                            <tr>
+                                <th>Attribute</th>
+                                <th>GET</th>
+                                <th>PUT</th>
+                                <th>POST (required)</th>
+                                <th>POST (optional)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>id</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>_teamId</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>_jobId</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>_stepId</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>_taskOutcomeId</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>_invoiceId</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>machineId</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>ipAddress</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>name</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>runCode</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>runtimeVars</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>stdout</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>stderr</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>exitCode</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>signal</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>status</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>dateStarted</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>dateCompleted</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>tail</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Attribute Descriptions</h3>
+                    <h4><b>id</b></h4>
+                    <p>Unique ID assigned when a new <code>StepOutcome</code> object is created.</p>
+
+                    <h4><b>_teamId</b></h4>
+                    <p>The ID of the Org object where the <code>StepOutcome</code> is created.</p>
+
+                    <h4><b>_jobId</b></h4>
+                    <p>The ID of the <code>Job</code> containing the Step.</p>
+
+                    <h4><b>_stepId</b></h4>
+                    <p>The Step ID from which the <code>StepOutcome</code> is derived.</p>
+
+                    <h4><b>_taskOutcomeId</b></h4>
+                    <p>The <code>TaskOutcome</code> object associated with the <code>StepOutcome</code>.</p>
+
+                    <h4><b>_invoiceId</b></h4>
+                    <p>The ID of the Invoice where the <code>StepOutcome</code> was billed.</p>
+
+                    <h4><b>machineId</b></h4>
+                    <p>The Machine ID where the <code>Step</code> executed.</p>
+
+                    <h4><b>ipAddress</b></h4>
+                    <p>The local IP address of the Machine where the <code>Step</code> executed.</p>
+
+                    <h4><b>name</b></h4>
+                    <p>The name of the step. This is inherited from the <code>Step</code> Object from which the <code>StepOutcome</code> is derived.</p>
+
+                    <h4><b>runCode</b></h4>
+                    <p>The script code that was executed in the <code>Step</code>. The code is encoded with Base64.</p>
+
+                    <h4><b>runtimeVars</b></h4>
+                    <p>A list of key-value pair “runtime variables” generated by this <code>Step</code>. These variables can be consumed/modified by subsequent Steps in the same <code>Task</code> and by subsequent Tasks in the same <code>Job</code> workflow.</p>
+
+                    <h4><b>stdout</b></h4>
+                    <p>The standard output generated by the <code>Script</code> execution.</p>
+
+                    <h4><b>stderr</b></h4>
+                    <p>Any errors generated by the <code>Script</code> execution.</p>
+
+                    <h4><b>exitCode</b></h4>
+                    <p>The <code>Script</code> exit code.</p>
+
+                    <h4><b>signal</b></h4>
+                    <p>The signal used to stop the <code>Script</code> execution If it was stopped externally. For example <code>SIGTERM</code> or <code>SIGKILL</code>.</p>
+
+                    <h4><b>status</b></h4>
+                    <p>The current status of the <code>Script</code> execution. Here are the possible values.</p>
+                    <ul>
+                        <li>0 = NOT_STARTED</li>
+                        <li>10 = RUNNING</li>
+                        <li>15 = INTERRUPTED</li>
+                        <li>20 = SUCCEEDED</li>
+                        <li>21 = CANCELLED</li>
+                        <li>22 = FAILED</li>
+                    </ul>
+
+                    <h4><b>dateStarted</b></h4>
+                    <p>The date and time the <code>Script</code> was started.</p>
+
+                    <h4><b>dateCompleted</b></h4>
+                    <p>The date and time the <code>Script</code> completed.</p>
+
+                    <h4><b>tail</b></h4>
+                    <p>The last five lines of the standard output. It will be updated as the <code>Script</code> creates additional stdout.</p>
+                    <p>If the user configures the <code>Script</code> to pipe stdout to a file the tail attribute will not be updated during <code>Script</code> execution. However, any runtime variable values will be extracted from the file to which stdout is piped.</p>
+
+                    <h3>Sample Code</h3>
+                    <h4>Get all StepOutcome objects for a TaskOutcome</h4>
+                    <p>Request</p>
+                    <pre>curl --location --request GET 'https://saasglue.com/api/v0/stepOutcome?filter=_taskOutcomeId%3D%3D[taskOutcomeId]' --header 'Content-Type: application/json' --header 'auth: [auth token]' --header '_teamId: [teamId]'</pre>
+
+                    <p>Response</p>
+                    <pre>
+{
+    "statusCode":200,
+    "data":[
+        {
+            "tail":[
+                "start",
+                "@kpo{\"outVal\": \"val\"}",
+                "done"
+            ],
+            "lastUpdateId":2,
+            "archived":false,
+            "_teamId":"[teamId]",
+            "_jobId":"[jobId]",
+            "_stepId":"[stepId]",
+            "_taskOutcomeId":"[taskOutcomeId]",
+            "name":"[Step Name]",
+            "machineId":"[Agent MachineId]",
+            "ipAddress":"[Agent IP Address]",
+            "runCode":"[Base64 encoded script code]",
+            "status":20,
+            "dateStarted":"[Date]",
+            "dateCompleted":"[Date]",
+            "exitCode":0,
+            "runtimeVars":{
+                "outVal":"val"
+            },
+            "signal":null,
+            "stderr":"",
+            "stdout":"start\n@kpo{\"outVal\": \"val\"}\ndone\n",
+            "id":"[StepOutcome id]",
+            "version":0,
+            "type":"StepOutcome"
+        }
+    ],
+    "meta":{
+        "count":1
+    }
+}
+                    </pre>
+
+                    <h2 class="subtitle pb-2">Task</h2>
+                    <p>A <code>Job</code> consists of one or more Tasks.</p>
+                    <p>A <code>Task</code> is the runtime implementation of a <code>TaskDef</code>. Tasks are only created when a containing <code>Job</code> is created. If a <code>Job</code> is created from a <code>JobDef</code>, a <code>Task</code> will be created in the <code>Job</code> for each <code>TaskDef</code> in the <code>JobDef</code>. If a <code>Job</code> is created from a <code>JSON</code> template, a <code>Task</code> will be created in the <code>Job</code> for each <code>TaskDef</code> embedded in the <code>JSON</code>.</p>
+
+                    <h3>Reference</h3>
+                    <table class="table is-striped is-hoverable is-bordered">
+                        <thead>
+                            <tr>
+                                <th>Attribute</th>
+                                <th>GET</th>
+                                <th>PUT</th>
+                                <th>POST (required)</th>
+                                <th>POST (optional)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>id</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>_teamId</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>_jobId</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>target</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>name</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>targetAgentId</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>requiredTags</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>fromRoutes</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>toRoutes</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>sourceTaskRoute</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>artifacts</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>status</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>error</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>failureCode</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>runtimeVars</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>route</code></td>
+                                <td class="has-text-primary has-background-primary-light">x</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Attribute Descriptions</h3>
+                    <h4><b>id</b></h4>
+                    <p>Unique ID assigned when a new <code>TaskDef</code> object is created.</p>
+
+                    <h4><b>_teamId</b></h4>
+                    <p>The ID of the Org object where the <code>TaskDef</code> is created.</p>
+
+                    <h4><b>_jobId</b></h4>
+                    <p>The ID of the <code>Job</code> containing the <code>Task</code>.</p>
+
+                    <h4><b>target</b></h4>
+                    <p>Defines which Agent(s) are qualified to run the <code>Task</code>.</p>
+                    <ul>
+                        <li><code>ALL_AGENTS</code> - The <code>Task</code> will be routed to all Agents within the Org.</li>
+                        <li><code>SINGLE_AGENT</code> - The <code>Task</code> will be routed to any single Agent in the Org.</li>
+                        <li><code>ALL_AGENTS_WITH_TAGS</code> - The <code>Task</code> will be routed to all Agents with all tags in the <code>requiredTags</code> field for this <code>Task</code>.</li>
+                        <li><code>SINGLE_AGENT_WITH_TAGS</code> - The <code>Task</code> will be routed to any single Agent with all tags in the <code>requiredTags</code> field for this <code>Task</code>.</li>
+                        <li><code>SINGLE_SPECIFIC_AGENT</code> - The <code>Task</code> will be routed to a single specific Agent. The Agent ID must be listed in the <code>targetAgentId</code> attribute of the <code>TaskDef</code> object.</li>
+                    </ul>
+
+                    <h4><b>name</b></h4>
+                    <p>The <code>Task</code> name. Is inherited from the associated <code>TaskDef</code> object or from a <code>TaskDef</code> embedded in a <code>JSON</code> formatted <code>Job</code> template.</p>
+
+                    <h4><b>targetAgentId</b></h4>
+                    <p>The ID of the Agent where the <code>Task</code> will run. This attribute is only relevant if the <code>target</code> attribute is set to <code>SINGLE_AGENT</code>.</p>
+
+                    <h4><b>requiredTags</b></h4>
+                    <p>Executing Agents must have tags matching all tags in this attribute if the <code>target</code> attribute is set to <code>SINGLE_AGENT_WITH_TAGS</code> or <code>ALL_AGENTS_WITH_TAGS</code>.</p>
+                    <p>For example if <code>requiredTags</code> is <code>"[{'os': 'linux'}, {'java_installed': 'true'}]"</code> then only Agents with matching tags will be considered to run the <code>Task</code>. The Agents may have additional tags not in the list of <code>requiredTags</code> and still be qualified.</p>
+
+                    <h4><b>fromRoutes</b></h4>
+                    <p>The names and optional route codes of preceding Tasks which must <code>ALL</code> be completed before the <code>Task</code> will be executed. For example <code>"[ ['Task1'], ['Task2', 'ok'] ]"</code> indicates that <code>Task1</code> must be completed with any route (other than <code>fail</code>) and <code>Task2</code> must be complete with route <code>ok</code> for the <code>Task</code> to execute.</p>
+                    <p>Route codes are generated by Scripts within a <code>Task</code> by printing a formatted message to standard output. For example <code>"print '@sgg{"route", "ok"}'"</code> in a python script will generate the route <code>ok</code> for routing to downstream Tasks.</p>
+                    <p>If a <code>Task</code> cannot be routed to based on prior route code dependencies it's status will be set to <code>SKIPPED</code>.</p>
+
+                    <h4><b>toRoutes</b></h4>
+                    <p>The names of Tasks to launch when the <code>Task</code> completes. This is different from the <code>fromRoutes</code> attribute in that every time the current <code>Task</code> completes every <code>Task</code> in <code>toRoutes</code> with a matching route will be launched. For example a <code>toRoute</code> value of <code>"[ ['Task1'], ['Task2', 'ok'] ]"</code> would result in <code>Task1</code> and <code>Task2</code> getting launched if the current task completes with route <code>ok</code>.</p>
+                    <p>If the current <code>Task</code> targets multiple agents (<code>target = ALL_AGENTS</code> or <code>ALL_AGENTS_WITH_TAGS</code>) and the current <code>Task</code> completes multiple times, the matching <code>toRoute</code> Tasks will be launched for each successful completion of the current <code>Task</code>.</p>
+
+                    <code><b>sourceTaskRoute</b></code>
+                    <p>For Tasks that were routed to with a <code>to</code> route, the <code>Task</code> id and route that preceded this <code>Task</code>, eg <code>{ sourceTaskOutcomeId: [id], sourceRoute: [route] }</code></p>
+
+                    <h4><b>artifacts</b></h4>
+                    <p>A list of Artifact IDs to be used to execute the <code>Task</code>. Artifacts can include configuration files, compiled java, .net or native code, datafiles, or any other file required to execute the Scripts in a <code>Task</code>. Artifacts are saved on the Org level and can be uploaded via the API or the web console.</p>
+
+                    <h4><b>status</b></h4>
+                    <p>The current Task status.</p>
+                    <ul>
+                        <li>NOT_STARTED = 0</li>
+                        <li>PUBLISHED = 5</li>
+                        <li>RUNNING = 10</li>
+                        <li>INTERRUPTING = 14</li>
+                        <li>INTERRUPTED = 15</li>
+                        <li>CANCELING = 17</li>
+                        <li>SUCCEEDED = 20</li>
+                        <li>CANCELLED = 21</li>
+                        <li>FAILED = 22</li>
+                        <li>SKIPPED = 23</li>
+                    </ul>
+
+                    <h4><b>error</b></h4>
+                    <p>Text of any error that occurred running the <code>Task</code>.</p>
+
+                    <h4><b>failureCode</b></h4>
+                    <p>The failure code for a Task with FAILED status.</p>
+                    <ul>
+                        <li>AGENT_CRASHED_OR_LOST_CONNECTIVITY = 0</li>
+                        <li>NO_AGENT_AVAILABLE = 1</li>
+                        <li>AGENT_EXEC_ERROR = 2</li>
+                        <li>QUEUED_TASK_EXPIRED = 3</li>
+                        <li>TARGET_AGENT_NOT_SPECIFIED = 4</li>
+                        <li>MISSING_TARGET_TAGS = 5</li>
+                    </ul>
+
+                    <h4><b>runtimeVars</b></h4>
+                    <p>A list of key-value pair <code>runtime variables</code> which will be used to execute scripts in the Steps for this <code>Task</code>. These variables can be dynamically injected at runtime in script arguments, environment variables or in scripts themselves.</p>
+                    <p>Strings formatted as <code>sgg("[variable name]")</code> in script arguments, environment variables or scripts will be replaced with the most recent value of the runtime variable named <code>[variable name]</code>. If a runtime variable with that name does not exist, it will be replaced with <code>null</code>.</p>
+                    <p>Runtime variable values can be set at design time on the Org or <code>JobDef</code> level. They can be set at runtime when Jobs are created and they can be dynamically generated/modified during script execution by printing correctly formatted strings to stdout. The format is <code>@sgo{"[key]": "[value]"}</code>, e.g. the following line in a <code>python</code> script would set the value of "my_key" to <code>"my_value": print('@sgo{"my_key": "my_value"}')</code>.</p>
+
+                    <h4><b>TTL</b></h4>
+                    <p>The time (in milliseconds) to wait for a task to be picked up by an Agent for processing before routing the task with status <code>fail</code>.</p>
+
+                    <h3>Code Sample</h3>
+                    <h4>Get all Task objects in a Job</h4>
+                    <p>Request</p>
+                    <pre>curl --location --request GET 'https://saasglue.com/api/v0/task?filter=_jobId%3D%3D[teamId]' --header 'Content-Type: application/json' --header 'auth: [auth token]' --header '_teamId: [teamId]'</pre>
+
+                    <p>Response</p>
+                    <pre>
+{
+    "statusCode":200,
+    "data":[
+        {
+            "fromRoutes":[],
+            "toRoutes":[],
+            "artifacts":[],
+            "status":22,
+            "_teamId":"[teamId]",
+            "_jobId":"[jobId]",
+            "name":"[Task name]",
+            "targetAgentId":null,
+            "requiredTags":{
+                "numchucks":"true"
+            },
+            "target":4,
+            "runtimeVars":{},
+            "TTL":null,
+            "failureCode":1,
+            "id":"[Task id]",
+            "version":0,
+            "type":"Task"
+        }
+    ],
+    "meta":{
+        "count":1
+    }
+}
+                    </pre>
+
+
                 </div>
             </div>
         </div>
