@@ -284,8 +284,7 @@
                             the <code>JobDef</code> fails, the <code>JobDef</code> will be
                             <b>paused</b> until it is manually
                             <b>resumed</b> (using the SaaSGlue cloud
-                            interface or the API [link to JobDef
-                            API documentation]) or all failed
+                            interface or the <a href="/docs#jobdef">API</a>) or all failed
                             Tasks are either canceled or
                             completed successfully. This
                             facilitates certain workflow
