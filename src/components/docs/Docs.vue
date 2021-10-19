@@ -862,130 +862,132 @@
                             be modified by users.
                     </p>
                     <h3>Reference</h3>
-                    <table class="table is-striped is-hoverable is-bordered">
-                        <thead>
-                            <tr>
-                                <th>Attribute</th>
-                                <th>GET</th>
-                                <th>PUT</th>
-                                <th>POST (required)</th>
-                                <th>POST (optional)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <code>id</code>
-                                </td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <code>_teamId</code>
-                                </td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <code>machineId</code>
-                                </td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <code>ipAddress</code>
-                                </td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <code>createDate</code>
-                                </td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>name</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>tags</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <code>numActiveTasks</code>
-                                </td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <code>lastHeartbeatTime</code>
-                                </td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <code>offline</code>
-                                </td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <code>sysInfo</code>
-                                </td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>cron</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <code>propertyOverrides</code>
-                                </td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-container">
+                        <table class="table is-striped is-hoverable is-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Attribute</th>
+                                    <th>GET</th>
+                                    <th>PUT</th>
+                                    <th>POST (required)</th>
+                                    <th>POST (optional)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <code>id</code>
+                                    </td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <code>_teamId</code>
+                                    </td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <code>machineId</code>
+                                    </td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <code>ipAddress</code>
+                                    </td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <code>createDate</code>
+                                    </td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>name</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>tags</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <code>numActiveTasks</code>
+                                    </td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <code>lastHeartbeatTime</code>
+                                    </td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <code>offline</code>
+                                    </td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <code>sysInfo</code>
+                                    </td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>cron</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <code>propertyOverrides</code>
+                                    </td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
                     <h3>Attribute Descriptions</h3>
                     <h4><b>id</b></h4>
@@ -1226,52 +1228,54 @@
                     <p>Artifacts are files that can be uploaded to SaaSGlue to be used in the execution of Jobs and Tasks.</p>
                     <p>An <code>Http GET</code> request will return a secure URL which can be used to download an artifact. <code>Http PUT</code> and <code>POST</code> requests will return a secure URL which can be used to upload an artifact.</p>
                     <h3>Reference</h3>
-                    <table class="table is-striped is-hoverable is-bordered">
-                        <thead>
-                            <tr>
-                                <th>Attribute</th>
-                                <th>GET</th>
-                                <th>PUT</th>
-                                <th>POST (required)</th>
-                                <th>POST (optional)</th>
-                                <th>DELETE</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code>id</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>_teamId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>name</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>prefix</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-container">
+                        <table class="table is-striped is-hoverable is-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Attribute</th>
+                                    <th>GET</th>
+                                    <th>PUT</th>
+                                    <th>POST (required)</th>
+                                    <th>POST (optional)</th>
+                                    <th>DELETE</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>id</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>_teamId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>name</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>prefix</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
                     <h3>Attribute Descriptions</h3>
                     <h4><b>id</b></h4>
@@ -1326,117 +1330,119 @@
                     <p>Jobs are created from a JSON document by submitting the JSON document to the Job API endpoint.</p>
 
                     <h3>Reference</h3>
-                    <table class="table is-striped is-hoverable is-bordered">
-                        <thead>
-                            <tr>
-                                <th>Attribute</th>
-                                <th>GET</th>
-                                <th>PUT</th>
-                                <th>POST (required)</th>
-                                <th>POST (optional)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code>id</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>_teamId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>_jobDefId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x1</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>runId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>name</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x2</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>createdBy</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>dateCreated</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>dateScheduled</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>dateStarted</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>dateCompleted</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>status</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>error</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>runtimeVars</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>runAsService</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-container">
+                        <table class="table is-striped is-hoverable is-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Attribute</th>
+                                    <th>GET</th>
+                                    <th>PUT</th>
+                                    <th>POST (required)</th>
+                                    <th>POST (optional)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>id</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>_teamId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>_jobDefId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x1</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>runId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>name</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x2</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>createdBy</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>dateCreated</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>dateScheduled</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>dateStarted</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>dateCompleted</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>status</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>error</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>runtimeVars</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>runAsService</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     <ul>
                         <li>1 Required if <code>Job</code> is created from <code>JobDef</code> object</li>
                         <li>2 Required if <code>Job</code> is created from API call</li>
@@ -1592,103 +1598,105 @@
                     <p>Jobs can also be created by submitting a <code>JobDef</code> object in JSON format to the API. In this way, ad hoc jobs can be created and executed dynamically.</p>
 
                     <h3>Reference</h3>
-                    <table class="table is-striped is-hoverable is-bordered">
-                        <thead>
-                            <tr>
-                                <th>Attribute</th>
-                                <th>GET</th>
-                                <th>PUT</th>
-                                <th>POST (required)</th>
-                                <th>POST (optional)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code>id</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>_teamId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>name</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>status</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>lastRunId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>maxInstances</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>misfireGraceTime</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>coalesce</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>createdBy</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>dateCreated</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>runtimeVars</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>pauseOnFailedJob</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-container">
+                        <table class="table is-striped is-hoverable is-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Attribute</th>
+                                    <th>GET</th>
+                                    <th>PUT</th>
+                                    <th>POST (required)</th>
+                                    <th>POST (optional)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>id</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>_teamId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>name</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>status</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>lastRunId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>maxInstances</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>misfireGraceTime</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>coalesce</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>createdBy</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>dateCreated</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>runtimeVars</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>pauseOnFailedJob</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
                     <h3>Attribute Descriptions</h3>
                     <h4><b>id</b></h4>
@@ -1785,140 +1793,142 @@
                     <p>A Schedule defines when a <code>JobDef</code> runs. A <code>JobDef</code> can have multiple Schedules but a Schedule can only be assigned to a single <code>JobDef</code>.</p>
 
                     <h3>General Schedule Reference</h3>
-                    <table class="table is-striped is-hoverable is-bordered">
-                        <thead>
-                            <tr>
-                                <th>Attribute</th>
-                                <th>GET</th>
-                                <th>PUT</th>
-                                <th>POST (required)</th>
-                                <th>POST (optional)</th>
-                                <th>DELETE</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code>id</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>_teamId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>createdBy</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>lastUpdatedBy</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>lastScheduledRunDate</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>nextScheduledRunDate</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>name</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>isActive</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>TriggerType</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>misfire_grace_time</code></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>coalesce</code></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>max_instances</code></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>RunDate</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x1</td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>cron2</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>interval3</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-container">
+                        <table class="table is-striped is-hoverable is-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Attribute</th>
+                                    <th>GET</th>
+                                    <th>PUT</th>
+                                    <th>POST (required)</th>
+                                    <th>POST (optional)</th>
+                                    <th>DELETE</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>id</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>_teamId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>createdBy</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>lastUpdatedBy</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>lastScheduledRunDate</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>nextScheduledRunDate</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>name</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>isActive</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>TriggerType</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>misfire_grace_time</code></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>coalesce</code></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>max_instances</code></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>RunDate</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x1</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>cron2</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>interval3</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     <ul>
                         <li>1 Required only for <code>date</code> type Schedules</li>
                         <li>2 Consists of key value pairs defined in the <code>Cron Schedule Reference</code> – required for <code>cron</code> type Schedules</li>
@@ -1928,170 +1938,174 @@
                     <h3>Cron Schedule Reference</h3>
                     <p>This reference is to be used in connection with the General Schedule Reference above.</p>
 
-                    <table class="table is-striped is-hoverable is-bordered">
-                        <thead>
-                            <tr>
-                                <th>Attribute</th>
-                                <th>GET</th>
-                                <th>PUT</th>
-                                <th>POST (required)</th>
-                                <th>POST (optional)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code>Year</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>Month</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>Day</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>Week</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>Day_Of_Week</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>Hour</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>Minute</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>Second</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>Start_Date</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>End_Date</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>Jitter</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-container">
+                        <table class="table is-striped is-hoverable is-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Attribute</th>
+                                    <th>GET</th>
+                                    <th>PUT</th>
+                                    <th>POST (required)</th>
+                                    <th>POST (optional)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>Year</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Month</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Day</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Week</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Day_Of_Week</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Hour</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Minute</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Second</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Start_Date</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>End_Date</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Jitter</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     <div class="notification is-info is-light">At least one attribute is required for a <code>cron</code> type Schedule</div>
 
                     <h3>Interval Schedule Reference</h3>
                     <p>This reference is to be used in connection with the General Schedule Reference above.</p>
 
-                    <table class="table is-striped is-hoverable is-bordered">
-                        <thead>
-                            <tr>
-                                <th>Attribute</th>
-                                <th>GET</th>
-                                <th>PUT</th>
-                                <th>POST (required)</th>
-                                <th>POST (optional)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code>Weeks</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>Days</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>Hours</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>Minutes</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>Seconds</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>Start_Date</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>End_Date</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>Jitter</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-container">
+                        <table class="table is-striped is-hoverable is-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Attribute</th>
+                                    <th>GET</th>
+                                    <th>PUT</th>
+                                    <th>POST (required)</th>
+                                    <th>POST (optional)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>Weeks</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Days</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Hours</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Minutes</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Seconds</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Start_Date</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>End_Date</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Jitter</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     <div class="notification is-info is-light">At least one attribute is required for an <code>interval</code> type Schedule</div>
 
                     <h3>General Schedule Attribute Descriptions</h3>
@@ -2248,82 +2262,84 @@
                     <p>The Script object stores the script code and information associated with the script file to make it usable in the saas glue environment.</p>
 
                     <h3>Reference</h3>
-                    <table class="table is-striped is-hoverable is-bordered">
-                        <thead>
-                            <tr>
-                                <th>Attribute</th>
-                                <th>GET</th>
-                                <th>PUT</th>
-                                <th>POST (required)</th>
-                                <th>POST (optional)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code>id</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>_teamId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>name</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>scriptType</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>code</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>_originalAuthorUserId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>_lastEditedUserId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>teamEditable</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>lastEditedDate</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-container">
+                        <table class="table is-striped is-hoverable is-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Attribute</th>
+                                    <th>GET</th>
+                                    <th>PUT</th>
+                                    <th>POST (required)</th>
+                                    <th>POST (optional)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>id</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>_teamId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>name</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>scriptType</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>code</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>_originalAuthorUserId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>_lastEditedUserId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>teamEditable</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>lastEditedDate</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
                     <h3>Attribute Descriptions</h3>
                     <h4><b>id</b></h4>
@@ -2397,89 +2413,91 @@
                     <p>A <code>Step</code> is the runtime implementation of a <code>StepDef</code>. Steps are only created when a containing <code>Job</code> is created. If a <code>Job</code> is created from a <code>JobDef</code>, a <code>Step</code> will be created in the <code>Job</code> for each <code>StepDef</code> in the <code>JobDef</code>. If a <code>Job</code> is created from a <code>JSON</code> template, a <code>Step</code> will be created in the <code>Job</code> for each <code>StepDef</code> embedded in the <code>JSON</code>.</p>
 
                     <h3>Reference</h3>
-                    <table class="table is-striped is-hoverable is-bordered">
-                        <thead>
-                            <tr>
-                                <th>Attribute</th>
-                                <th>GET</th>
-                                <th>PUT</th>
-                                <th>POST (required)</th>
-                                <th>POST (optional)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code>id</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>_teamId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>_jobId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>_taskId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>name</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>order</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>script</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>command</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>arguments</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>variables</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-container">
+                        <table class="table is-striped is-hoverable is-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Attribute</th>
+                                    <th>GET</th>
+                                    <th>PUT</th>
+                                    <th>POST (required)</th>
+                                    <th>POST (optional)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>id</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>_teamId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>_jobId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>_taskId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>name</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>order</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>script</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>command</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>arguments</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>variables</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
                     <h3>Attribute Descriptions</h3>
                     <h4><b>id</b></h4>
@@ -2552,82 +2570,84 @@
                     <p>The <code>StepDef</code> object defines how a <code>Step</code> is to be Run within a <code>Task</code>.</p>
 
                     <h3>Reference</h3>
-                    <table class="table is-striped is-hoverable is-bordered">
-                        <thead>
-                            <tr>
-                                <th>Attribute</th>
-                                <th>GET</th>
-                                <th>PUT</th>
-                                <th>POST (required)</th>
-                                <th>POST (optional)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code>id</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>_teamId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>_taskDefId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>name</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>_scriptId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>order</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>command</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>arguments</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>variables</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-container">
+                        <table class="table is-striped is-hoverable is-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Attribute</th>
+                                    <th>GET</th>
+                                    <th>PUT</th>
+                                    <th>POST (required)</th>
+                                    <th>POST (optional)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>id</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>_teamId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>_taskDefId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>name</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>_scriptId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>order</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>command</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>arguments</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>variables</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
                     <h3>Attribute Descriptions</h3>
                     <h4><b>id</b></h4>
@@ -2711,152 +2731,154 @@
                     <p>The <code>StepOutcome</code> object stores the output of a <code>Step</code> execution. A <code>Step</code> can be executed at most once for each execution of the <code>Task</code> to which it belongs. Steps in a <code>Task</code> are executed in order until they all complete successfully or one fails. A <code>Step</code> is considered to have failed if it completes with a non-zero exit code.</p>
 
                     <h3>Reference</h3>
-                    <table class="table is-striped is-hoverable is-bordered">
-                        <thead>
-                            <tr>
-                                <th>Attribute</th>
-                                <th>GET</th>
-                                <th>PUT</th>
-                                <th>POST (required)</th>
-                                <th>POST (optional)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code>id</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>_teamId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>_jobId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>_stepId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>_taskOutcomeId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>_invoiceId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>machineId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>ipAddress</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>name</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>runCode</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>runtimeVars</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>stdout</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>stderr</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>exitCode</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>signal</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>status</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>dateStarted</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>dateCompleted</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>tail</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-container">
+                        <table class="table is-striped is-hoverable is-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Attribute</th>
+                                    <th>GET</th>
+                                    <th>PUT</th>
+                                    <th>POST (required)</th>
+                                    <th>POST (optional)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>id</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>_teamId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>_jobId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>_stepId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>_taskOutcomeId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>_invoiceId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>machineId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>ipAddress</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>name</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>runCode</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>runtimeVars</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>stdout</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>stderr</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>exitCode</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>signal</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>status</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>dateStarted</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>dateCompleted</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>tail</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
                     <h3>Attribute Descriptions</h3>
                     <h4><b>id</b></h4>
@@ -2977,131 +2999,133 @@
                     <p>A <code>Task</code> is the runtime implementation of a <code>TaskDef</code>. Tasks are only created when a containing <code>Job</code> is created. If a <code>Job</code> is created from a <code>JobDef</code>, a <code>Task</code> will be created in the <code>Job</code> for each <code>TaskDef</code> in the <code>JobDef</code>. If a <code>Job</code> is created from a <code>JSON</code> template, a <code>Task</code> will be created in the <code>Job</code> for each <code>TaskDef</code> embedded in the <code>JSON</code>.</p>
 
                     <h3>Reference</h3>
-                    <table class="table is-striped is-hoverable is-bordered">
-                        <thead>
-                            <tr>
-                                <th>Attribute</th>
-                                <th>GET</th>
-                                <th>PUT</th>
-                                <th>POST (required)</th>
-                                <th>POST (optional)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code>id</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>_teamId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>_jobId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>target</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>name</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>targetAgentId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>requiredTags</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>fromRoutes</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>toRoutes</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>sourceTaskRoute</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>artifacts</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>status</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>error</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>failureCode</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>runtimeVars</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>route</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-container">
+                        <table class="table is-striped is-hoverable is-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Attribute</th>
+                                    <th>GET</th>
+                                    <th>PUT</th>
+                                    <th>POST (required)</th>
+                                    <th>POST (optional)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>id</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>_teamId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>_jobId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>target</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>name</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>targetAgentId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>requiredTags</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>fromRoutes</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>toRoutes</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>sourceTaskRoute</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>artifacts</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>status</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>error</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>failureCode</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>runtimeVars</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>route</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
                     <h3>Attribute Descriptions</h3>
                     <h4><b>id</b></h4>
@@ -3224,96 +3248,100 @@
 
                     <h2 id="taskdef" class="subtitle pb-2">TaskDef</h2>
                     <p>The <code>TaskDef</code> object defines how a <code>Task</code> is to be run within a <code>Job</code>.</p>
-                    <table class="table is-striped is-hoverable is-bordered">
-                        <thead>
-                            <tr>
-                                <th>Attribute</th>
-                                <th>GET</th>
-                                <th>PUT</th>
-                                <th>POST (required)</th>
-                                <th>POST (optional)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code>id</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>_teamId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>_jobDefId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>target</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>name</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>targetAgentId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>requiredTags</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>fromRoutes</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>toRoutes</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>artifacts</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>TTL</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                        </tbody>
-                    </table>
+
+                    <h3>Reference</h3>
+                    <div class="table-container">
+                        <table class="table is-striped is-hoverable is-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Attribute</th>
+                                    <th>GET</th>
+                                    <th>PUT</th>
+                                    <th>POST (required)</th>
+                                    <th>POST (optional)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>id</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>_teamId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>_jobDefId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>target</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>name</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>targetAgentId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>requiredTags</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>fromRoutes</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>toRoutes</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>artifacts</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>TTL</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
                     <h3>Attribute Descriptions</h3>
                     <h4><b>id</b></h4>
@@ -3412,131 +3440,134 @@
                     <h2 id="taskoutcome" class="subtitle pb-2">TaskOutcome</h2>
                     <p>The <code>TaskOutcome</code> object stores the output of a <code>Task</code> execution. Since a single <code>Task</code> can be executed multiple times in a <code>Job</code>, a <code>Task</code> can have multiple TaskOutcomes.</p>
 
-                    <table class="table is-striped is-hoverable is-bordered">
-                        <thead>
-                            <tr>
-                                <th>Attribute</th>
-                                <th>GET</th>
-                                <th>PUT</th>
-                                <th>POST (required)</th>
-                                <th>POST (optional)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code>id</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>_teamId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>_jobId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>_taskId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>_agentId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>sourceTaskRoute</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>target</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>status</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>route</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>failureCode</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>dateStarted</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>dateCompleted</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>ipAddress</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>machineId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>artifactsDownloadedSize</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>runtimeVars</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <h3>Reference</h3>
+                    <div class="table-container">
+                        <table class="table is-striped is-hoverable is-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Attribute</th>
+                                    <th>GET</th>
+                                    <th>PUT</th>
+                                    <th>POST (required)</th>
+                                    <th>POST (optional)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>id</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>_teamId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>_jobId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>_taskId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>_agentId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>sourceTaskRoute</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>target</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>status</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>route</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>failureCode</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>dateStarted</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>dateCompleted</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>ipAddress</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>machineId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>artifactsDownloadedSize</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>runtimeVars</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
                     <h3>Attribute Descriptions</h3>
                     <h4><b>id</b></h4>
@@ -3663,47 +3694,49 @@
                     <p>TeamVariables have team-wide scope. They are useful for storing variables needed in Jobs across the team.</p>
 
                     <h3>Reference</h3>
-                    <table class="table is-striped is-hoverable is-bordered">
-                        <thead>
-                            <tr>
-                                <th>Attribute</th>
-                                <th>GET</th>
-                                <th>PUT</th>
-                                <th>POST (required)</th>
-                                <th>DELETE</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code>id</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                            </tr>
-                            <tr>
-                                <td><code>_teamId</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>name</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><code>value</code></td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td class="has-text-primary has-background-primary-light">x</td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-container">
+                        <table class="table is-striped is-hoverable is-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Attribute</th>
+                                    <th>GET</th>
+                                    <th>PUT</th>
+                                    <th>POST (required)</th>
+                                    <th>DELETE</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>id</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                </tr>
+                                <tr>
+                                    <td><code>_teamId</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>name</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>value</code></td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td class="has-text-primary has-background-primary-light">x</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
                     <h3>Attribute Descriptions</h3>
                     <h4><b>id</b></h4>
