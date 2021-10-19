@@ -6,8 +6,31 @@
                     <Menu />
                 </div>
                 <div class="column is-three-quarters content">
-                    <h1 class="title is-spaced">Product Documentation</h1>
-                    <h2 class="subtitle pb-2">SaaSGlue Framework Overview</h2>
+                    <h1 id="account-management" class="title is-spaced">Account Management</h1>
+                    <h2 id="invite-members" class="subtitle pb-2">Invite Team Members</h2>
+                    <p>You can invite new team members by
+                            clicking the <code>Copy to clipboard</code>
+                            link, which will provide a url which
+                            can be used to join your team. Be
+                            aware that anyone who receives this
+                            link will be able to join your
+                            team.
+                    </p>
+                    <p>You can also invite new team
+                            members by entering their email
+                            address in one of the provided boxes
+                            and clicking <code>Add Teammates</code>. If
+                            additional boxes are needed, click
+                            the <code>+ add more teammates</code>
+                            link.
+                    </p>
+                    <p>Click <code>Accept Invitations</code> to join
+                            other teams to which you have been
+                            invited.
+                    </p>
+
+                    <h1 id="product-docs" class="title is-spaced">Product Documentation</h1>
+                    <h2 id="sg-overview" class="subtitle pb-2">SaaSGlue Framework Overview</h2>
 
                     <h3>Cloud and Agents</h3>
                     <p>The basic components of the
@@ -68,7 +91,7 @@
                             well-orchestrated workflows.
                     </p>
 
-                    <h2 class="subtitle pb-2">The Structure of Jobs</h2>
+                    <h2 id="jobs-structure" class="subtitle pb-2">The Structure of Jobs</h2>
                     <p>Jobs are a hierarchical structure
                             of sub-components, including <b>Tasks</b>,
                             <b>Steps</b> and <b>Scripts</b>.
@@ -123,7 +146,7 @@
                             run the script.
                     </p>
 
-                    <h2 class="subtitle pb-2">Job Definition</h2>
+                    <h2 id="job-definition" class="subtitle pb-2">Job Definition</h2>
                     <p>Job Definitions (JobDefs) are
                             structured workflow templates that
                             coordinate the execution of one or
@@ -274,7 +297,7 @@
                         Job Definitions can include runtime variables.
                     </div>
 
-                    <h2 class="subtitle pb-2">Task Definition</h2>
+                    <h2 id="task-definition" class="subtitle pb-2">Task Definition</h2>
                     <p>Each <code>Task</code> can have one or more
                             <code>Steps</code> that must be run in a set
                             sequence.
@@ -363,7 +386,7 @@
                             will be used to execute the <code>Task</code>.
                     </p>
 
-                    <h2 class="subtitle pb-2">Step Definition</h2>
+                    <h2 id="step-definition" class="subtitle pb-2">Step Definition</h2>
                     <p>Steps are contained within a <code>Task</code>
                             and must be run in a set sequence.
                             The <code>Step</code> definition stores its order
@@ -410,7 +433,7 @@
                             convenient to work with.
                     </p>
 
-                    <h2 class="subtitle pb-2">Script Definition</h2>
+                    <h2 id="script-definition" class="subtitle pb-2">Script Definition</h2>
                     <p>The <code>Script</code> object stores the <code>Script</code>
                             code.
                     </p>
@@ -460,7 +483,7 @@
                         within the team.
                     </div>
 
-                    <h2 class="subtitle pb-2">Script Injection</h2>
+                    <h2 id="script-injection" class="subtitle pb-2">Script Injection</h2>
                     <p>Scripts defined in SaaSGlue can be
                             injected into other scripts using
                             the following syntax <code>@sgs("[script name]")</code>
@@ -482,7 +505,7 @@
                             SaaSGlue team.
                     </p>
 
-                    <h2 class="subtitle pb-2">Runtime Variables</h2>
+                    <h2 id="runtime-variables" class="subtitle pb-2">Runtime Variables</h2>
                     <p>Runtime Variables are <b>key-value</b>
                             pairs. They provide a mechanism for
                             dynamically injecting variable
@@ -692,7 +715,7 @@
                         Tasks that target multiple agents.
                     </div>
 
-                    <h2 class="subtitle pb-2">Job Schedule</h2>
+                    <h2 id="job-schedule" class="subtitle pb-2">Job Schedule</h2>
                     <p>Schedules can be created for Job
                             Definitions (JobDefs) to
                             automatically trigger Jobs to run. A
@@ -768,7 +791,7 @@
                             for active schedules.
                     </p>
 
-                    <h2 class="subtitle pb-2">Service Tasks</h2>
+                    <h2 id="service-tasks" class="subtitle pb-2">Service Tasks</h2>
                     <p>Have you written <b>services</b> for
                             Windows? Linux? Mac? Then you know
                             that it can be difficult and that
@@ -826,8 +849,8 @@
                             restarted.
                     </p>
 
-                    <h2 class="subtitle pb-2">Endpoint / Object Reference</h2>
-                    <h2 class="subtitle pb-2">Agent</h2>
+                    <h1 id="endpoint" class="title is-spaced">Endpoint / Object Reference</h1>
+                    <h2 id="agent" class="subtitle pb-2">Agent</h2>
                     <p>The SaaSGlue Agent is the vehicle
                             for executing Scripts received from
                             the SaaSGlue cloud. The Agent can be
@@ -1200,7 +1223,7 @@
 }
                     </pre>
 
-                    <h2 class="subtitle pb-2">Artifact</h2>
+                    <h2 id="artifact" class="subtitle pb-2">Artifact</h2>
                     <p>Artifacts are files that can be uploaded to SaaSGlue to be used in the execution of Jobs and Tasks.</p>
                     <p>An <code>Http GET</code> request will return a secure URL which can be used to download an artifact. <code>Http PUT</code> and <code>POST</code> requests will return a secure URL which can be used to upload an artifact.</p>
                     <h3>Reference</h3>
@@ -1293,7 +1316,7 @@
                     <p>Now use the “url” returned from the previous call to download the file</p>
                     <pre>curl [url] > [file name]</pre>
 
-                    <h2 class="subtitle pb-2">Job</h2>
+                    <h2 id="job" class="subtitle pb-2">Job</h2>
                     <p>A <code>Job</code> is the runtime implementation of a <code>JobDef</code>. A <code>Job</code> can be created from an existing <code>JobDef</code> or from a properly formatted JSON document. Jobs are automatically submitted for execution when they are created.</p>
                     <p>Jobs can be created from a <code>JobDef</code> by</p>
                     <ul>
@@ -1565,7 +1588,7 @@
 }
                     </pre>
 
-                    <h2 class="subtitle pb-2">JobDef</h2>
+                    <h2 id="jobdef" class="subtitle pb-2">JobDef</h2>
                     <p>A <code>JobDef</code> object is a template used to create and run a job. Typically a job template is created with the Job Designer and stored in a SaaSGlue account.</p>
                     <p>Jobs can also be created by submitting a <code>JobDef</code> object in JSON format to the API. In this way, ad hoc jobs can be created and executed dynamically.</p>
 
@@ -1759,7 +1782,7 @@
 }
                     </pre>
 
-                    <h2 class="subtitle pb-2">Schedule</h2>
+                    <h2 id="schedule" class="subtitle pb-2">Schedule</h2>
                     <p>A Schedule defines when a <code>JobDef</code> runs. A <code>JobDef</code> can have multiple Schedules but a Schedule can only be assigned to a single <code>JobDef</code>.</p>
 
                     <h3>General Schedule Reference</h3>
@@ -2222,7 +2245,7 @@
 }
                     </pre>
 
-                    <h2 class="subtitle pb-2">Script</h2>
+                    <h2 id="script" class="subtitle pb-2">Script</h2>
                     <p>The Script object stores the script code and information associated with the script file to make it usable in the saas glue environment.</p>
 
                     <h3>Reference</h3>
@@ -2370,7 +2393,7 @@
 }
                     </pre>
 
-                    <h2 class="subtitle pb-2">Step</h2>
+                    <h2 id="step" class="subtitle pb-2">Step</h2>
                     <p>A <code>Job</code> consists of one or more Tasks, and a <code>Task</code> consists of one or more Steps.</p>
                     <p>A <code>Step</code> is the runtime implementation of a <code>StepDef</code>. Steps are only created when a containing <code>Job</code> is created. If a <code>Job</code> is created from a <code>JobDef</code>, a <code>Step</code> will be created in the <code>Job</code> for each <code>StepDef</code> in the <code>JobDef</code>. If a <code>Job</code> is created from a <code>JSON</code> template, a <code>Step</code> will be created in the <code>Job</code> for each <code>StepDef</code> embedded in the <code>JSON</code>.</p>
 
@@ -2479,7 +2502,7 @@
                     <p>The order in which the <code>Step</code> will run in relation to other Steps in the same <code>Task</code>.</p>
 
                     <h4><b>script</b></h4>
-                    <p>The ID of the <code>Script</code> the <cpde>Step</cpde> will execute.</p>
+                    <p>The ID of the <code>Script</code> the <code>Step</code> will execute.</p>
 
                     <h4><b>command</b></h4>
                     <p>This attribute can be used to specify the exact interpreter to use to execute the <code>Step</code> script. It can also be used to set arguments that should be passed to that interpreter. For example, to pass a class path to the scala interpreter. If not specified, the default interpreter for the script type will be used to execute the script.</p>
@@ -2526,7 +2549,7 @@
 }
                     </pre>
 
-                    <h2 class="subtitle pb-2">StepDef</h2>
+                    <h2 id="stepdef" class="subtitle pb-2">StepDef</h2>
                     <p>The <code>StepDef</code> object defines how a <code>Step</code> is to be Run within a <code>Task</code>.</p>
 
                     <h3>Reference</h3>
@@ -2685,7 +2708,7 @@
 }
                     </pre>
 
-                    <h2 class="subtitle pb-2">StepOutcome</h2>
+                    <h2 id="stepoutcome" class="subtitle pb-2">StepOutcome</h2>
                     <p>The <code>StepOutcome</code> object stores the output of a <code>Step</code> execution. A <code>Step</code> can be executed at most once for each execution of the <code>Task</code> to which it belongs. Steps in a <code>Task</code> are executed in order until they all complete successfully or one fails. A <code>Step</code> is considered to have failed if it completes with a non-zero exit code.</p>
 
                     <h3>Reference</h3>
@@ -2950,7 +2973,7 @@
 }
                     </pre>
 
-                    <h2 class="subtitle pb-2">Task</h2>
+                    <h2 id="task" class="subtitle pb-2">Task</h2>
                     <p>A <code>Job</code> consists of one or more Tasks.</p>
                     <p>A <code>Task</code> is the runtime implementation of a <code>TaskDef</code>. Tasks are only created when a containing <code>Job</code> is created. If a <code>Job</code> is created from a <code>JobDef</code>, a <code>Task</code> will be created in the <code>Job</code> for each <code>TaskDef</code> in the <code>JobDef</code>. If a <code>Job</code> is created from a <code>JSON</code> template, a <code>Task</code> will be created in the <code>Job</code> for each <code>TaskDef</code> embedded in the <code>JSON</code>.</p>
 
@@ -3200,7 +3223,7 @@
 }
                     </pre>
 
-                    <h2 class="subtitle pb-2">TaskDef</h2>
+                    <h2 id="taskdef" class="subtitle pb-2">TaskDef</h2>
                     <p>The <code>TaskDef</code> object defines how a <code>Task</code> is to be run within a <code>Job</code>.</p>
                     <table class="table is-striped is-hoverable is-bordered">
                         <thead>
@@ -3387,7 +3410,7 @@
 }
                     </pre>
 
-                    <h2 class="subtitle pb-2">TaskOutcome</h2>
+                    <h2 id="taskoutcome" class="subtitle pb-2">TaskOutcome</h2>
                     <p>The <code>TaskOutcome</code> object stores the output of a <code>Task</code> execution. Since a single <code>Task</code> can be executed multiple times in a <code>Job</code>, a <code>Task</code> can have multiple TaskOutcomes.</p>
 
                     <table class="table is-striped is-hoverable is-bordered">
@@ -3637,7 +3660,7 @@
 }
                     </pre>
 
-                    <h2 class="subtitle pb-2">TeamVariable</h2>
+                    <h2 id="teamvariable" class="subtitle pb-2">TeamVariable</h2>
                     <p>TeamVariables have team-wide scope. They are useful for storing variables needed in Jobs across the team.</p>
 
                     <h3>Reference</h3>
