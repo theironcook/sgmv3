@@ -6,7 +6,7 @@
                     <h2 class="title is-size-2-desktop has-text-centered is-size-4-touch mb-5">Our Pricing</h2>
                 </div>
             </div>
-            <div class="columns is-centered is-variable is-8">
+            <div class="columns is-centered pricing-columns">
                 <div class="column is-narrow-desktop">
                     <div class="box content has-border-success">
                         <header>
@@ -122,6 +122,8 @@
 </script>
 
 <style scoped lang="scss">
+    @import 'bulma/sass/utilities/mixins';
+
     .has-icon-muted {
         filter: grayscale(1);
         opacity: .3;
@@ -129,5 +131,11 @@
 
     .has-border-success {
         border: 1px solid #48c78e;
+    }
+
+    @include tablet {
+        .pricing-columns .column:first-child {
+            margin-right: 2rem;
+        }
     }
 </style>

@@ -254,7 +254,7 @@ Because SaaSGlue works with anything you can augment your current solutions with
                     <h2 class="title is-size-2-desktop has-text-centered is-size-4-touch mb-5">Our Pricing</h2>
                 </div>
             </div>
-            <div class="columns is-centered is-variable is-8">
+            <div class="columns is-centered pricing-columns">
                 <div class="column is-narrow-desktop">
                     <div class="box content has-border-success">
                         <header>
@@ -491,6 +491,12 @@ Because SaaSGlue works with anything you can augment your current solutions with
             &:hover {
                 filter: grayscale(0) opacity(1);
             }
+        }
+    }
+
+    @include tablet {
+        .pricing-columns .column:first-child {
+            margin-right: 2rem;
         }
     }
 
