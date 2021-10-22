@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 
+import Pricing from '@/components/Pricing.vue';
 import Docs from '@/components/docs/Docs.vue';
 import Home from '@/components/home/Home.vue';
 
@@ -11,6 +12,10 @@ const routes: Array<RouteRecordRaw> = [{
     path: '/docs',
     name: 'Docs',
     component: Docs
+}, {
+    path: '/pricing',
+    name: 'Pricing',
+    component: Pricing
 }];
 
 const router = createRouter({
