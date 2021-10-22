@@ -19,7 +19,7 @@
                 </div>
                 <div class="column">
                     <h5 class="is-uppercase has-text-weight-bold">Developers</h5>
-                    <p><a href="#">Docs</a></p>
+                    <p><router-link to="/docs">Docs</router-link></p>
                     <p><a href="#">Getting Started</a></p>
                     <p><a href="#">Tutorials</a></p>
                     <p><a href="#">Solutions</a></p>
@@ -30,7 +30,7 @@
                     <p><a href="#">Sign Up</a></p>
                     <p><a href="#">Reset password</a></p>
                     <p><a href="#">News</a></p>
-                    <p><a href="#">Pricing</a></p>
+                    <p><router-link to="/pricing">Pricing</router-link></p>
                 </div>
                 <div class="column">
                     <h5 class="is-uppercase has-text-weight-bold">Contact us</h5>
@@ -71,10 +71,10 @@
         </div>
     </footer>
     <nav class="navbar is-flex is-hidden-desktop is-fixed-bottom mobile-nav has-background-blue-light">
-        <a href="#" class="navbar-item is-flex is-flex-grow-1 is-align-items-center is-justify-content-center">
+        <router-link to="/docs" class="navbar-item is-flex is-flex-grow-1 is-align-items-center is-justify-content-center">
             <img src="@/assets/images/docs1.svg" />
             <span>Docs</span>
-        </a>
+        </router-link>
         <a href="#" class="navbar-item is-flex is-flex-grow-1 is-align-items-center is-justify-content-center">
             <img src="@/assets/images/tutorials1.svg" />
             <span>Tutorials</span>

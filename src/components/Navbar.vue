@@ -2,16 +2,16 @@
     <nav :class="{'has-shadow': hasScrollOffset}" class="navbar is-transparent has-background-blue-light" role="navigation" aria-label="main navigation">
         <div class="container py-2">
             <div class="navbar-brand">
-                <a class="navbar-item" href="/">
+                <router-link to="/" class="navbar-item">
                     <img src="@/assets/images/logo.png" alt="SaaSGlue logo" width="180" height="30">
-                </a>
+                </router-link>
             </div>
             <div class="navbar-menu">
                 <div class="navbar-start">
                     <a href="#" class="navbar-item">Getting started</a>
                     <a href="#" class="navbar-item">Tutorials</a>
                     <a href="#" class="navbar-item">Solutions</a>
-                    <a href="#" class="navbar-item">Pricing</a>
+                    <router-link to="/pricing" class="navbar-item">Pricing</router-link>
                     <a href="#" class="navbar-item">News</a>
                     <router-link to="/docs" class="navbar-item">Docs</router-link>
                 </div>

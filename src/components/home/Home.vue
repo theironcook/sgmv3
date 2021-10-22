@@ -251,7 +251,7 @@ Because SaaSGlue works with anything you can augment your current solutions with
         <div class="container">
             <div class="columns">
                 <div class="column">
-                    <h2 class="title is-size-2-desktop has-text-centered is-size-4-touch my-6">Our Pricing</h2>
+                    <h2 class="title is-size-2-desktop has-text-centered is-size-4-touch mb-5">Our Pricing</h2>
                 </div>
             </div>
             <div class="columns is-centered is-variable is-8">
