@@ -90,7 +90,8 @@
     @import 'bulma/sass/utilities/mixins';
 
     .menu {
-        height: calc(100vh - 7.5rem);
+        height: calc(100vh - 10rem);
+        // sum of top paddings on the page
         top: 7.5rem;
         overflow: auto;
         position: sticky;
@@ -99,6 +100,12 @@
     .mobile-menu-button,
     .menu-overlay {
         display: none;
+    }
+
+    @include tablet-only {
+        .menu {
+            height: calc(100vh - 14rem);
+        }
     }
 
     @include mobile {
