@@ -20,8 +20,6 @@
                 <div class="column">
                     <h5 class="is-uppercase has-text-weight-bold">Developers</h5>
                     <p><router-link to="/docs">Docs</router-link></p>
-                    <p><a href="#">Getting Started</a></p>
-                    <p><a href="#">Tutorials</a></p>
                     <p><a href="#">Solutions</a></p>
                 </div>
                 <div class="column">
@@ -75,10 +73,6 @@
             <img src="@/assets/images/docs1.svg" />
             <span>Docs</span>
         </router-link>
-        <a href="#" class="navbar-item is-flex is-flex-grow-1 is-align-items-center is-justify-content-center">
-            <img src="@/assets/images/tutorials1.svg" />
-            <span>Tutorials</span>
-        </a>
         <a href="#" class="navbar-item is-flex is-flex-grow-1 is-align-items-center is-justify-content-center">
             <img src="@/assets/images/solutions1.svg" />
             <span>Solutions</span>

@@ -8,8 +8,6 @@
             </div>
             <div class="navbar-menu">
                 <div class="navbar-start">
-                    <a href="#" class="navbar-item">Getting started</a>
-                    <a href="#" class="navbar-item">Tutorials</a>
                     <a href="#" class="navbar-item">Solutions</a>
                     <router-link to="/pricing" class="navbar-item">Pricing</router-link>
                     <a href="#" class="navbar-item">News</a>
