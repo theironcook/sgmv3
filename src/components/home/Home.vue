@@ -10,7 +10,7 @@
                         </h1>
                         <h2 class="subtitle is-size-5-desktop is-size-6-touch has-text-weight-medium has-text-grey">SaaSGlue is a SaaS-based integration, orchestration and automation platform that lets you fill the gaps in your existing automation infrastructure.</h2>
                         <div class="buttons">
-                            <a href="#" class="button is-success has-action-shadow hax-text-weight-bold">GET STARTED</a>
+                            <a href="https://console.saasglue.com/" class="button is-success has-action-shadow hax-text-weight-bold">GET STARTED</a>
                         </div>
                     </div>
                 </transition>
@@ -264,7 +264,7 @@ Because SaaSGlue works with anything you can augment your current solutions with
                             <span class="pr-1">$</span>
                             <span class="is-size-1">0</span>
                         </p>
-                        <button class="button is-fullwidth is-success is-outlined has-text-weight-bold">GET STARTED</button>
+                        <a href="https://console.saasglue.com/" class="button is-fullwidth is-success is-outlined has-text-weight-bold">GET STARTED</a>
                         <div class="has-text-left my-5 is-flex is-flex-direction-column">
                             <p class="icon-text is-flex is-align-items-center is-flex-wrap-nowrap">
                                 <span class="icon mr-2">
@@ -315,7 +315,7 @@ Because SaaSGlue works with anything you can augment your current solutions with
                             <span class="is-size-1">0.01</span>
                             <span class="pt-5">/script</span>
                         </p>
-                        <button class="button is-fullwidth is-success has-text-weight-bold">GET STARTED</button>
+                        <a href="https://console.saasglue.com/" class="button is-fullwidth is-success has-text-weight-bold">GET STARTED</a>
                         <div class="has-text-left my-5 is-flex is-flex-direction-column">
                             <p class="icon-text is-flex is-align-items-center is-flex-wrap-nowrap">
                                 <span class="icon mr-2">
