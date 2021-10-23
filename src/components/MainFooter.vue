@@ -69,15 +69,15 @@
     <nav class="navbar is-flex is-hidden-desktop is-fixed-bottom mobile-nav has-background-blue-light">
         <router-link to="/docs" class="navbar-item is-flex is-flex-grow-1 is-align-items-center is-justify-content-center">
             <img src="@/assets/images/docs1.svg" />
-            <span>Docs</span>
+            <span :class="{'is-active': $route.path === '/docs'}">Docs</span>
         </router-link>
         <a href="#" class="navbar-item is-flex is-flex-grow-1 is-align-items-center is-justify-content-center">
             <img src="@/assets/images/solutions1.svg" />
-            <span>Solutions</span>
+            <span :class="{'is-active': $route.path === '/solutions'}">Solutions</span>
         </a>
         <a href="#" class="navbar-item is-flex is-flex-grow-1 is-align-items-center is-justify-content-center">
             <img src="@/assets/images/news1.svg" />
-            <span>News</span>
+            <span :class="{'is-active': $route.path === '/news'}">News</span>
         </a>
         <a href="https://console.saasglue.com" class="navbar-item is-flex is-flex-grow-1 is-align-items-center is-justify-content-center">
             <img src="@/assets/images/login1.svg" />
@@ -113,6 +113,10 @@
 
         a.navbar-item:hover {
             background-color: transparent;
+        }
+
+        .is-active {
+            border-bottom: 3px solid deepskyblue;
         }
     }
 
