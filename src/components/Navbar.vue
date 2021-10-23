@@ -15,12 +15,9 @@
                 </div>
                 <div class="navbar-end">
                     <div class="navbar-item">
-                        <div class="buttons">
-                            <a class="button is-ghost">Log in</a>
-                            <a class="button is-success has-action-shadow">
-                                <strong>Sign up</strong>
-                            </a>
-                        </div>
+                        <a href="https://console.saasglue.com/" class="button is-success has-action-shadow">
+                            <strong>Sign In</strong>
+                        </a>
                     </div>
                 </div>
             </div>

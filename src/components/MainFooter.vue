@@ -24,9 +24,7 @@
                 </div>
                 <div class="column">
                     <h5 class="is-uppercase has-text-weight-bold">Quick Links</h5>
-                    <p><a href="#">Log In</a></p>
-                    <p><a href="#">Sign Up</a></p>
-                    <p><a href="#">Reset password</a></p>
+                    <p><a href="https://console.saasglue.com">Sign In</a></p>
                     <p><a href="#">News</a></p>
                     <p><router-link to="/pricing">Pricing</router-link></p>
                 </div>
@@ -81,7 +79,7 @@
             <img src="@/assets/images/news1.svg" />
             <span>News</span>
         </a>
-        <a href="#" class="navbar-item is-flex is-flex-grow-1 is-align-items-center is-justify-content-center">
+        <a href="https://console.saasglue.com" class="navbar-item is-flex is-flex-grow-1 is-align-items-center is-justify-content-center">
             <img src="@/assets/images/login1.svg" />
             <span>Sign In</span>
         </a>
