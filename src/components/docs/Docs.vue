@@ -3830,4 +3830,9 @@
     .subtitle {
         border-bottom: 1px solid #ccc;
     }
+
+    code,
+    li {
+        word-break: break-all;
+    }
 </style>
