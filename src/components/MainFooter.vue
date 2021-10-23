@@ -38,7 +38,7 @@
                 <div class="column is-4 has-text-left-desktop has-text-centered-mobile">
                     <img src="@/assets/images/logo.png" alt="SaaSGlue logo" width="180" height="30">
                 </div>
-                <div class="column is-4 is-offset-2 has-text-left-desktop">
+                <div class="column is-4 is-offset-2 has-text-left-desktop has-text-centered-touch">
                     <span class="pr-3"><a href="https://www.saasglue.com/privacy-policy.html">Privacy Policy</a></span>
                     <span class="pr-3"><a href="https://www.saasglue.com/terms-of-service.html">Terms of Use</a></span>
                     <p class="pr-3">Copyright © {{ new Date().getFullYear() }} SaaSGlue LLC</p>
