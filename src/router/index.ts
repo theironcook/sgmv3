@@ -4,6 +4,7 @@ import Solutions from '@/components/Solutions.vue';
 import Pricing from '@/components/Pricing.vue';
 import Docs from '@/components/docs/Docs.vue';
 import Home from '@/components/home/Home.vue';
+import News from '@/components/News.vue';
 
 const routes: Array<RouteRecordRaw> = [{
     path: '/',
@@ -21,6 +22,10 @@ const routes: Array<RouteRecordRaw> = [{
     path: '/solutions',
     name: 'Solutions',
     component: Solutions
+}, {
+    path: '/news',
+    name: 'News',
+    component: News
 }];
 
 const router = createRouter({
