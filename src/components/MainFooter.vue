@@ -20,7 +20,7 @@
                 <div class="column">
                     <h5 class="is-uppercase has-text-weight-bold">Developers</h5>
                     <p><router-link to="/docs">Docs</router-link></p>
-                    <p><a href="#">Solutions</a></p>
+                    <p><router-link to="/solutions">Solutions</router-link></p>
                 </div>
                 <div class="column">
                     <h5 class="is-uppercase has-text-weight-bold">Quick Links</h5>
@@ -38,7 +38,7 @@
                 <div class="column is-4 has-text-left-desktop has-text-centered-mobile">
                     <img src="@/assets/images/logo.png" alt="SaaSGlue logo" width="180" height="30">
                 </div>
-                <div class="column is-4 is-offset-2 has-text-left-desktop has-text-centered-touch">
+                <div class="column has-text-left-desktop has-text-centered-touch">
                     <span class="pr-3"><a href="https://www.saasglue.com/privacy-policy.html">Privacy Policy</a></span>
                     <span class="pr-3"><a href="https://www.saasglue.com/terms-of-service.html">Terms of Use</a></span>
                     <p class="pr-3">Copyright © {{ new Date().getFullYear() }} SaaSGlue LLC</p>
@@ -71,10 +71,10 @@
             <img src="@/assets/images/docs1.svg" />
             <span :class="{'is-active': $route.path === '/docs'}">Docs</span>
         </router-link>
-        <a href="#" class="navbar-item is-flex is-flex-grow-1 is-align-items-center is-justify-content-center">
+        <router-link to="/solutions" class="navbar-item is-flex is-flex-grow-1 is-align-items-center is-justify-content-center">
             <img src="@/assets/images/solutions1.svg" />
             <span :class="{'is-active': $route.path === '/solutions'}">Solutions</span>
-        </a>
+        </router-link>
         <a href="#" class="navbar-item is-flex is-flex-grow-1 is-align-items-center is-justify-content-center">
             <img src="@/assets/images/news1.svg" />
             <span :class="{'is-active': $route.path === '/news'}">News</span>

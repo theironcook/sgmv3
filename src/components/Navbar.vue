@@ -8,7 +8,7 @@
             </div>
             <div class="navbar-menu">
                 <div class="navbar-start">
-                    <a href="#" class="navbar-item">Solutions</a>
+                    <router-link to="/solutions" class="navbar-item">Solutions</router-link>
                     <router-link to="/pricing" class="navbar-item">Pricing</router-link>
                     <a href="#" class="navbar-item">News</a>
                     <router-link to="/docs" class="navbar-item">Docs</router-link>
