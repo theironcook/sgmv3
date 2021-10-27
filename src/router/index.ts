@@ -9,23 +9,28 @@ import News from '@/components/News.vue';
 const routes: Array<RouteRecordRaw> = [{
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: { title: 'SaaSGlue' }
 }, {
     path: '/docs',
     name: 'Docs',
-    component: Docs
+    component: Docs,
+    meta: { title: 'Docs | SaaSGlue' }
 }, {
     path: '/pricing',
     name: 'Pricing',
-    component: Pricing
+    component: Pricing,
+    meta: { title: 'Pricing | SaaSGlue' }
 }, {
     path: '/solutions',
     name: 'Solutions',
-    component: Solutions
+    component: Solutions,
+    meta: { title: 'Solutions | SaaSGlue' }
 }, {
     path: '/news',
     name: 'News',
-    component: News
+    component: News,
+    meta: { title: 'News | SaaSGlue' }
 }];
 
 const router = createRouter({
@@ -33,6 +38,12 @@ const router = createRouter({
     routes,
     scrollBehavior () {
         return { top: 0 };
+    }
+});
+
+router.afterEach(to => {
+    if (to.meta.title) {
+        document.title = to.meta.title as string;
     }
 });
 
