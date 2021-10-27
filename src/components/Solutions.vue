@@ -5,7 +5,7 @@
                 <div class="column is-3 is-offset-1">
                     <h2 class="sticky has-text-right">Cron Jobs</h2>
                 </div>
-                <div class="column is-7">
+                <article class="column is-7 px-5">
                     <h1 class="title is-size-4">A SaaS platform to centrally manage all your cron jobs, regardless of where they run</h1>
                     <p>SaaSGlue is a low cost cron alternative with no sign up fee and no minimum monthly fees. It lets you centrally schedule and manage your existing jobs from a cloud console. With SaaSGlue you’ll be able to go beyond cron limitations to manage job dependencies, failover tasks between machines and review the audit logs for all your jobs in a single location.</p>
 
@@ -32,7 +32,7 @@
 
                     <h2 class="subtitle is-size-5">Get started for FREE</h2>
                     <p>There is no up-front cost to get started. Running ad hoc scripts from the console is free. You pay only for the scripts you run in a job with no monthly service charge.</p>
-                </div>
+                </article>
             </div>
         </div>
     </section>
@@ -51,5 +51,11 @@
         color: deepskyblue;
         position: sticky;
         top: 7.5rem;
+    }
+
+    article {
+        border-right: 2px solid deepskyblue;
+        border-left: 2px solid deepskyblue;
+        border-radius: 5px;
     }
 </style>
