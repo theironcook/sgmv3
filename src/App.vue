@@ -2,17 +2,19 @@
     <navbar />
     <router-view />
     <main-footer />
+    <cookies-banner />
 </template>
 
 <script lang="ts">
     import { defineComponent } from 'vue';
 
+    import CookiesBanner from '@/components/CookiesBanner.vue';
     import MainFooter from '@/components/MainFooter.vue';
     import Navbar from '@/components/Navbar.vue';
 
     export default defineComponent({
         name: 'App',
-        components: { Navbar, MainFooter }
+        components: { Navbar, MainFooter, CookiesBanner }
     });
 </script>
 
