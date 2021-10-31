@@ -14,7 +14,7 @@
                             <a class="has-text-white has-text-weight-bold is-underlined" target="_blank" href="https://www.saasglue.com/privacy-policy.html">Privacy Policy</a>
                         </p>
                     </div>
-                    <div class="column is-narrow is-flex">
+                    <div class="column is-narrow is-flex banner-controls">
                         <button type="button" class="button" @click="onCookiesAccept">I LIKE COOKIES</button>
                         <img @click="onCookiesAccept" class="dismiss" src="@/assets/images/cross-white-icon.svg" width="24" height="24" />
                     </div>
@@ -82,6 +82,10 @@
             position: absolute;
             right: 0;
             top: 0.75rem;
+        }
+
+        .banner-controls {
+            justify-content: end;
         }
     }
 </style>
