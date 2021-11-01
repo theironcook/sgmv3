@@ -5,6 +5,7 @@ import Pricing from '@/components/Pricing.vue';
 import Docs from '@/components/docs/Docs.vue';
 import Home from '@/components/home/Home.vue';
 import News from '@/components/News.vue';
+import LiveDemo from '@/components/LiveDemo.vue';
 
 const routes: Array<RouteRecordRaw> = [{
     path: '/',
@@ -31,6 +32,12 @@ const routes: Array<RouteRecordRaw> = [{
     name: 'News',
     component: News,
     meta: { title: 'News | SaaSGlue' }
+},
+{
+    path: '/livedemo',
+    name: 'LiveDemo',
+    component: LiveDemo,
+    meta: { title: 'Demo | SaaSGlue' }
 }];
 
 const router = createRouter({

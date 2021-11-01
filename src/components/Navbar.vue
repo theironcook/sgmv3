@@ -12,6 +12,7 @@
                     <router-link to="/pricing" class="navbar-item">Pricing</router-link>
                     <router-link to="/news" class="navbar-item">News</router-link>
                     <router-link to="/docs" class="navbar-item">Docs</router-link>
+                    <router-link to="/livedemo" class="navbar-item">Live Demo !</router-link>
                 </div>
                 <div class="navbar-end">
                     <div class="navbar-item">
