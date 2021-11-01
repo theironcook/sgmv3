@@ -39,8 +39,8 @@
                     <img src="@/assets/images/logo.png" alt="SaaSGlue logo" width="180" height="30">
                 </div>
                 <div class="column has-text-left-desktop has-text-centered-touch">
-                    <span class="pr-3"><a href="https://www.saasglue.com/privacy-policy.html">Privacy Policy</a></span>
-                    <span class="pr-3"><a href="https://www.saasglue.com/terms-of-service.html">Terms of Use</a></span>
+                    <span class="pr-3"><a target="_blank" href="https://www.saasglue.com/privacy-policy.html">Privacy Policy</a></span>
+                    <span class="pr-3"><a target="_blank" href="https://www.saasglue.com/terms-of-service.html">Terms of Use</a></span>
                     <p class="pr-3">Copyright © {{ new Date().getFullYear() }} SaaSGlue LLC</p>
                 </div>
                 <div class="column is-2">
@@ -66,24 +66,6 @@
             </div>
         </div>
     </footer>
-    <nav class="navbar is-flex is-hidden-desktop is-fixed-bottom mobile-nav has-background-blue-light">
-        <router-link to="/docs" class="navbar-item is-flex is-flex-grow-1 is-align-items-center is-justify-content-center">
-            <img src="@/assets/images/docs1.svg" />
-            <span :class="{'is-active': $route.path === '/docs'}">Docs</span>
-        </router-link>
-        <router-link to="/solutions" class="navbar-item is-flex is-flex-grow-1 is-align-items-center is-justify-content-center">
-            <img src="@/assets/images/solutions1.svg" />
-            <span :class="{'is-active': $route.path === '/solutions'}">Solutions</span>
-        </router-link>
-        <router-link to="/news" class="navbar-item is-flex is-flex-grow-1 is-align-items-center is-justify-content-center">
-            <img src="@/assets/images/news1.svg" />
-            <span :class="{'is-active': $route.path === '/news'}">News</span>
-        </router-link>
-        <a href="https://console.saasglue.com" class="navbar-item is-flex is-flex-grow-1 is-align-items-center is-justify-content-center">
-            <img src="@/assets/images/login1.svg" />
-            <span>Sign In</span>
-        </a>
-    </nav>
 </template>
 
 <script lang="ts">
@@ -108,43 +90,9 @@
         overflow: hidden;
     }
 
-    .mobile-nav {
-        border-top: 1px solid #ccc;
-
-        a.navbar-item:hover {
-            background-color: transparent;
-        }
-
-        .is-active {
-            border-bottom: 3px solid deepskyblue;
-        }
-    }
-
     @include touch {
-        $mobile-navbar-height: 4rem;
-
         .footer {
-            margin-bottom: $mobile-navbar-height;
-        }
-
-        .navbar {
-            height: $mobile-navbar-height;
-        }
-    }
-
-    @include tablet {
-        .navbar-item {
-            flex-direction: row;
-
-            img {
-                margin-right: 1rem;
-            }
-        }
-    }
-
-    @include mobile {
-        .navbar-item {
-            flex-direction: column;
+            margin-bottom: 4rem;
         }
     }
 </style>
