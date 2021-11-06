@@ -5,16 +5,13 @@
                 <div class="column is-5-desktop is-full-touch has-text-left-desktop">
                     <h5 class="is-uppercase has-text-weight-bold has-text-centered-touch">Recent posts</h5>
                     <div class="block">
-                        <h6><a href="#">Recent post title 1</a></h6>
-                        <p class="has-line-clamp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint suscipit animi tenetur quas</p>
+                        <h6><a target="_blank" href="https://www.saasglue.com/workshop">Workshop - Creating cross-cloud data pipelines</a></h6>
                     </div>
                     <div class="block">
-                        <h6><a href="#">Recent post title 2</a></h6>
-                        <p class="has-line-clamp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint suscipit animi tenetur quas</p>
+                        <h6><a target="_blank" href="https://jack-wood.medium.com/architectures-of-pipeline-automation-tools-compared-3b3e6e9768db">Blog - Architectures of Pipeline Automation Tools Compared</a></h6>
                     </div>
                     <div class="block">
-                        <h6><a href="#">Recent post title 3</a></h6>
-                        <p class="has-line-clamp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint suscipit animi tenetur quas</p>
+                        <h6><a target="_blank" href="https://www.meetup.com/DevOpsUT/events/278127038/">Utah Devops Workshop - Day 1: Kubernetes Online Workshop</a></h6>
                     </div>
                 </div>
                 <div class="column">
