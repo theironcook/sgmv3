@@ -2,13 +2,13 @@
     <section class="section">
         <div class="container content">
             <h1 class="title has-text-centered">Live Demo of SaaSGlue</h1>
-            <h5 class="title has-text-centered">Only a small subset of features on display</h5>
+            <h5 class="title has-text-centered">(Only a few key features are available for this live demo)</h5>
 
             <select class="input select" style="width: 250px; margin-bottom: 20px;" v-model="currentScriptLanguage">
                 <option value="javascript">Javascript (node 12.x runtime)</option>
                 <option value="python">Python (3.7 runtime)</option>
             </select>
-            <span style="margin-left: 10px;">(several other languages/runtimes/ options are available in <a href="https://console.saasglue.com">production</a>)</span>
+            <span style="margin-left: 10px; vertical-align: -webkit-baseline-middle;">(several other languages/runtimes/options are available in <a href="https://console.saasglue.com">production</a>)</span>
 
             <div ref="scriptEditorDiv" style="width: 100%; height: 250px; background: hsl(0, 0%, 98%);"></div>
 
@@ -20,10 +20,10 @@
             <div style="background: #F5F5F5; border-color: lightgray; border-style:solid; border-width: 1px; border-radius: 5px;">
                 <table>
                     <tr :class="{'selected-step': currentScriptStep === 'one'}">
-                        <td> Step 1: </td> <td>Sending script to the SaaSGlue API. </td>
+                        <td> Step 1: </td> <td>Sending the script to the SaaSGlue API. </td>
                     </tr>
                     <tr :class="{'selected-step': currentScriptStep === 'two'}">
-                        <td style="border-style: none;"> Step 2: </td> <td style="border-style: none;">SaaSGlue API schedules the script to run immediately on AWS Lambda.</td>
+                        <td style="border-style: none;"> Step 2: </td> <td style="border-style: none;">The SaaSGlue API is scheduling the script to run immediately on AWS Lambda.</td>
                     </tr>
                     <tr :class="{'selected-step': currentScriptStep === 'two'}">
                         <td>         </td> <td>Scripts can securely run wherever you install a SaaSGlue Agent as well. (Google Cloud Compute coming soon)</td>
@@ -32,7 +32,7 @@
                         <td style="border-style: none;"> Step 3: </td> <td style="border-style: none;">Your script is now running on AWS Lambda.</td>
                     </tr>
                     <tr :class="{'selected-step': currentScriptStep === 'three'}">
-                        <td>         </td> <td>SaaSGlue monitors AWS Lambda's Cloud Watch logs and sends script results to the SaaSGlue API (results shown below).</td>
+                        <td>         </td> <td>SaaSGlue is monitoring AWS Lambda's Cloud Watch logs and sending the script results to the SaaSGlue API (results shown below in real time).</td>
                     </tr>
                 </table>
             </div>
@@ -51,7 +51,7 @@
                 You can also run SaaSGlue scripts via the SaaSGlue API.<br>
                 
                 <div style="display: flex; justify-content: space-between ">
-                    <span>Copy this curl command and paste it in a terminal to try running the script:</span>
+                    <span>Copy and paste the curl command to a terminal.  Watch this screen for live output:</span>
                     <button class="button" @click="copyUrlToClipboard">Copy Curl Command to Clipboard {{showCopyCurlSuccess ? ' (copied!)' : ''}}</button>
                 </div>
 
@@ -156,8 +156,8 @@ setTimeout(() => {
 }, 2000);
 
 // Let's call a web service or something more interesting?  
-// This sample has axios available but in SaaSGlue you can add many other popular 
-// runtimes are even install your own at runtime with ease
+// This sample has the axios library available but in SaaSGlue you can add many other popular 
+// runtimes or even install your own at runtime with ease
 
 const axios = require('axios');
 
