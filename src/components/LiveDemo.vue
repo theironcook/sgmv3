@@ -177,7 +177,25 @@ const axios = require('axios');
 
             if(!localStorage.getItem('python')){
                 localStorage.setItem('python', 
-`print("Hello World from the SaaSGlue runtime!")
+`import time
+import requests
+
+print('Hello World from the SaaSGlue runtime!')
+
+time.sleep(2)
+
+print('I was called after 2 seconds!')
+
+# Let's call a web service or something more interesting?
+# This sample has the axios library available but in SaaSGlue you can add many other popular
+# runtimes or even install your own at runtime with ease
+
+result = requests.get('https://jsonplaceholder.typicode.com/users')
+res_json = result.json()
+if res_json and len(res_json) > 0:
+  print('First users returned from the json placeholder api is: ', res_json[0])
+else:
+  print('Json placeholder did not return any users.')
 `
                 );
             }
