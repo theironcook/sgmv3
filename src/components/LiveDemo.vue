@@ -261,7 +261,7 @@ else:
                                 lambdaDependencies: this.computeLambdaDeps(),
                                 lambdaMemorySize: 128,
                                 lambdaRuntime: this.computeLambdaRuntime(),
-                                lambdaTimeout: 3,
+                                lambdaTimeout: 10,
                                 name: "DemoStep",
                                 order: 0,
                                 variables: {},
