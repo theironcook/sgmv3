@@ -235,8 +235,9 @@ else:
             computeLambdaRuntime(){
                 if(this.currentScriptLanguage === 'javascript'){
                     return 'nodejs12.x';
+                } else {
+                    return 'python3.7'
                 }
-                // todo for python
             },
 
             computeCurrentJob(){
