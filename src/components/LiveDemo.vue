@@ -187,7 +187,7 @@ time.sleep(2)
 print('I was called after 2 seconds!')
 
 # Let's call a web service or something more interesting?
-# This sample has the axios library available but in SaaSGlue you can add many other popular
+# This sample has the requests library available but in SaaSGlue you can add many other popular
 # runtimes or even install your own at runtime with ease
 
 result = requests.get('https://jsonplaceholder.typicode.com/users')
@@ -226,6 +226,8 @@ else:
             computeLambdaDeps(){
                 if(this.currentScriptLanguage === 'javascript'){
                     return 'axios';
+                } else {
+                    return 'requests';
                 }
                 // todo for python
             },
