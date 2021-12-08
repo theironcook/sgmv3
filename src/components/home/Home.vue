@@ -31,7 +31,7 @@
         <div class="container has-text-white">
             <div class="columns">
                 <div class="column pb-6">
-                    <h2 class="title is-size-2-desktop is-size-4-touch has-text-weight-normal has-text-white">Cloud based workflow manager</h2>
+                    <h2 class="title is-size-2-desktop is-size-4-touch has-text-weight-normal has-text-white has-text-centered">Cloud based workflow manager</h2>
                 </div>
             </div>
             <div class="columns is-size-5-desktop is-size-6-touch has-text-centered">
@@ -73,7 +73,7 @@
     </section>
     <section class="section is-medium">
         <div class="container is-size-5-desktop is-size-6-mobile">
-            <div class="columns is-multiline has-text-left-tablet has-text-centered-mobile">
+            <div class="columns is-multiline has-text-left">
                 <div class="column is-half">
                     <h3 class="subtitle has-text-weight-semibold is-flex is-align-items-center is-justify-content-center">
                         <figure class="image is-48x48 mr-4">
