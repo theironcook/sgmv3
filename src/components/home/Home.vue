@@ -34,33 +34,39 @@
                     <h2 class="title is-size-2-desktop is-size-4-touch has-text-weight-normal has-text-white">Cloud based workflow manager</h2>
                 </div>
             </div>
-            <div class="columns is-size-5-desktop is-size-6-touch has-text-left-tablet has-text-centered-mobile">
+            <div class="columns is-size-5-desktop is-size-6-touch has-text-centered">
                 <div class="column">
                     <figure class="image is-3by1">
                         <img src="@/assets/images/integration.svg" width="180" height="165" />
                     </figure>
                     <h2 class="py-2 title has-text-centered has-text-white">Integration</h2>
-                    <p>Run code on any device in any network permitting outgoing HTTPS</p>
-                    <p>Run scripts and compiled code in any language</p>
-                    <p>Run Function-as-a-Service code in the cloud</p>
+                    <div class="is-inline-block has-text-left-touch has-text-centered">
+                        <p>Run code on any device in any network permitting outgoing HTTPS</p>
+                        <p>Run scripts and compiled code in any language</p>
+                        <p>Run Function-as-a-Service code in the cloud</p>
+                    </div>
                 </div>
                 <div class="column">
                     <figure class="image is-3by1">
                         <img src="@/assets/images/orchestration.svg" width="210" height="160" />
                     </figure>
                     <h2 class="py-2 title has-text-centered has-text-white">Orchestration</h2>
-                    <p>Create multi-step jobs with conditional path routing</p>
-                    <p>Run jobs in multi-cloud and hybrid-cloud environments</p>
-                    <p>Centrally monitor distributed jobs</p>
+                    <div class="is-inline-block has-text-left-touch has-text-centered">
+                        <p>Create multi-step jobs with conditional path routing</p>
+                        <p>Run jobs in multi-cloud and hybrid-cloud environments</p>
+                        <p>Centrally monitor distributed jobs</p>
+                    </div>
                 </div>
                 <div class="column">
                     <figure class="image is-3by1">
                         <img src="@/assets/images/automation.svg" width="150" />
                     </figure>
                     <h2 class="py-2 title has-text-centered has-text-white">Automation</h2>
-                    <p>Start jobs from a schedule, with the API or from the web console</p>
-                    <p>Pass variables between tasks in multi-language jobs</p>
-                    <p>Import and centralize your cron jobs</p>
+                    <div class="is-inline-block has-text-left-touch has-text-centered">
+                        <p>Start jobs from a schedule, with the API or from the web console</p>
+                        <p>Pass variables between tasks in multi-language jobs</p>
+                        <p>Import and centralize your cron jobs</p>
+                    </div>
                 </div>
             </div>
         </div>
