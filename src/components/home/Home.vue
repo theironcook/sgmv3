@@ -42,7 +42,7 @@
                     <h2 class="py-2 title has-text-centered has-text-white">Integration</h2>
                     <div class="is-inline-block has-text-left-touch has-text-centered">
                         <p>Run scripts and compiled code in any language</p>
-                        <p>Run code on prem or in the cloud</p>
+                        <p>Run code on prem and in the cloud</p>
                         <p>Run code in AWS Lambda easily</p>
                     </div>
                 </div>
@@ -131,19 +131,15 @@ This simple design lets the agent work on almost any network. And since agents t
                         Generally developers come up with kludgy custom workarounds to meet deadlines.
 
                         <br><br>
-                        SaaSGlue does NOT wrap external tools with layers of abstraction.  
-                        Tools and code are fully accessible to developers with scripts including tools like Jenkins, Airflow and others.
+                        SaaSGlue doesn't constrain developers by wrapping external tools with layers of abstraction like plugins.  
+                        
+                        If something can be scripted from the command line you can run it with SaaSGlue. This includes any custom logic
+                        or driving tools like Jenkins, Airflow and others.
+                    </p>
+                    <p>SaaSGlue decouples job management from code execution. Job designs, including code files, are stored centrally. 
+                        At runtime code is delivered to the computing environment through secure agents, which you install on your machines.
+                        Your code can also be executed without an agent in a serverless environment managed by SaaSGlue in AWS Lambda.</p>
 
-                        SaaSGlue integrates with tools or your own code with a very light touch.
-
-
-                        <br><br>
-
-     
-                         Each new or updated integration requires platform updates in order to be accessible to the platform. For example many automation platforms have domain specific languages used to encode desired state instructions. These abstractions tend to leak over time and require imperative solutions to fill the gaps.</p>
-                    <p>SaaSGlue works with everything else by decoupling job management from code execution. Job designs, including code files, are stored centrally. At runtime code is delivered to the computing environment through agents, which you install on your machines.</p>
-                    <p>This design gives you the freedom to access all of your compute endpoints directly without abstraction layers and with the power of centrally managed jobs.
-                    Here is our rule of thumb: If you can do something from the local command prompt you can do it the same way in SaaSGlue.</p>
                     <figure class="image is-hidden-mobile">
                         <img class="is-width-75" src="@/assets/images/innovation-twist.svg" alt="SaaSGlue workflow" />
                     </figure>
