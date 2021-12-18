@@ -5,10 +5,10 @@
                 <transition name="fade-top" appear>
                     <div class="tagline-container column has-text-left">
                         <h1 class="title is-size-2-desktop is-size-4-touch is-spaced has-text-weight-semibold has-text-grey-darker">
-                            Insanely <span class="has-text-deepskyblue">Flexible</span> <br />
-                            <span class="is-inline-block title-shift">Data <span class="has-text-deepskyblue">Pipelines</span></span>
+                            SaaS <span class="has-text-deepskyblue">Based</span> <br />
+                            <span class="is-inline-block title-shift">Scheduling <span class="has-text-deepskyblue">Platform</span></span>
                         </h1>
-                        <h2 class="subtitle is-size-5-desktop is-size-6-touch has-text-weight-medium has-text-grey">SaaSGlue is a SaaS-based integration, orchestration and automation platform that lets you fill the gaps in your existing automation infrastructure.</h2>
+                        <h2 class="subtitle is-size-5-desktop is-size-6-touch has-text-weight-medium has-text-grey">A SaaS-based job scheduling platform that you can use to schedule single scripts and multi-step jobs in hybrid and multi-cloud environments.  It provides greater flexibility compared to hosted and ad hoc automation tools.</h2>
                         <div class="buttons">
                             <a href="https://console.saasglue.com/" class="button is-success has-action-shadow hax-text-weight-bold">GET STARTED</a>
                         </div>
@@ -31,7 +31,7 @@
         <div class="container has-text-white">
             <div class="columns">
                 <div class="column pb-6">
-                    <h2 class="title is-size-2-desktop is-size-4-touch has-text-weight-normal has-text-white has-text-centered">Cloud based workflow manager</h2>
+                    <h2 class="title is-size-2-desktop is-size-4-touch has-text-weight-normal has-text-white has-text-centered">SaaS based workflow manager</h2>
                 </div>
             </div>
             <div class="columns is-size-5-desktop is-size-6-touch has-text-centered">
@@ -41,9 +41,9 @@
                     </figure>
                     <h2 class="py-2 title has-text-centered has-text-white">Integration</h2>
                     <div class="is-inline-block has-text-left-touch has-text-centered">
-                        <p>Run code on any device in any network permitting outgoing HTTPS</p>
                         <p>Run scripts and compiled code in any language</p>
-                        <p>Run Function-as-a-Service code in the cloud</p>
+                        <p>Run code on prem or in the cloud</p>
+                        <p>Run code in AWS Lambda easily</p>
                     </div>
                 </div>
                 <div class="column">
@@ -52,9 +52,9 @@
                     </figure>
                     <h2 class="py-2 title has-text-centered has-text-white">Orchestration</h2>
                     <div class="is-inline-block has-text-left-touch has-text-centered">
-                        <p>Create multi-step jobs with conditional path routing</p>
-                        <p>Run jobs in multi-cloud and hybrid-cloud environments</p>
                         <p>Centrally monitor distributed jobs</p>
+                        <p>Run jobs in multi-cloud and hybrid-cloud environments</p>
+                        <p>Create powerful multi-step workflows</p>
                     </div>
                 </div>
                 <div class="column">
@@ -81,7 +81,7 @@
                         </figure>
                         <span class="is-flex-shrink-0">Works virtually anywhere</span>
                     </h3>
-                    <p>When the SaaSGlue agent is installed, it immediately calls home to the cloud and establishes a regular secure heartbeat through HTTPS. The agent receives instructions from a message queue and sends results to the API.
+                    <p>When a SaaSGlue agent is installed, it securely connects to the SaaSGlue cloud. The agent securely recieves and executes your custom instructions.
 This simple design lets the agent work on almost any network. And since agents talk only to the cloud, your job can hop from one network to another without regard to network boundaries.</p>
                 </div>
                 <div class="column is-half">
@@ -91,7 +91,7 @@ This simple design lets the agent work on almost any network. And since agents t
                         </figure>
                         <span class="is-flex-shrink-0">Provides all the infrastructure</span>
                     </h3>
-                    <p>SaaSGlue provides all the job infrastructure to Initiate, Manage, Monitor, Alert. Our lightweight agent is self-updating, placing very little management burden on you.
+                    <p>SaaSGlue provides all the job infrastructure to manage, monitor and alert. Our lightweight agent is self-updating, placing very little management burden on you.
                         SaaSGlue takes care of the automation infrastructure and lets you focus on your code.
                     </p>
                 </div>
@@ -102,8 +102,7 @@ This simple design lets the agent work on almost any network. And since agents t
                         </figure>
                         <span class="is-flex-shrink-0">Integrates with other solutions</span>
                     </h3>
-                    <p>Using secure credentials you can invoke jobs through the SaaSGlue API from any platform. SaaSGlue jobs can be designed to call back to any of your automation platforms, maintaining a cross-platform process thread.
-Because SaaSGlue works with anything you can augment your current solutions without having to rip and replace anything.</p>
+                    <p>All SaaSGlue functionality can be invoked via the SaaSGlue API. This makes it simple to invoke SaaSGlue jobs from third party or custom applications. And since you can execute any code in any environment with SaaSGlue, you can also leverage your existing tools like Jenkins or AirFlow in SaaSGlue jobs.</p>
                 </div>
                 <div class="column is-half">
                     <h3 class="subtitle has-text-weight-semibold is-flex is-align-items-center is-justify-content-center">
@@ -112,7 +111,7 @@ Because SaaSGlue works with anything you can augment your current solutions with
                         </figure>
                         <span class="is-flex-shrink-0">Scalable platform</span>
                     </h3>
-                    <p>SaaSGlue scales horizontally to handle enterprise workloads.</p>
+                    <p>SaaSGlue architecture scales horizontally to handle enterprise workloads at any scale.</p>
                 </div>
             </div>
         </div>
@@ -122,7 +121,26 @@ Because SaaSGlue works with anything you can augment your current solutions with
             <div class="columns">
                 <div class="column content has-text-left is-size-5-desktop is-size-6-touch">
                     <h2 class="subtitle is-size-2-desktop is-size-4-touch has-text-weight-semibold has-text-right">The <span class="has-text-white">innovation</span> twist</h2>
-                    <p>Other platforms adapt external tools to themselves by wrapping them in layers of abstraction. Each new tool requires another layer in order to be accessible to the platform. For example many automation platforms have domain specific languages used to encode desired state instructions. These abstractions tend to leak over time and require imperative solutions to fill the gaps.</p>
+                    <p>Typical automation platforms wrap external tools in layers of abstraction. 
+                        <br><br>
+                        For example, platforms like Jenkins, Airflow and others enable access to external tools via a plugin architecture. 
+                        
+                        If the platform doesn't have a plugin for a tool or there's a version or functionality mismatch, 
+                        then the tool is inaccessible to the platform.
+                        It's usually time prohibitive for developers to create or update plugins in the framework.
+                        Generally developers come up with kludgy custom workarounds to meet deadlines.
+
+                        <br><br>
+                        SaaSGlue does NOT wrap external tools with layers of abstraction.  
+                        Tools and code are fully accessible to developers with scripts including tools like Jenkins, Airflow and others.
+
+                        SaaSGlue integrates with tools or your own code with a very light touch.
+
+
+                        <br><br>
+
+     
+                         Each new or updated integration requires platform updates in order to be accessible to the platform. For example many automation platforms have domain specific languages used to encode desired state instructions. These abstractions tend to leak over time and require imperative solutions to fill the gaps.</p>
                     <p>SaaSGlue works with everything else by decoupling job management from code execution. Job designs, including code files, are stored centrally. At runtime code is delivered to the computing environment through agents, which you install on your machines.</p>
                     <p>This design gives you the freedom to access all of your compute endpoints directly without abstraction layers and with the power of centrally managed jobs.
                     Here is our rule of thumb: If you can do something from the local command prompt you can do it the same way in SaaSGlue.</p>
@@ -432,7 +450,7 @@ Because SaaSGlue works with anything you can augment your current solutions with
         }
 
         .title-shift {
-            margin-left: 81px;
+            margin-left: 20px;
         }
     }
 
