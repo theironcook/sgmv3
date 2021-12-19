@@ -4,9 +4,9 @@
             <div class="columns">
                 <transition name="fade-top" appear>
                     <div class="tagline-container column has-text-left">
-                        <h1 class="title is-size-2-desktop is-size-4-touch is-spaced has-text-weight-semibold has-text-grey-darker">
-                            SaaS <span class="has-text-deepskyblue">Based</span> <br />
-                            <span class="is-inline-block title-shift">Scheduling <span class="has-text-deepskyblue">Platform</span></span>
+                        <h1 class="title is-size-3-desktop is-size-4-touch is-spaced has-text-weight-semibold has-text-grey-darker">
+                            <span class="title-shift">SaaS <span class="has-text-deepskyblue">Based</span></span> <br />
+                            <span class="is-inline-block">Scheduling <span class="has-text-deepskyblue">Platform</span></span>
                         </h1>
                         <h2 class="subtitle is-size-5-desktop is-size-6-touch has-text-weight-medium has-text-grey">A SaaS-based job scheduling platform that you can use to schedule single scripts and multi-step jobs in hybrid and multi-cloud environments.  It provides greater flexibility compared to hosted and ad hoc automation tools.</h2>
                         <div class="buttons">
@@ -121,22 +121,20 @@ This simple design lets the agent work on almost any network. And since agents t
             <div class="columns">
                 <div class="column content has-text-left is-size-5-desktop is-size-6-touch">
                     <h2 class="subtitle is-size-2-desktop is-size-4-touch has-text-weight-semibold has-text-right">The <span class="has-text-white">innovation</span> twist</h2>
-                    <p>Typical automation platforms wrap external tools in layers of abstraction. 
+                    <p>Typical automation platforms wrap external tools in layers of abstraction.
                         <br><br>
-                        For example, platforms like Jenkins, Airflow and others enable access to external tools via a plugin architecture. 
-                        
-                        If the platform doesn't have a plugin for a tool or there's a version or functionality mismatch, 
+                        For example, platforms like Jenkins, Airflow and others enable access to external tools via a plugin architecture.
+                        If the platform doesn't have a plugin for a tool or there's a version or functionality mismatch,
                         then the tool is inaccessible to the platform.
                         It's usually time prohibitive for developers to create or update plugins in the framework.
                         Generally developers come up with kludgy custom workarounds to meet deadlines.
 
                         <br><br>
-                        SaaSGlue doesn't constrain developers by wrapping external tools with layers of abstraction like plugins.  
-                        
+                        SaaSGlue doesn't constrain developers by wrapping external tools with layers of abstraction like plugins.
                         If something can be scripted from the command line you can run it with SaaSGlue. This includes any custom logic
                         or driving tools like Jenkins, Airflow and others.
                     </p>
-                    <p>SaaSGlue decouples job management from code execution. Job designs, including code files, are stored centrally. 
+                    <p>SaaSGlue decouples job management from code execution. Job designs, including code files, are stored centrally.
                         At runtime code is delivered to the computing environment through secure agents, which you install on your machines.
                         Your code can also be executed without an agent in a serverless environment managed by SaaSGlue in AWS Lambda.</p>
 
@@ -446,7 +444,7 @@ This simple design lets the agent work on almost any network. And since agents t
         }
 
         .title-shift {
-            margin-left: 20px;
+            margin-left: 116px;
         }
     }
 
@@ -522,7 +520,7 @@ This simple design lets the agent work on almost any network. And since agents t
 
     @include touch {
         .tagline-container .title-shift {
-            margin-left: 57px;
+            margin-left: 95px;
         }
     }
 
