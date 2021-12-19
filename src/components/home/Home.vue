@@ -397,7 +397,7 @@ This simple design lets the agent work on almost any network. And since agents t
                                 <button class="button is-primary has-action-shadow has-text-weight-bold">CONTINUE</button>
                             </p>
                         </div>
-                        <p class="is-size-4-desktop is-size-6-touch"><span class="has-text-black">Free</span> to get started!</p>
+                        <p class="is-size-4-desktop is-size-6-touch"><span class="has-text-black">Free</span> to get started</p>
                         <p class="is-size-4-desktop is-size-6-touch">No credit card needed</p>
                     </div>
                 </div>
