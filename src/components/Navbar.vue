@@ -3,7 +3,7 @@
         <div class="container py-2">
             <div class="navbar-brand">
                 <router-link to="/" class="navbar-item">
-                    <img src="@/assets/images/logo.png" alt="SaaSGlue logo" width="180" height="30">
+                    <img src="@/assets/images/SaasLogoRevised.svg" alt="SaaSGlue logo" width="180" height="30">
                 </router-link>
             </div>
             <div class="navbar-menu">
