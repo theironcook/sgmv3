@@ -3,7 +3,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import Solutions from '@/components/Solutions.vue';
 import Pricing from '@/components/Pricing.vue';
 import Docs from '@/components/docs/Docs.vue';
-import Home from '@/components/home/Home.vue';
+import Home from '@/components/Home.vue';
 import News from '@/components/News.vue';
 import LiveDemo from '@/components/LiveDemo.vue';
 
