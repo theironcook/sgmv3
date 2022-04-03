@@ -10,7 +10,7 @@
                         </h1>
                         <h2 class="subtitle is-size-5-desktop is-size-6-touch has-text-weight-medium has-text-grey">A SaaS-based job scheduling platform that you can use to schedule single scripts and multi-step jobs in hybrid and multi-cloud environments.  It provides greater flexibility compared to hosted and ad hoc automation tools.</h2>
                         <div class="buttons">
-                            <a href="https://console.saasglue.com/" class="button is-success has-action-shadow hax-text-weight-bold">GET STARTED</a>
+                            <a href="https://console.saasglue.com/" class="button is-primary has-action-shadow hax-text-weight-bold">GET STARTED</a>
                         </div>
                     </div>
                 </transition>
@@ -274,7 +274,7 @@ This simple design lets the agent work on almost any network. And since agents t
             </div>
             <div class="columns is-centered pricing-columns">
                 <div class="column is-narrow-desktop">
-                    <div class="box content has-border-success">
+                    <div class="box content has-border-primary">
                         <header>
                             <h5>Free</h5>
                         </header>
@@ -282,7 +282,7 @@ This simple design lets the agent work on almost any network. And since agents t
                             <span class="pr-1">$</span>
                             <span class="is-size-1">0</span>
                         </p>
-                        <a href="https://console.saasglue.com/" class="button is-fullwidth is-success is-outlined has-text-weight-bold">GET STARTED</a>
+                        <a href="https://console.saasglue.com/" class="button is-fullwidth is-primary is-outlined has-text-weight-bold">GET STARTED</a>
                         <div class="has-text-left my-5 is-flex is-flex-direction-column">
                             <p class="icon-text is-flex is-align-items-center is-flex-wrap-nowrap">
                                 <span class="icon mr-2">
@@ -324,7 +324,7 @@ This simple design lets the agent work on almost any network. And since agents t
                     </div>
                 </div>
                 <div class="column is-narrow-desktop">
-                    <div class="box content has-border-success">
+                    <div class="box content has-border-primary">
                         <header>
                             <h5>Standard</h5>
                         </header>
@@ -333,7 +333,7 @@ This simple design lets the agent work on almost any network. And since agents t
                             <span class="is-size-1">0.01</span>
                             <span class="pt-5">/script</span>
                         </p>
-                        <a href="https://console.saasglue.com/" class="button is-fullwidth is-success has-text-weight-bold">GET STARTED</a>
+                        <a href="https://console.saasglue.com/" class="button is-fullwidth is-primary has-text-weight-bold">GET STARTED</a>
                         <div class="has-text-left my-5 is-flex is-flex-direction-column">
                             <p class="icon-text is-flex is-align-items-center is-flex-wrap-nowrap">
                                 <span class="icon mr-2">
@@ -392,7 +392,7 @@ This simple design lets the agent work on almost any network. And since agents t
                                 <input class="input" type="email" placeholder="Enter your email...">
                             </p>
                             <p class="control">
-                                <button class="button is-primary has-action-shadow has-text-weight-bold">CONTINUE</button>
+                                <button class="button is-primary has-border-white has-action-shadow has-text-weight-bold">CONTINUE</button>
                             </p>
                         </div>
                         <p class="is-size-4-desktop is-size-6-touch"><span class="has-text-black">Free</span> to get started</p>
@@ -492,8 +492,12 @@ This simple design lets the agent work on almost any network. And since agents t
         opacity: .3;
     }
 
-    .has-border-success {
-        border: 1px solid #48c78e;
+    .has-border-primary {
+        border: 1px solid deepskyblue;
+    }
+
+    .is-primary.has-border-white {
+        border: 1px solid #fff;
     }
 
     .tool-link {

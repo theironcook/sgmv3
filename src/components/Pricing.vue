@@ -8,7 +8,7 @@
             </div>
             <div class="columns is-centered pricing-columns">
                 <div class="column is-narrow-desktop">
-                    <div class="box content has-border-success">
+                    <div class="box content has-border-primary">
                         <header>
                             <h5>Free</h5>
                         </header>
@@ -16,7 +16,7 @@
                             <span class="pr-1">$</span>
                             <span class="is-size-1">0</span>
                         </p>
-                        <button class="button is-fullwidth is-success is-outlined has-text-weight-bold">GET STARTED</button>
+                        <button class="button is-fullwidth is-primary is-outlined has-text-weight-bold">GET STARTED</button>
                         <div class="has-text-left my-5 is-flex is-flex-direction-column">
                             <p class="icon-text is-flex is-align-items-center is-flex-wrap-nowrap">
                                 <span class="icon mr-2">
@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <div class="column is-narrow-desktop">
-                    <div class="box content has-border-success">
+                    <div class="box content has-border-primary">
                         <header>
                             <h5>Standard</h5>
                         </header>
@@ -67,7 +67,7 @@
                             <span class="is-size-1">0.01</span>
                             <span class="pt-5">/script</span>
                         </p>
-                        <button class="button is-fullwidth is-success has-text-weight-bold">GET STARTED</button>
+                        <button class="button is-fullwidth is-primary has-text-weight-bold">GET STARTED</button>
                         <div class="has-text-left my-5 is-flex is-flex-direction-column">
                             <p class="icon-text is-flex is-align-items-center is-flex-wrap-nowrap">
                                 <span class="icon mr-2">
@@ -129,8 +129,8 @@
         opacity: .3;
     }
 
-    .has-border-success {
-        border: 1px solid #48c78e;
+    .has-border-primary {
+        border: 1px solid deepskyblue;
     }
 
     @include tablet {
