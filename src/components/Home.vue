@@ -10,7 +10,7 @@
                         </h1>
                         <h2 class="subtitle is-size-5-desktop is-size-6-touch has-text-weight-medium has-text-grey">A SaaS-based job scheduling platform that you can use to schedule single scripts and multi-step jobs in hybrid and multi-cloud environments.  It provides greater flexibility compared to hosted and ad hoc automation tools.</h2>
                         <div class="buttons">
-                            <a href="https://console.saasglue.com/" class="button is-success has-action-shadow hax-text-weight-bold">GET STARTED</a>
+                            <a href="https://console.saasglue.com/" class="button is-primary has-action-shadow hax-text-weight-bold">GET STARTED</a>
                         </div>
                     </div>
                 </transition>
@@ -265,118 +265,7 @@ This simple design lets the agent work on almost any network. And since agents t
         </div>
     </section>
 
-    <section class="section">
-        <div class="container">
-            <div class="columns">
-                <div class="column">
-                    <h2 class="title is-size-2-desktop has-text-centered is-size-4-touch mb-5">Our Pricing</h2>
-                </div>
-            </div>
-            <div class="columns is-centered pricing-columns">
-                <div class="column is-narrow-desktop">
-                    <div class="box content has-border-success">
-                        <header>
-                            <h5>Free</h5>
-                        </header>
-                        <p class="has-text-weight-bold is-align-items-center is-flex is-justify-content-center">
-                            <span class="pr-1">$</span>
-                            <span class="is-size-1">0</span>
-                        </p>
-                        <a href="https://console.saasglue.com/" class="button is-fullwidth is-success is-outlined has-text-weight-bold">GET STARTED</a>
-                        <div class="has-text-left my-5 is-flex is-flex-direction-column">
-                            <p class="icon-text is-flex is-align-items-center is-flex-wrap-nowrap">
-                                <span class="icon mr-2">
-                                    <img src="@/assets/images/checkmark.svg" />
-                                </span>
-                                <span>Run unlimited scripts from the web console</span>
-                            </p>
-                            <p class="icon-text">
-                                <span class="icon mr-2">
-                                    <img src="@/assets/images/checkmark.svg" />
-                                </span>
-                                <span>Create unlimited agents</span>
-                            </p>
-                            <p class="icon-text">
-                                <span class="icon mr-2">
-                                    <img src="@/assets/images/checkmark.svg" />
-                                </span>
-                                <span>Store unlimited scripts</span>
-                            </p>
-                            <p class="icon-text has-text-grey-lighter">
-                                <span class="icon mr-2">
-                                    <img class="has-icon-muted" src="@/assets/images/checkmark.svg" />
-                                </span>
-                                <span>Create unlimited jobs</span>
-                            </p>
-                            <p class="icon-text has-text-grey-lighter">
-                                <span class="icon mr-2">
-                                    <img class="has-icon-muted" src="@/assets/images/checkmark.svg" />
-                                </span>
-                                <span>Schedule jobs</span>
-                            </p>
-                            <p class="icon-text has-text-grey-lighter">
-                                <span class="icon mr-2">
-                                    <img class="has-icon-muted" src="@/assets/images/checkmark.svg" />
-                                </span>
-                                <span>Launch jobs through the API</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="column is-narrow-desktop">
-                    <div class="box content has-border-success">
-                        <header>
-                            <h5>Standard</h5>
-                        </header>
-                        <p class="has-text-weight-bold is-align-items-center is-flex is-justify-content-center">
-                            <span class="pr-1">$</span>
-                            <span class="is-size-1">0.01</span>
-                            <span class="pt-5">/script</span>
-                        </p>
-                        <a href="https://console.saasglue.com/" class="button is-fullwidth is-success has-text-weight-bold">GET STARTED</a>
-                        <div class="has-text-left my-5 is-flex is-flex-direction-column">
-                            <p class="icon-text is-flex is-align-items-center is-flex-wrap-nowrap">
-                                <span class="icon mr-2">
-                                    <img src="@/assets/images/checkmark.svg" />
-                                </span>
-                                <span>Run unlimited scripts from the web console</span>
-                            </p>
-                            <p class="icon-text">
-                                <span class="icon mr-2">
-                                    <img src="@/assets/images/checkmark.svg" />
-                                </span>
-                                <span>Create unlimited agents</span>
-                            </p>
-                            <p class="icon-text">
-                                <span class="icon mr-2">
-                                    <img src="@/assets/images/checkmark.svg" />
-                                </span>
-                                <span>Store unlimited scripts</span>
-                            </p>
-                            <p class="icon-text">
-                                <span class="icon mr-2">
-                                    <img src="@/assets/images/checkmark.svg" />
-                                </span>
-                                <span>Create unlimited jobs</span>
-                            </p>
-                            <p class="icon-text">
-                                <span class="icon mr-2">
-                                    <img src="@/assets/images/checkmark.svg" />
-                                </span>
-                                <span>Schedule jobs</span>
-                            </p>
-                            <p class="icon-text">
-                                <span class="icon mr-2">
-                                    <img src="@/assets/images/checkmark.svg" />
-                                </span>
-                                <span>Launch jobs through the API</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <Pricing />
 
     <section class="section is-medium">
         <div class="container">
@@ -392,7 +281,7 @@ This simple design lets the agent work on almost any network. And since agents t
                                 <input class="input" type="email" placeholder="Enter your email...">
                             </p>
                             <p class="control">
-                                <button class="button is-primary has-action-shadow has-text-weight-bold">CONTINUE</button>
+                                <button class="button is-primary has-border-white has-action-shadow has-text-weight-bold">CONTINUE</button>
                             </p>
                         </div>
                         <p class="is-size-4-desktop is-size-6-touch"><span class="has-text-black">Free</span> to get started</p>
@@ -406,9 +295,11 @@ This simple design lets the agent work on almost any network. And since agents t
 
 <script lang="ts">
     import { defineComponent } from 'vue';
+    import Pricing from './Pricing.vue';
 
     export default defineComponent({
-        name: 'Home'
+        name: 'Home',
+        components: { Pricing }
     });
 </script>
 
@@ -487,13 +378,8 @@ This simple design lets the agent work on almost any network. And since agents t
         box-shadow: 0 79px 68px -47px RGB(0 0 0 / 43%);
     }
 
-    .has-icon-muted {
-        filter: grayscale(1);
-        opacity: .3;
-    }
-
-    .has-border-success {
-        border: 1px solid #48c78e;
+    .is-primary.has-border-white {
+        border: 1px solid #fff;
     }
 
     .tool-link {
@@ -509,12 +395,6 @@ This simple design lets the agent work on almost any network. And since agents t
             &:hover {
                 filter: grayscale(0) opacity(1);
             }
-        }
-    }
-
-    @include tablet {
-        .pricing-columns .column:first-child {
-            margin-right: 2rem;
         }
     }
 

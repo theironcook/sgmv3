@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import { defineAsyncComponent } from 'vue';
 
 import Solutions from '@/components/Solutions.vue';
 import Pricing from '@/components/Pricing.vue';
 import Docs from '@/components/docs/Docs.vue';
-import Home from '@/components/home/Home.vue';
+import Home from '@/components/Home.vue';
 import News from '@/components/News.vue';
-import LiveDemo from '@/components/LiveDemo.vue';
 
 const routes: Array<RouteRecordRaw> = [{
     path: '/',
@@ -36,7 +36,7 @@ const routes: Array<RouteRecordRaw> = [{
 {
     path: '/livedemo',
     name: 'LiveDemo',
-    component: LiveDemo,
+    component: defineAsyncComponent(() => import('@/components/LiveDemo.vue')),
     meta: { title: 'Demo | SaaSGlue' }
 }];
 

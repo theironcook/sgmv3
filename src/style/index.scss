@@ -1,6 +1,6 @@
-.button.is-info {
-    background-color: deepskyblue;
-}
+$primary: deepskyblue;
+
+@import 'bulma';
 
 .has-text-deepskyblue {
     color: deepskyblue;

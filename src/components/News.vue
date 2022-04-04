@@ -15,27 +15,6 @@
                     </div>
                     <div class="card mb-3">
                         <div class="card-content">
-                            <a target="_blank" href="https://jack-wood.medium.com/architectures-of-pipeline-automation-tools-compared-3b3e6e9768db">Blog - Architectures of Pipeline Automation Tools Compared</a>
-                        </div>
-                        <footer class="card-footer p-2">
-                            <img src="@/assets/images/calendar-icon.svg" class="mr-2" width="24" />
-                            <time datetime="2021-5-30">June 30, 2021</time>
-                        </footer>
-                    </div>
-                    <div class="card">
-                        <div class="card-content">
-                            <a target="_blank" href="https://www.meetup.com/DevOpsUT/events/278127038/">Utah Devops Workshop - Day 1: Kubernetes Online Workshop</a>
-                        </div>
-                        <footer class="card-footer p-2">
-                            <img src="@/assets/images/calendar-icon.svg" class="mr-2" width="24" />
-                            <time datetime="2021-5-9">June 9, 2021</time>
-                        </footer>
-                    </div>
-                </div>
-
-                <div class="column is-6">
-                    <div class="card mb-3">
-                        <div class="card-content">
                             <a target="_blank" href="https://www.dataengineeringpodcast.com/saasglue-cloud-workflow-manager-episode-201/">Podcast - Stick All Of Your Systems And Data Together With SaaSGlue As Your Workflow Manager - Episode 201</a>
                         </div>
                         <footer class="card-footer p-2">
@@ -45,11 +24,32 @@
                     </div>
                     <div class="card mb-3">
                         <div class="card-content">
+                            <a target="_blank" href="https://jack-wood.medium.com/architectures-of-pipeline-automation-tools-compared-3b3e6e9768db">Blog - Architectures of Pipeline Automation Tools Compared</a>
+                        </div>
+                        <footer class="card-footer p-2">
+                            <img src="@/assets/images/calendar-icon.svg" class="mr-2" width="24" />
+                            <time datetime="2021-5-30">June 30, 2021</time>
+                        </footer>
+                    </div>
+                </div>
+
+                <div class="column is-6">
+                    <div class="card mb-3">
+                        <div class="card-content">
                             <a target="_blank" href="https://www.meetup.com/DevOpsUT/events/wfzmlryccjbmb/">Utah Devops Workshop - Day 2: Kubernetes Online Workshop</a>
                         </div>
                         <footer class="card-footer p-2">
                             <img src="@/assets/images/calendar-icon.svg" class="mr-2" width="24" />
                             <time datetime="2021-5-16">June 16, 2021</time>
+                        </footer>
+                    </div>
+                    <div class="card mb-3">
+                        <div class="card-content">
+                            <a target="_blank" href="https://www.meetup.com/DevOpsUT/events/278127038/">Utah Devops Workshop - Day 1: Kubernetes Online Workshop</a>
+                        </div>
+                        <footer class="card-footer p-2">
+                            <img src="@/assets/images/calendar-icon.svg" class="mr-2" width="24" />
+                            <time datetime="2021-5-9">June 9, 2021</time>
                         </footer>
                     </div>
                     <div class="card">
