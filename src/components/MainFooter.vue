@@ -5,13 +5,13 @@
                 <div class="column is-5-desktop is-full-touch has-text-left-desktop">
                     <h5 class="is-uppercase has-text-weight-bold has-text-centered-touch">Recent posts</h5>
                     <div class="block">
-                        <h6><a target="_blank" href="https://www.saasglue.com/workshop">Workshop - Creating cross-cloud data pipelines</a></h6>
+                        <h6><a target="_blank" href="https://medium.com/@rich_81505/minimize-the-cost-of-your-aws-batch-data-pipelines-with-severless-and-ephemeral-compute-7dc883836f9c">Minimize the cost of your AWS batch data pipelines with serverless and ephemeral compute</a></h6>
                     </div>
                     <div class="block">
-                        <h6><a target="_blank" href="https://jack-wood.medium.com/architectures-of-pipeline-automation-tools-compared-3b3e6e9768db">Blog - Architectures of Pipeline Automation Tools Compared</a></h6>
+                        <h6><a target="_blank" href="https://medium.com/@rich_81505/build-a-hybrid-cloud-data-pipeline-in-minutes-43261d07c8a9">How to build a twitter analyzer with a hybrid cloud data pipeline and a single page web app</a></h6>
                     </div>
                     <div class="block">
-                        <h6><a target="_blank" href="https://www.meetup.com/DevOpsUT/events/278127038/">Utah Devops Workshop - Day 1: Kubernetes Online Workshop</a></h6>
+                        <h6><a target="_blank" href="https://www.dataengineeringpodcast.com/saasglue-cloud-workflow-manager-episode-201/">Podcast - Stick All Of Your Systems And Data Together With SaaSGlue As Your Workflow Manager - Episode 201</a></h6>
                     </div>
                 </div>
                 <div class="column">

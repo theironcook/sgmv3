@@ -6,13 +6,25 @@
                 <div class="column is-6">
                     <div class="card mb-3">
                         <div class="card-content">
-                            <a target="_blank" href="https://www.saasglue.com/workshop">Workshop - Creating cross-cloud data pipelines</a>
+                            <a target="_blank" href="https://medium.com/@rich_81505/minimize-the-cost-of-your-aws-batch-data-pipelines-with-severless-and-ephemeral-compute-7dc883836f9c">Minimize the cost of your AWS batch data pipelines with serverless and ephemeral compute</a>
                         </div>
                         <footer class="card-footer p-2">
                             <img src="@/assets/images/calendar-icon.svg" class="mr-2" width="24" />
-                            <time datetime="2021-9-21">September 21st and 28th, 6pm MDT 2021</time>
+                            <time datetime="2021-9-21">January 22, 2022</time>
                         </footer>
                     </div>
+                    <div class="card mb-3">
+                        <div class="card-content">
+                            <a target="_blank" href="https://medium.com/@rich_81505/build-a-hybrid-cloud-data-pipeline-in-minutes-43261d07c8a9">How to build a twitter analyzer with a hybrid cloud data pipeline and a single page web app</a>
+                        </div>
+                        <footer class="card-footer p-2">
+                            <img src="@/assets/images/calendar-icon.svg" class="mr-2" width="24" />
+                            <time datetime="2021-9-21">July 17, 2021</time>
+                        </footer>
+                    </div>
+                </div>
+
+                <div class="column is-6">
                     <div class="card mb-3">
                         <div class="card-content">
                             <a target="_blank" href="https://www.dataengineeringpodcast.com/saasglue-cloud-workflow-manager-episode-201/">Podcast - Stick All Of Your Systems And Data Together With SaaSGlue As Your Workflow Manager - Episode 201</a>
@@ -29,36 +41,6 @@
                         <footer class="card-footer p-2">
                             <img src="@/assets/images/calendar-icon.svg" class="mr-2" width="24" />
                             <time datetime="2021-5-30">June 30, 2021</time>
-                        </footer>
-                    </div>
-                </div>
-
-                <div class="column is-6">
-                    <div class="card mb-3">
-                        <div class="card-content">
-                            <a target="_blank" href="https://www.meetup.com/DevOpsUT/events/wfzmlryccjbmb/">Utah Devops Workshop - Day 2: Kubernetes Online Workshop</a>
-                        </div>
-                        <footer class="card-footer p-2">
-                            <img src="@/assets/images/calendar-icon.svg" class="mr-2" width="24" />
-                            <time datetime="2021-5-16">June 16, 2021</time>
-                        </footer>
-                    </div>
-                    <div class="card mb-3">
-                        <div class="card-content">
-                            <a target="_blank" href="https://www.meetup.com/DevOpsUT/events/278127038/">Utah Devops Workshop - Day 1: Kubernetes Online Workshop</a>
-                        </div>
-                        <footer class="card-footer p-2">
-                            <img src="@/assets/images/calendar-icon.svg" class="mr-2" width="24" />
-                            <time datetime="2021-5-9">June 9, 2021</time>
-                        </footer>
-                    </div>
-                    <div class="card">
-                        <div class="card-content">
-                            <a target="_blank" href="https://www.meetup.com/DevOpsUT/events/wfzmlryccgbsb/">Utah Devops Meetup - Learn how to deploy a single-page webapp onto a Kubernetes cluster in AWS</a>
-                        </div>
-                        <footer class="card-footer p-2">
-                            <img src="@/assets/images/calendar-icon.svg" class="mr-2" width="24" />
-                            <time datetime="2021-4-14">April 14, 2021</time>
                         </footer>
                     </div>
                 </div>
