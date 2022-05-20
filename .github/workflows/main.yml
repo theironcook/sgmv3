@@ -20,7 +20,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Get SaasGlue auth token
+      - name: Get SaaSGlue auth token
         uses: actionsflow/axios@v1
         id: auth
         with:
@@ -37,7 +37,7 @@ jobs:
             core.setOutput('teamId', tokens.config3)
             core.setOutput('token', tokens.config1)
       
-      - name: Run SaasGlue job
+      - name: Run SaaSGlue job
         uses: actionsflow/axios@v1
         with:
           # The target url

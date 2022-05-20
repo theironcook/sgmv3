@@ -149,7 +149,7 @@
             // Initialize default scripts
             if(!localStorage.getItem('javascript')){
                 localStorage.setItem('javascript', 
-`console.log('Hello World from the SaasGlue runtime!');
+`console.log('Hello World from the SaaSGlue runtime!');
 
 setTimeout(() => {
     console.log('I was called after 2 seconds!');
@@ -469,3 +469,4 @@ else:
         font-weight: 700;
     }
 </style>
+    

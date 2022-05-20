@@ -20,7 +20,7 @@
                             <div class="image is-16by9 has-background-placeholder has-border-radius-5">
                                 <iframe class="has-ratio has-border-radius-5" width="560" height="315" src="https://www.youtube.com/embed/b_7u17gZcX8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
-                            <figcaption class="has-text-centered">How SaasGlue can help you make insanely flexible data pipelines</figcaption>
+                            <figcaption class="has-text-centered">How SaaSGlue can help you make insanely flexible data pipelines</figcaption>
                         </figure>
                     </div>
                 </transition>

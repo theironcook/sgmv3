@@ -25,7 +25,7 @@
                     <p>Gather all your scripts from the distributed servers where they are stored and manage them in a central location. See when a script is updated and who made the update.</p>
 
                     <h2 class="subtitle is-size-5">Automatically upload cron jobs</h2>
-                    <p>The SaasGlue agent looks for cron jobs on the host machine once it is installed and offers to upload them to the cloud for you.</p>
+                    <p>The SaaSGlue agent looks for cron jobs on the host machine once it is installed and offers to upload them to the cloud for you.</p>
 
                     <h2 class="subtitle is-size-5">Stand up your SaaSGlue solution in minutes</h2>
                     <p>Creating an account is easy and installing the agent takes minutes. Best of all, there is no server to install and manage. Once your cron jobs are uploaded you can turn off the local cron jobs and run them all from the cloud.</p>
