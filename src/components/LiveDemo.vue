@@ -126,10 +126,10 @@
         mounted() {
             try {
 
-                this.stompHandler = new StompHandler('wss://@funny-finch.rmq.cloudamqp.com/ws/stomp',
+                this.stompHandler = new StompHandler('wss://@grand-silver-bat.rmq4.cloudamqp.com/ws/stomp',
                                                      'marketingwebsite',
                                                      'trysaasglue!',
-                                                     'bartsVHost',
+                                                     'sgProd',
                                                      this.onNewJob,
                                                      this.onJobTail,
                                                      this.onTaskOutcome);
