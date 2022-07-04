@@ -48,6 +48,14 @@ const router = createRouter({
     }
 });
 
+router.beforeEach((to, from, next) => { 
+    const _hsq = (<any>window)._hsq = (<any>window)._hsq || [];
+    _hsq.push(['setPath', to.path]);
+    _hsq.push(['trackPageView']);
+  
+    next();
+}); 
+
 router.afterEach(to => {
     if (to.meta.title) {
         document.title = to.meta.title as string;
