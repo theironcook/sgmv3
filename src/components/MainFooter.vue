@@ -5,6 +5,12 @@
                 <div class="column is-5-desktop is-full-touch has-text-left-desktop">
                     <h5 class="is-uppercase has-text-weight-bold has-text-centered-touch">Recent posts</h5>
                     <div class="block">
+                        <h6><a target="_blank" href="https://blog.devops.dev/scale-your-streaming-data-pipelines-efficiently-with-kubernetes-part-2-3e2bc8889eac">Scale your streaming data pipelines efficiently with kubernetes - Part 2</a></h6>
+                    </div>
+                    <div class="block">
+                        <h6><a target="_blank" href="https://blog.devops.dev/scale-your-streaming-data-pipelines-efficiently-with-kubernetes-part-1-ab818be6ebd">Scale your streaming data pipelines efficiently with kubernetes - Part 1</a></h6>
+                    </div>
+                    <div class="block">
                         <h6><a target="_blank" href="https://medium.com/@rich_81505/minimize-the-cost-of-your-aws-batch-data-pipelines-with-severless-and-ephemeral-compute-7dc883836f9c">Minimize the cost of your AWS batch data pipelines with serverless and ephemeral compute</a></h6>
                     </div>
                     <div class="block">
