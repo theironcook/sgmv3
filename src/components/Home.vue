@@ -127,7 +127,6 @@ This simple design lets the agent work on almost any network. And since agents t
                         If the platform doesn't have a plugin for a tool or there's a version or functionality mismatch,
                         then the tool is inaccessible to the platform.
                         It's usually time prohibitive for developers to create or update plugins in the framework.
-                        Generally developers come up with kludgy custom workarounds to meet deadlines.
 
                         <br><br>
                         SaaSGlue doesn't constrain developers by wrapping external tools with layers of abstraction like plugins.
