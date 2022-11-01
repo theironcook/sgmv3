@@ -5,6 +5,9 @@
                 <div class="column is-5-desktop is-full-touch has-text-left-desktop">
                     <h5 class="is-uppercase has-text-weight-bold has-text-centered-touch">Recent posts</h5>
                     <div class="block">
+                        <h6><a target="_blank" href="https://medium.com/@rich_81505/a-better-kubernetes-job-scheduler-ef99c09f5dd">A Better Kubernetes Job Scheduler</a></h6>
+                    </div>
+                    <div class="block">
                         <h6><a target="_blank" href="https://blog.devops.dev/scale-your-streaming-data-pipelines-efficiently-with-kubernetes-part-2-3e2bc8889eac">Scale your streaming data pipelines efficiently with kubernetes - Part 2</a></h6>
                     </div>
                     <div class="block">
