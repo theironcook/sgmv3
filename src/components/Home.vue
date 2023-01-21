@@ -81,7 +81,7 @@
                         </figure>
                         <span class="is-flex-shrink-0">Works virtually anywhere</span>
                     </h3>
-                    <p>When a SaaSGlue agent is installed, it securely connects to the SaaSGlue cloud. The agent securely recieves and executes your custom instructions.
+                    <p>When a SaaSGlue agent is installed, it securely connects to the SaaSGlue cloud. The agent securely receives and executes your custom instructions.
 This simple design lets the agent work on almost any network. And since agents talk only to the cloud, your job can hop from one network to another without regard to network boundaries.</p>
                 </div>
                 <div class="column is-half">
