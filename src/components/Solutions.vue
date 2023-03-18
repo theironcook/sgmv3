@@ -2,36 +2,41 @@
     <section class="section">
         <div class="container content">
             <div class="columns">
-                <div class="column is-3 is-offset-1">
-                    <h2 class="sticky has-text-right">Cron Jobs</h2>
+                <div class="column is-2 is-offset-1">
                 </div>
                 <article class="column is-7 px-5">
-                    <h1 class="title is-size-4">A SaaS platform to centrally manage all your cron jobs, regardless of where they run</h1>
-                    <p>SaaSGlue is a low cost cron alternative with no sign up fee and no minimum monthly fees. It lets you centrally schedule and manage your existing jobs from a cloud console. With SaaSGlue you’ll be able to go beyond cron limitations to manage job dependencies, failover tasks between machines and review the audit logs for all your jobs in a single location.</p>
+                    <h1 class="title has-text-centered">Say Goodbye to Cron: Automate Your Tasks with SaaSGlue</h1>
+                    <p>Are you tired of relying on cron to automate your tasks? Do you wish you had more flexibility, reliability, and security when it comes to task scheduling? Look no further than SaaSGlue, the ultimate software automation platform for modern businesses.</p>
+                    <p>With SaaSGlue, you can enjoy all of the benefits of cron and more, including:</p>
 
-                    <h2 class="subtitle is-size-5">Centrally manage and audit all your cron jobs</h2>
-                    <p>See all your cron jobs in a single web console. Review completed jobs, including the scripts that ran and their output. Verify when future jobs are scheduled to run. Read the standard error output of failed jobs and get notifications when they fail.</p>
+                    <h2 class="subtitle is-size-5">Increased Efficiency</h2>
+                    <p>Say goodbye to pre-set intervals and hello to granular control over task scheduling. With SaaSGlue, you can schedule tasks to run at specific times, based on events, or based on triggers. This means you can save time and increase productivity by automating even more tasks than ever before.</p>
 
-                    <h2 class="subtitle is-size-5">Manage dependencies between scripts</h2>
-                    <p>Combine related scripts into a single job and let SaaSGlue verify that preceding tasks complete before subsequent tasks are kicked off. Create conditional dependencies that execute subsequent tasks only when certain criteria are met in the preceding tasks.</p>
+                    <h2 class="subtitle is-size-5">Greater Flexibility</h2>
+                    <p>SaaSGlue can automate a wide variety of tasks, including those that are more complex or require multiple steps. This means that you can use it for everything from simple file backups to complex data processing workflows. With our platform, you can build custom automation workflows that are tailored to your specific business needs.</p>
 
-                    <h2 class="subtitle is-size-5">Reduced the number of failed jobs</h2>
-                    <p>Because scripts are stored in the cloud and delivered to agents at runtime you can pool agents together to failover between agents when the first one is unavailable to run a job.</p>
+                    <h2 class="subtitle is-size-5">Better Reliability</h2>
+                    <p>With SaaSGlue, tasks can be distributed across a pool of machines. If a machine goes down, the task will automatically run on another available machine. Assign tags to machines and match task tags to machine tags to effortlessly target multiple machines for a task.</p>
 
-                    <h2 class="subtitle is-size-5">Run jobs in any network or cloud service</h2>
-                    <p>Agents securely connect to the SaaSGlue cloud and subscribe to a message queue to receive tasks. This simple, secure design lets you run jobs in corporate data centers, private clouds and public clouds.</p>
+                    <h2 class="subtitle is-size-5">More Visibility</h2>
+                    <p>With SaaSGlue, you can easily see which tasks are running, when they are scheduled to run, and whether they have completed successfully. This makes it easier to troubleshoot issues and ensure that all tasks are running as expected. You can also track task performance and identify areas for improvement.</p>
 
-                    <h2 class="subtitle is-size-5">Centrally manage your scripts</h2>
-                    <p>Gather all your scripts from the distributed servers where they are stored and manage them in a central location. See when a script is updated and who made the update.</p>
+                    <h2 class="subtitle is-size-5">Increased Security</h2>
+                    <p>SaaSGlue enables you to limit access to sensitive data by allowing you to run tasks under specific user accounts or with specific permissions. Plus, our platform is designed with enterprise-grade security features including OAuth2 user authentication to keep your data safe and secure.</p>
 
-                    <h2 class="subtitle is-size-5">Automatically upload cron jobs</h2>
-                    <p>The SaaSGlue agent looks for cron jobs on the host machine once it is installed and offers to upload them to the cloud for you.</p>
+                    <h2 class="subtitle is-size-5">Improved Scalability</h2>
+                    <p>SaaSGlue can scale easily to handle large volumes of tasks and to support multiple users. This means that you can use it to automate tasks across multiple systems, or to provide a centralized automation solution for your entire organization. Plus, our platform is designed to integrate seamlessly with your existing infrastructure.</p>
 
                     <h2 class="subtitle is-size-5">Stand up your SaaSGlue solution in minutes</h2>
                     <p>Creating an account is easy and installing the agent takes minutes. Best of all, there is no server to install and manage. Once your cron jobs are uploaded you can turn off the local cron jobs and run them all from the cloud.</p>
 
-                    <h2 class="subtitle is-size-5">Get started for FREE</h2>
-                    <p>There is no up-front cost to get started. Running ad hoc scripts from the console is free. You pay only for the scripts you run in a job with no monthly service charge.</p>
+                    <h2 class="subtitle is-size-5">Try SaaSGlue Today</h2>
+                    <p>Getting started with SaaSGlue is easy. Simply create a free account and install the Agent. You can then import your cron jobs to SaaSGlue with the click of a button.</p>
+                    <p>Ready to experience the power of SaaSGlue for yourself? Sign up for a free trial today and see how easy it is to automate your tasks with our platform. Our team of experts is also available to answer any questions you may have and help you get started with your automation journey.</p>
+
+                    <div class="buttons">
+                        <a href="https://console.saasglue.com/" class="button is-primary has-action-shadow hax-text-weight-bold">GET STARTED</a>
+                    </div>
                 </article>
             </div>
         </div>
@@ -47,15 +52,7 @@
 </script>
 
 <style scoped lang="scss">
-    .sticky {
-        color: deepskyblue;
-        position: sticky;
-        top: 7.5rem;
-    }
-
     article {
-        border-right: 2px solid deepskyblue;
-        border-left: 2px solid deepskyblue;
         border-radius: 5px;
     }
 </style>
