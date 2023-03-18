@@ -27,9 +27,6 @@
                     <h2 class="subtitle is-size-5">Improved Scalability</h2>
                     <p>SaaSGlue can scale easily to handle large volumes of tasks and to support multiple users. This means that you can use it to automate tasks across multiple systems, or to provide a centralized automation solution for your entire organization. Plus, our platform is designed to integrate seamlessly with your existing infrastructure.</p>
 
-                    <h2 class="subtitle is-size-5">Stand up your SaaSGlue solution in minutes</h2>
-                    <p>Creating an account is easy and installing the agent takes minutes. Best of all, there is no server to install and manage. Once your cron jobs are uploaded you can turn off the local cron jobs and run them all from the cloud.</p>
-
                     <h2 class="subtitle is-size-5">Try SaaSGlue Today</h2>
                     <p>Getting started with SaaSGlue is easy. Simply create a free account and install the Agent. You can then import your cron jobs to SaaSGlue with the click of a button.</p>
                     <p>Ready to experience the power of SaaSGlue for yourself? Sign up for a free trial today and see how easy it is to automate your tasks with our platform. Our team of experts is also available to answer any questions you may have and help you get started with your automation journey.</p>
