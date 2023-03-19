@@ -70,7 +70,7 @@
                         </header>
                         <p class="has-text-weight-bold is-align-items-center is-flex is-justify-content-center">
                             <span class="pr-1">$</span>
-                            <span class="is-size-1">0.001</span>
+                            <span class="is-size-1">0.01</span>
                             <span class="pt-5">/script</span>
                         </p>
                         <a href="https://console.saasglue.com/" class="button is-fullwidth is-primary has-text-weight-bold">GET STARTED</a>
@@ -128,7 +128,7 @@
                 </div>
                 <article class="column is-7 px-5">
                     <h1 class="subtitle is-size-5">Usage pricing</h1>
-                    <p>With SaaSGlue you can create and run multi-task jobs with ease. Scripts that run within jobs are billed at a rate of $0.001 per script. The first 100 job scripts per month are free. You can also run unlimited individual scripts through our web console for free.</p>
+                    <p>With SaaSGlue you can create and run multi-task jobs with ease. Scripts that run within jobs are billed at a rate of $0.01 per script. The first 100 job scripts per month are free. You can also run unlimited individual scripts through our web console for free.</p>
 
                     <h2 class="subtitle is-size-5">AWS Lambda</h2>
                     <p>If you prefer to run your scripts on AWS Lambda, we've got you covered. We charge an additional $0.0000166667 for every GB-second and $0.20 per 1M requests for scripts executed on AWS Lambda. This includes indvidual scripts executed on AWS Lambda via the web console.</p>
