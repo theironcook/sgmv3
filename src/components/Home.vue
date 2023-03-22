@@ -1,15 +1,25 @@
 <template>
-    <section class="section is-medium">
+    <section class="section is-medium $section-padding">
         <div class="container">
             <div class="columns">
+                <div class="column is-0">
+                </div>
                 <transition name="fade-top" appear>
-                    <div class="tagline-container column has-text-left">
-                        <h1 class="title is-size-3-desktop is-size-4-touch is-spaced has-text-weight-semibold has-text-grey-darker">
-                            <span class="title-shift">SaaS <span class="has-text-deepskyblue">Based</span></span> <br />
-                            <span class="is-inline-block">Scheduling <span class="has-text-deepskyblue">Platform</span></span>
+                    <div class="tagline-container column has-text-left is-8 px-5">
+                        <h1 class="title is-size-2-desktop is-size-3-touch has-text-weight-bold has-text-grey-darker">
+                            <span class="has-text-deepskyblue">S</span>
+                            <span class="">oftware <span class="has-text-deepskyblue">a</span></span>
+                            <span class="">utomation </span>
+                            <span class="has-text-deepskyblue">a</span>
+                            <span class="">s a </span>
+                            <span class="has-text-deepskyblue">S</span>
+                            <span class="">ervice</span>
                         </h1>
-                        <h2 class="subtitle is-size-5-desktop is-size-6-touch has-text-weight-medium has-text-grey">A SaaS-based job scheduling platform that you can use to schedule single scripts and multi-step jobs in hybrid and multi-cloud environments.  It provides greater flexibility compared to hosted and ad hoc automation tools.</h2>
-                        <div class="buttons">
+                        <div class="column is-9">
+                            <h2 class="subtitle is-size-5-desktop is-size-6-touch has-text-weight-medium has-text-grey">A cloud-based software automation service that enables scheduling and execution of simple scripts and complex workflows in hybrid and multi-cloud environments.</h2>
+                        </div>
+                        <div class="column"></div>
+                        <div class="buttons ml-1">
                             <a href="https://console.saasglue.com/" class="button is-primary has-action-shadow hax-text-weight-bold">GET STARTED</a>
                         </div>
                     </div>
@@ -29,11 +39,11 @@
     </section>
     <section class="section has-background-deepskyblue">
         <div class="container has-text-white">
-            <div class="columns">
+            <!-- <div class="columns">
                 <div class="column pb-6">
                     <h2 class="title is-size-2-desktop is-size-4-touch has-text-weight-normal has-text-white has-text-centered">SaaS based workflow manager</h2>
                 </div>
-            </div>
+            </div> -->
             <div class="columns is-size-5-desktop is-size-6-touch has-text-centered">
                 <div class="column">
                     <figure class="image is-3by1">
@@ -145,7 +155,7 @@ This simple design lets the agent work on almost any network. And since agents t
         </div>
     </section>
     <section class="section">
-        <div class="container">
+        <div class="container mt-6">
             <div class="columns is-size-5-desktop is-size-6-touch has-text-centered">
                 <div class="column">
                     <figure>
@@ -243,7 +253,7 @@ This simple design lets the agent work on almost any network. And since agents t
     </section>
     <section class="section has-background-deepskyblue has-text-white is-medium">
         <div class="container">
-            <div class="content has-text-left is-size-5-desktop is-size-6-touch">
+            <div class="content has-text-left is-size-5-desktop is-size-6-touch mt-6">
                 <h2 class="subtitle is-size-2-desktop is-size-4-touch has-text-weight-semibold">Works with <span class="has-text-white">any</span> language</h2>
                 <p>Our design conforms to the “dumb pipes, smart endpoints” principle. The agent doesn’t execute code, so you can use any programming language as long as a corresponding interpreter exists on the agent host machine.</p>
                 <p>Agents assist with execution by passing in variables, arguments and artifacts to the runtime environment.</p>
@@ -272,7 +282,7 @@ This simple design lets the agent work on almost any network. And since agents t
                 <div class="columns is-align-items-flex-start has-text-left-tablet has-text-centered-mobile">
                     <div class="column content m-0">
                         <h2 class="subtitle is-size-3-desktop is-size-5-touch has-text-weight-semibold">Try <span class="has-text-white">SaaSGlue</span> today</h2>
-                        <p class="is-size-4-desktop is-size-6-touch">You can get started in as little as five minutes and running scripts from the cloud console is free.</p>
+                        <p class="is-size-4-desktop is-size-6-touch">You can get started in as little as five minutes.</p>
                     </div>
                     <div class="column is-5 is-offset-1">
                         <div class="field is-grouped try-today-controls">
@@ -307,17 +317,22 @@ This simple design lets the agent work on almost any network. And since agents t
 
     .has-background-deepskyblue {
         background: linear-gradient(to right, #3a7bd5, #00d2ff);
-        padding-bottom: 7rem;
-        padding-top: 7rem;
-        transform: skewY(-7deg);
+        padding-bottom: 5rem;
+        padding-top: 4rem;
+        transform: skewY(-6deg);
 
         .container {
-            transform: skewY(7deg);
+            transform: skewY(6deg);
         }
     }
 
     .has-action-shadow {
         box-shadow: 0 18px 20px -15px RGB(0 0 0 / 40%);
+    }
+
+    .section.is-medium{
+        padding: 6rem 1.5rem;
+        padding-bottom: 5rem;
     }
 
     .subtitle {
@@ -334,7 +349,7 @@ This simple design lets the agent work on almost any network. And since agents t
         }
 
         .title-shift {
-            margin-left: 116px;
+            margin-left: 80px;
         }
     }
 

@@ -12,7 +12,7 @@
                     <router-link to="/pricing" class="navbar-item">Pricing</router-link>
                     <router-link to="/news" class="navbar-item">News</router-link>
                     <router-link to="/docs" class="navbar-item">Docs</router-link>
-                    <router-link to="/livedemo" class="navbar-item">Live Demo !</router-link>
+                    <router-link to="/livedemo" class="navbar-item live-demo">Live Demo !</router-link>
                 </div>
                 <div class="navbar-end">
                     <div class="navbar-item">
@@ -75,5 +75,10 @@
 
     .has-action-shadow {
         box-shadow: 0 18px 20px -15px RGB(0 0 0 / 40%);
+    }
+
+    .live-demo {
+        color: #00BF90;
+        font-weight: bold;
     }
 </style>
