@@ -6,30 +6,32 @@
                 </div>
                 <article class="column is-7 px-5">
                     <h1 class="title has-text-centered">Say Goodbye to Cron: Automate Your Tasks with SaaSGlue</h1>
-                    <p>Are you tired of relying on cron to automate your tasks? Do you wish you had more flexibility, reliability, and security when it comes to task scheduling? Look no further than SaaSGlue, the ultimate software automation platform for modern businesses.</p>
-                    <p>With SaaSGlue, you can enjoy all of the benefits of cron and more, including:</p>
+                    <p>Are you looking for a powerful and easy-to-use software automation service to manage your cron jobs? Do you need advanced features like logging, notifications, and job precedence to ensure that your jobs run smoothly? Look no further than SaaSGlue!</p>
 
-                    <h2 class="subtitle is-size-5">Increased Efficiency</h2>
-                    <p>Say goodbye to pre-set intervals and hello to granular control over task scheduling. With SaaSGlue, you can schedule tasks to run at specific times, based on events, or based on triggers. This means you can save time and increase productivity by automating even more tasks than ever before.</p>
+                    <h2 class="subtitle is-size-5">What is SaaSGlue?</h2>
+                    <p>SaaSGlue is a cloud-based software automation service that helps you manage, monitor and run your cron jobs. With SaaSGlue, you can easily schedule, monitor, and manage your cron jobs from a centralized dashboard. Our service provides all the automation infrastructure so you can be up and running in minutes. You can even import your existing cron jobs with the click of a button.</p>
 
-                    <h2 class="subtitle is-size-5">Greater Flexibility</h2>
-                    <p>SaaSGlue can automate a wide variety of tasks, including those that are more complex or require multiple steps. This means that you can use it for everything from simple file backups to complex data processing workflows. With our platform, you can build custom automation workflows that are tailored to your specific business needs.</p>
+                    <h2 class="subtitle is-size-5">Features</h2>
+                    <p>SaaSGlue comes with a wide range of features that make it the perfect tool for managing your cron jobs. Here are just a few of the features you can expect:</p>
 
-                    <h2 class="subtitle is-size-5">Better Reliability</h2>
-                    <p>With SaaSGlue, tasks can be distributed across a pool of machines. If a machine goes down, the task will automatically run on another available machine. Assign tags to machines and match task tags to machine tags to effortlessly target multiple machines for a task.</p>
+                    <h2 class="subtitle is-size-6">Logging</h2>
+                    <p>With SaaSGlue, you'll get detailed logging information for every cron job you run. With our browser push technology you'll even see real-time updates while your jobs are running. You'll be able to see when a job started and finished, as well as any error messages and other important information.</p>
 
-                    <h2 class="subtitle is-size-5">More Visibility</h2>
-                    <p>With SaaSGlue, you can easily see which tasks are running, when they are scheduled to run, and whether they have completed successfully. This makes it easier to troubleshoot issues and ensure that all tasks are running as expected. You can also track task performance and identify areas for improvement.</p>
+                    <h2 class="subtitle is-size-6">Notifications</h2>
+                    <p>SaaSGlue allows you to set up notifications for your cron jobs. If a job fails, you'll receive an email or a Slack message so you can take action right away.</p>
 
-                    <h2 class="subtitle is-size-5">Increased Security</h2>
-                    <p>SaaSGlue enables you to limit access to sensitive data by allowing you to run tasks under specific user accounts or with specific permissions. Plus, our platform is designed with enterprise-grade security features including OAuth2 user authentication to keep your data safe and secure.</p>
+                    <h2 class="subtitle is-size-6">Job Precedence</h2>
+                    <p>Need to run certain cron jobs in a specific order? SaaSGlue allows you to create multi-task jobs so you can be sure your tasks are running in the correct order every time. SaaSGlue's powerful workflow configuration and management features allow you to automate any task, from simple scripts to complex data processing workflows.</p>
 
-                    <h2 class="subtitle is-size-5">Improved Scalability</h2>
-                    <p>SaaSGlue can scale easily to handle large volumes of tasks and to support multiple users. This means that you can use it to automate tasks across multiple systems, or to provide a centralized automation solution for your entire organization. Plus, our platform is designed to integrate seamlessly with your existing infrastructure.</p>
+                    <h2 class="subtitle is-size-6">Reliable and Secure</h2>
+                    <p>Our service is built to be reliable and secure, so you can trust it to handle your important automation tasks with care. We use the latest security practices to ensure that your data is safe and protected.</p>
 
-                    <h2 class="subtitle is-size-5">Try SaaSGlue Today</h2>
+                    <h2 class="subtitle is-size-6">Scalable</h2>
+                    <p>SaaSGlue can scale easily to handle large volumes of tasks and to support many users. You can use it to automate tasks across multiple systems, platforms and programming languages. Plus, our service is designed to integrate seamlessly with your existing infrastructure.</p>
+
+                    <h2 class="subtitle is-size-6">Try SaaSGlue Today</h2>
                     <p>Getting started with SaaSGlue is easy. Simply create a free account and install the Agent. You can then import your cron jobs to SaaSGlue with the click of a button.</p>
-                    <p>Ready to experience the power of SaaSGlue for yourself? Sign up for a free trial today and see how easy it is to automate your tasks with our platform. Our team of experts is also available to answer any questions you may have and help you get started with your automation journey.</p>
+                    <p>Ready to experience the power of SaaSGlue for yourself? Sign up for a free trial today and see how easy it is to automate your tasks with our service. Our team of experts is also available to answer any questions you may have and help you get started with your automation journey.</p>
 
                     <div class="buttons">
                         <a href="https://console.saasglue.com/" class="button is-primary has-action-shadow hax-text-weight-bold">GET STARTED</a>
