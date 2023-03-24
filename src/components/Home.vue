@@ -7,13 +7,10 @@
                 <transition name="fade-top" appear>
                     <div class="tagline-container column has-text-left is-8 px-5">
                         <h1 class="title is-size-2-desktop is-size-3-touch has-text-weight-bold has-text-grey-darker">
-                            <span class="has-text-deepskyblue">S</span>
-                            <span class="">oftware <span class="has-text-deepskyblue">a</span></span>
-                            <span class="">utomation </span>
-                            <span class="has-text-deepskyblue">a</span>
-                            <span class="">s a </span>
-                            <span class="has-text-deepskyblue">S</span>
-                            <span class="">ervice</span>
+                            <span class="has-text-deepskyblue">S</span><span class="">oftware</span><br />
+                            <span class="has-text-deepskyblue">a</span><span class="">utomation</span><br />
+                            <span class="has-text-deepskyblue">a</span><span class="">s a</span><br />
+                            <span class="has-text-deepskyblue">S</span><span class="">ervice</span>
                         </h1>
                         <div class="column is-9">
                             <h2 class="subtitle is-size-5-desktop is-size-6-touch has-text-weight-medium has-text-grey">A cloud-based software automation service that enables scheduling and execution of simple scripts and complex workflows in hybrid and multi-cloud environments.</h2>
