@@ -9,6 +9,16 @@
                     <h1 class="subtitle has-text-centered has-text-deepskyblue">Automate Your Tasks with <span class="has-text-deepskyblue">SaaSGlue</span></h1>
                     <p>Are you looking for a powerful and easy-to-use software automation service to manage your cron jobs? Do you need advanced features like logging, notifications, and job precedence to ensure that your jobs run smoothly? Look no further than SaaSGlue!</p>
 
+                    <transition name="fade-right" appear>
+                        <div class="column has-text-right">
+                            <figure>
+                                <div class="image is-16by9 has-background-placeholder has-border-radius-5">
+                                    <iframe class="has-ratio has-border-radius-5" width="560" height="315" src="https://www.youtube.com/embed/0PcWZskV7vQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                            </figure>
+                        </div>
+                    </transition>
+
                     <h2 class="subtitle is-size-4-desktop is-size-5-mobile">What is SaaSGlue?</h2>
                     <p>SaaSGlue is a cloud-based software automation service that helps you manage, monitor and run your cron jobs. With SaaSGlue, you can easily schedule, monitor, and manage your cron jobs from a centralized dashboard. Our service provides all the automation infrastructure so you can be up and running in minutes. You can even import your existing cron jobs with the click of a button.</p>
 
