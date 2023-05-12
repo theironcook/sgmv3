@@ -23,7 +23,7 @@ const routes: Array<RouteRecordRaw> = [{
     component: Pricing,
     meta: { title: 'Pricing | SaaSGlue' }
 }, {
-    path: '/solutions',
+    path: '/solutions/cron',
     name: 'Solutions',
     component: Solutions,
     meta: { title: 'Solutions | SaaSGlue' }
