@@ -13,7 +13,7 @@
                         <div class="column has-text-right">
                             <figure>
                                 <div class="image is-16by9 has-background-placeholder has-border-radius-5">
-                                    <iframe class="has-ratio has-border-radius-5" width="560" height="315" src="https://www.youtube.com/embed/0PcWZskV7vQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe class="has-ratio has-border-radius-5" width="560" height="315" src="https://www.youtube.com/embed/GS8erkZa5vs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
                             </figure>
                         </div>
