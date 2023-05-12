@@ -6,7 +6,7 @@
                 </div>
                 <article class="column is-7 px-5">
                     <h1 class="title has-text-centered">Say Goodbye to Cron:</h1>
-                    <h1 class="subtitle has-text-centered has-text-deepskyblue">Automate Your Tasks with <span class="has-text-deepskyblue">SaaSGlue</span></h1>
+                    <h1 class="subtitle has-text-centered has-text-deepskyblue">Centralize your cron jobs with <span class="has-text-deepskyblue">SaaSGlue</span></h1>
                     <p>Are you looking for a powerful and easy-to-use software automation service to manage your cron jobs? Do you need advanced features like logging, notifications, and job precedence to ensure that your jobs run smoothly? Look no further than SaaSGlue!</p>
 
                     <transition name="fade-right" appear>
@@ -23,7 +23,7 @@
                     <p>SaaSGlue is a cloud-based software automation service that helps you manage, monitor and run your cron jobs. With SaaSGlue, you can easily schedule, monitor, and manage your cron jobs from a centralized dashboard. Our service provides all the automation infrastructure so you can be up and running in minutes. You can even import your existing cron jobs with the click of a button.</p>
 
                     <h2 class="subtitle is-size-4-desktop is-size-5-mobile">Features</h2>
-                    <p>SaaSGlue comes with a wide range of features that make it the perfect tool for managing your cron jobs. Here are just a few of the features you can expect:</p>
+                    <p>SaaSGlue comes with a wide range of features that make it the perfect tool for managing your cron jobs. Here are just a few of the features you can expect.</p>
 
                     <h2 class="subtitle is-size-5-desktop is-size-6-mobile">Logging</h2>
                     <p>With SaaSGlue, you'll get detailed logging information for every cron job you run. With our browser push technology you'll even see real-time updates while your jobs are running. You'll be able to see when a job started and finished, as well as any error messages and other important information.</p>
@@ -42,7 +42,7 @@
 
                     <h2 class="subtitle is-size-5-desktop is-size-6-mobile">Try SaaSGlue Today</h2>
                     <p>Getting started with SaaSGlue is easy. Simply create a free account and install the Agent. You can then import your cron jobs to SaaSGlue with the click of a button.</p>
-                    <p>Ready to experience the power of SaaSGlue for yourself? Sign up for a free trial today and see how easy it is to automate your tasks with our service. Our team of experts is also available to answer any questions you may have and help you get started with your automation journey.</p>
+                    <p>Ready to experience the power of SaaSGlue for yourself? Sign up for a free trial today and see how easy it is to centralize your cron jobs with our service. Our team of experts is also available to answer any questions you may have and help you get started with your automation journey.</p>
 
                     <div class="buttons">
                         <a href="https://console.saasglue.com/" class="button is-primary has-action-shadow hax-text-weight-bold">GET STARTED</a>
